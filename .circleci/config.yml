@@ -75,6 +75,20 @@ jobs:
               --format progress \
               $TEST_FILES
 
+      # run scans
+      - run:
+          name: Standard ruby
+          command: bundle exec rake standard
+      - run:
+          name: Brakeman
+          command: bundle exec rake brakeman
+      - run:
+          name: Bundle audit
+          command: bundle exec rake bundle:audit
+      - run:
+          name: Yarn audit
+          command: bundle exec rake yarn:audit
+
       # collect reports
       - store_test_results:
           path: /tmp/test-results
