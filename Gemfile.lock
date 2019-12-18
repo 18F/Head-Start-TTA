@@ -95,7 +95,7 @@ GEM
     pg (1.1.4)
     puma (4.3.1)
       nio4r (~> 2.0)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -215,4 +215,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.0.2
+   2.1.1
