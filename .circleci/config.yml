@@ -37,6 +37,21 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      - restore_cache:
+          keys:
+            - v1-yarn-dependencies-{{ checksum "package.lock" }}
+            - v1-yarn-dependencies-
+
+      - run:
+          name: install js dependencies
+          command: |
+            yarn install --frozen-lockfile
+
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-yarn-dependencies-{{ checksum "package.lock" }}
+
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
