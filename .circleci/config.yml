@@ -13,6 +13,8 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       - image: circleci/postgres:11.6
+        environment:
+          POSTGRES_USER: circleci
 
     working_directory: ~/repo
 
@@ -39,7 +41,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v1-yarn-dependencies-{{ checksum "package.lock" }}
+            - v1-yarn-dependencies-{{ checksum "yarn.lock" }}
             - v1-yarn-dependencies-
 
       - run:
@@ -50,7 +52,7 @@ jobs:
       - save_cache:
           paths:
             - ./node_modules
-          key: v1-yarn-dependencies-{{ checksum "package.lock" }}
+          key: v1-yarn-dependencies-{{ checksum "yarn.lock" }}
 
       # Database setup
       - run: bundle exec rake db:create
