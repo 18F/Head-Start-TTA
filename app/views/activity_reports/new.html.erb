@@ -1,0 +1,20 @@
+<h1>New Activity Report</h1>
+
+<%= form_tag activity_reports_path, class: "usa-form usa-form--large", multipart: true do %>
+  <%= field_set_tag nil, class: "usa-fieldset" do %>
+    <legend class="usa-sr-only">Upload file type</legend>
+    <div class="usa-radio">
+      <%= radio_button_tag "file_type", "ec", false, class: "usa-radio__input" %>
+      <%= label_tag :file_type_ec, "EC Report", class: "usa-radio__label" %>
+    </div>
+    <div class="usa-radio">
+      <%= radio_button_tag "file_type", "gs", false, class: "usa-radio__input" %>
+      <%= label_tag :file_type_gs, "GS Report", class: "usa-radio__label" %>
+    </div>
+  <% end %>
+  <%= label_tag :file, "File", class: "usa-label" %>
+  <%= file_field_tag :file, class: "usa-input" %>
+  <%= submit_tag "Upload", class: "usa-button" %>
+<% end %>
+
+<%= link_to 'Back', activity_reports_path %>
