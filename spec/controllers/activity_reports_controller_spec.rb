@@ -46,6 +46,18 @@ RSpec.describe ActivityReportsController, type: :controller do
         }.to change(ActivityReport, :count).by(3)
       end
 
+      it "creates new Grantees" do
+        expect {
+          post :create, params: {file_type: "ec", file: fixture_file_upload(Rails.root.join("spec/support/ec_grantee_report.xlsx"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")}, session: valid_session
+        }.to change(Grantee, :count).by(1)
+      end
+
+      it "creates new Grants" do
+        expect {
+          post :create, params: {file_type: "ec", file: fixture_file_upload(Rails.root.join("spec/support/ec_grantee_report.xlsx"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")}, session: valid_session
+        }.to change(Grant, :count).by(7)
+      end
+
       it "creates new GS ActivityReports" do
         expect {
           post :create, params: {file_type: "gs", file: fixture_file_upload(Rails.root.join("spec/support/gs_grantee_report.xlsx"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")}, session: valid_session
