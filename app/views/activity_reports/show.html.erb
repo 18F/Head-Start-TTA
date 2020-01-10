@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<ul class="usa-list">
+  <% @activity_report.grants.each do |g| %>
+    <li><%= g.number %>: <%= g.grantee_name || "Missing grantee name" %></li>
+  <% end %>
+</ul>
+
+<pre><%= JSON.pretty_generate @activity_report.attributes %></pre>
+
+<%= link_to 'Back', activity_reports_path %>

@@ -1,0 +1,26 @@
+<h1>Grantees</h1>
+
+<table class="usa-table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Grants</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grantees.each do |g| %>
+      <tr>
+        <th scope="row"><%= g.name %></th>
+        <td>
+          <ul class="usa-list usa-list--unstyled">
+            <% g.grants.each do |grant| %>
+              <li><%= grant.number %></li>
+            <% end %>
+          </ul>
+        </td>
+        <td><%= link_to "Show", g, class: "usa-link" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
