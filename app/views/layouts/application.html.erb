@@ -10,8 +10,83 @@
   </head>
 
   <body>
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+    <div class="usa-overlay"></div>
+    <header class="usa-header usa-header--extended" role="banner">
+      <div class="usa-navbar">
+        <div class="usa-logo" id="extended-logo">
+          <em class="usa-logo__text">
+            <%= link_to "TTA Data Platform", root_path, title: "Home", "aria-label": "Home" %>
+          </em>
+        </div>
+        <button class="usa-menu-btn">Menu</button>
+      </div>
+      <nav role="navigation" class="usa-nav">
+        <div class="usa-nav__inner">
+          <button class="usa-nav__close">
+            <%= image_pack_tag "media/img/close.svg", alt: "close" %>
+          </button>
+          <div class="usa-nav__secondary">
+            <ul class="usa-nav__secondary-links">
+              <li class="usa-nav__secondary-item"><%= link_to "Grantees", grantees_path %></li>
+              <li class="usa-nav__secondary-item"><%= link_to "Activity Reports", activity_reports_path %></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
     <main id="main-content">
       <div class="grid-container">
+        <% if flash[:error].present? %>
+          <div class="grid-row">
+            <div class="grid-col">
+              <div class="usa-alert usa-alert--error" role="alert">
+                <div class="usa-alert__body">
+                  <h3 class="usa-alert__heading">Error</h3>
+                  <p class="usa-alert__text"><%= flash[:error] %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% if flash[:alert].present? %>
+          <div class="grid-row">
+            <div class="grid-col">
+              <div class="usa-alert usa-alert--warning">
+                <div class="usa-alert__body">
+                  <h3 class="usa-alert__heading">Warning</h3>
+                  <p class="usa-alert__text"><%= flash[:alert] %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% if flash[:notice].present? %>
+          <div class="grid-row">
+            <div class="grid-col">
+              <div class="usa-alert usa-alert--info">
+                <div class="usa-alert__body">
+                  <h3 class="usa-alert__heading">Notice</h3>
+                  <p class="usa-alert__text"><%= flash[:notice] %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% if flash[:success].present? %>
+          <div class="grid-row">
+            <div class="grid-col">
+              <div class="usa-alert usa-alert--success">
+                <div class="usa-alert__body">
+                  <h3 class="usa-alert__heading">Success</h3>
+                  <p class="usa-alert__text"><%= flash[:success] %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
         <div class="grid-row">
           <div class="grid-col">
             <%= yield %>

@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <ul class="usa-list">
   <% @activity_report.grants.each do |g| %>
     <li><%= g.number %>: <%= g.grantee_name || "Missing grantee name" %></li>
