@@ -1,2 +1,40 @@
-<h1>Grantees#show</h1>
-<p>Find me in app/views/grantees/show.html.erb</p>
+<div class="grid-row grid-gap">
+  <div class="grid-col-3">
+    <div class="box">
+      <%= @grantee.name %>
+      <ul class="usa-list usa-list--unstyled">
+        <% @grantee.grants.each do |grant| %>
+          <li><%= grant.number %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="box">
+      <p class="ipsum">
+        Grantee staff<br/>
+        Contact Info
+      </p>
+    </div>
+    <div class="box">
+      <p class="ipsum">
+        OHS - Regional TTA
+      </p>
+    </div>
+  </div>
+  <div class="grid-col-9">
+    <div class="box">
+      <p class="ipsum">
+        Report filters
+      </p>
+    </div>
+
+    <% @grantee.activity_reports.distinct.each do |ar| %>
+      <div class="box">
+        <p><strong><%= ar.activity_id %></strong> <%= ar.purpose %></p>
+        <p><%= ar.start_date %> <%= ar.duration %> hours</p>
+        <p class="ipsum">Topic</p>
+        <p><%= ar.specialists.join ", " %></p>
+        <p><%= link_to "View Report", ar, class: "usa-button" %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

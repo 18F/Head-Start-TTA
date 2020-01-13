@@ -35,7 +35,7 @@ group :development, :test do
   gem "standard", "~> 0.1"
   gem "brakeman", "~> 4.7"
   gem "bundler-audit", "~> 0.6"
-  gem "rspec-rails", "4.0.0.beta3"
+  gem "rspec-rails", "4.0.0.beta4"
   gem "shoulda", "4.0.0.rc1"
   gem "factory_bot_rails", "~> 5.1"
 end
