@@ -1,9 +1,41 @@
-<ul class="usa-list">
-  <% @activity_report.grants.each do |g| %>
-    <li><%= g.number %>: <%= g.grantee_name || "Missing grantee name" %></li>
-  <% end %>
-</ul>
+<div class="box">
+  <div class="grid-row">
+    <div class="grid-col">
+      <h3>Activity Summary</h3>
+      <ul class="usa-list usa-list--unstyled">
+        <li><%= @activity_report.start_date.to_s(:long) %></li>
+        <li>
+          <ul class="usa-list usa-list--unstyled">
+            <% @activity_report.topics.each do |t| %>
+              <li><%= t.name %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li><%= @activity_report.specialists.join ", " %></li>
+        <li>
+          <ul class="usa-list usa-list--unstyled">
+            <% @activity_report.grantees.distinct.each do |g| %>
+              <li><%= g.name %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="grid-col">
+      <h3>Next Steps from Past Activity</h3>
+      <form>
+        <input type="checkbox" checked disabled id="next1">
+        <label class="ipsum" for="next1">18F ipsum dolor amet user-centered design agency partners</label>
+        <br/>
+        <input type="checkbox" disabled id="next2">
+        <label class="ipsum" for="next2">Design diversity cost-recoverable tock Concur</label>
+      </form>
+    </div>
+  </div>
+</div>
 
-<pre><%= JSON.pretty_generate @activity_report.attributes %></pre>
+<h2>Next Steps</h2>
+<%= pretend_we_have_proper_next_steps_fields @activity_report.next_steps %>
 
-<%= link_to 'Back', activity_reports_path %>
+<h2>Narrative</h2>
+<%= pretend_we_have_proper_narrative_fields @activity_report.narrative %>
