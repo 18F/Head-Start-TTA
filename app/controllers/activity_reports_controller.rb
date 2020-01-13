@@ -20,6 +20,7 @@ class ActivityReportsController < ApplicationController
     sheet = book.sheets.last
 
     success_counter = 0
+    @headers = sheet.simple_rows.take(4)
     sheet.simple_rows.drop(4).each do |row|
       next if row["A"] == "Total"
       activity_report = ActivityReport.new row_to_attrs(params[:file_type], row)
@@ -69,6 +70,8 @@ class ActivityReportsController < ApplicationController
       primary_reason: reason_for_service(ohs: row["T"], regional: row["U"], grantee: row["V"]),
       narrative: concat_narrative(row),
       next_steps: concat_next_steps(row),
+      topic_list: ec_topics_tags(row),
+      material_list: ec_materials_tags(row),
     })
   end
 
@@ -78,6 +81,8 @@ class ActivityReportsController < ApplicationController
       primary_reason: reason_for_service(monitoring: row["T"], regional: row["U"], quality: row["W"]),
       narrative: row["DG"],
       next_steps: row["DH"],
+      topic_list: gs_topics_tags(row),
+      material_list: gs_materials_tags(row),
     })
   end
 
@@ -129,6 +134,138 @@ class ActivityReportsController < ApplicationController
 
   def concat_next_steps(row)
     [row["CN"], row["CZ"], row["DI"], row["DR"], row["DW"], row["EB"]].compact.join("\n")
+  end
+
+  def ec_topics_tags(row)
+    tags = []
+    last_column = "BJ"
+    each_column_header("BJ", "CK") do |column|
+      if !row[column].nil? && row[column] != "0"
+        tags << "School Readiness"
+        tags.concat ec_sr_topics(column, last_column)
+        tags << @headers[3][column]
+      end
+      last_column = column
+    end
+    each_column_header("CO", "CX") do |column|
+      if !row[column].nil? && row[column] != "0"
+        tags << "Parent and Family Engagement"
+        tags << present_of_two_options(1, column, last_column)
+        tags << @headers[3][column]
+      end
+      last_column = column
+    end
+    each_column_header("DA", "DF") do |column|
+      if !row[column].nil? && row[column] != "0"
+        tags << "Professional Development"
+        tags << present_of_two_options(1, column, last_column)
+        tags << @headers[3][column]
+      end
+      last_column = column
+    end
+    each_column_header("DJ", "DO") do |column|
+      if !row[column].nil? && row[column] != "0"
+        tags << "Collaborations/Partnerships"
+        tags << present_of_two_options(1, column, last_column)
+        tags << @headers[3][column]
+      end
+      last_column = column
+    end
+    each_column_header("DS", "DT") do |column|
+      if !row[column].nil? && row[column] != "0"
+        tags << "Disaster Recovery"
+        tags << "Other"
+        tags << @headers[3][column]
+      end
+      last_column = column
+    end
+    each_column_header("DX", "DY") do |column|
+      if !row[column].nil? && row[column] != "0"
+        tags << "Other OHS Initiative"
+        tags << "Other"
+        tags << @headers[3][column]
+      end
+      last_column = column
+    end
+    tags
+  end
+
+  def ec_sr_topics(column, last_column)
+    if column < "BR"
+      [present_of_two_options(1, column, last_column)]
+    elsif column < "CB"
+      ["Caregiving and Teaching", present_of_two_options(2, column, last_column)]
+    elsif column < "CH"
+      ["CLASS Pre-K", present_of_two_options(2, column, last_column)]
+    else
+      [present_of_two_options(1, column, last_column)]
+    end
+  end
+
+  def present_of_two_options(index, first, second)
+    if @headers[index][first].present?
+      @headers[index][first]
+    else
+      @headers[index][second]
+    end
+  end
+
+  def ec_materials_tags(row)
+    tags = []
+    each_column_header("X", "BH") do |column|
+      if !row[column].nil? && row[column] != "0"
+        tags << ec_materials_parent(column)
+        tags << @headers[3][column]
+      end
+    end
+    tags
+  end
+
+  def ec_materials_parent(column)
+    return "DTL" if column < "AL"
+    return "ECHW" if column < "AS"
+    return "PFCE" if column < "AZ"
+    return "PMFO" if column < "BG"
+    "Other"
+  end
+
+  def each_column_header(current, stop)
+    loop do
+      yield current
+      break if current == stop
+      current = current.next
+    end
+  end
+
+  def gs_topics_tags(row)
+    tags = []
+    last_column = "BL"
+    each_column_header("BL", "DE") do |column|
+      if !row[column].nil? && row[column] != "0"
+        tags << present_of_two_options(1, column, last_column)
+        tags << @headers[3][column]
+      end
+    end
+    tags
+  end
+
+  def gs_materials_tags(row)
+    tags = []
+    each_column_header("Z", "BH") do |column|
+      if !row[column].nil? && row[column] != "0"
+        tags << gs_materials_parent(column)
+        tags << @headers[3][column]
+      end
+    end
+    tags
+  end
+
+  def gs_materials_parent(column)
+    return "DTL" if column < "AN"
+    return "ECHW" if column < "AU"
+    return "PFCE" if column < "BB"
+    return "PMFO" if column < "BI"
+    "Other"
   end
 
   def activity_report_params

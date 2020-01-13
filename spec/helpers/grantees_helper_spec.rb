@@ -11,5 +11,12 @@ require "rails_helper"
 #   end
 # end
 RSpec.describe GranteesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#list_activity_reports" do
+    let(:grant) { create :grant, :grantee }
+    let!(:ar) { create :activity_report, grants: [grant] }
+
+    it "returns the grantees activity reports" do
+      expect(helper.list_activity_reports(grant.grantee)).to eq [ar]
+    end
+  end
 end

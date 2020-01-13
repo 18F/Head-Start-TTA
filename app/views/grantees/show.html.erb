@@ -11,12 +11,13 @@
     <div class="box">
       <p class="ipsum">
         Grantee staff<br/>
-        Contact Info
+        Contact info
       </p>
     </div>
     <div class="box">
       <p class="ipsum">
-        OHS - Regional TTA
+        OHS - Regional TTA<br/>
+        Contact info
       </p>
     </div>
   </div>
@@ -27,11 +28,11 @@
       </p>
     </div>
 
-    <% @grantee.activity_reports.distinct.each do |ar| %>
+    <% list_activity_reports(@grantee).each do |ar| %>
       <div class="box">
         <p><strong><%= ar.activity_id %></strong> <%= ar.purpose %></p>
         <p><%= ar.start_date %> <%= ar.duration %> hours</p>
-        <p class="ipsum">Topic</p>
+        <p><%= ar.topic_list.join ", " %></p>
         <p><%= ar.specialists.join ", " %></p>
         <p><%= link_to "View Report", ar, class: "usa-button" %></p>
       </div>

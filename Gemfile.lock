@@ -56,6 +56,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
+    acts-as-taggable-on (6.5.0)
+      activerecord (>= 5.0, < 6.1)
     ast (2.4.0)
     bindex (0.8.1)
     bootsnap (1.4.5)
@@ -234,6 +236,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 6.5)
   bootsnap (>= 1.4.2)
   brakeman (~> 4.7)
   bundler-audit (~> 0.6)
