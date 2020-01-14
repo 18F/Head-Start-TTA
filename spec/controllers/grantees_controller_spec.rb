@@ -15,5 +15,16 @@ RSpec.describe GranteesController, type: :controller do
       get :show, params: {id: grantee.id}
       expect(response).to have_http_status(:success)
     end
+
+    context "with a search query" do
+      let(:grant) { create :grant, grantee: grantee }
+      let!(:activity_report) { create :activity_report, grants: [grant] }
+
+      it "returns success" do
+        ActivityReportsIndex.import
+        get :show, params: {id: grantee.id, q: "PFCE"}
+        expect(response).to have_http_status(:success)
+      end
+    end
   end
 end

@@ -23,9 +23,15 @@
   </div>
   <div class="grid-col-9">
     <div class="box">
-      <p class="ipsum">
-        Report filters
-      </p>
+      <%= form_tag grantee_path(id: @grantee.id), method: :get, class: "usa-search usa-search--small" do %>
+        <div role="search">
+          <%= label_tag :q, "Search", class: "usa-sr-only" %>
+          <%= search_field_tag :q, @query, class: "usa-input" %>
+          <%= button_tag name: nil, class: "usa-button" do %>
+            <span class="usa-sr-only">Search</span>
+          <% end %>
+        </div>
+      <% end %>
     </div>
 
     <% list_activity_reports(@grantee).each do |ar| %>
