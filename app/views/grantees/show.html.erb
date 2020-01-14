@@ -24,6 +24,8 @@
   <div class="grid-col-9">
     <div class="box">
       <%= form_tag grantee_path(id: @grantee.id), method: :get, class: "usa-search usa-search--small" do %>
+        <%= label_tag :topic, "Topic", class: "usa-label" %>
+        <%= select_tag :topic, options_for_select(topic_options(@grantee), @topic), include_blank: true, class: "usa-select" %>
         <div role="search">
           <%= label_tag :q, "Search", class: "usa-sr-only" %>
           <%= search_field_tag :q, @query, class: "usa-input" %>
