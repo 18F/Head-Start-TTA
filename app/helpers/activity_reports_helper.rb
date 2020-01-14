@@ -7,9 +7,7 @@ module ActivityReportsHelper
       html.gsub!(/(Grantee Next Steps?):?/i) { "<h3>#{$1.titleize}</h3>" }
       html.gsub!(/(Specialist Next Steps?):?/i) { "<h3>#{$1.titleize}</h3>" }
       html.gsub!(/(Next Steps? Grantee):?/i) { "<h3>#{$1.titleize}</h3>" }
-      html.gsub!(/(Next Steps? TTA):?/i) {
-        "<h3>#{$1.titleize}</h3>".gsub("Tta", "TTA")
-      }
+      html.gsub!(/(Next Steps? TTA):?/i) { "<h3>#{$1.titleize}</h3>".gsub("Tta", "TTA") }
       html.html_safe
     end
   end
