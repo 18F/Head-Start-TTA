@@ -1,10 +1,16 @@
 module GranteesHelper
-  def list_activity_reports(grantee)
-    @activity_reports || grantee.activity_reports.distinct.order(start_date: :desc)
-  end
-
   def topic_options(grantee)
     topics = Topic.for_grantee(grantee).select(:name).order(:name)
-    topics.map(&:name)
+    topics = topics.map { |t| [t.name, t.name] }
+    [["Any", ""], *topics]
+  end
+
+  def date_options
+    [
+      ["All", ""],
+      ["Last Month", "1M"],
+      ["Last 6 Months", "6M"],
+      ["Last Year", "1y"],
+    ]
   end
 end

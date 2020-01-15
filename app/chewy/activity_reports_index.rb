@@ -3,8 +3,10 @@ class ActivityReportsIndex < Chewy::Index
     field :purpose, analyzer: "english"
     field :narrative, analyzer: "english"
     field :next_steps, analyzer: "english"
-    field :materials, type: "keyword", value: ->(ar) { ar.materials.map(&:name) }
-    field :topics, type: "keyword", value: ->(ar) { ar.topics.map(&:name) }
+    field :materials, value: ->(ar) { ar.materials.map(&:name) }
+    field :topics, type: "text", value: ->(ar) { ar.topics.map(&:name) } do
+      field :raw, type: "keyword"
+    end
     field :start_date, type: "date", include_in_all: false
     field :grantee_id, type: "keyword", include_in_all: false, value: ->(ar) { ar.grantees.map(&:id) }
   end
@@ -14,7 +16,18 @@ class ActivityReportsIndex < Chewy::Index
   end
 
   def self.filter_topic(topic)
-    filter(term: {topics: topic})
+    filter(term: {"topics.raw": topic})
+  end
+
+  def self.filter_start_date(date_math)
+    unless /\A\d+[yMwd]\z/.match?(date_math)
+      fail ArgumentError, "Invalid date range provided, should match /\\d+[yMwd]/"
+    end
+    filter do
+      range :start_date do
+        gte "now-#{date_math}/d"
+      end
+    end
   end
 
   def self.search(q)

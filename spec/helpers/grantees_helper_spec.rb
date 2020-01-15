@@ -11,12 +11,27 @@ require "rails_helper"
 #   end
 # end
 RSpec.describe GranteesHelper, type: :helper do
-  describe "#list_activity_reports" do
+  describe "#topic_options" do
     let(:grant) { create :grant, :grantee }
-    let!(:ar) { create :activity_report, grants: [grant] }
+    let!(:ar) { create :activity_report, topic_list: %w[TopicA TopicB], grants: [grant] }
 
     it "returns the grantees activity reports" do
-      expect(helper.list_activity_reports(grant.grantee)).to eq [ar]
+      expect(helper.topic_options(grant.grantee)).to eq [
+        ["Any", ""],
+        ["TopicA", "TopicA"],
+        ["TopicB", "TopicB"],
+      ]
+    end
+  end
+
+  describe "#date_options" do
+    it "returns past filtering options with ElasticSearch date math values" do
+      expect(helper.date_options).to eq [
+        ["All", ""],
+        ["Last Month", "1M"],
+        ["Last 6 Months", "6M"],
+        ["Last Year", "1y"],
+      ]
     end
   end
 end
