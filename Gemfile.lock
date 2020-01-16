@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/rahearn/cf-app-utils-ruby.git
+  revision: 923c00fb9bea6e3c7125aa09c57403ffee208ed8
+  branch: survive-missing-env
+  specs:
+    cf-app-utils (0.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -271,6 +278,7 @@ DEPENDENCIES
   brakeman (~> 4.7)
   bundler-audit (~> 0.6)
   byebug
+  cf-app-utils (~> 0.6)!
   chewy (~> 5.1)
   creek (~> 2.5)
   factory_bot_rails (~> 5.1)

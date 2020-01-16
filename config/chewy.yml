@@ -5,3 +5,5 @@ test:
   prefix: 'test'
 development:
   host: 'localhost:9200'
+production:
+  host: '<%= CF::App::Credentials.find_by_service_name("ttadp-es").try(:[], "uri") %>'
