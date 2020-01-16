@@ -40,33 +40,56 @@ RSpec.describe ActivityReportsController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates new EC ActivityReports" do
-        expect {
-          post :create, params: {file_type: "ec", file: fixture_file_upload(Rails.root.join("spec/support/ec_grantee_report.xlsx"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")}, session: valid_session
-        }.to change(ActivityReport, :count).by(3)
+      context "EC reports" do
+        let(:file) { fixture_file_upload Rails.root.join("spec/support/ec_grantee_report.xlsx"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }
+        it "creates new ActivityReports" do
+          expect {
+            post :create, params: {file_type: "ec", file: file}, session: valid_session
+          }.to change(ActivityReport, :count).by(3)
+        end
+
+        it "sets the AR topics" do
+          post :create, params: {file_type: "ec", file: file}, session: valid_session
+          ar = ActivityReport.first
+          expect(ar.topic_list).to eq ["Parent and Family Engagement", "Program Planning and Assessment", "Training"]
+        end
+
+        it "sets the AR materials" do
+          post :create, params: {file_type: "ec", file: file}, session: valid_session
+          ar = ActivityReport.first
+          expect(ar.material_list).to eq [
+            "PFCE",
+            "Building Partnerships: Guide to Developing Relationship with Families",
+            "Parenting Curricula Review Databases",
+          ]
+        end
+
+        it "creates new Grantees" do
+          expect {
+            post :create, params: {file_type: "ec", file: file}, session: valid_session
+          }.to change(Grantee, :count).by(1)
+        end
+
+        it "creates new Grants" do
+          expect {
+            post :create, params: {file_type: "ec", file: file}, session: valid_session
+          }.to change(Grant, :count).by(7)
+        end
+
+        it "redirects to the activity_report index" do
+          post :create, params: {file_type: "ec", file: file}, session: valid_session
+          expect(response).to redirect_to(activity_reports_path)
+        end
       end
 
-      it "creates new Grantees" do
-        expect {
-          post :create, params: {file_type: "ec", file: fixture_file_upload(Rails.root.join("spec/support/ec_grantee_report.xlsx"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")}, session: valid_session
-        }.to change(Grantee, :count).by(1)
-      end
+      context "GS reports" do
+        let(:file) { fixture_file_upload Rails.root.join("spec/support/gs_grantee_report.xlsx"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }
 
-      it "creates new Grants" do
-        expect {
-          post :create, params: {file_type: "ec", file: fixture_file_upload(Rails.root.join("spec/support/ec_grantee_report.xlsx"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")}, session: valid_session
-        }.to change(Grant, :count).by(7)
-      end
-
-      it "creates new GS ActivityReports" do
-        expect {
-          post :create, params: {file_type: "gs", file: fixture_file_upload(Rails.root.join("spec/support/gs_grantee_report.xlsx"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")}, session: valid_session
-        }.to change(ActivityReport, :count).by(1)
-      end
-
-      it "redirects to the activity_report index" do
-        post :create, params: {file_type: "ec", file: fixture_file_upload(Rails.root.join("spec/support/ec_grantee_report.xlsx"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")}, session: valid_session
-        expect(response).to redirect_to(activity_reports_path)
+        it "creates new ActivityReports" do
+          expect {
+            post :create, params: {file_type: "gs", file: file}, session: valid_session
+          }.to change(ActivityReport, :count).by(1)
+        end
       end
     end
   end

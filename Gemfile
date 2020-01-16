@@ -25,6 +25,10 @@ gem "jbuilder", "~> 2.7"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem "creek", "~> 2.5"
+gem "kaminari", "~> 1.1"
+gem "chewy", "~> 5.1"
+gem "acts-as-taggable-on", "~> 6.5"
+gem "kramdown", "~> 2.1"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
@@ -35,7 +39,7 @@ group :development, :test do
   gem "standard", "~> 0.1"
   gem "brakeman", "~> 4.7"
   gem "bundler-audit", "~> 0.6"
-  gem "rspec-rails", "4.0.0.beta3"
+  gem "rspec-rails", "4.0.0.beta4"
   gem "shoulda", "4.0.0.rc1"
   gem "factory_bot_rails", "~> 5.1"
 end

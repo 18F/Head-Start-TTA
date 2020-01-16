@@ -17,4 +17,6 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import 'uswds/src/stylesheets/uswds.scss'
+import 'uswds/dist/img/close.svg'
+
 require('uswds')

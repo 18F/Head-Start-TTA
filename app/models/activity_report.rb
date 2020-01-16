@@ -5,4 +5,8 @@ class ActivityReport < ApplicationRecord
 
   has_and_belongs_to_many :grants
   has_many :grantees, through: :grants
+
+  acts_as_ordered_taggable_on :materials, :topics
+
+  update_index "activity_reports_index#activity_report", :self
 end

@@ -1,11 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Activity Reports</h1>
 
 <table class="usa-table">
   <thead>
     <tr>
       <th scope="col">Activity ID</th>
+      <th scope="col">Region</th>
       <th scope="col">Report Type</th>
       <th scope="col">Purpose</th>
       <th scope="col" colspan="2"></th>
@@ -16,6 +15,7 @@
     <% @activity_reports.each do |activity_report| %>
       <tr>
         <th scope="row"><%= activity_report.activity_id %></th>
+        <td><%= activity_report.region %></td>
         <td><%= activity_report.report_typ %></td>
         <td><%= activity_report.purpose %></td>
         <td><%= link_to 'Show', activity_report %></td>
