@@ -27,6 +27,7 @@ gem "jbuilder", "~> 2.7"
 gem "creek", "~> 2.5"
 gem "kaminari", "~> 1.1"
 gem "chewy", "~> 5.1"
+gem "cf-app-utils", "~> 0.6", github: "rahearn/cf-app-utils-ruby", branch: "survive-missing-env"
 gem "acts-as-taggable-on", "~> 6.5"
 gem "kramdown", "~> 2.1"
 
