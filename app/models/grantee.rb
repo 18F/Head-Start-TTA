@@ -5,4 +5,12 @@ class Grantee < ApplicationRecord
   has_many :activity_reports, through: :grants
 
   auto_strip_attributes :name
+
+  def specialists
+    specialists = Set.new
+    activity_reports.each do |ar|
+      specialists.merge ar.specialists
+    end
+    specialists.sort
+  end
 end

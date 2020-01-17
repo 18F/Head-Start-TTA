@@ -9,16 +9,24 @@
       </ul>
     </div>
     <div class="box">
-      <p class="ipsum">
-        Grantee staff<br/>
-        Contact info
-      </p>
+      <h4>Grantee staff</h4>
+      <% 2.times do %>
+        <p>
+          <%= mail_to FFaker::Internet.safe_email, FFaker::Name.name %>
+          <br/>
+          <%= FFaker::PhoneNumber.short_phone_number %>
+        </p>
+      <% end %>
     </div>
     <div class="box">
-      <p class="ipsum">
-        OHS - Regional TTA<br/>
-        Contact info
-      </p>
+      <h4>OHS - Regional TTA</h4>
+      <% @grantee.specialists.each do |specialist| %>
+        <p>
+          <%= mail_to FFaker::Internet.safe_email, specialist %>
+          <br/>
+          <%= FFaker::PhoneNumber.short_phone_number %>
+        </p>
+      <% end %>
     </div>
   </div>
   <div class="grid-col-9">
