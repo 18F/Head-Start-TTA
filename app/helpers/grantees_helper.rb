@@ -13,4 +13,13 @@ module GranteesHelper
       ["Last Year", "1y"],
     ]
   end
+
+  def past_activity_timeline_list(activity_report)
+    content_tag(:ul, class: "usa-list") do
+      concat content_tag(:li, activity_report.activity_id)
+      while (activity_report = activity_report.previous_activity_report)
+        concat content_tag(:li, activity_report.activity_id)
+      end
+    end
+  end
 end

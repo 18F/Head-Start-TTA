@@ -9,22 +9,30 @@
       </ul>
     </div>
     <div class="box">
-      <p class="ipsum">
-        Grantee staff<br/>
-        Contact info
-      </p>
+      <h4>Grantee staff</h4>
+      <% 2.times do %>
+        <p>
+          <%= mail_to FFaker::Internet.safe_email, FFaker::Name.name %>
+          <br/>
+          <%= FFaker::PhoneNumber.short_phone_number %>
+        </p>
+      <% end %>
     </div>
     <div class="box">
-      <p class="ipsum">
-        OHS - Regional TTA<br/>
-        Contact info
-      </p>
+      <h4>OHS - Regional TTA</h4>
+      <% @grantee.specialists.each do |specialist| %>
+        <p>
+          <%= mail_to FFaker::Internet.safe_email, specialist %>
+          <br/>
+          <%= FFaker::PhoneNumber.short_phone_number %>
+        </p>
+      <% end %>
     </div>
   </div>
   <div class="grid-col-9">
     <div class="box">
       <%= form_tag grantee_path(id: @grantee.id), method: :get, class: "usa-search usa-search--small" do %>
-        <%= label_tag :date, "Date", class: "usa-label" %>
+        <%= label_tag :date, "Activity Date", class: "usa-label" %>
         <%= select_tag :date, options_for_select(date_options, @date), class: "usa-select" %>
         <%= label_tag :topic, "Topic", class: "usa-label" %>
         <%= select_tag :topic, options_for_select(topic_options(@grantee), @topic), class: "usa-select" %>
@@ -40,11 +48,18 @@
 
     <% @activity_reports.each do |ar| %>
       <div class="box">
-        <p><strong><%= ar.activity_id %></strong> <%= ar.purpose %></p>
-        <p><%= ar.start_date %> <%= ar.duration %> hours</p>
-        <p><%= ar.topic_list.join ", " %></p>
-        <p><%= ar.specialists.join ", " %></p>
-        <p><%= link_to "View Report", ar, class: "usa-button" %></p>
+        <div class="grid-row">
+          <div class="grid-col-8">
+            <p><strong><%= ar.start_date.to_s(:long) %></strong> <%= ar.duration %> hours</p>
+            <p>Purpose: <%= ar.purpose %></p>
+            <p>Topics: <%= ar.topic_list.join ", " %></p>
+            <p>Specialists: <%= ar.specialists.join ", " %></p>
+            <p><%= link_to "View Report", ar, class: "usa-button" %></p>
+          </div>
+          <div class="grid-col-4 timeline-index-container">
+            <%= past_activity_timeline_list(ar) %>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

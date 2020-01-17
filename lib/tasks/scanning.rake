@@ -32,8 +32,6 @@ namespace :yarn do
       puts stderr
       if /503 Service Unavailable/.match?(stderr)
         puts "Ignoring unavailable server"
-      elsif /advisories\/961.*1 vulnerabilities found/m.match?(stdout)
-        puts "Ignoring node-sass low-severity vulnerability"
       else
         exit status.exitstatus
       end

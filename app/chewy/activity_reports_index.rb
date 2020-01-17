@@ -7,6 +7,7 @@ class ActivityReportsIndex < Chewy::Index
     field :topics, type: "text", value: ->(ar) { ar.topics.map(&:name) } do
       field :raw, type: "keyword"
     end
+    field :specialists
     field :start_date, type: "date", include_in_all: false
     field :grantee_id, type: "keyword", include_in_all: false, value: ->(ar) { ar.grantees.map(&:id) }
   end
@@ -40,6 +41,7 @@ class ActivityReportsIndex < Chewy::Index
           "narrative",
           "next_steps",
           "materials",
+          "specialists",
         ]
       end
     end

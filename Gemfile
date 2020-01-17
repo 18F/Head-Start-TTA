@@ -7,6 +7,8 @@ ruby "2.6.5"
 gem "rails", "~> 6.0.2"
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
+gem "auto_strip_attributes", "~> 2.5"
+
 # Use Puma as the app server
 gem "puma", "~> 4.1"
 # Use SCSS for stylesheets
@@ -30,6 +32,7 @@ gem "chewy", "~> 5.1"
 gem "cf-app-utils", "~> 0.6", github: "rahearn/cf-app-utils-ruby", branch: "survive-missing-env"
 gem "acts-as-taggable-on", "~> 6.5"
 gem "kramdown", "~> 2.1"
+gem "ffaker", "~> 2.13"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
