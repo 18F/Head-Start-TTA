@@ -1,9 +1,29 @@
+<% if @activity_report.linked? %>
+  <div class="grid-row">
+    <div class="grid-col">
+      <h3>Activity Timeline</h3>
+      <p>
+        <% if @activity_report.previous_activity_report.present? %>
+          <%= link_to "#{@activity_report.previous_activity_report.start_date.to_s(:long)} #{@activity_report.previous_activity_report.purpose}", @activity_report.previous_activity_report, class: "usa-link" %>
+          &bullet;
+        <% end %>
+        This report
+        <% @activity_report.follow_up_reports.each do |report| %>
+          &bullet;
+          <%= link_to "#{report.start_date.to_s(:long)} #{report.purpose}", report, class: "usa-link" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
 <div class="box">
   <div class="grid-row">
     <div class="grid-col">
       <h3>Activity Summary</h3>
       <ul class="usa-list usa-list--unstyled">
-        <li><%= @activity_report.start_date.to_s(:long) %></li>
+        <li><%= @activity_report.start_date.to_s(:long) %> <%= @activity_report.duration %> hours</li>
+        <li><%= @activity_report.purpose %></li>
         <li>
           <ul class="usa-list usa-list--unstyled">
             <% @activity_report.topics.each do |t| %>
@@ -15,25 +35,18 @@
         <li>
           <ul class="usa-list usa-list--unstyled">
             <% @activity_report.grantees.distinct.each do |g| %>
-              <li><%= g.name %></li>
+              <li><%= link_to g.name, g, class: "usa-link" %></li>
             <% end %>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="grid-col">
-      <h3>Next Steps from Past Activity</h3>
-      <form class="usa-form usa-form--large">
-        <div class="usa-checkbox">
-          <input type="checkbox" class="usa-checkbox__input" checked disabled id="next1">
-          <label class="ipsum usa-checkbox__label" for="next1">18F ipsum dolor amet user-centered design agency partners</label>
-        </div>
-        <div class="usa-checkbox">
-          <input type="checkbox" class="usa-checkbox__input" disabled id="next2">
-          <label class="ipsum usa-checkbox__label" for="next2">Design diversity cost-recoverable tock Concur</label>
-        </div>
-      </form>
-    </div>
+    <% if @activity_report.previous_activity_report.present? %>
+      <div class="grid-col">
+        <h3>Next Steps from Past Activity</h3>
+        <%= pretend_we_have_proper_next_steps_fields @activity_report.previous_activity_report.next_steps %>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -41,6 +54,6 @@
   <h2>Next Steps</h2>
   <%= pretend_we_have_proper_next_steps_fields @activity_report.next_steps %>
 
-  <h2>Narrative</h2>
+  <h2>Notes on This Contact</h2>
   <%= pretend_we_have_proper_narrative_fields @activity_report.narrative %>
 </div>
