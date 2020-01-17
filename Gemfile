@@ -7,6 +7,8 @@ ruby "2.6.5"
 gem "rails", "~> 6.0.2"
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
+gem "auto_strip_attributes", "~> 2.5"
+
 # Use Puma as the app server
 gem "puma", "~> 4.1"
 # Use SCSS for stylesheets

@@ -8,5 +8,7 @@ class ActivityReport < ApplicationRecord
 
   acts_as_ordered_taggable_on :materials, :topics
 
+  auto_strip_attributes :activity_id
+
   update_index "activity_reports_index#activity_report", :self
 end

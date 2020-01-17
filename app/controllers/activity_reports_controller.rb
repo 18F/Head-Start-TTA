@@ -104,10 +104,10 @@ class ActivityReportsController < ApplicationController
   end
 
   def process_grants(grant_numbers, grantee_names)
-    grants = grant_numbers.map { |n| Grant.find_or_create_by(number: n) }
+    grants = grant_numbers.map { |n| Grant.find_or_create_by(number: n.strip) }
     if grants.length == grantee_names.length
       grants.zip(grantee_names) do |grant, name|
-        grantee = Grantee.find_or_create_by(name: name)
+        grantee = Grantee.find_or_create_by(name: name.strip)
         grantee.grants << grant unless grantee.grants.include?(grant)
       end
     end
@@ -116,7 +116,7 @@ class ActivityReportsController < ApplicationController
 
   def previous_report(previous_activity_id)
     return nil if previous_activity_id.blank?
-    ActivityReport.select(:id).find_by(activity_id: previous_activity_id)&.id
+    ActivityReport.select(:id).find_by(activity_id: previous_activity_id.strip)&.id
   end
 
   def reason_for_service(ohs: nil, regional: nil, grantee: nil, monitoring: nil, quality: nil)

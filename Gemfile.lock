@@ -66,6 +66,8 @@ GEM
     acts-as-taggable-on (6.5.0)
       activerecord (>= 5.0, < 6.1)
     ast (2.4.0)
+    auto_strip_attributes (2.5.0)
+      activerecord (>= 4.0)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -274,6 +276,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 6.5)
+  auto_strip_attributes (~> 2.5)
   bootsnap (>= 1.4.2)
   brakeman (~> 4.7)
   bundler-audit (~> 0.6)
