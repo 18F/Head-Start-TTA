@@ -46,6 +46,7 @@
       <% end %>
     </div>
 
+    <p><%= page_entries_info @activity_reports %></p>
     <% @activity_reports.each do |ar| %>
       <div class="box">
         <div class="grid-row">
@@ -62,5 +63,6 @@
         </div>
       </div>
     <% end %>
+    <%= paginate @activity_reports %>
   </div>
 </div>
