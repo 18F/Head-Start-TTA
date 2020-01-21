@@ -8,6 +8,7 @@ gem "rails", "~> 6.0.2"
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
 gem "auto_strip_attributes", "~> 2.5"
+gem "activeadmin", "~> 2.6"
 
 # Use Puma as the app server
 gem "puma", "~> 4.1"

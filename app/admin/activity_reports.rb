@@ -1,0 +1,35 @@
+ActiveAdmin.register ActivityReport do
+  permit_params :activity_id, :region, :state, :status, :activity_typ, :purpose, :start_date, :end_date, :duration, :primary_reason, :narrative, :next_steps, specialists: []
+
+  controller do
+    def update
+      params["activity_report"]["specialists"] = begin
+                                                   JSON.parse(params["activity_report"]["specialists"])
+                                                 rescue
+                                                   []
+                                                 end
+      super
+    end
+  end
+
+  form do |f|
+    f.inputs "Details" do
+      f.input :activity_id
+      f.input :region
+      f.input :state
+      f.input :status
+      f.input :activity_typ, label: "Activity Type"
+      f.input :purpose
+      f.input :start_date
+      f.input :end_date
+      f.input :duration
+      f.input :specialists
+      f.input :primary_reason
+    end
+    f.inputs "Markdown" do
+      f.input :narrative
+      f.input :next_steps
+    end
+    f.actions
+  end
+end
