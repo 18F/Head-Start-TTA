@@ -10,6 +10,7 @@ class ActivityReportsIndex < Chewy::Index
     field :specialists
     field :start_date, type: "date", include_in_all: false
     field :grantee_id, type: "keyword", include_in_all: false, value: ->(ar) { ar.grantees.map(&:id) }
+    field :activity_id
   end
 
   def self.for_grantee(grantee_id)
@@ -36,6 +37,7 @@ class ActivityReportsIndex < Chewy::Index
       multi_match do
         query q
         fields [
+          "activity_id^100",
           "purpose^20",
           "topics^10",
           "narrative",
