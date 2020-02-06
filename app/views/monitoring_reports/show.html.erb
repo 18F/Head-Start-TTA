@@ -1,0 +1,20 @@
+<div class="box box--split">
+  <div class="grid-row">
+    <div class="grid-col grid-col-8">
+      <h3>Monitoring Report</h3>
+      <ul class="usa-list usa-list--unstyled">
+        <li><%= @monitoring_report.report_date.to_s(:long) %></li>
+        <li><%= @monitoring_report.formatted_citation %></li>
+        <li><%= @monitoring_report.status %></li>
+        <li><%= link_to @monitoring_report.grantee_name, @monitoring_report.grantee, class: "usa-link" %></li>
+      </ul>
+    </div>
+    <div class="grid-col grid-col-4">
+      <%= link_to "Request TTA", root_path, class: "usa-button" %>
+    </div>
+  </div>
+</div>
+
+<div class="font-body-md measure-2">
+  <%= @monitoring_report.narrative %>
+</div>

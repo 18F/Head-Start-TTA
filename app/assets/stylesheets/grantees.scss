@@ -8,8 +8,15 @@
   margin: 1rem 0;
 }
 
-.timeline-index-container {
-  border-left: 1px black solid;
+.box--split {
+  & .grid-col:first-child {
+    padding-right: 1rem;
+  }
+
+  & .grid-col:last-child {
+    border-left: 1px black solid;
+    padding-left: 1rem;
+  }
 }
 
 .ipsum {
