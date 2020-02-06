@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_160505) do
+ActiveRecord::Schema.define(version: 2020_02_06_140240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(version: 2020_01_21_160505) do
     t.index ["grantee_id"], name: "index_grants_on_grantee_id"
   end
 
+  create_table "monitoring_reports", force: :cascade do |t|
+    t.text "narrative", null: false
+    t.text "citation", default: [], array: true
+    t.date "report_date", null: false
+    t.string "status", null: false
+    t.bigint "grant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["grant_id"], name: "index_monitoring_reports_on_grant_id"
+  end
+
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -96,5 +107,6 @@ ActiveRecord::Schema.define(version: 2020_01_21_160505) do
   end
 
   add_foreign_key "grants", "grantees"
+  add_foreign_key "monitoring_reports", "grants"
   add_foreign_key "taggings", "tags"
 end
