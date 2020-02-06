@@ -15,6 +15,12 @@
   </div>
 </div>
 
-<div class="font-body-md measure-2">
-  <%= @monitoring_report.narrative %>
+<div class="grid-row">
+  <div class="grid-col font-body-md measure-2 ">
+    <%= @monitoring_report.narrative %>
+  </div>
+  <div class="grid-col">
+    <div id="tta-request-form"></div>
+    <%= javascript_pack_tag "tta_request_form" %>
+  </div>
 </div>
