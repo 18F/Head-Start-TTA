@@ -6,6 +6,7 @@ class Grant < ApplicationRecord
   delegate :name, to: :grantee, prefix: true, allow_nil: true
 
   has_and_belongs_to_many :activity_reports
+  has_many :monitoring_reports
 
   auto_strip_attributes :number
 end

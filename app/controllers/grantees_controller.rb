@@ -8,6 +8,7 @@ class GranteesController < ApplicationController
     @query = params[:q]
     @topic = params[:topic]
     @date = params[:date]
+    @monitoring_reports = @grantee.monitoring_reports.order(:report_date)
     @activity_reports = find_activity_reports
   end
 
