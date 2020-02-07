@@ -5,6 +5,9 @@ class Grantee < ApplicationRecord
   has_many :activity_reports, through: :grants
   has_many :monitoring_reports, through: :grants
 
+  has_many :person_grantee_links
+  has_many :people, through: :person_grantee_links
+
   auto_strip_attributes :name
 
   def specialists

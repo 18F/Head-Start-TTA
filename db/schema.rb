@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_140240) do
+ActiveRecord::Schema.define(version: 2020_02_07_221455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,25 @@ ActiveRecord::Schema.define(version: 2020_02_06_140240) do
     t.index ["grant_id"], name: "index_monitoring_reports_on_grant_id"
   end
 
+  create_table "people", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "role", null: false
+    t.string "phone_number"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "person_grantee_links", force: :cascade do |t|
+    t.bigint "person_id", null: false
+    t.bigint "grantee_id", null: false
+    t.boolean "grantee_employee", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["grantee_id"], name: "index_person_grantee_links_on_grantee_id"
+    t.index ["person_id"], name: "index_person_grantee_links_on_person_id"
+  end
+
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -108,5 +127,7 @@ ActiveRecord::Schema.define(version: 2020_02_06_140240) do
 
   add_foreign_key "grants", "grantees"
   add_foreign_key "monitoring_reports", "grants"
+  add_foreign_key "person_grantee_links", "grantees"
+  add_foreign_key "person_grantee_links", "people"
   add_foreign_key "taggings", "tags"
 end
