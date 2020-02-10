@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_150709) do
+ActiveRecord::Schema.define(version: 2020_02_10_202547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,17 @@ ActiveRecord::Schema.define(version: 2020_02_10_150709) do
     t.datetime "updated_at"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "status", default: "todo", null: false
+    t.string "title", null: false
+    t.text "notes", default: ""
+    t.string "parent_type"
+    t.bigint "parent_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["parent_type", "parent_id"], name: "index_tasks_on_parent_type_and_parent_id"
   end
 
   add_foreign_key "grants", "grantees"
