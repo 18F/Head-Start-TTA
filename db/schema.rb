@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_202547) do
+ActiveRecord::Schema.define(version: 2020_02_10_212112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,9 +140,23 @@ ActiveRecord::Schema.define(version: 2020_02_10_202547) do
     t.index ["parent_type", "parent_id"], name: "index_tasks_on_parent_type_and_parent_id"
   end
 
+  create_table "tta_needs", force: :cascade do |t|
+    t.bigint "grantee_id", null: false
+    t.text "narrative"
+    t.string "indicator", null: false
+    t.string "context_link_type"
+    t.bigint "context_link_id"
+    t.text "specialist_types_needed", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["context_link_type", "context_link_id"], name: "index_tta_needs_on_context_link_type_and_context_link_id"
+    t.index ["grantee_id"], name: "index_tta_needs_on_grantee_id"
+  end
+
   add_foreign_key "grants", "grantees"
   add_foreign_key "monitoring_reports", "grants"
   add_foreign_key "person_grantee_links", "grantees"
   add_foreign_key "person_grantee_links", "people"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "tta_needs", "grantees"
 end
