@@ -16,6 +16,7 @@ class ActivityReportsController < ApplicationController
 
   def create
     file = params[:file]
+    @specialist_type = params[:file_type].upcase
     book = Creek::Book.new file.path, check_file_extension: false
     sheet = book.sheets.last
 
@@ -99,8 +100,18 @@ class ActivityReportsController < ApplicationController
       start_date: row["M"],
       end_date: row["N"],
       duration: row["O"],
-      specialists: row["R"].split(/,\s*/),
+      people: process_specialists(row["R"].split(/,\s*/)),
     }
+  end
+
+  def process_specialists(specialists)
+    specialists.map do |name|
+      Person.find_or_create_by(name: name) do |person|
+        person.role = @specialist_type
+        person.email = FFaker::Internet.safe_email
+        person.phone_number = FFaker::PhoneNumber.short_phone_number
+      end
+    end
   end
 
   def process_grants(grant_numbers, grantee_names)

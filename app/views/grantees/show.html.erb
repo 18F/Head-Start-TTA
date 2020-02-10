@@ -10,23 +10,12 @@
     </div>
     <div class="box">
       <h4>Grantee staff</h4>
-      <% 2.times do %>
-        <p>
-          <%= mail_to FFaker::Internet.safe_email, FFaker::Name.name %>
-          <br/>
-          <%= FFaker::PhoneNumber.short_phone_number %>
-        </p>
-      <% end %>
+      <%= render partial: "person", collection: @grantee.employees %>
     </div>
     <div class="box">
       <h4>OHS - Regional TTA</h4>
-      <% @grantee.specialists.each do |specialist| %>
-        <p>
-          <%= mail_to FFaker::Internet.safe_email, specialist %>
-          <br/>
-          <%= FFaker::PhoneNumber.short_phone_number %>
-        </p>
-      <% end %>
+      <%= render partial: "person", collection: @grantee.assigned_specialists %>
+      <%= render partial: "person", collection: @grantee.report_specialists %>
     </div>
   </div>
   <div class="grid-col-9">
@@ -68,7 +57,7 @@
             <p><strong><%= ar.start_date.to_s(:long) %></strong> <%= ar.duration %> hours</p>
             <p>Purpose: <%= ar.purpose %></p>
             <p>Topics: <%= ar.topic_list.join ", " %></p>
-            <p>Specialists: <%= ar.specialists.join ", " %></p>
+            <p>Specialists: <%= ar.people.map(&:name).join ", " %></p>
             <p><%= link_to "View Report", ar, class: "usa-button" %></p>
           </div>
           <div class="grid-col grid-col-4">

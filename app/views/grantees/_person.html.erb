@@ -1,0 +1,13 @@
+<p>
+  <strong><%= person.role %></strong>
+  <br/>
+  <%= person.name %>
+  <% if person.email.present? %>
+    <br />
+    <%= mail_to person.email %>
+  <% end %>
+  <% if person.phone_number.present? %>
+    <br/>
+    <%= person.phone_number %>
+  <% end %>
+</p>

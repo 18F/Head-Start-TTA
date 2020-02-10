@@ -3,6 +3,7 @@ class Grantee < ApplicationRecord
 
   has_many :grants, dependent: :destroy
   has_many :activity_reports, through: :grants
+  has_many :ta_specialists, through: :activity_reports, source: :people
   has_many :monitoring_reports, through: :grants
 
   has_many :person_grantee_links
@@ -10,11 +11,15 @@ class Grantee < ApplicationRecord
 
   auto_strip_attributes :name
 
-  def specialists
-    specialists = Set.new
-    activity_reports.each do |ar|
-      specialists.merge ar.specialists
-    end
-    specialists.sort
+  def employees
+    people.where(person_grantee_links: {grantee_employee: true}).order(:name)
+  end
+
+  def assigned_specialists
+    people.where(person_grantee_links: {grantee_employee: false}).order(:name)
+  end
+
+  def report_specialists
+    ta_specialists.where.not(id: assigned_specialists.select(:id)).distinct.order(:name)
   end
 end

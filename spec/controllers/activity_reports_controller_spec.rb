@@ -70,6 +70,12 @@ RSpec.describe ActivityReportsController, type: :controller do
           }.to change(Grantee, :count).by(1)
         end
 
+        it "creates new People" do
+          expect {
+            post :create, params: {file_type: "ec", file: file}, session: valid_session
+          }.to change(Person, :count).by(2)
+        end
+
         it "creates new Grants" do
           expect {
             post :create, params: {file_type: "ec", file: file}, session: valid_session

@@ -31,7 +31,7 @@
             <% end %>
           </ul>
         </li>
-        <li><%= @activity_report.specialists.join ", " %></li>
+        <li><%= @activity_report.people.map(&:name).join ", " %></li>
         <li>
           <ul class="usa-list usa-list--unstyled">
             <% @activity_report.grantees.distinct.each do |g| %>

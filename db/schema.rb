@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_07_221455) do
+ActiveRecord::Schema.define(version: 2020_02_10_150709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2020_02_07_221455) do
     t.date "start_date"
     t.date "end_date"
     t.decimal "duration"
-    t.text "specialists", default: [], array: true
     t.string "primary_reason"
     t.text "narrative", default: ""
     t.text "next_steps", default: ""
@@ -51,6 +50,11 @@ ActiveRecord::Schema.define(version: 2020_02_07_221455) do
 
   create_table "activity_reports_grants", id: false, force: :cascade do |t|
     t.bigint "grant_id", null: false
+    t.bigint "activity_report_id", null: false
+  end
+
+  create_table "activity_reports_people", id: false, force: :cascade do |t|
+    t.bigint "person_id", null: false
     t.bigint "activity_report_id", null: false
   end
 
