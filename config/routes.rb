@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :monitoring_reports, only: :show
 
   resources :tta_needs, only: %i[show], shallow: true do
-    resources :tasks, only: %i[index]
+    resources :tasks, only: %i[index show]
   end
 
   root to: "grantees#index"

@@ -35,6 +35,7 @@ gem "acts-as-taggable-on", "~> 6.5"
 gem "kramdown", "~> 2.1"
 gem "ffaker", "~> 2.13"
 gem "jsonapi-serializers", "~> 1.0"
+gem "apitome", "~> 0.3"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
@@ -48,6 +49,7 @@ group :development, :test do
   gem "rspec-rails", "4.0.0.beta4"
   gem "shoulda", "4.0.0.rc1"
   gem "factory_bot_rails", "~> 5.1"
+  gem "rspec_api_documentation", "~> 6.1"
 end
 
 group :development do
