@@ -6,6 +6,8 @@ class Grantee < ApplicationRecord
   has_many :ta_specialists, through: :activity_reports, source: :people
   has_many :monitoring_reports, through: :grants
 
+  has_many :tta_needs
+
   has_many :person_grantee_links
   has_many :people, through: :person_grantee_links
 

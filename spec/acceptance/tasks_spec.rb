@@ -12,8 +12,7 @@ resource "Tasks" do
       parameter :size, "Records to include on each page, defaults to 25"
     end
 
-    example "List tasks for a TTA need" do
-      do_request
+    example_request "List tasks for a TTA need" do
       expect(status).to eq 200
     end
   end
@@ -22,8 +21,7 @@ resource "Tasks" do
     let(:task) { create :task }
     let(:id) { task.id }
 
-    example "Show details about a task" do
-      do_request
+    example_request "Show details about a task" do
       expect(status).to eq 200
     end
   end
