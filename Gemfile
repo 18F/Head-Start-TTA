@@ -34,6 +34,7 @@ gem "cf-app-utils", "~> 0.6", github: "rahearn/cf-app-utils-ruby", branch: "surv
 gem "acts-as-taggable-on", "~> 6.5"
 gem "kramdown", "~> 2.1"
 gem "ffaker", "~> 2.13"
+gem "jsonapi-serializers", "~> 1.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false

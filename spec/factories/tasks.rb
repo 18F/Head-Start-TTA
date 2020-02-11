@@ -3,6 +3,6 @@ FactoryBot.define do
     status { "todo" }
     title { "Grantee will refine their policies and practices around teaching math" }
     notes { "" }
-    parent { nil }
+    association :parent, factory: :tta_need
   end
 end
