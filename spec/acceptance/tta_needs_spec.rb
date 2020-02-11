@@ -39,7 +39,7 @@ resource "TTA Needs" do
             indicator: "Grantee Request",
             "specialist-types-needed": ["GS"],
           },
-        }
+        },
       }.to_json
     end
 

@@ -70,6 +70,11 @@ The full suite of only tests can be run with: `$ bundle exec rake spec`
 
 Then you can visit `http://localhost:3000` to view the application.
 
+## API Documentation
+
+Run `bundle exec rake docs:generate`, start the server, and then visit `http://localhost:3000/docs/api` to
+view the API docs. These are also available from the deployed prototype application
+
 ## Technologies
 ### Frameworks
 * [Ruby on Rails](https://rubyonrails.org/) backend framework

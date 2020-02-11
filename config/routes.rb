@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :activity_reports
   resources :grantees, only: %i[index show], shallow: true do
     resources :tta_needs, only: %i[index show create] do
-      resources :tasks, only: %i[index show]
+      resources :tasks, only: %i[index show create]
     end
   end
   resources :monitoring_reports, only: :show
