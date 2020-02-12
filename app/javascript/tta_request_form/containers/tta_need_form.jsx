@@ -1,5 +1,5 @@
 import { compose } from 'redux'
-import { query, getRelationship } from 'redux-bees'
+import { query } from 'redux-bees'
 import { connect } from 'react-redux'
 import {
   closeForm
@@ -8,8 +8,6 @@ import api from 'tta_request_form/api'
 import TTANeedForm from '../components/tta_need_form'
 
 const mapStateToProps = (state, props) => ({
-  grant: getRelationship(state, props.report, 'grant'),
-  grantee: getRelationship(state, props.report, 'grantee')
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -18,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 
 const enhance = compose(
   query('report', api.getMonitoringReport, (perform, props) => (
-    perform({id: props.reportId, include: 'grant,grantee'})
+    perform({id: props.reportId, include: 'grant,grantee,grantee.people'})
   )),
   connect(mapStateToProps, mapDispatchToProps)
 )
