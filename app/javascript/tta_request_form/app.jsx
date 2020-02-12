@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { openForm, closeForm } from 'tta_request_form/actions'
+import { openForm } from 'tta_request_form/actions'
+import TTANeedForm from './containers/tta_need_form'
 
 class App extends PureComponent {
   renderBodyColumn(body, columnClass) {
@@ -14,17 +15,13 @@ class App extends PureComponent {
     const {
       formOpen,
       openForm,
-      closeForm,
       body
     } = this.props
     if (formOpen) {
       return (
         <div className="grid-row box--split">
           {this.renderBodyColumn(body, "grid-col")}
-          <div className="grid-col">
-            <p>Show the form</p>
-            <button className="usa-button" onClick={() => { closeForm() }}>Close Form</button>
-          </div>
+          <TTANeedForm />
         </div>
       )
     } else {
@@ -46,8 +43,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  openForm: () => { dispatch(openForm()) },
-  closeForm: () => { dispatch(closeForm()) }
+  openForm: () => { dispatch(openForm()) }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

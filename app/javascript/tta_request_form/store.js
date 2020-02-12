@@ -6,7 +6,14 @@ const initialState = {
     formOpen: false
   },
   report: {
-    body: ""
+    body: "",
+    id: ""
+  },
+  ttaNeed: {
+    narrative: "",
+    indicator: "OHS Monitoring Report",
+    specialistTypesNeeded: [],
+    tasks: []
   }
 }
 

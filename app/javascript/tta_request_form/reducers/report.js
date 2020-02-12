@@ -1,11 +1,11 @@
 import {
-  SET_BODY
+  SET_REPORT_DETAILS
 } from 'tta_request_form/actions'
 
 const report = (state = {}, action) => {
   switch(action.type) {
-    case SET_BODY:
-      return {...state, body: action.body}
+    case SET_REPORT_DETAILS:
+      return {...state, ...action.details}
     default:
       return state
   }

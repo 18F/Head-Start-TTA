@@ -14,5 +14,6 @@
 
 <div id="monitoring-report-body"></div>
 <%= javascript_pack_tag "tta_request_form", data: {
+  "report-id": @monitoring_report.id.to_s,
   "narrative": Kramdown::Document.new(@monitoring_report.narrative).to_html
 } %>

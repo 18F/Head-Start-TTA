@@ -1,6 +1,6 @@
 export const SET_APP_CONFIG = "SET_APP_CONFIG"
 export const TOGGLE_REQUEST_FORM = "TOGGLE_REQUEST_FORM"
-export const SET_BODY = "SET_BODY"
+export const SET_REPORT_DETAILS = "SET_REPORT_DETAILS"
 
 export const setAppConfig = config => ({
   type: SET_APP_CONFIG,
@@ -17,7 +17,7 @@ export const closeForm = () => ({
   value: false
 })
 
-export const setReportBody = body => ({
-  type: SET_BODY,
-  body
+export const setReportDetails = details => ({
+  type: SET_REPORT_DETAILS,
+  details
 })
