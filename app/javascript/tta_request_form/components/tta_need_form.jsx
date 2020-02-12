@@ -4,7 +4,10 @@ import GranteeDetails from '../containers/grantee_details'
 class TTANeedForm extends PureComponent {
   render() {
     const {
-      closeForm
+      closeForm,
+      report,
+      grant,
+      grantee
     } = this.props
     return (
       <div className="grid-col">

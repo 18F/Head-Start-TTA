@@ -12,12 +12,12 @@ store.dispatch(setAppConfig({
 }))
 store.dispatch(setReportDetails({
   id: target.getAttribute("data-report-id"),
-  body: target.getAttribute("data-narrative")
+  narrative: target.getAttribute("data-narrative")
 }))
 
 render(
   <Provider store={store}>
     <RequestFormApp />
   </Provider>,
-  document.getElementById("monitoring-report-body"),
+  document.getElementById("monitoring-report-body")
 )

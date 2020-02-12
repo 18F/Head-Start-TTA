@@ -2,7 +2,8 @@ require "rails_helper"
 require "rspec_api_documentation/dsl"
 
 resource "Monitoring Reports" do
-  let(:monitoring_report) { create :monitoring_report }
+  let(:grant) { create :grant, :grantee }
+  let(:monitoring_report) { create :monitoring_report, grant: grant }
 
   get "/grants/:grant_id/monitoring_reports" do
     let(:grant_id) { monitoring_report.grant_id }

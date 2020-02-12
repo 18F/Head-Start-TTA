@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { openForm } from 'tta_request_form/actions'
+import { openForm, fetchReportDetails } from 'tta_request_form/actions'
 import TTANeedForm from './containers/tta_need_form'
 
 class App extends PureComponent {
@@ -15,13 +15,14 @@ class App extends PureComponent {
     const {
       formOpen,
       openForm,
-      body
+      body,
+      reportId,
     } = this.props
     if (formOpen) {
       return (
         <div className="grid-row box--split">
           {this.renderBodyColumn(body, "grid-col")}
-          <TTANeedForm />
+          <TTANeedForm reportId={reportId} />
         </div>
       )
     } else {
@@ -29,7 +30,7 @@ class App extends PureComponent {
         <div className="grid-row">
           {this.renderBodyColumn(body, "grid-col-10")}
           <div className="grid-col-2">
-            <button className="usa-button" onClick={() => { openForm() }}>Request TTA</button>
+            <button className="usa-button" onClick={() => { openForm(reportId) }}>Request TTA</button>
           </div>
         </div>
       )
@@ -39,11 +40,15 @@ class App extends PureComponent {
 
 const mapStateToProps = state => ({
   formOpen: state.app.formOpen,
-  body: state.report.body
+  body: state.report.narrative,
+  reportId: state.report.id
 })
 
-const mapDispatchToProps = dispatch => ({
-  openForm: () => { dispatch(openForm()) }
+const mapDispatchToProps = (dispatch) => ({
+  openForm: reportId => {
+    // dispatch(fetchReportDetails(reportId))
+    dispatch(openForm())
+  }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

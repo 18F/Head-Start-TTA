@@ -1,5 +1,6 @@
 class MonitoringReportSerializer < BaseSerializer
   has_one :grant
+  has_one :grantee
 
   attributes :narrative, :citation, :status, :report_date, :created_at, :updated_at
 
@@ -7,6 +8,10 @@ class MonitoringReportSerializer < BaseSerializer
     case attribute_name
     when :grant
       path_helper.grant_url(id: object.grant_id, host: base_url)
+    when :grantee
+      if object.grant.grantee_id.present?
+        path_helper.grantee_url(id: object.grant.grantee_id, host: base_url)
+      end
     else
       super
     end
