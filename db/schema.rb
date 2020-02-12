@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_212112) do
+ActiveRecord::Schema.define(version: 2020_02_12_163110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2020_02_10_212112) do
     t.string "activity_id", null: false
     t.string "report_typ", null: false
     t.bigint "previous_activity_report_id"
-    t.string "region"
     t.string "state"
     t.string "status"
     t.string "activity_typ"
@@ -69,6 +68,7 @@ ActiveRecord::Schema.define(version: 2020_02_10_212112) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "grantee_id"
+    t.string "region"
     t.index ["grantee_id"], name: "index_grants_on_grantee_id"
   end
 

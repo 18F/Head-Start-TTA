@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :grant do
-    sequence(:number) { |n| "03CH100#{n}" }
+    sequence(:number) { |n| "14CH100#{n}" }
+    region { "Region 14" }
 
     trait :grantee do
       association :grantee

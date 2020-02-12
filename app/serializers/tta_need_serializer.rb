@@ -1,4 +1,5 @@
 class TtaNeedSerializer < BaseSerializer
+  has_one :grantee
   has_one :context_link
   has_many :tasks
 

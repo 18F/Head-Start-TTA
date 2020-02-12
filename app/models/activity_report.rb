@@ -1,5 +1,5 @@
 class ActivityReport < ApplicationRecord
-  validates_presence_of :activity_id, :region, :activity_typ, :purpose, :start_date, :end_date, :duration
+  validates_presence_of :activity_id, :activity_typ, :purpose, :start_date, :end_date, :duration
   validates_uniqueness_of :activity_id
   validates_inclusion_of :report_typ, in: %w[GS EC]
 
@@ -19,5 +19,9 @@ class ActivityReport < ApplicationRecord
 
   def linked?
     previous_activity_report.present? || follow_up_reports.any?
+  end
+
+  def region
+    grants.map(&:region).uniq.compact.join(", ")
   end
 end

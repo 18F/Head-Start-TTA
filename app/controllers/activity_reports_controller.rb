@@ -91,8 +91,7 @@ class ActivityReportsController < ApplicationController
     {
       activity_id: row["A"],
       previous_activity_report_id: previous_report(row["B"]),
-      region: row["E"],
-      grants: process_grants(row["F"].split(/,\s*/), row["G"].split(/,\s*/)),
+      grants: process_grants(row["F"].split(/,\s*/), row["G"].split(/,\s*/), row["E"]),
       state: row["H"],
       status: row["I"],
       activity_typ: row["L"],
@@ -114,8 +113,15 @@ class ActivityReportsController < ApplicationController
     end
   end
 
-  def process_grants(grant_numbers, grantee_names)
-    grants = grant_numbers.map { |n| Grant.find_or_create_by(number: n.strip) }
+  def process_grants(grant_numbers, grantee_names, region)
+    grants = grant_numbers.map { |n|
+      grant = Grant.find_or_create_by(number: n.strip)
+      if grant.region.blank? && !region.match?(/,/)
+        grant.region = region
+        grant.save
+      end
+      grant
+    }
     if grants.length == grantee_names.length
       grants.zip(grantee_names) do |grant, name|
         grantee = Grantee.find_or_create_by(name: name.strip)
