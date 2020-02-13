@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { openForm, fetchReportDetails } from 'tta_request_form/actions'
+import { openForm } from 'tta_request_form/actions'
 import TTANeedForm from './containers/tta_need_form'
 
 class App extends PureComponent {
@@ -46,7 +46,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
   openForm: reportId => {
-    // dispatch(fetchReportDetails(reportId))
     dispatch(openForm())
   }
 })
