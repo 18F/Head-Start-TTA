@@ -1,5 +1,3 @@
-export * from './monitoring_report'
-
 export const SET_APP_CONFIG = "SET_APP_CONFIG"
 export const TOGGLE_REQUEST_FORM = "TOGGLE_REQUEST_FORM"
 export const SET_REPORT_DETAILS = "SET_REPORT_DETAILS"
