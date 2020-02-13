@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { getRelationship } from 'redux-bees'
-import GranteeDetailsBox from '../components/grantee_details_box'
+import MonitoringDetails from '../components/monitoring_details'
 
 const mapStateToProps = (state, props) => {
   const grant = getRelationship(state, props.report, 'grant')
@@ -13,4 +13,4 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-export default connect(mapStateToProps)(GranteeDetailsBox)
+export default connect(mapStateToProps)(MonitoringDetails)

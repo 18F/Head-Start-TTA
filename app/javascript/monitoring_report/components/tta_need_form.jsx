@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import GranteeDetails from '../containers/grantee_details'
 
 class TTANeedForm extends PureComponent {
   render() {
@@ -10,7 +9,6 @@ class TTANeedForm extends PureComponent {
     return (
       <div className="grid-col">
         <h2>TTA Request</h2>
-        <GranteeDetails report={report} />
         <form>
           <p>Show the form</p>
           <button className="usa-button" onClick={() => { closeForm() }}>Close Form</button>

@@ -1,6 +1,6 @@
 import { buildApi, get } from 'redux-bees'
 import camelcaseKeys from 'camelcase-keys'
-import store from 'tta_request_form/store'
+import store from './store'
 
 const apiEndpoints = {
   getMonitoringReport: { method: get, path: "/monitoring_reports/:id" }

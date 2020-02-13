@@ -1,4 +1,4 @@
-import api from 'tta_request_form/api'
+import api from '../api'
 
 // export const REQUEST_MONITORING_REPORT = "REQUEST_MONITORING_REPORT"
 // export const RECEIVE_MONITORING_REPORT = "RECEIVE_MONITORING_REPORT"

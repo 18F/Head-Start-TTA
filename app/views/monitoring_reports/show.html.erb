@@ -1,19 +1,5 @@
-<div class="box">
-  <div class="grid-row">
-    <div class="grid-col">
-      <h3>Monitoring Report</h3>
-      <ul class="usa-list usa-list--unstyled">
-        <li><%= @monitoring_report.report_date.to_s(:long) %></li>
-        <li><%= @monitoring_report.formatted_citation %></li>
-        <li><%= @monitoring_report.status %></li>
-        <li><%= link_to @monitoring_report.grantee_name, @monitoring_report.grantee, class: "usa-link" %></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div id="monitoring-report-body"></div>
-<%= javascript_pack_tag "tta_request_form", data: {
+<div id="monitoring-report"></div>
+<%= javascript_pack_tag "monitoring_report", data: {
   "report-id": @monitoring_report.id.to_s,
   "narrative": Kramdown::Document.new(@monitoring_report.narrative).to_html
 } %>

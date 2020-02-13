@@ -1,6 +1,6 @@
 import {
   SET_REPORT_DETAILS
-} from 'tta_request_form/actions'
+} from '../actions'
 
 const report = (state = {}, action) => {
   switch(action.type) {

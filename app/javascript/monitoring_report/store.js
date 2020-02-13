@@ -2,7 +2,7 @@ import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { middleware as beesMiddleware } from 'redux-bees'
 import { createStore, applyMiddleware } from 'redux'
-import reducers from 'tta_request_form/reducers'
+import reducers from './reducers'
 
 const initialState = {
   app: {

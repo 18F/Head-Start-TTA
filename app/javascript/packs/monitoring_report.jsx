@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import RequestFormApp from 'tta_request_form/app'
-import store from 'tta_request_form/store'
-import { setAppConfig, setReportDetails } from 'tta_request_form/actions'
+import MonitoringReportApp from 'monitoring_report/app'
+import store from 'monitoring_report/store'
+import { setAppConfig, setReportDetails } from 'monitoring_report/actions'
 
 const target = document.currentScript
 
@@ -17,7 +17,7 @@ store.dispatch(setReportDetails({
 
 render(
   <Provider store={store}>
-    <RequestFormApp />
+    <MonitoringReportApp />
   </Provider>,
-  document.getElementById("monitoring-report-body")
+  document.getElementById("monitoring-report")
 )

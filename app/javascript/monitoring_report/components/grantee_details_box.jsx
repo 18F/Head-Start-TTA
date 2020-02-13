@@ -37,8 +37,8 @@ class GranteeDetailsBox extends PureComponent {
     return (
       <div className="box">
         <div className="grid-row">
-          <div className="grid-col-6">
-            <h4>{name}</h4>
+          <div className="grid-col-8">
+            <h3>{name}</h3>
             <p><strong>Grant</strong> {number}</p>
             {employees.map((person) =>
               <p key={person.id}>
@@ -47,7 +47,7 @@ class GranteeDetailsBox extends PureComponent {
               </p>
             )}
           </div>
-          <div className="grid-col-6">
+          <div className="grid-col-4">
             <h3>{region}</h3>
             {specialists.map((person) =>
               <p key={person.id}>

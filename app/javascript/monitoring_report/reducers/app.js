@@ -1,7 +1,7 @@
 import {
   SET_APP_CONFIG,
   TOGGLE_REQUEST_FORM
-} from 'tta_request_form/actions'
+} from '../actions'
 
 const app = (state = {}, action) => {
   switch(action.type) {

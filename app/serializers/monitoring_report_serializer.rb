@@ -3,6 +3,7 @@ class MonitoringReportSerializer < BaseSerializer
   has_one :grantee
 
   attributes :narrative, :citation, :status, :report_date, :created_at, :updated_at
+  attribute :formatted_citation
 
   def relationship_related_link(attribute_name)
     case attribute_name
