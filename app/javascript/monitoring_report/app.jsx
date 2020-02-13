@@ -4,15 +4,23 @@ import { query } from 'redux-bees'
 import api from './api'
 import { connect } from 'react-redux'
 import { openForm } from './actions'
+import showdown from 'showdown'
+import xss from 'xss'
 import MonitoringDetails from './containers/monitoring_details'
 import TTANeedForm from './containers/tta_need_form'
 
 class App extends PureComponent {
   renderBodyColumn(columnClass) {
-    const {body} = this.props
+    if (this.props.report == null) {
+      return
+    }
+    const {report: {attributes: {narrative}}} = this.props
+    const converter = new showdown.Converter()
+    const body = {__html: xss(converter.makeHtml(narrative))}
     return (
       <div className={columnClass}>
-        <div className="font-body-md measure-2" dangerouslySetInnerHTML={{__html: body}}></div>
+        <h2>Monitoring Report</h2>
+        <div className="font-body-md measure-2" dangerouslySetInnerHTML={body}></div>
       </div>
     )
   }
@@ -53,7 +61,6 @@ class App extends PureComponent {
 
 const mapStateToProps = state => ({
   formOpen: state.app.formOpen,
-  body: state.report.narrative,
   reportId: state.report.id
 })
 

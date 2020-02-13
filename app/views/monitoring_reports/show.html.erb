@@ -1,5 +1,2 @@
 <div id="monitoring-report"></div>
-<%= javascript_pack_tag "monitoring_report", data: {
-  "report-id": @monitoring_report.id.to_s,
-  "narrative": Kramdown::Document.new(@monitoring_report.narrative).to_html
-} %>
+<%= javascript_pack_tag "monitoring_report", data: {"report-id": @monitoring_report.id.to_s} %>

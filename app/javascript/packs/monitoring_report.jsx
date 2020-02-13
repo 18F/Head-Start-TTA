@@ -11,8 +11,7 @@ store.dispatch(setAppConfig({
   endpoint: window.location.origin
 }))
 store.dispatch(setReportDetails({
-  id: target.getAttribute("data-report-id"),
-  narrative: target.getAttribute("data-narrative")
+  id: target.getAttribute("data-report-id")
 }))
 
 render(

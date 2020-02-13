@@ -10,6 +10,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "camelcase-keys": "^6.1.2",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -18,8 +19,10 @@
     "redux-bees": "^0.1.11",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "showdown": "^1.9.1",
     "turbolinks": "^5.2.0",
-    "uswds": "^2.3.1"
+    "uswds": "^2.3.1",
+    "xss": "^1.0.6"
   },
   "version": "0.1.0",
   "devDependencies": {
