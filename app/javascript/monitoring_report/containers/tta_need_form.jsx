@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import {
-  submitRequest
+  submitRequest,
+  updateNeed
 } from '../actions'
 import TTANeedForm from '../components/tta_need_form'
 
@@ -9,7 +10,8 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  submitRequest: () => { dispatch(submitRequest()) }
+  updateNeed: fields => ( dispatch(updateNeed(fields)) ),
+  submitRequest: () => ( dispatch(submitRequest()) )
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TTANeedForm)

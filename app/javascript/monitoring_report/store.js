@@ -6,17 +6,18 @@ import reducers from './reducers'
 
 const initialState = {
   app: {
-    formOpen: false
+    formOpen: true
   },
   report: {
-    narrative: "",
-    id: "",
-    isFetching: false
+    id: ""
   },
   ttaNeed: {
     narrative: "",
     indicator: "OHS Monitoring Report",
     specialistTypesNeeded: [{value: "GS", label: "Grantee Specialist"}],
+    topics: [],
+    contextLinkId: "",
+    contextLinkType: "monitoring-reports",
     tasks: []
   }
 }

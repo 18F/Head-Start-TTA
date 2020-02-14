@@ -1,5 +1,18 @@
+import {
+  UPDATE_NEED_FIELDS,
+  SET_REPORT_ID
+} from '../actions'
+
 const ttaNeed = (state = {}, action) => {
-  return state
+  switch(action.type) {
+    case UPDATE_NEED_FIELDS:
+      console.log(action.fields)
+      return {...state, ...action.fields}
+    case SET_REPORT_ID:
+      return {...state, contextLinkId: action.id}
+    default:
+      return state
+  }
 }
 
 export default ttaNeed
