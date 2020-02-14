@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_160358) do
+ActiveRecord::Schema.define(version: 2020_02_14_185140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_160358) do
     t.text "specialist_types_needed", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "start_date"
     t.index ["context_link_type", "context_link_id"], name: "index_tta_needs_on_context_link_type_and_context_link_id"
     t.index ["grantee_id"], name: "index_tta_needs_on_grantee_id"
   end

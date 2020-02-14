@@ -3,7 +3,8 @@ class TtaNeedSerializer < BaseSerializer
   has_one :context_link
   has_many :tasks
 
-  attributes :narrative, :indicator, :specialist_types_needed, :created_at, :updated_at
+  attributes :narrative, :indicator, :specialist_types_needed, :start_date, :created_at, :updated_at
+  attribute(:topics) { object.topic_list }
 
   def relationship_related_link(attribute_name)
     case attribute_name

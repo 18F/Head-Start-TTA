@@ -10,6 +10,7 @@ class TTANeedForm extends Component {
       indicator: props.ttaNeed.indicator,
       narrative: props.ttaNeed.narrative,
       topics: props.ttaNeed.topics,
+      startDate: props.ttaNeed.startDate
     }
     this.addSpecialist = this.addSpecialist.bind(this)
     this.inputChanged = this.inputChanged.bind(this)
@@ -79,7 +80,8 @@ class TTANeedForm extends Component {
       specialistTypesNeeded,
       indicator,
       narrative,
-      topics
+      topics,
+      startDate
     } = this.state
     let topicsOptions = []
     if (allTopics) {
@@ -89,6 +91,8 @@ class TTANeedForm extends Component {
       <div className="grid-col">
         <h2>TTA Request</h2>
         <form className="usa-form usa-form--large">
+          <label className="usa-label" htmlFor="start-date">Proposed start date</label>
+          <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
           <label className="usa-label" htmlFor="specialist-type">Type of Specialist(s)</label>
           {specialistTypesNeeded.map((type, index) =>
             <Fragment key={index}>
