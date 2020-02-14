@@ -24,7 +24,8 @@ class TtaNeedsController < ApplicationController
 
   def create_params
     data = params.require(:data)
-    attributes = data.require(:attributes).permit :narrative, :indicator, specialist_types_needed: []
+    attributes = data.require(:attributes).permit :narrative, :indicator, :start_date, topics: [], specialist_types_needed: []
+    attributes[:topic_list] = attributes.delete :topics
     context = data.dig(:relationships, :context_link, :data)
     unless context.nil?
       attributes[:context_link_type] = context[:type].underscore.classify

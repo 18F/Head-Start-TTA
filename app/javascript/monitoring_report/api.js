@@ -1,10 +1,12 @@
-import { buildApi, get } from 'redux-bees'
+import { buildApi, get, post } from 'redux-bees'
 import camelcaseKeys from 'camelcase-keys'
 import store from './store'
 
 const apiEndpoints = {
   getMonitoringReport: { method: get, path: "/monitoring_reports/:id" },
-  getTopics: { method: get, path: "/topics" }
+  getTopics: { method: get, path: "/topics" },
+  createNeed: { method: post, path: "/grantees/:granteeId/tta_needs" },
+  createTask: { method: post, path: "/tta_needs/:ttaNeedId/tasks" }
 }
 
 const config = {

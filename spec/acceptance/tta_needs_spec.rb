@@ -35,9 +35,11 @@ resource "TTA Needs" do
         data: {
           type: "tta-needs",
           attributes: {
+            'start-date': "2020-05-07",
             narrative: "Grantee would like help setting up a new fiscal system",
             indicator: "Grantee Request",
             "specialist-types-needed": ["GS"],
+            topics: ["School Readiness", "Program Governance"],
           },
         },
       }.to_json
@@ -58,9 +60,11 @@ resource "TTA Needs" do
           data: {
             type: "tta-needs",
             attributes: {
+              'start-date': "2020-05-07",
               narrative: "Grantee would like help setting up a new fiscal system",
               indicator: "Grantee Request",
               "specialist-types-needed": ["GS"],
+              topics: ["School Readiness", "Program Governance"],
             },
             relationships: {
               "context-link": {

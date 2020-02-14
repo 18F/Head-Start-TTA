@@ -1,3 +1,7 @@
+import { getEntity, getRelationship } from 'redux-bees'
+import api from '../api'
+import { forEach } from 'lodash'
+
 export const TOGGLE_REQUEST_FORM = "TOGGLE_REQUEST_FORM"
 export const UPDATE_NEED_FIELDS = "UPDATE_NEED_FIELDS"
 
@@ -11,10 +15,59 @@ export const closeForm = () => ({
   value: false
 })
 
-export const submitRequest = () => ({
-  type: TOGGLE_REQUEST_FORM,
-  value: false
-})
+export const submitRequest = () => {
+  return (dispatch, getState) => {
+    const state = getState()
+    const {
+      ttaNeed: {
+        startDate,
+        narrative,
+        indicator,
+        specialistTypesNeeded,
+        topics,
+        contextLinkId,
+        contextLinkType
+      }
+    } = state
+    const report = getEntity(state, {type: contextLinkType, id: contextLinkId})
+    const {id: granteeId} = getRelationship(state, report, 'grantee')
+    dispatch(api.createNeed({granteeId}, {data: {
+      type: "tta-needs",
+      attributes: {
+        'start-date': startDate,
+        narrative,
+        indicator,
+        'specialist-types-needed': specialistTypesNeeded.map(s => s.value),
+        topics: topics.map(t => t.value)
+      },
+      relationships: {
+        "context-link": {
+          data: {type: contextLinkType, id: contextLinkId}
+        }
+      }
+    }})).then(({status, body: {data: {id}}}) => {
+      if (status === 201) {
+        dispatch(createTasks(id))
+      }
+    })
+    dispatch(closeForm())
+  }
+}
+
+const createTasks = (ttaNeedId) => {
+  return (dispatch, getState) => {
+    const { ttaNeed: {tasks} } = getState()
+    forEach(tasks, (t) => {
+      dispatch(api.createTask({ttaNeedId}, {data: {
+        type: "tasks",
+        attributes: {
+          status: "todo",
+          title: t.title
+        }
+      }}))
+    })
+  }
+}
 
 export const updateNeed = fields => ({
   type: UPDATE_NEED_FIELDS,

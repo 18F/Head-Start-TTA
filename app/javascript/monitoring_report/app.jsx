@@ -64,11 +64,9 @@ const mapStateToProps = state => ({
   reportId: state.report.id
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  openForm: () => {
-    dispatch(openForm())
-  }
-})
+const mapDispatchToProps = {
+  openForm
+}
 
 const enhance = compose(
   connect(mapStateToProps, mapDispatchToProps),

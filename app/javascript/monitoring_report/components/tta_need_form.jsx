@@ -73,7 +73,7 @@ class TTANeedForm extends Component {
   render() {
     const {
       submitRequest,
-      report,
+      closeForm,
       topics: allTopics
     } = this.props
     const {
@@ -126,8 +126,11 @@ class TTANeedForm extends Component {
           <textarea className="usa-textarea" id="narrative" value={narrative} name="narrative" onChange={this.inputChanged} />
           <label className="usa-label" htmlFor="objectivs">Objectives</label>
           <div className="box"></div>
-          <button className="usa-button" onClick={() => { submitRequest() }}>Submit request</button>
         </form>
+        <div className="float-right">
+          <button className="usa-button usa-button--outline" onClick={() => { closeForm() }}>Cancel</button>
+          <button className="usa-button" onClick={() => { submitRequest() }}>Submit request</button>
+        </div>
       </div>
     )
   }

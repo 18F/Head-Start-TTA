@@ -4,6 +4,7 @@ import api from '../api'
 import { connect } from 'react-redux'
 import {
   submitRequest,
+  closeForm,
   updateNeed
 } from '../actions'
 import TTANeedForm from '../components/tta_need_form'
@@ -12,10 +13,11 @@ const mapStateToProps = (state, props) => ({
   ttaNeed: state.ttaNeed
 })
 
-const mapDispatchToProps = dispatch => ({
-  updateNeed: fields => ( dispatch(updateNeed(fields)) ),
-  submitRequest: () => ( dispatch(submitRequest()) )
-})
+const mapDispatchToProps = {
+  updateNeed,
+  closeForm,
+  submitRequest
+}
 
 const enhance = compose(
   query('topics', api.getTopics),
