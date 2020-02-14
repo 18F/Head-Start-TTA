@@ -1,6 +1,6 @@
 import { getEntity, getRelationship } from 'redux-bees'
 import api from '../api'
-import { forEach } from 'lodash'
+import { saveTasks } from './tasks'
 
 export const TOGGLE_REQUEST_FORM = "TOGGLE_REQUEST_FORM"
 export const UPDATE_NEED_FIELDS = "UPDATE_NEED_FIELDS"
@@ -47,25 +47,10 @@ export const submitRequest = () => {
       }
     }})).then(({status, body: {data: {id}}}) => {
       if (status === 201) {
-        dispatch(createTasks(id))
+        dispatch(saveTasks(id))
       }
     })
     dispatch(closeForm())
-  }
-}
-
-const createTasks = (ttaNeedId) => {
-  return (dispatch, getState) => {
-    const { ttaNeed: {tasks} } = getState()
-    forEach(tasks, (t) => {
-      dispatch(api.createTask({ttaNeedId}, {data: {
-        type: "tasks",
-        attributes: {
-          status: "todo",
-          title: t.title
-        }
-      }}))
-    })
   }
 }
 

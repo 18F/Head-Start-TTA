@@ -18,9 +18,9 @@ const initialState = {
     specialistTypesNeeded: [{value: "GS", label: "Grantee Specialist"}],
     topics: [{}],
     contextLinkId: "",
-    contextLinkType: "monitoring-reports",
-    tasks: []
-  }
+    contextLinkType: "monitoring-reports"
+  },
+  tasks: [{title: "", key: 1}]
 }
 
 export default createStore(

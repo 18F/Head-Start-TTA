@@ -9,7 +9,7 @@ import {
 } from '../actions'
 import TTANeedForm from '../components/tta_need_form'
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = state => ({
   ttaNeed: state.ttaNeed
 })
 

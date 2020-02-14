@@ -6,7 +6,6 @@ import {
 const ttaNeed = (state = {}, action) => {
   switch(action.type) {
     case UPDATE_NEED_FIELDS:
-      console.log(action.fields)
       return {...state, ...action.fields}
     case SET_REPORT_ID:
       return {...state, contextLinkId: action.id}
