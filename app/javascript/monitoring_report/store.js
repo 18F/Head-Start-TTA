@@ -16,7 +16,7 @@ const initialState = {
   ttaNeed: {
     narrative: "",
     indicator: "OHS Monitoring Report",
-    specialistTypesNeeded: [],
+    specialistTypesNeeded: [{value: "GS", label: "Grantee Specialist"}],
     tasks: []
   }
 }

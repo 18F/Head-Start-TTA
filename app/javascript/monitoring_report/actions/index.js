@@ -17,6 +17,11 @@ export const closeForm = () => ({
   value: false
 })
 
+export const submitRequest = () => ({
+  type: TOGGLE_REQUEST_FORM,
+  value: false
+})
+
 export const setReportDetails = details => ({
   type: SET_REPORT_DETAILS,
   details
