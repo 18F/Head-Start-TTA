@@ -3,7 +3,8 @@ import camelcaseKeys from 'camelcase-keys'
 import store from './store'
 
 const apiEndpoints = {
-  getMonitoringReport: { method: get, path: "/monitoring_reports/:id" }
+  getMonitoringReport: { method: get, path: "/monitoring_reports/:id" },
+  getTopics: { method: get, path: "/topics" }
 }
 
 const config = {

@@ -1,3 +1,6 @@
+import { compose } from 'redux'
+import { query } from 'redux-bees'
+import api from '../api'
 import { connect } from 'react-redux'
 import {
   submitRequest,
@@ -14,4 +17,9 @@ const mapDispatchToProps = dispatch => ({
   submitRequest: () => ( dispatch(submitRequest()) )
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TTANeedForm)
+const enhance = compose(
+  query('topics', api.getTopics),
+  connect(mapStateToProps, mapDispatchToProps)
+)
+
+export default enhance(TTANeedForm)

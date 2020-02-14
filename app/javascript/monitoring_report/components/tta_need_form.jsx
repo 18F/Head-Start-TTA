@@ -8,10 +8,12 @@ class TTANeedForm extends Component {
     this.state = {
       specialistTypesNeeded: props.ttaNeed.specialistTypesNeeded,
       indicator: props.ttaNeed.indicator,
-      narrative: props.ttaNeed.narrative
+      narrative: props.ttaNeed.narrative,
+      topics: props.ttaNeed.topics,
     }
     this.addSpecialist = this.addSpecialist.bind(this)
     this.inputChanged = this.inputChanged.bind(this)
+    this.addTopic = this.addTopic.bind(this)
   }
   specialistOptions = [
     { value: "GS", label: "Grantee Specialist" },
@@ -19,7 +21,7 @@ class TTANeedForm extends Component {
     { value: "HS", label: "Health Specialist" },
     { value: "FS", label: "Fiscal Specialist" }
   ]
-  specialistTypeChanged(value, event, index) {
+  specialistTypeChanged(value, index) {
     let types = this.state.specialistTypesNeeded
     types[index] = value
     this.sendUpdate({specialistTypesNeeded: types})
@@ -39,6 +41,23 @@ class TTANeedForm extends Component {
     types.splice(index, 1)
     this.sendUpdate({specialistTypesNeeded: types})
   }
+  topicChanged(value, index) {
+    let topics = this.state.topics
+    topics[index] = value
+    this.sendUpdate({topics})
+  }
+  addTopic(event) {
+    event.preventDefault()
+    let topics = this.state.topics
+    topics.push({})
+    this.sendUpdate({topics})
+  }
+  removeTopic(event, index) {
+    event.preventDefault()
+    let topics = this.state.topics
+    topics.splice(index, 1)
+    this.sendUpdate({topics})
+  }
   inputChanged(e) {
     const target = e.target
     const value = target.type === 'checkbox' ? target.checked : target.value
@@ -54,12 +73,18 @@ class TTANeedForm extends Component {
     const {
       submitRequest,
       report,
+      topics: allTopics
     } = this.props
     const {
       specialistTypesNeeded,
       indicator,
-      narrative
+      narrative,
+      topics
     } = this.state
+    let topicsOptions = []
+    if (allTopics) {
+      topicsOptions = allTopics.map(t => ({value: t.attributes.name, label: t.attributes.name}))
+    }
     return (
       <div className="grid-col">
         <h2>TTA Request</h2>
@@ -67,7 +92,7 @@ class TTANeedForm extends Component {
           <label className="usa-label" htmlFor="specialist-type">Type of Specialist(s)</label>
           {specialistTypesNeeded.map((type, index) =>
             <Fragment key={index}>
-              <Select options={this.specialistOptions} value={type} onChange={(value, event) => this.specialistTypeChanged(value, event, index)} />
+              <Select options={this.specialistOptions} value={type} onChange={value => this.specialistTypeChanged(value, index)} />
               {index != 0 &&
                 <p style={{margin: 0}}><a href="#" onClick={e => this.removeSpecialist(e, index)}>Remove</a></p>
               }
@@ -77,7 +102,17 @@ class TTANeedForm extends Component {
             <p style={{margin: 0}}><a href="#" onClick={this.addSpecialist}>Add another specialist</a></p>
           }
           <label className="usa-label" htmlFor="topics">TA Area(s)</label>
-
+          {topics.map((type, index) =>
+            <Fragment key={index}>
+              <Select options={topicsOptions} value={type} onChange={value => this.topicChanged(value, index)} />
+              {index != 0 &&
+                <p style={{margin: 0}}><a href="#" onClick={e => this.removeTopic(e, index)}>Remove</a></p>
+              }
+            </Fragment>
+          )}
+          {topics.length < topicsOptions.length &&
+            <p style={{margin: 0}}><a href="#" onClick={this.addTopic}>Add another area</a></p>
+          }
           <label className="usa-label" htmlFor="indicator">Indicator of Need</label>
           <input type="text" className="usa-input" id="indicator" value={indicator} readOnly />
           <p className="usa-hint">This Monitoring Report will be attached to request</p>

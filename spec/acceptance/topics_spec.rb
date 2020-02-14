@@ -11,7 +11,6 @@ resource "Topics" do
       expect(status).to eq 200
     end
   end
-  #
   get "/topics/:id" do
     let(:id) { Topic.all.first.id }
 
