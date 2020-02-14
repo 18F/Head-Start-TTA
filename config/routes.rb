@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :tasks, only: %i[index show create]
     end
   end
+  resources :topics, only: %i[index show]
 
   root to: "grantees#index"
 end
