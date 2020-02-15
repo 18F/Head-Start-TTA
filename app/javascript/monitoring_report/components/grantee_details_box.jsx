@@ -32,7 +32,7 @@ class GranteeDetailsBox extends PureComponent {
       return (<div>Loading</div>)
     }
     const {attributes: {number, region}} = grant
-    const {attributes: {name}} = grantee
+    const {id: granteeId, attributes: {name}} = grantee
     const [employees, specialists] = partition(people, p => p.attributes.granteeEmployee)
     return (
       <div className="box">
@@ -46,6 +46,7 @@ class GranteeDetailsBox extends PureComponent {
                 {this.renderPhoneAndEmail(person)}
               </p>
             )}
+            <p style={{marginBottom: 0}}><a href={`/grantees/${granteeId}`} className="usa-link">Back to Grantee</a></p>
           </div>
           <div className="grid-col-4">
             <h3>{region}</h3>

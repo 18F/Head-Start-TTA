@@ -43,7 +43,7 @@
             <p>Citation: <%= mr.formatted_citation %></p>
             <p>Type: <%= mr.status %></p>
             <p>Notes: <%= mr.narrative.truncate(100) %></p>
-            <p><%= link_to "View Report", mr, class: "usa-button" %></p>
+            <p><%= link_to "View Report", mr, class: "usa-button", data: {turbolinks: false} %></p>
           </div>
         </div>
       </div>
