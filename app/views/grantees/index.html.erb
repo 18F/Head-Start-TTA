@@ -6,6 +6,7 @@
       <th scope="col">Name</th>
       <th scope="col">Grants</th>
       <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
           </ul>
         </td>
         <td><%= link_to "Show", g, class: "usa-link" %></td>
+        <td><%= link_to "Show TTA Requests", grantee_tta_needs_path(grantee_id: g.id), class: "usa-link" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -2,12 +2,19 @@ class TtaNeedsController < ApplicationController
   include JsonapiMethods
 
   def index
-    needs = TtaNeed.where(grantee_id: params[:grantee_id])
-    render_models needs
+    @tta_needs = TtaNeed.where(grantee_id: params[:grantee_id])
+    respond_to do |format|
+      format.html
+      format.api_json { render_models @tta_needs }
+    end
   end
 
   def show
-    render_model TtaNeed.find(params[:id])
+    @tta_need = TtaNeed.find params[:id]
+    respond_to do |format|
+      format.html
+      format.api_json { render_model @tta_need }
+    end
   end
 
   def create

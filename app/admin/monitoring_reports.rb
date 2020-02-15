@@ -24,13 +24,15 @@ ActiveAdmin.register MonitoringReport do
   form do |f|
     f.inputs "Details" do
       f.input :grant, collection: Grant.order(:number).map { |g| [g.number, g.id] }
-      f.input :narrative
       f.input :citation
-      f.input :citation_details
       f.input :report_date
       f.input :due_date
       f.input :timeframe
       f.input :status, collection: ["Noncompliance", "Deficient"]
+    end
+    f.inputs "Markdown" do
+      f.input :narrative
+      f.input :citation_details
     end
     f.actions
   end

@@ -46,7 +46,7 @@ class GranteeDetailsBox extends PureComponent {
                 {this.renderPhoneAndEmail(person)}
               </p>
             )}
-            <p style={{marginBottom: 0}}><a href={`/grantees/${granteeId}`} className="usa-link">Back to Grantee</a></p>
+            <p style={{marginBottom: 0}}><a href={`/grantees/${granteeId}`} className="usa-link">View Grantee Details</a></p>
           </div>
           <div className="grid-col-4">
             <h3>{region}</h3>

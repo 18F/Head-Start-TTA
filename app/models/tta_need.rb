@@ -11,6 +11,7 @@ class TtaNeed < ApplicationRecord
   ]
 
   belongs_to :grantee
+  delegate :name, to: :grantee, prefix: true
   belongs_to :context_link, polymorphic: true, optional: true
 
   has_many :tasks, as: :parent
