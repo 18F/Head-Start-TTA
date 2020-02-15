@@ -13,13 +13,15 @@
   <dd><%= @tta_need.topic_list %></dd>
   <dt>Indicator of Need</dt>
   <dd><%= @tta_need.indicator %></dd>
-  <dt>Monitoring Report</dt>
-  <dd><%= link_to @tta_need.context_link.formatted_citation, @tta_need.context_link, class: "usa-link" %></dd>
+  <% if @tta_need.context_link.present? %>
+    <dt>Monitoring Report</dt>
+    <dd><%= link_to @tta_need.context_link.formatted_citation, monitoring_report_path(id: @tta_need.context_link.id), class: "usa-link" %></dd>
+  <% end %>
 </dl>
 
 <h2>Description of TTA Requested</h2>
 <div class="font-body-md measure-2">
-  <%= Kramdown::Document.new(@tta_need.narrative).to_html.html_safe %>
+  <%= sanitize Kramdown::Document.new(@tta_need.narrative).to_html %>
 </div>
 
 <h2>Objectives</h2>
