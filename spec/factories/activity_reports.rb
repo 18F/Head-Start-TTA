@@ -2,7 +2,6 @@ FactoryBot.define do
   factory :activity_report do
     sequence(:activity_id) { |n| "TTA-0123#{n}" }
     report_typ { "EC" }
-    region { "Region 03" }
     state { "PA" }
     status { "Approved By Manager" }
     activity_typ { "Grantee specific" }

@@ -1,0 +1,26 @@
+<h1>TTA Needs</h1>
+
+<table class="usa-table">
+  <thead>
+    <tr>
+      <th scope="col">Grantee</th>
+      <th scope="col">Requested On</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Indicator of Need</th>
+      <th scope="col">Specialists Requested</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tta_needs.each do |t| %>
+      <tr>
+        <th scope="row"><%= t.grantee_name %></th>
+        <td><%= t.created_at.strftime("%B %-d, %Y %l:%M%P") %></td>
+        <td><%= t.start_date&.strftime("%B %-d, %Y") %></td>
+        <td><%= t.indicator %></td>
+        <td><%= t.specialist_types_needed.join(", ") %></td>
+        <td><%= link_to "Show", t, class: "usa-link" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

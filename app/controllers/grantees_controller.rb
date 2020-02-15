@@ -1,14 +1,23 @@
 class GranteesController < ApplicationController
+  include JsonapiMethods
+
   def index
     @grantees = Grantee.all
   end
 
   def show
     @grantee = Grantee.find params[:id]
-    @query = params[:q]
-    @topic = params[:topic]
-    @date = params[:date]
-    @activity_reports = find_activity_reports
+    if request.format.html?
+      @query = params[:q]
+      @topic = params[:topic]
+      @date = params[:date]
+      @monitoring_reports = @grantee.monitoring_reports.order(:report_date)
+      @activity_reports = find_activity_reports
+    end
+    respond_to do |format|
+      format.html
+      format.api_json { render_model @grantee }
+    end
   end
 
   private

@@ -13,6 +13,9 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore generated api docs
+/doc/api/
+
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep

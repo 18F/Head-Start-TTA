@@ -11,7 +11,7 @@ module ActivityReportsHelper
       html.gsub!(/(?<=\<p\>)(Next Steps?) (TTA|GS):?/i) { "<h3>#{$1.titleize} #{$2.upcase}</h3>" }
       html.gsub!(/(?<=\<p\>)(Grantee will):/i) { "<h3>#{$1.titleize}</h3>" }
       html.gsub!(/(?<=\<p\>)(GS|ECS) will:/i) { "<h3>#{$1.upcase} Will</h3>" }
-      html.html_safe
+      sanitize html
     end
   end
 
@@ -26,7 +26,7 @@ module ActivityReportsHelper
       html.gsub!(/(?<=\<p\>)(?:[IVX]+\. )?(T{1,2}A) Provided:?/i) { "<h3>#{$1.upcase} Provided</h3>" }
       html.gsub!(/(?<=\<p\>)(?:[IVX]+\. )?Pre (T{1,2}A):?/i) { "<h3>Pre #{$1.upcase}</h3>" }
       html.gsub!(/(?<=\<p\>)(?:[IVX]+\. )?Post (T{1,2}A):?/i) { "<h3>Post #{$1.upcase}</h3>" }
-      html.html_safe
+      sanitize html
     end
   end
 end
