@@ -1,3 +1,73 @@
 // Place all the styles related to the tta_needs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.activity-timeline {
+  padding-top: 1rem;
+
+  .grid-col-1 svg {
+    margin-top: 0.25em;
+    cursor: pointer;
+  }
+}
+
+.task {
+  &:first-child {
+    margin-top: 0;
+  }
+  margin-top: 2em;
+}
+
+.task, .task-update {
+  .avatar {
+    svg {
+      margin: 0 auto;
+      display: block;
+    }
+    p {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 0.5em;
+    }
+  }
+
+  h4 {
+    margin: 0;
+    svg { display: none }
+  }
+
+  .due-date {
+    font-weight: bold;
+  }
+
+  .task-update-text, .add-task-update, .basic-details {
+    color: #555;
+  }
+  .task-update-text {
+    margin-top: 0;
+  }
+
+  &.completed {
+    h4 {
+      color: green;
+      svg.completed {
+        display: inline-block;
+      }
+    }
+    button {
+      display: none;
+    }
+  }
+
+  &.dropped {
+    h4 {
+      color: red;
+      svg.dropped {
+        display: inline-block;
+      }
+    }
+    button {
+      display: none;
+    }
+  }
+}

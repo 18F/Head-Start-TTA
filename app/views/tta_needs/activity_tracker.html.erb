@@ -1,0 +1,209 @@
+<h1>Activity Tracker</h1>
+<div class="box">
+  <div class="grid-row">
+    <div class="grid-col-8">
+      <h3><%= @grantee.name %></h3>
+      <p><strong>Grant</strong> <%= @grant.number %></p>
+      <% @grantee.employees.each do |person| %>
+        <p>
+          <strong>Point of Contact:</strong> <%= person.name %> - <%= person.role %>
+          <br/>
+          <%= render_person_contact_info(person) %>
+        </p>
+      <% end %>
+    </div>
+    <div class="grid-col-4">
+      <h3><%= @grant.region %></h3>
+      <% @grantee.assigned_specialists.each do |person| %>
+        <p>
+          <strong><%= person.role %></strong> <%= person.name %>
+          <br/>
+          <%= render_person_contact_info(person) %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="grid-row">
+    <div class="grid-col-8">
+      <h4>Area of <%= @monitoring_report.status %> Determination</h4>
+      <p><strong>Citation:</strong> <%= @monitoring_report.formatted_citation %></p>
+      <div class="measure-2">
+        <%= sanitize Kramdown::Document.new(@monitoring_report.citation_details).to_html %>
+      </div>
+    </div>
+    <div class="grid-col-4">
+      <p><strong>Report Date:</strong> <%= @monitoring_report.report_date.strftime("%B %-d, %Y") %></p>
+      <p><strong>Due Date:</strong> <%= @monitoring_report.due_date.strftime("%B %-d, %Y") %></p>
+      <p><strong>Timeframe for Correction:</strong> <%= @monitoring_report.timeframe %></p>
+    </div>
+  </div>
+</div>
+
+<div class="grid-row activity-timeline">
+  <div class="grid-col-2">
+    <h3>Activities Timeline</h3>
+  </div>
+  <div class="grid-col-1">
+  </div>
+  <div class="grid-col-1">
+    <i class="fas fa-phone-volume fa-2x" onClick="alert('Activity Date: 1/15/2020\nParticipants: PS & HSD')"></i>
+  </div>
+  <div class="grid-col-1">
+    <i class="fas fa-users fa-2x" onClick="alert('Activity Date: 1/19/2020\nParticipants: GS, HSD, ED')"></i>
+  </div>
+  <div class="grid-col-1">
+    <i class="fas fa-laptop fa-2x" onClick="alert('Activity Date: 1/30/2020\nParticipants GS, HSD, ED')"></i>
+  </div>
+  <div class="grid-col-1">
+    <i class="fas fa-users fa-2x" onClick="alert('Activity Date: 2/5/2020\nParticipants GS, ECS, HSD')"></i>
+  </div>
+  <div class="grid-col-1">
+    <i class="fas fa-phone-volume fa-2x" onClick="alert('Activity Date: 2/14/2020\nParticipants GS, HSD')"></i>
+  </div>
+  <div class="grid-col-1">
+  </div>
+  <div class="grid-col-1">
+  </div>
+  <div class="grid-col-1">
+  </div>
+  <div class="grid-col-1">
+  </div>
+</div>
+
+<script>
+  function completeTask(selectorClass, newClass) {
+    var elements = document.getElementsByClassName(selectorClass)
+    for (e of elements) {
+      e.classList.add(newClass)
+    }
+  }
+  function readMore() {
+    alert("In the future, this will show a more detailed view of objective updates, including links to any attached documents")
+  }
+</script>
+
+<h3>Objectives for Grantee</h3>
+<div class="box">
+  <div class="grid-row task task-1">
+    <div class="grid-col-1 avatar">
+      <i class="fas fa-user fa-lg"></i>
+      <p>GS</p>
+    </div>
+    <div class="grid-col-11">
+      <h4><i class="fas fa-check-circle fa-lg completed"></i><i class="fas fa-minus-circle fa-lg dropped"></i> Contact the director to assess progress on the corrective action plan</h4>
+      <p class="basic-details">1/19/2020 Added by <u>Grantee Specialist</u></p>
+      <p class="due-date">DUE DATE: February 19, 2020</p>
+      <p class="add-task-update"><i class="fas fa-file-medical"></i> Add Update</p>
+      <button class="usa-button" onClick="completeTask('task-1', 'completed')">Done</button>
+      <button class="usa-button usa-button--secondary" onClick="completeTask('task-1', 'dropped')">Drop</button>
+    </div>
+  </div>
+  <div class="grid-row task task-2">
+    <div class="grid-col-1 avatar">
+      <i class="fas fa-user fa-lg"></i>
+      <p>GS</p>
+    </div>
+    <div class="grid-col-11">
+      <h4><i class="fas fa-check-circle fa-lg completed"></i><i class="fas fa-minus-circle fa-lg dropped"></i> Grantee Will: Seek input from management team and board on the corrective action plan</h4>
+      <p class="basic-details">1/19/2020 Added by <u>Grantee Specialist</u></p>
+      <p class="add-task-update"><i class="fas fa-file-medical"></i> Add Update</p>
+      <button class="usa-button" onClick="completeTask('task-2', 'completed')">Done</button>
+      <button class="usa-button usa-button--secondary" onClick="completeTask('task-2', 'dropped')">Drop</button>
+    </div>
+  </div>
+  <div class="grid-row task task-3">
+    <div class="grid-col-1 avatar">
+      <i class="fas fa-user fa-lg"></i>
+      <p>GS</p>
+    </div>
+    <div class="grid-col-11">
+      <h4><i class="fas fa-check-circle fa-lg completed"></i><i class="fas fa-minus-circle fa-lg dropped"></i> Develop a corrective action plan</h4>
+      <p class="basic-details">1/19/2020 Added by <u>Grantee Specialist</u></p>
+    </div>
+  </div>
+  <div class="grid-row task-update task-3">
+    <div class="grid-col-1 avatar">
+      <i class="fas fa-user fa-lg"></i>
+      <p>GS</p>
+    </div>
+    <div class="grid-col-11">
+      <p class="task-update-text">
+        <strong>UPDATE:</strong>
+        Reviewed <u>multiple resources and tools</u> related to child health and
+        safety to assist them in reviewing current practices and for development
+        of a corrective action plan.
+        <%= link_to "Read more", "javascript:readMore()", class: "usa-link" %>
+      </p>
+    </div>
+  </div>
+  <div class="grid-row task-update task-3">
+    <div class="grid-col-1 avatar">
+      <i class="fas fa-user fa-lg"></i>
+      <p>ECS</p>
+    </div>
+    <div class="grid-col-11">
+      <p class="task-update-text">
+        <strong>UPDATE:</strong>
+        CAP has been completed and uploaded. ECS considers Objective complete.
+        <%= link_to "Read more", "javascript:readMore()", class: "usa-link" %>
+      </p>
+      <p class="add-task-update"><i class="fas fa-file-medical"></i> Add Update</p>
+      <button class="usa-button" onClick="completeTask('task-3', 'completed')">Done</button>
+      <button class="usa-button usa-button--secondary" onClick="completeTask('task-3', 'dropped')">Drop</button>
+    </div>
+  </div>
+  <div class="grid-row task completed">
+    <div class="grid-col-1 avatar">
+      <i class="fas fa-user fa-lg"></i>
+      <p>PS</p>
+    </div>
+    <div class="grid-col-11">
+      <h4><i class="fas fa-check-circle fa-lg completed"></i> Determine the root cause(s) of the deficiency</h4>
+      <p class="basic-details">1/15/2020 Added by <u>Program Specialist</u></p>
+    </div>
+  </div>
+  <div class="grid-row task-update completed">
+    <div class="grid-col-1 avatar">
+      <i class="fas fa-user fa-lg"></i>
+      <p>GS</p>
+      <i class="fas fa-user fa-lg"></i>
+      <p>ECS</p>
+    </div>
+    <div class="grid-col-11">
+      <p class="task-update-text">
+        <strong>UPDATE:</strong>
+        Using the <u>HS Management Systems Wheel</u>, began to identify some possible
+        causes that led to the deficiency which included breakdowns or gaps in the
+        human resources, communication, ongoing monitoring, and professional development/training
+        management systems.
+        <%= link_to "Read more", "javascript:readMore()", class: "usa-link" %>
+      </p>
+    </div>
+  </div>
+  <div class="grid-row task dropped">
+    <div class="grid-col-1 avatar">
+      <i class="fas fa-user fa-lg"></i>
+      <p>PS</p>
+    </div>
+    <div class="grid-col-11">
+      <h4><i class="fas fa-minus-circle fa-lg dropped"></i> Fix the problem</h4>
+      <p class="basic-details">1/15/2020 Added by <u>Program Specialist</u></p>
+    </div>
+  </div>
+  <div class="grid-row task-update dropped">
+    <div class="grid-col-1 avatar">
+      <i class="fas fa-user fa-lg"></i>
+      <p>GS</p>
+    </div>
+    <div class="grid-col-11">
+      <p class="task-update-text">
+        <strong>UPDATE:</strong>
+        Objective has been superseded by &ldquo;Develop a corrective action plan&rdquo;
+        <%= link_to "Read more", "javascript:readMore()", class: "usa-link" %>
+      </p>
+    </div>
+  </div>
+</div>

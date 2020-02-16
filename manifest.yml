@@ -15,3 +15,4 @@ applications:
       RAILS_LOG_TO_STDOUT: true
       RAILS_SERVE_STATIC_FILES: true
       BUNDLE_WITHOUT: "test:development"
+      EXP3_MONITORING_REPORT_ID: 1

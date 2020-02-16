@@ -20,3 +20,23 @@ import 'uswds/src/stylesheets/uswds.scss'
 import 'uswds/dist/img/close.svg'
 
 require('uswds')
+
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
+import {
+  faPhoneVolume,
+  faLaptop,
+  faUser,
+  faUsers,
+  faFileMedical,
+  faCheckCircle,
+  faMinusCircle
+} from '@fortawesome/free-solid-svg-icons'
+
+library.add(faPhoneVolume)
+library.add(faLaptop)
+library.add(faUsers)
+library.add(faUser)
+library.add(faFileMedical)
+library.add(faCheckCircle)
+library.add(faMinusCircle)
+dom.watch()

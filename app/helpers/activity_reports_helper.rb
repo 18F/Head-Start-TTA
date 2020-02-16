@@ -1,4 +1,11 @@
 module ActivityReportsHelper
+  def render_person_contact_info(person)
+    result = []
+    result << "<strong>Phone:</strong> #{person.phone_number}" if person.phone_number.present?
+    result << "<strong>Email:</strong> #{mail_to person.email}" if person.email.present?
+    sanitize result.join("<br/>")
+  end
+
   def pretend_we_have_proper_next_steps_fields(next_steps)
     if next_steps.blank?
       content_tag :p, "No next steps defined"

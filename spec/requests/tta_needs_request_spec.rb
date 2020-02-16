@@ -17,4 +17,12 @@ RSpec.describe "TtaNeeds", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe "GET tracker" do
+    let!(:report) { create :monitoring_report, :grantee }
+    it "responds with http success" do
+      get tta_needs_tracker_path
+      expect(response).to have_http_status(:success)
+    end
+  end
 end

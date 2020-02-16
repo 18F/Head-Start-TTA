@@ -4,7 +4,7 @@ import xss from 'xss'
 import moment from 'moment'
 
 class MonitoringDetailsBox extends PureComponent {
-  formattedCitation() {
+  get formattedCitation() {
     const {report: {attributes: {citationDetails}}} = this.props
     const converter = new showdown.Converter()
     return {__html: xss(converter.makeHtml(citationDetails))}
@@ -20,7 +20,7 @@ class MonitoringDetailsBox extends PureComponent {
           <div className="grid-col-8">
             <h4>Area of {report.status} Determination</h4>
             <p><strong>Citation:</strong> {report.formattedCitation}</p>
-            <div className="measure-2" dangerouslySetInnerHTML={this.formattedCitation()}></div>
+            <div className="measure-2" dangerouslySetInnerHTML={this.formattedCitation}></div>
           </div>
           <div className="grid-col-4">
             <p><strong>Report Date:</strong> {moment(report.reportDate).format("MMMM D, YYYY")}</p>

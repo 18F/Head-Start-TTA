@@ -44,6 +44,9 @@
             <p>Type: <%= mr.status %></p>
             <p>Notes: <%= mr.narrative.truncate(100) %></p>
             <p><%= link_to "View Report", mr, class: "usa-button", data: {turbolinks: false} %></p>
+            <% if recent_tta_request? %>
+              <p><%= link_to "Track Requested TTA", tta_needs_tracker_path, class: "usa-button" %></p>
+            <% end %>
           </div>
         </div>
       </div>
