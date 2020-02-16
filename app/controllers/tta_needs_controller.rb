@@ -27,6 +27,12 @@ class TtaNeedsController < ApplicationController
     end
   end
 
+  def activity_tracker
+    @monitoring_report = ENV["MONITORING_REPORT_3_ID"].present? ? MonitoringReport.find(ENV["MONITORING_REPORT_3_ID"]) : MonitoringReport.first
+    @grant = @monitoring_report.grant
+    @grantee = @monitoring_report.grantee
+  end
+
   private
 
   def create_params

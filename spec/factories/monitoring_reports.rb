@@ -21,5 +21,9 @@ FactoryBot.define do
       timeframe { "30 days" }
       due_date { 29.days.from_now }
     end
+
+    trait :grantee do
+      association :grant, factory: [:grant, :grantee]
+    end
   end
 end

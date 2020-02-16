@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :activity_reports
+  get "/tta_needs/tracker", to: "tta_needs#activity_tracker"
   resources :grantees, only: %i[index show], shallow: true do
     resources :people, only: %i[index show]
     resources :grants, only: %i[index show] do
