@@ -11,6 +11,23 @@ require "rails_helper"
 #   end
 # end
 RSpec.describe GranteesHelper, type: :helper do
+  describe "#recent_tta_request?" do
+    context "tta need created in past hour" do
+      before do
+        create :tta_need
+      end
+
+      it "should return true" do
+        expect(helper.recent_tta_request?).to be true
+      end
+    end
+    context "no recent tta requests" do
+      it "should return false" do
+        expect(helper.recent_tta_request?).to be false
+      end
+    end
+  end
+
   describe "#topic_options" do
     let(:grant) { create :grant, :grantee }
     let!(:ar) { create :activity_report, topic_list: %w[TopicA TopicB], grants: [grant] }

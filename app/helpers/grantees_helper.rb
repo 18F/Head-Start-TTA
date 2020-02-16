@@ -1,4 +1,8 @@
 module GranteesHelper
+  def recent_tta_request?
+    TtaNeed.where("created_at > ?", 1.hour.ago).exists?
+  end
+
   def topic_options(grantee)
     topics = Topic.for_grantee(grantee).select(:name).order(:name)
     topics = topics.map { |t| [t.name, t.name] }
