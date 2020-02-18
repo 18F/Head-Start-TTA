@@ -15,7 +15,7 @@ const initialState = {
   ttaNeed: {
     startDate: "",
     narrative: "",
-    indicator: "OHS Monitoring Report",
+    indicator: "OHS Monitoring Report / Noncompliance",
     specialistTypesNeeded: [{value: "GS", label: "Grantee Specialist"}],
     topics: [{}],
     contextLinkId: "",
