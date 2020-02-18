@@ -19,7 +19,7 @@ class TTANeedForm extends Component {
   }
   specialistOptions = [
     { value: "GS", label: "Grantee Specialist" },
-    { value: "ECS", label: "Early Childcare Specialist" },
+    { value: "ECS", label: "Early Childhood Specialist" },
     { value: "HS", label: "Health Specialist" },
     { value: "FS", label: "Fiscal Specialist" }
   ]
