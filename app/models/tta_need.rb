@@ -2,6 +2,7 @@ class TtaNeed < ApplicationRecord
   VALID_INDICATORS = [
     "Grantee Request",
     "OHS Monitoring Report",
+    "OHS Monitoring Report / Noncompliance",
     "Risk Management Meeting",
     "PIR Results",
     "NC Priority",

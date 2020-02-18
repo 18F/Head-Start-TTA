@@ -122,7 +122,7 @@ class TTANeedForm extends Component {
           <input type="text" className="usa-input" id="indicator" value={indicator} readOnly />
           <p className="usa-hint">This Monitoring Report will be attached to request</p>
           <label className="usa-label" htmlFor="additional-info">Additional Information</label>
-          <input type="text" className="usa-input" id="additional-info" value="in future, attach files here" readOnly />
+          <input type="text" className="usa-input" id="additional-info" value="attach files here" readOnly />
           <label className="usa-label" htmlFor="narrative">Description of TTA Requested</label>
           <textarea className="usa-textarea" id="narrative" value={narrative} name="narrative" onChange={this.inputChanged} />
           <label className="usa-label" htmlFor="objectivs">Objectives</label>
