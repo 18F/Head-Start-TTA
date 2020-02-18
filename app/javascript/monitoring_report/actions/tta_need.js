@@ -4,6 +4,7 @@ import { saveTasks } from './tasks'
 
 export const TOGGLE_REQUEST_FORM = "TOGGLE_REQUEST_FORM"
 export const UPDATE_NEED_FIELDS = "UPDATE_NEED_FIELDS"
+export const SHOW_SUCCESS_MESSAGE = "TTA_NEED_SUCCESSFULLY_CREATED"
 
 export const openForm = () => ({
   type: TOGGLE_REQUEST_FORM,
@@ -48,11 +49,16 @@ export const submitRequest = () => {
     }})).then(({status, body: {data: {id}}}) => {
       if (status === 201) {
         dispatch(saveTasks(id))
+        dispatch(needCreated())
       }
     })
     dispatch(closeForm())
   }
 }
+
+const needCreated = () => ({
+  type: SHOW_SUCCESS_MESSAGE
+})
 
 export const updateNeed = fields => ({
   type: UPDATE_NEED_FIELDS,
