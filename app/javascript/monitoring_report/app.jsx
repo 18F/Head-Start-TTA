@@ -41,8 +41,25 @@ class App extends PureComponent {
       return (
         <div className="grid-row">
           {this.renderBodyColumn("grid-col-10")}
-          <div className="grid-col-2">
+          <div className="grid-col-2" style={{marginTop: "1rem"}}>
             <button className="usa-button" onClick={() => { openForm() }}>Request TTA</button>
+          </div>
+        </div>
+      )
+    }
+  }
+  renderSuccessMessage() {
+    const {showSuccess} = this.props
+    if (showSuccess) {
+      return (
+        <div className="grid-row">
+          <div className="grid-col">
+            <div className="usa-alert usa-alert--success">
+              <div className="usa-alert__body">
+                <h3 class="usa-alert__heading">Success</h3>
+                <p class="usa-alert__text">TTA Request has been submitted</p>
+              </div>
+            </div>
           </div>
         </div>
       )
@@ -53,6 +70,7 @@ class App extends PureComponent {
     return (
       <Fragment>
         <MonitoringDetails report={report} />
+        {this.renderSuccessMessage()}
         {this.renderReportBody()}
       </Fragment>
     )
@@ -61,6 +79,7 @@ class App extends PureComponent {
 
 const mapStateToProps = state => ({
   formOpen: state.app.formOpen,
+  showSuccess: state.app.showSuccess,
   reportId: state.report.id
 })
 

@@ -6,7 +6,8 @@ import reducers from './reducers'
 
 const initialState = {
   app: {
-    formOpen: false
+    formOpen: false,
+    showSuccess: false
   },
   report: {
     id: ""
