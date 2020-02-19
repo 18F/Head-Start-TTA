@@ -7,12 +7,10 @@
 
 # Ignore uploaded files in development.
 /storage/*
-/public/assets
-.byebug_history
 
-/public/packs
 /public/packs-test
 /node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.byebug_history
