@@ -4,6 +4,8 @@ import { Provider } from 'react-redux'
 import MonitoringReportApp from 'monitoring_report/app'
 import store from 'monitoring_report/store'
 import { setAppConfig, setReportId } from 'monitoring_report/actions'
+import "core-js"
+import "regenerator-runtime/runtime"
 
 const target = document.currentScript
 
