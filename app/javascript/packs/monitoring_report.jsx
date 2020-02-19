@@ -7,8 +7,7 @@ import { setAppConfig, setReportId } from 'monitoring_report/actions'
 import "core-js"
 import "regenerator-runtime/runtime"
 
-const target = document.currentScript
-
+const target = document.getElementById("monitoring-report")
 store.dispatch(setAppConfig({
   endpoint: window.location.origin
 }))
@@ -18,5 +17,5 @@ render(
   <Provider store={store}>
     <MonitoringReportApp />
   </Provider>,
-  document.getElementById("monitoring-report")
+  target
 )
