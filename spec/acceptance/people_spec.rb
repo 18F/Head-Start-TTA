@@ -2,7 +2,7 @@ require "rails_helper"
 require "rspec_api_documentation/dsl"
 
 resource "People" do
-  let(:person_link) { create :person_grantee_link }
+  let(:person_link) { create :person_grantee_link, :grantee_employee }
 
   get "/grantees/:grantee_id/people" do
     let(:grantee_id) { person_link.grantee.id }
