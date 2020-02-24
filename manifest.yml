@@ -5,7 +5,7 @@ applications:
     disk_quota: 1G
     instances: 1
     buildpacks:
-      - ruby_buildpack
+      - https://github.com/cloudfoundry/ruby-buildpack.git#v1.8.4
     services:
       - ttadp-psql
       - ttadp-es
