@@ -135,6 +135,12 @@ jobs:
           command: bundle exec rake assets:precompile
       - run: cf login -a https://api.fr.cloud.gov -u $CF_USER -p $CF_PASS -o "hhs-acf-prototyping" -s "ohstta-dev"
       - run: cf push
+      - run:
+          name: database migration
+          command: |
+            cf run-task ttadp "bundle exec rake db:migrate"
+            sleep 60
+            cf restart ttadp
 
 workflows:
   version: 2
