@@ -2,9 +2,7 @@ require "rails_helper"
 require "rspec_api_documentation/dsl"
 
 resource "Topics" do
-  before(:each) do
-    create :activity_report, topic_list: ["Program Governance"]
-  end
+  let!(:topic) { create :topic }
 
   get "/topics" do
     example_request "List available topics" do
@@ -12,7 +10,7 @@ resource "Topics" do
     end
   end
   get "/topics/:id" do
-    let(:id) { Topic.all.first.id }
+    let(:id) { topic.id }
 
     example_request "Get details for a Topic" do
       expect(status).to eq 200

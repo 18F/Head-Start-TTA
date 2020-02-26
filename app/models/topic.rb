@@ -1,13 +1,7 @@
-class Topic
-  def self.all
-    ActsAsTaggableOn::Tag.joins(:taggings).where(taggings: {context: "topics"}).distinct
-  end
-
-  def self.find(id)
-    ActsAsTaggableOn::Tag.find id
-  end
-
-  def self.for_grantee(grantee)
-    all.where(taggings: {taggable_type: "ActivityReport", taggable_id: grantee.activity_reports.select(:id)})
-  end
+class Topic < ApplicationRecord
+  validates_presence_of :name, :scope
+  validates_uniqueness_of :name, scope: :scope
+  
+  has_many :child_topics, class_name: "Topic", foreign_key: "parent_id"
+  belongs_to :parent, class_name: "Topic", optional: true
 end
