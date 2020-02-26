@@ -32,6 +32,20 @@ OHS is engaging 18F to help OHS procure a centralized system for relevant TTA da
 
 # Prototype Application
 
+## Continuous Integration and cloud.gov Deployment
+
+[![18F CircleCI](https://circleci.com/gh/18F/Head-Start-TTA.svg?style=shield)](https://circleci.com/gh/18F/Head-Start-TTA)
+
+The prototype app is automatically deployed to cloud.gov on a successful CircleCI build of the master branch.
+
+### Deployment Helper
+
+`.circleci/Dockerfile` is used to create the Docker image used for the `deploy` CircleCI job.
+
+It consists of the standard CircleCI Ruby image with the `cf` command line tool installed
+
+To rebuild: `docker build -t rcahearn/rubycf:2.6.5-node .circleci/`
+
 ## Getting started
 
 ### Install dependencies
