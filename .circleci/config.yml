@@ -133,6 +133,8 @@ jobs:
             NODE_ENV: production
             RAILS_ENV: production
           command: bundle exec rake assets:precompile
+      - run: cf login -a https://api.fr.cloud.gov -u $CF_USER -p $CF_PASS -o "hhs-acf-prototyping" -s "ohstta-dev"
+      - run: cf push
 
 workflows:
   version: 2
