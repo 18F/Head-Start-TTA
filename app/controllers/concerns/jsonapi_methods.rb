@@ -7,8 +7,12 @@ module JsonapiMethods
   end
 
   def per_page
-    size = params[:page]&.[](:size)&.to_i || 25
+    size = params[:page]&.[](:size)&.to_i || default_per_page
     [size, 100].min
+  end
+
+  def default_per_page
+    25
   end
 
   def filter_params
