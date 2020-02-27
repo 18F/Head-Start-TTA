@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :topic do
     name { "Leadership" }
-    scope { "GS" }
+    scope { "Grantee Specialist" }
     parent { nil }
   end
 end

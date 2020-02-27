@@ -3,7 +3,7 @@ require "rspec_api_documentation/dsl"
 
 resource "Topics" do
   let!(:topic) { create :topic }
-  let!(:ec_topic) { create :topic, scope: "EC" }
+  let!(:ec_topic) { create :topic, scope: "Early Childhood Specialist" }
 
   get "/topics" do
     example_request "List available topics" do
@@ -16,9 +16,12 @@ resource "Topics" do
         parameter :size, "Records to include on each page, defaults to 100"
       end
       with_options scope: :filter do
-        parameter :scope, "Topic scope to return. \"EC\" or \"GS\""
+        parameter :scope, <<~DOC
+          Topic scope to return. "Grantee Specialist", "Early Childhood Specialist",
+          "Health Specialist", or "Systems Specialist"
+        DOC
       end
-      let(:filter_scope) { "GS" }
+      let(:filter_scope) { "Grantee Specialist" }
 
       example_request "List topics for a given scope" do
         expect(status).to eq 200
