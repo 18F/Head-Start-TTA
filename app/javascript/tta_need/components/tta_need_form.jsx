@@ -1,47 +1,19 @@
 import React, { Component, Fragment } from 'react'
 import Select from 'react-select'
-import { find, findIndex, isEqual } from 'lodash'
 import TaskList from '../containers/task_list.jsx'
+import SpecialistList from '../containers/specialist_list.jsx'
 
 class TTANeedForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      specialistTypesNeeded: props.ttaNeed.specialistTypesNeeded,
       indicator: props.ttaNeed.indicator,
       narrative: props.ttaNeed.narrative,
       topics: props.ttaNeed.topics,
       startDate: props.ttaNeed.startDate
     }
-    this.addSpecialist = this.addSpecialist.bind(this)
     this.inputChanged = this.inputChanged.bind(this)
     this.addTopic = this.addTopic.bind(this)
-  }
-  specialistOptions = [
-    { value: "GS", label: "Grantee Specialist" },
-    { value: "ECS", label: "Early Childhood Specialist" },
-    { value: "HS", label: "Health Specialist" },
-    { value: "FS", label: "Fiscal Specialist" }
-  ]
-  specialistTypeChanged(value, index) {
-    let types = this.state.specialistTypesNeeded
-    types[index] = value
-    this.sendUpdate({specialistTypesNeeded: types})
-  }
-  addSpecialist(event) {
-    event.preventDefault()
-    let types = this.state.specialistTypesNeeded
-    const missing = find(this.specialistOptions, possiblity => (
-      findIndex(types, needed => isEqual(needed, possiblity)) == -1
-    ))
-    types.push(missing)
-    this.sendUpdate({specialistTypesNeeded: types})
-  }
-  removeSpecialist(event, index) {
-    event.preventDefault()
-    let types = this.state.specialistTypesNeeded
-    types.splice(index, 1)
-    this.sendUpdate({specialistTypesNeeded: types})
   }
   topicChanged(value, index) {
     let topics = this.state.topics
@@ -78,7 +50,6 @@ class TTANeedForm extends Component {
       topics: allTopics
     } = this.props
     const {
-      specialistTypesNeeded,
       indicator,
       narrative,
       topics,
@@ -94,18 +65,7 @@ class TTANeedForm extends Component {
         <form className="usa-form usa-form--large">
           <label className="usa-label" htmlFor="start-date">Proposed start date</label>
           <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
-          <label className="usa-label" htmlFor="specialist-type">Type of Specialist(s)</label>
-          {specialistTypesNeeded.map((type, index) =>
-            <Fragment key={index}>
-              <Select options={this.specialistOptions} value={type} onChange={value => this.specialistTypeChanged(value, index)} />
-              {index != 0 &&
-                <p style={{margin: 0}}><a href="#" onClick={e => this.removeSpecialist(e, index)}>Remove</a></p>
-              }
-            </Fragment>
-          )}
-          {specialistTypesNeeded.length < this.specialistOptions.length &&
-            <p style={{margin: 0}}><a href="#" onClick={this.addSpecialist}>Add another specialist</a></p>
-          }
+          <SpecialistList />
           <label className="usa-label" htmlFor="topics">TA Area(s)</label>
           {topics.map((type, index) =>
             <Fragment key={index}>
