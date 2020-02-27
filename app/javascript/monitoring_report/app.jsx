@@ -3,11 +3,11 @@ import { compose } from 'redux'
 import { query } from 'redux-bees'
 import api from './api'
 import { connect } from 'react-redux'
-import { openForm } from './actions'
+import { openForm } from 'tta_need/actions'
 import showdown from 'showdown'
 import xss from 'xss'
 import MonitoringDetails from './containers/monitoring_details'
-import TTANeedForm from './containers/tta_need_form'
+import TTANeedForm from 'tta_need/containers/tta_need_form'
 
 class App extends PureComponent {
   renderBodyColumn(columnClass) {
@@ -56,8 +56,8 @@ class App extends PureComponent {
           <div className="grid-col">
             <div className="usa-alert usa-alert--success">
               <div className="usa-alert__body">
-                <h3 class="usa-alert__heading">Success</h3>
-                <p class="usa-alert__text">TTA Request has been submitted</p>
+                <h3 className="usa-alert__heading">Success</h3>
+                <p className="usa-alert__text">TTA Request has been submitted</p>
               </div>
             </div>
           </div>

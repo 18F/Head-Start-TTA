@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Topic, type: :model do
   subject { build :topic }
-  
+
   describe "validations" do
     it { should validate_presence_of :name }
     it { should validate_presence_of :scope }

@@ -19,7 +19,7 @@ const initialState = {
     specialistTypesNeeded: [{value: "GS", label: "Grantee Specialist"}],
     topics: [{}],
     contextLinkId: "",
-    contextLinkType: "monitoring-reports"
+    contextLinkType: ""
   },
   tasks: [{title: "", key: 1}]
 }
