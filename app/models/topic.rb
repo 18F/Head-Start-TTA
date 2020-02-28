@@ -5,6 +5,8 @@ class Topic < ApplicationRecord
   has_many :child_topics, class_name: "Topic", foreign_key: "parent_id"
   belongs_to :parent, class_name: "Topic", optional: true
 
+  has_and_belongs_to_many :tta_needs
+
   scope :root_topics, -> { where parent_id: nil }
   scope :leaf_topics, -> { where.not(id: select(:parent_id).distinct.where.not(parent_id: nil)) }
 

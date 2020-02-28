@@ -33,18 +33,25 @@ export const submitRequest = () => {
     } = state
     const report = getEntity(state, {type: contextLinkType, id: contextLinkId})
     const {id: granteeId} = getRelationship(state, report, 'grantee')
+    const specialistTypesValues = specialistTypesNeeded.map(s => s.value)
+    let topicData = []
+    specialistTypesValues.forEach(t => {
+      topicData = [...topicData, ...topics[t].map(s => ({type: "topics", id: s.value}))]
+    })
     dispatch(api.createNeed({granteeId}, {data: {
       type: "tta-needs",
       attributes: {
         'start-date': startDate,
         narrative,
         indicator,
-        'specialist-types-needed': specialistTypesNeeded.map(s => s.value),
-        topics: topics.map(t => t.value)
+        'specialist-types-needed': specialistTypesValues
       },
       relationships: {
         "context-link": {
           data: {type: contextLinkType, id: contextLinkId}
+        },
+        topics: {
+          data: topicData
         }
       }
     }})).then(({status, body: {data: {id}}}) => {

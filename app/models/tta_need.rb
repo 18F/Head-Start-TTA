@@ -19,5 +19,5 @@ class TtaNeed < ApplicationRecord
 
   validates_inclusion_of :indicator, in: VALID_INDICATORS
 
-  acts_as_taggable_on :topics
+  has_and_belongs_to_many :topics
 end

@@ -30,6 +30,16 @@ resource "Topics" do
     end
   end
 
+  get "/tta_needs/:tta_need_id/topics" do
+    let!(:topic) { create :topic, name: "TTA Need topic" }
+    let(:tta_need) { create :tta_need, topics: [topic] }
+    let(:tta_need_id) { tta_need.id }
+
+    example_request "List topics for a TTA Need" do
+      expect(status).to eq 200
+    end
+  end
+
   get "/topics/:id" do
     let(:id) { topic.id }
 
