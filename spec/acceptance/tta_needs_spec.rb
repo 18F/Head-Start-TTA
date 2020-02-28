@@ -13,6 +13,16 @@ resource "TTA Needs" do
     end
   end
 
+  get "/topics/:topic_id/tta_needs" do
+    let(:topic) { create :topic }
+    let(:topic_id) { topic.id }
+    let!(:tta_need) { create :tta_need, topics: [topic] }
+
+    example_request "List TTA needs under a topic" do
+      expect(status).to eq 200
+    end
+  end
+
   get "/tta_needs/:id" do
     let(:tta_need) { create :tta_need, specialist_types_needed: ["GS"] }
     let(:id) { tta_need.id }
@@ -29,6 +39,8 @@ resource "TTA Needs" do
 
   post "/grantees/:grantee_id/tta_needs" do
     let(:grantee_id) { grantee.id }
+    let(:topic1) { create :topic }
+    let(:topic2) { create :topic, name: "School Readiness" }
 
     let(:raw_post) do
       {
@@ -38,8 +50,15 @@ resource "TTA Needs" do
             'start-date': "2020-05-07",
             narrative: "Grantee would like help setting up a new fiscal system",
             indicator: "Grantee Request",
-            "specialist-types-needed": ["GS"],
-            topics: ["School Readiness", "Program Governance"],
+            "specialist-types-needed": [topic1.scope],
+          },
+          relationships: {
+            topics: {
+              data: [
+                {type: "topics", id: topic1.id.to_s},
+                {type: "topics", id: topic2.id.to_s},
+              ],
+            },
           },
         },
       }.to_json
@@ -63,12 +82,14 @@ resource "TTA Needs" do
               'start-date': "2020-05-07",
               narrative: "Grantee would like help setting up a new fiscal system",
               indicator: "Grantee Request",
-              "specialist-types-needed": ["GS"],
-              topics: ["School Readiness", "Program Governance"],
+              "specialist-types-needed": [topic1.scope],
             },
             relationships: {
               "context-link": {
                 data: {type: "monitoring-reports", id: report.id.to_s},
+              },
+              topics: {
+                data: [{type: "topics", id: topic1.id.to_s}],
               },
             },
           },

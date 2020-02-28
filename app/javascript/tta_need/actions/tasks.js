@@ -1,4 +1,4 @@
-import { forEach, trim } from 'lodash'
+import { trim } from 'lodash'
 import api from '../api'
 
 export const UPDATE_TASK = "UPDATE_TASK"
@@ -23,7 +23,7 @@ export const removeTask = (index) => ({
 export const saveTasks = (ttaNeedId) => {
   return (dispatch, getState) => {
     const { tasks } = getState()
-    forEach(tasks, (t) => {
+    tasks.forEach(t => {
       const title = trim(t.title)
       if (title !== "") {
         dispatch(api.createTask({ttaNeedId}, {data: {

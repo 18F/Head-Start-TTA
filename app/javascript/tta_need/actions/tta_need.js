@@ -4,6 +4,7 @@ import { saveTasks } from './tasks'
 
 export const TOGGLE_REQUEST_FORM = "TOGGLE_REQUEST_FORM"
 export const UPDATE_NEED_FIELDS = "UPDATE_NEED_FIELDS"
+export const UPDATE_NEED_TOPICS = "UPDATE_NEED_TOPICS"
 export const SHOW_SUCCESS_MESSAGE = "TTA_NEED_SUCCESSFULLY_CREATED"
 
 export const openForm = () => ({
@@ -32,18 +33,25 @@ export const submitRequest = () => {
     } = state
     const report = getEntity(state, {type: contextLinkType, id: contextLinkId})
     const {id: granteeId} = getRelationship(state, report, 'grantee')
+    const specialistTypesValues = specialistTypesNeeded.map(s => s.value)
+    let topicData = []
+    specialistTypesValues.forEach(t => {
+      topicData = [...topicData, ...topics[t].map(s => ({type: "topics", id: s.value}))]
+    })
     dispatch(api.createNeed({granteeId}, {data: {
       type: "tta-needs",
       attributes: {
         'start-date': startDate,
         narrative,
         indicator,
-        'specialist-types-needed': specialistTypesNeeded.map(s => s.value),
-        topics: topics.map(t => t.value)
+        'specialist-types-needed': specialistTypesValues
       },
       relationships: {
         "context-link": {
           data: {type: contextLinkType, id: contextLinkId}
+        },
+        topics: {
+          data: topicData
         }
       }
     }})).then(({status, body: {data: {id}}}) => {
@@ -63,4 +71,10 @@ const needCreated = () => ({
 export const updateNeed = fields => ({
   type: UPDATE_NEED_FIELDS,
   fields
+})
+
+export const updateTopics = (scope, topics) => ({
+  type: UPDATE_NEED_TOPICS,
+  scope,
+  topics
 })
