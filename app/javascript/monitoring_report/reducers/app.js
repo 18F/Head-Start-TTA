@@ -8,7 +8,7 @@ const app = (state = {}, action) => {
     case TOGGLE_REQUEST_FORM:
       return {...state, formOpen: action.value, showSuccess: false}
     case SHOW_SUCCESS_MESSAGE:
-      return {...state, showSuccess: true}
+      return {...state, formOpen: false, showSuccess: true}
     default:
       return state
   }

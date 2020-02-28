@@ -56,11 +56,9 @@ export const submitRequest = () => {
       }
     }})).then(({status, body: {data: {id}}}) => {
       if (status === 201) {
-        dispatch(saveTasks(id))
-        dispatch(needCreated())
+        dispatch(saveTasks(id)).then(() => dispatch(needCreated()))
       }
     })
-    dispatch(closeForm())
   }
 }
 
