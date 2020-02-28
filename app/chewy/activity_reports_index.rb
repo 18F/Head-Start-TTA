@@ -43,7 +43,7 @@ class ActivityReportsIndex < Chewy::Index
           "narrative",
           "next_steps",
           "materials",
-          "specialists",
+          "specialists"
         ]
       end
     end

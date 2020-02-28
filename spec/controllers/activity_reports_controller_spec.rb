@@ -60,7 +60,7 @@ RSpec.describe ActivityReportsController, type: :controller do
           expect(ar.material_list).to eq [
             "PFCE",
             "Building Partnerships: Guide to Developing Relationship with Families",
-            "Parenting Curricula Review Databases",
+            "Parenting Curricula Review Databases"
           ]
         end
 

@@ -10,7 +10,7 @@
   <dt>Specialists Requested</dt>
   <dd><%= @tta_need.specialist_types_needed.join(", ") %></dd>
   <dt>TTA Areas</dt>
-  <dd><%= @tta_need.topics %></dd>
+  <dd><%= @tta_need.topics.map(&:to_s) %></dd>
   <dt>Indicator of Need</dt>
   <dd><%= @tta_need.indicator %></dd>
   <% if @tta_need.context_link.present? %>

@@ -36,7 +36,7 @@ RSpec.describe GranteesHelper, type: :helper do
       expect(helper.topic_options(grant.grantee)).to eq [
         ["Any", ""],
         ["TopicA", "TopicA"],
-        ["TopicB", "TopicB"],
+        ["TopicB", "TopicB"]
       ]
     end
   end
@@ -47,7 +47,7 @@ RSpec.describe GranteesHelper, type: :helper do
         ["All", ""],
         ["Last Month", "1M"],
         ["Last 6 Months", "6M"],
-        ["Last Year", "1y"],
+        ["Last Year", "1y"]
       ]
     end
   end

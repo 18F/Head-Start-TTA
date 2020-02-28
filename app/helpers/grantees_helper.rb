@@ -14,7 +14,7 @@ module GranteesHelper
       ["All", ""],
       ["Last Month", "1M"],
       ["Last 6 Months", "6M"],
-      ["Last Year", "1y"],
+      ["Last Year", "1y"]
     ]
   end
 

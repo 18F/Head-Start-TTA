@@ -50,17 +50,17 @@ resource "TTA Needs" do
             'start-date': "2020-05-07",
             narrative: "Grantee would like help setting up a new fiscal system",
             indicator: "Grantee Request",
-            "specialist-types-needed": [topic1.scope],
+            "specialist-types-needed": [topic1.scope]
           },
           relationships: {
             topics: {
               data: [
                 {type: "topics", id: topic1.id.to_s},
-                {type: "topics", id: topic2.id.to_s},
-              ],
-            },
-          },
-        },
+                {type: "topics", id: topic2.id.to_s}
+              ]
+            }
+          }
+        }
       }.to_json
     end
 
@@ -82,17 +82,17 @@ resource "TTA Needs" do
               'start-date': "2020-05-07",
               narrative: "Grantee would like help setting up a new fiscal system",
               indicator: "Grantee Request",
-              "specialist-types-needed": [topic1.scope],
+              "specialist-types-needed": [topic1.scope]
             },
             relationships: {
               "context-link": {
-                data: {type: "monitoring-reports", id: report.id.to_s},
+                data: {type: "monitoring-reports", id: report.id.to_s}
               },
               topics: {
-                data: [{type: "topics", id: topic1.id.to_s}],
-              },
-            },
-          },
+                data: [{type: "topics", id: topic1.id.to_s}]
+              }
+            }
+          }
         }.to_json
       end
 

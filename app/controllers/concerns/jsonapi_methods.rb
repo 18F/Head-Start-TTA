@@ -55,7 +55,7 @@ module JsonapiMethods
 
   def jsonapi_context
     {
-      url_helpers: Rails.application.routes.url_helpers,
+      url_helpers: Rails.application.routes.url_helpers
     }
   end
 end
