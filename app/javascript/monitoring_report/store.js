@@ -17,7 +17,7 @@ const initialState = {
     narrative: "",
     indicator: "OHS Monitoring Report / Noncompliance",
     specialistTypesNeeded: [{value: "Grantee Specialist", label: "Grantee Specialist"}],
-    topics: [{}],
+    topics: {},
     contextLinkId: "",
     contextLinkType: ""
   },

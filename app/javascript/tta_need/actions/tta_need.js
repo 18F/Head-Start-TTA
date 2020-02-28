@@ -4,6 +4,7 @@ import { saveTasks } from './tasks'
 
 export const TOGGLE_REQUEST_FORM = "TOGGLE_REQUEST_FORM"
 export const UPDATE_NEED_FIELDS = "UPDATE_NEED_FIELDS"
+export const UPDATE_NEED_TOPICS = "UPDATE_NEED_TOPICS"
 export const SHOW_SUCCESS_MESSAGE = "TTA_NEED_SUCCESSFULLY_CREATED"
 
 export const openForm = () => ({
@@ -63,4 +64,10 @@ const needCreated = () => ({
 export const updateNeed = fields => ({
   type: UPDATE_NEED_FIELDS,
   fields
+})
+
+export const updateTopics = (scope, topics) => ({
+  type: UPDATE_NEED_TOPICS,
+  scope,
+  topics
 })

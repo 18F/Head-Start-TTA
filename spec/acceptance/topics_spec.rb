@@ -20,6 +20,7 @@ resource "Topics" do
           Topic scope to return. "Grantee Specialist", "Early Childhood Specialist",
           "Health Specialist", or "Systems Specialist"
         DOC
+        parameter :group, "true/false whether to include topic group parents in returned list. Defaults to true"
       end
       let(:filter_scope) { "Grantee Specialist" }
 

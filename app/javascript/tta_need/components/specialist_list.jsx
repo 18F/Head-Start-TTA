@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import Select from 'react-select'
 import { find, findIndex, isEqual } from 'lodash'
+import TopicList from '../containers/topic_list.jsx'
 
 class SpecialistList extends Component {
   constructor(props) {
@@ -51,8 +52,9 @@ class SpecialistList extends Component {
         {specialistTypesNeeded.map((type, index) =>
           <div className="box" key={index}>
             <Select options={this.specialistOptions} value={type} onChange={value => this.specialistTypeChanged(value, index)} />
+            <TopicList scope={type.value} />
             {typesCount > 1 &&
-              <p style={{margin: 0}}><a href="#" onClick={e => this.removeSpecialist(e, index)}>Remove</a></p>
+              <p style={{margin: 0}}><a href="#" onClick={e => this.removeSpecialist(e, index)}>Remove specialist</a></p>
             }
           </div>
         )}

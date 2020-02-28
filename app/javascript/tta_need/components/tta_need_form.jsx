@@ -9,28 +9,9 @@ class TTANeedForm extends Component {
     this.state = {
       indicator: props.ttaNeed.indicator,
       narrative: props.ttaNeed.narrative,
-      topics: props.ttaNeed.topics,
       startDate: props.ttaNeed.startDate
     }
     this.inputChanged = this.inputChanged.bind(this)
-    this.addTopic = this.addTopic.bind(this)
-  }
-  topicChanged(value, index) {
-    let topics = this.state.topics
-    topics[index] = value
-    this.sendUpdate({topics})
-  }
-  addTopic(event) {
-    event.preventDefault()
-    let topics = this.state.topics
-    topics.push({})
-    this.sendUpdate({topics})
-  }
-  removeTopic(event, index) {
-    event.preventDefault()
-    let topics = this.state.topics
-    topics.splice(index, 1)
-    this.sendUpdate({topics})
   }
   inputChanged(e) {
     const target = e.target
@@ -47,18 +28,12 @@ class TTANeedForm extends Component {
     const {
       submitRequest,
       closeForm,
-      topics: allTopics
     } = this.props
     const {
       indicator,
       narrative,
-      topics,
       startDate
     } = this.state
-    let topicsOptions = []
-    if (allTopics) {
-      topicsOptions = allTopics.map(t => ({value: t.attributes.name, label: t.attributes.name}))
-    }
     return (
       <div className="grid-col">
         <h2>TTA Request</h2>
@@ -66,18 +41,6 @@ class TTANeedForm extends Component {
           <label className="usa-label" htmlFor="start-date">Proposed start date</label>
           <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
           <SpecialistList />
-          <label className="usa-label" htmlFor="topics">TA Area(s)</label>
-          {topics.map((type, index) =>
-            <Fragment key={index}>
-              <Select options={topicsOptions} value={type} onChange={value => this.topicChanged(value, index)} />
-              {index != 0 &&
-                <p style={{margin: 0}}><a href="#" onClick={e => this.removeTopic(e, index)}>Remove</a></p>
-              }
-            </Fragment>
-          )}
-          {topics.length < topicsOptions.length &&
-            <p style={{margin: 0}}><a href="#" onClick={this.addTopic}>Add another area</a></p>
-          }
           <label className="usa-label" htmlFor="indicator">Indicator of Need</label>
           <input type="text" className="usa-input" id="indicator" value={indicator} readOnly />
           <p className="usa-hint">This Monitoring Report will be attached to request</p>

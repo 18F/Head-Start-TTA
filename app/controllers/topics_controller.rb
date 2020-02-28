@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
     else
       Topic.all
     end
+    topics = topics.leaf_topics if filter_params[:group] == "false"
     render_models topics
   end
 
