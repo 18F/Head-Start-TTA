@@ -21,6 +21,10 @@ class TtaNeedsController < ApplicationController
     end
   end
 
+  def new
+    @grantee_id = params[:grantee_id]
+  end
+
   def create
     grantee = Grantee.find params[:grantee_id]
     need = grantee.tta_needs.build create_params

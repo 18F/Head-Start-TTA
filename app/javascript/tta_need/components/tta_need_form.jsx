@@ -24,6 +24,12 @@ class TTANeedForm extends Component {
     this.setState(update)
     updateNeed(update)
   }
+  indicatorHint() {
+    const { indicator } = this.state
+    if (indicator.match(/^OHS Monitoring Report/)) {
+      return (<p className="usa-hint">This Monitoring Report will be attached to the request</p>)
+    }
+  }
   render() {
     const {
       submitRequest,
@@ -43,7 +49,7 @@ class TTANeedForm extends Component {
           <SpecialistList />
           <label className="usa-label" htmlFor="indicator">Indicator of Need</label>
           <input type="text" className="usa-input" id="indicator" value={indicator} readOnly />
-          <p className="usa-hint">This Monitoring Report will be attached to request</p>
+          {this.indicatorHint()}
           <label className="usa-label" htmlFor="objectives">Outcomes for Grantee</label>
           <TaskList />
           <label className="usa-label" htmlFor="narrative">Additional Information</label>
