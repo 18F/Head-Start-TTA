@@ -3,7 +3,14 @@ import { createLogger } from 'redux-logger'
 import { middleware as beesMiddleware } from 'redux-bees'
 import { createStore, applyMiddleware } from 'redux'
 import reducers from './reducers'
-import initialState from 'tta_need/store'
+import ttaNeedInitialState from 'tta_need/store'
+
+const initialState = {
+  ...ttaNeedInitialState,
+  app: {
+    redirect: false
+  }
+}
 
 export default createStore(
   reducers,

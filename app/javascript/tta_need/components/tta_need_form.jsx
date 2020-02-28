@@ -34,6 +34,7 @@ class TTANeedForm extends Component {
     const {
       submitRequest,
       closeForm,
+      hideCancel
     } = this.props
     const {
       indicator,
@@ -57,7 +58,9 @@ class TTANeedForm extends Component {
           <label className="usa-label" htmlFor="additional-info">Attachments</label>
           <input type="text" className="usa-input" id="additional-info" value="attach files here" readOnly />
           <div className="float-right">
-            <button type="button" className="usa-button usa-button--outline" onClick={() => { closeForm() }}>Cancel</button>
+            {hideCancel ||
+              <button type="button" className="usa-button usa-button--outline" onClick={() => { closeForm() }}>Cancel</button>
+            }
             <button type="button" className="usa-button" onClick={() => { submitRequest() }}>Submit request</button>
           </div>
         </form>

@@ -54,16 +54,25 @@ export const submitRequest = () => {
           data: topicData
         }
       }
-    }})).then(({status, body: {data: {id}}}) => {
+    }})).then(({
+      status,
+      body: {
+        data: {
+          id,
+          links: {self: ttaNeedUrl}
+        }
+      }
+    }) => {
       if (status === 201) {
-        dispatch(saveTasks(id)).then(() => dispatch(needCreated()))
+        dispatch(saveTasks(id)).then(() => dispatch(needCreated(ttaNeedUrl)))
       }
     })
   }
 }
 
-const needCreated = () => ({
-  type: SHOW_SUCCESS_MESSAGE
+const needCreated = url => ({
+  type: SHOW_SUCCESS_MESSAGE,
+  url
 })
 
 export const updateNeed = fields => ({
