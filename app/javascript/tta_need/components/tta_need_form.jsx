@@ -24,10 +24,17 @@ class TTANeedForm extends Component {
     this.setState(update)
     updateNeed(update)
   }
+  indicatorHint() {
+    const { indicator } = this.state
+    if (indicator.match(/^OHS Monitoring Report/)) {
+      return (<p className="usa-hint">This Monitoring Report will be attached to the request</p>)
+    }
+  }
   render() {
     const {
       submitRequest,
       closeForm,
+      hideCancel
     } = this.props
     const {
       indicator,
@@ -43,7 +50,7 @@ class TTANeedForm extends Component {
           <SpecialistList />
           <label className="usa-label" htmlFor="indicator">Indicator of Need</label>
           <input type="text" className="usa-input" id="indicator" value={indicator} readOnly />
-          <p className="usa-hint">This Monitoring Report will be attached to request</p>
+          {this.indicatorHint()}
           <label className="usa-label" htmlFor="objectives">Outcomes for Grantee</label>
           <TaskList />
           <label className="usa-label" htmlFor="narrative">Additional Information</label>
@@ -51,7 +58,9 @@ class TTANeedForm extends Component {
           <label className="usa-label" htmlFor="additional-info">Attachments</label>
           <input type="text" className="usa-input" id="additional-info" value="attach files here" readOnly />
           <div className="float-right">
-            <button type="button" className="usa-button usa-button--outline" onClick={() => { closeForm() }}>Cancel</button>
+            {hideCancel ||
+              <button type="button" className="usa-button usa-button--outline" onClick={() => { closeForm() }}>Cancel</button>
+            }
             <button type="button" className="usa-button" onClick={() => { submitRequest() }}>Submit request</button>
           </div>
         </form>

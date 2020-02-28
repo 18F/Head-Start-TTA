@@ -11,7 +11,13 @@ const ttaNeed = (state = {}, action) => {
     case UPDATE_NEED_TOPICS:
       return {...state, topics: {...state.topics, [action.scope]: action.topics}}
     case SET_REPORT_ID:
-      return {...state, contextLinkType: "monitoring-reports", contextLinkId: action.id}
+      return {
+        ...state,
+        indicator: "OHS Monitoring Report / Noncompliance",
+        specialistTypesNeeded: [{value: "Grantee Specialist", label: "Grantee Specialist"}],
+        contextLinkType: "monitoring-reports",
+        contextLinkId: action.id
+      }
     default:
       return state
   }

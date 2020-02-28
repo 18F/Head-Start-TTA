@@ -8,11 +8,7 @@ import ttaNeedInitialState from 'tta_need/store'
 const initialState = {
   ...ttaNeedInitialState,
   app: {
-    formOpen: false,
-    showSuccess: false
-  },
-  report: {
-    id: ""
+    redirect: false
   }
 }
 

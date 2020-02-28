@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "grantees/index.html.erb", type: :view do
   before(:each) do
     assign(:grantees, [
-      create(:grantee),
+      create(:grantee)
     ])
   end
 

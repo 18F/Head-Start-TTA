@@ -1,4 +1,3 @@
-import { getEntity, getRelationship } from 'redux-bees'
 import api from '../api'
 import { saveTasks } from './tasks'
 
@@ -17,11 +16,14 @@ export const closeForm = () => ({
   value: false
 })
 
+export const setGranteeId = granteeId => updateNeed({granteeId})
+
 export const submitRequest = () => {
   return (dispatch, getState) => {
     const state = getState()
     const {
       ttaNeed: {
+        granteeId,
         startDate,
         narrative,
         indicator,
@@ -31,8 +33,6 @@ export const submitRequest = () => {
         contextLinkType
       }
     } = state
-    const report = getEntity(state, {type: contextLinkType, id: contextLinkId})
-    const {id: granteeId} = getRelationship(state, report, 'grantee')
     const specialistTypesValues = specialistTypesNeeded.map(s => s.value)
     let topicData = []
     specialistTypesValues.forEach(t => {
@@ -54,18 +54,25 @@ export const submitRequest = () => {
           data: topicData
         }
       }
-    }})).then(({status, body: {data: {id}}}) => {
+    }})).then(({
+      status,
+      body: {
+        data: {
+          id,
+          links: {self: ttaNeedUrl}
+        }
+      }
+    }) => {
       if (status === 201) {
-        dispatch(saveTasks(id))
-        dispatch(needCreated())
+        dispatch(saveTasks(id)).then(() => dispatch(needCreated(ttaNeedUrl)))
       }
     })
-    dispatch(closeForm())
   }
 }
 
-const needCreated = () => ({
-  type: SHOW_SUCCESS_MESSAGE
+const needCreated = url => ({
+  type: SHOW_SUCCESS_MESSAGE,
+  url
 })
 
 export const updateNeed = fields => ({

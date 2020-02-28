@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "MonitoringReports", type: :request do
-  let(:mr) { create :monitoring_report }
+  let(:mr) { create :monitoring_report, :grantee }
 
   describe "GET /" do
     it "returns http success" do

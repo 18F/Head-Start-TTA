@@ -23,17 +23,21 @@ export const removeTask = (index) => ({
 export const saveTasks = (ttaNeedId) => {
   return (dispatch, getState) => {
     const { tasks } = getState()
-    tasks.forEach(t => {
-      const title = trim(t.title)
-      if (title !== "") {
-        dispatch(api.createTask({ttaNeedId}, {data: {
-          type: "tasks",
-          attributes: {
-            status: "todo",
-            title: title
-          }
-        }}))
-      }
-    })
+    return Promise.all(
+      tasks.map(t => {
+        const title = trim(t.title)
+        if (title === "") {
+          return true
+        } else {
+          return dispatch(api.createTask({ttaNeedId}, {data: {
+            type: "tasks",
+            attributes: {
+              status: "todo",
+              title: title
+            }
+          }}))
+        }
+      })
+    )
   }
 }

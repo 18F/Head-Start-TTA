@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :grants, only: %i[index show] do
       resources :monitoring_reports, only: %i[index show]
     end
-    resources :tta_needs, only: %i[index show create] do
+    resources :tta_needs, only: %i[index show new create] do
       resources :topics, only: :index
       resources :tasks, only: %i[index show create]
     end

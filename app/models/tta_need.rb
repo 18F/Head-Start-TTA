@@ -8,7 +8,7 @@ class TtaNeed < ApplicationRecord
     "NC Priority",
     "RO Priority",
     "New Leadership",
-    "New Grantee",
+    "New Grantee"
   ]
 
   belongs_to :grantee

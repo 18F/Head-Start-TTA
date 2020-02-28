@@ -35,9 +35,9 @@ resource "Tasks" do
           attributes: {
             status: "todo",
             title: "Grantee will send meeting notes to GS by April 1",
-            notes: "",
-          },
-        },
+            notes: ""
+          }
+        }
       }.to_json
     end
 

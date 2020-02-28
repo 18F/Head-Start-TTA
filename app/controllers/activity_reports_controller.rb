@@ -72,7 +72,7 @@ class ActivityReportsController < ApplicationController
       narrative: concat_narrative(row),
       next_steps: concat_next_steps(row),
       topic_list: ec_topics_tags(row),
-      material_list: ec_materials_tags(row),
+      material_list: ec_materials_tags(row)
     })
   end
 
@@ -83,7 +83,7 @@ class ActivityReportsController < ApplicationController
       narrative: row["DG"],
       next_steps: row["DH"],
       topic_list: gs_topics_tags(row),
-      material_list: gs_materials_tags(row),
+      material_list: gs_materials_tags(row)
     })
   end
 
@@ -99,7 +99,7 @@ class ActivityReportsController < ApplicationController
       start_date: row["M"],
       end_date: row["N"],
       duration: row["O"],
-      people: process_specialists(row["R"].split(/,\s*/)),
+      people: process_specialists(row["R"].split(/,\s*/))
     }
   end
 
