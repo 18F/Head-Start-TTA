@@ -4,6 +4,7 @@ const initialState = {
     startDate: "",
     narrative: "",
     indicator: "Grantee Request",
+    purpose: "",
     specialistTypesNeeded: [{value: "Early Childhood Specialist", label: "Early Childhood Specialist"}],
     topics: {},
     contextLinkId: "",

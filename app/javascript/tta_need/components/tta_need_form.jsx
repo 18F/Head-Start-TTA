@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import Select from 'react-select'
+import NeedIndicator from '../containers/need_indicator.jsx'
 import TaskList from '../containers/task_list.jsx'
 import SpecialistList from '../containers/specialist_list.jsx'
 
@@ -7,7 +8,6 @@ class TTANeedForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      indicator: props.ttaNeed.indicator,
       narrative: props.ttaNeed.narrative,
       startDate: props.ttaNeed.startDate
     }
@@ -24,12 +24,6 @@ class TTANeedForm extends Component {
     this.setState(update)
     updateNeed(update)
   }
-  indicatorHint() {
-    const { indicator } = this.state
-    if (indicator.match(/^OHS Monitoring Report/)) {
-      return (<p className="usa-hint">This Monitoring Report will be attached to the request</p>)
-    }
-  }
   render() {
     const {
       submitRequest,
@@ -37,7 +31,6 @@ class TTANeedForm extends Component {
       hideCancel
     } = this.props
     const {
-      indicator,
       narrative,
       startDate
     } = this.state
@@ -45,12 +38,11 @@ class TTANeedForm extends Component {
       <div className="grid-col">
         <h2>TTA Request</h2>
         <form className="usa-form usa-form--large">
+          <NeedIndicator />
+          <h3>Details</h3>
           <label className="usa-label" htmlFor="start-date">Proposed start date</label>
           <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
           <SpecialistList />
-          <label className="usa-label" htmlFor="indicator">Indicator of Need</label>
-          <input type="text" className="usa-input" id="indicator" value={indicator} readOnly />
-          {this.indicatorHint()}
           <label className="usa-label" htmlFor="objectives">Outcomes for Grantee</label>
           <TaskList />
           <label className="usa-label" htmlFor="narrative">Additional Information</label>

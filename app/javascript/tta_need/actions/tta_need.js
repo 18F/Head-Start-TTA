@@ -27,6 +27,7 @@ export const submitRequest = () => {
         startDate,
         narrative,
         indicator,
+        purpose,
         specialistTypesNeeded,
         topics,
         contextLinkId,
@@ -44,6 +45,7 @@ export const submitRequest = () => {
         'start-date': startDate,
         narrative,
         indicator,
+        purpose,
         'specialist-types-needed': specialistTypesValues
       },
       relationships: {
