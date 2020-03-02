@@ -24,14 +24,13 @@ class GranteeDetailsBox extends PureComponent {
   }
   render() {
     const {
-      grant,
+      grants,
       grantee,
       people
     } = this.props
-    if (grant == null || grantee == null) {
+    if (grantee == null) {
       return (<div>Loading</div>)
     }
-    const {attributes: {number, region}} = grant
     const {id: granteeId, attributes: {name}} = grantee
     const [employees, specialists] = partition(people, p => p.attributes.granteeEmployee)
     return (
@@ -39,7 +38,13 @@ class GranteeDetailsBox extends PureComponent {
         <div className="grid-row">
           <div className="grid-col-8">
             <h3>{name}</h3>
-            <p><strong>Grant</strong> {number}</p>
+            <p>
+              {grants.map(({attributes: {number}}, index) => (
+                <Fragment key={index}>
+                  <strong>Grant</strong> {number}<br/>
+                </Fragment>
+              ))}
+            </p>
             {employees.map((person) =>
               <p key={person.id}>
                 <strong>Point of Contact:</strong> {person.attributes.name} - {person.attributes.role}<br/>
@@ -49,7 +54,7 @@ class GranteeDetailsBox extends PureComponent {
             <p style={{marginBottom: 0}}><a href={`/grantees/${granteeId}`} className="usa-link">View Grantee Details</a></p>
           </div>
           <div className="grid-col-4">
-            <h3>{region}</h3>
+            <h3>{grants.map(({attributes: {region}}) => region).join(", ")}</h3>
             {specialists.map((person) =>
               <p key={person.id}>
                 <strong>{person.attributes.role}:</strong> {person.attributes.name}<br/>

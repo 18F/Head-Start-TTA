@@ -1,5 +1,6 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
+import GranteeDetailsBox from 'grantee/containers/grantee_details_box'
 import TTANeedForm from 'tta_need/containers/tta_need_form'
 
 class TTANeedApp extends PureComponent {
@@ -10,14 +11,19 @@ class TTANeedApp extends PureComponent {
     }
   }
   render() {
+    const { granteeId } = this.props
     return (
-      <TTANeedForm hideCancel={true} />
+      <Fragment>
+        <GranteeDetailsBox granteeId={granteeId} />
+        <TTANeedForm hideCancel={true} />
+      </Fragment>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  redirectUrl: state.app.redirect
+  redirectUrl: state.app.redirect,
+  granteeId: state.ttaNeed.granteeId
 })
 
 export default connect(mapStateToProps)(TTANeedApp)
