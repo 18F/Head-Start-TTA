@@ -15,6 +15,7 @@ const ttaNeed = (state = {}, action) => {
         ...state,
         indicator: "OHS Monitoring Report",
         purpose: "Noncompliance",
+        urgency: "High",
         specialistTypesNeeded: [{value: "Grantee Specialist", label: "Grantee Specialist"}],
         contextLinkType: "monitoring-reports",
         contextLinkId: action.id

@@ -9,7 +9,8 @@ class TTANeedForm extends Component {
     super(props)
     this.state = {
       narrative: props.ttaNeed.narrative,
-      startDate: props.ttaNeed.startDate
+      startDate: props.ttaNeed.startDate,
+      urgency: props.ttaNeed.urgency
     }
     this.inputChanged = this.inputChanged.bind(this)
   }
@@ -19,10 +20,33 @@ class TTANeedForm extends Component {
     const name = target.name
     this.sendUpdate({[name]: value})
   }
+  urgencyChanged({label: urgency}) {
+    if (urgency === "High") {
+      this.sendUpdate({urgency, startDate: ""})
+    } else {
+      this.sendUpdate({urgency})
+    }
+  }
   sendUpdate(update) {
     const { updateNeed } = this.props
     this.setState(update)
     updateNeed(update)
+  }
+  urgencyOptions = [
+    {label: "High", value: "High"},
+    {label: "Normal", value: "Normal"},
+    {label: "Low", value: "Low"}
+  ]
+  proposedStartDate() {
+    const { urgency, startDate } = this.state
+    if (urgency !== "High") {
+      return (
+        <Fragment>
+          <label className="usa-label" htmlFor="start-date">Proposed start date</label>
+          <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
+        </Fragment>
+      )
+    }
   }
   render() {
     const {
@@ -32,7 +56,7 @@ class TTANeedForm extends Component {
     } = this.props
     const {
       narrative,
-      startDate
+      urgency
     } = this.state
     return (
       <div className="grid-col">
@@ -40,8 +64,9 @@ class TTANeedForm extends Component {
         <form className="usa-form usa-form--large">
           <NeedIndicator />
           <h3>Details</h3>
-          <label className="usa-label" htmlFor="start-date">Proposed start date</label>
-          <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
+          <label className="usa-label" htmlFor="urgency">Urgency</label>
+          <Select options={this.urgencyOptions} value={{value: urgency, label: urgency}} onChange={value => this.urgencyChanged(value)} />
+          {this.proposedStartDate()}
           <SpecialistList />
           <label className="usa-label" htmlFor="objectives">Outcomes for Grantee</label>
           <TaskList />
