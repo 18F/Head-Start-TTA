@@ -5,7 +5,7 @@ import {
 const app = (state = {}, action) => {
   switch(action.type) {
     case SHOW_SUCCESS_MESSAGE:
-      return {...state, redirect: action.url}
+      return {...state, showSuccess: true}
     default:
       return state
   }

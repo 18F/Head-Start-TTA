@@ -18,7 +18,7 @@ export const closeForm = () => ({
 
 export const setGranteeId = granteeId => updateNeed({granteeId})
 
-export const submitRequest = () => {
+export const submitRequest = (history) => {
   return (dispatch, getState) => {
     const state = getState()
     const {
@@ -68,16 +68,21 @@ export const submitRequest = () => {
       }
     }) => {
       if (status === 201) {
-        dispatch(saveTasks(id)).then(() => dispatch(needCreated(ttaNeedUrl)))
+        dispatch(saveTasks(id)).then(() => dispatch(needCreated(ttaNeedUrl, history)))
       }
     })
   }
 }
 
-const needCreated = url => ({
-  type: SHOW_SUCCESS_MESSAGE,
-  url
-})
+const needCreated = (ttaNeedUrl, history) => {
+  return dispatch => {
+    if (history && typeof history.push === "function") {
+      const parsedUrl = new URL(ttaNeedUrl)
+      history.push(parsedUrl.pathname)
+    }
+    dispatch({type: SHOW_SUCCESS_MESSAGE})
+  }
+}
 
 export const updateNeed = fields => ({
   type: UPDATE_NEED_FIELDS,

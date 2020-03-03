@@ -1,29 +1,24 @@
 import React, { PureComponent, Fragment } from 'react'
-import { connect } from 'react-redux'
-import GranteeDetailsBox from 'grantee/containers/grantee_details_box'
-import TTANeedForm from 'tta_need/containers/tta_need_form'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom'
+import TTARequestForm from './containers/tta_request_form'
+import TTANeedTracker from './containers/tta_need_tracker'
 
 class TTANeedApp extends PureComponent {
-  componentDidUpdate() {
-    const { redirectUrl } = this.props
-    if (redirectUrl) {
-      window.location.href = redirectUrl
-    }
-  }
   render() {
-    const { granteeId } = this.props
     return (
-      <Fragment>
-        <GranteeDetailsBox granteeId={granteeId} />
-        <TTANeedForm hideCancel={true} />
-      </Fragment>
+      <Router>
+        <Switch>
+          <Route path="/grantees/:granteeId/tta_needs/new" component={TTARequestForm} />
+          <Route path="/tta_needs/:id" component={TTANeedTracker} />
+        </Switch>
+      </Router>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  redirectUrl: state.app.redirect,
-  granteeId: state.ttaNeed.granteeId
-})
-
-export default connect(mapStateToProps)(TTANeedApp)
+export default TTANeedApp
