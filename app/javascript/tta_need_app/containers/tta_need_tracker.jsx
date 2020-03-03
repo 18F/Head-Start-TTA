@@ -13,7 +13,8 @@ const mapStateToProps = (state, props) => {
     tasks,
     grantee,
     grants,
-    topics
+    topics,
+    showSuccess: state.app.showSuccess
   }
 }
 const mapDispatchToProps = null

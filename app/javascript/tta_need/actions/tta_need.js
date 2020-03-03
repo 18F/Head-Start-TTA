@@ -5,6 +5,7 @@ export const TOGGLE_REQUEST_FORM = "TOGGLE_REQUEST_FORM"
 export const UPDATE_NEED_FIELDS = "UPDATE_NEED_FIELDS"
 export const UPDATE_NEED_TOPICS = "UPDATE_NEED_TOPICS"
 export const SHOW_SUCCESS_MESSAGE = "TTA_NEED_SUCCESSFULLY_CREATED"
+export const HIDE_SUCCESS_MESSAGE = "HIDE_SUCCESS_MESSAGE"
 
 export const openForm = () => ({
   type: TOGGLE_REQUEST_FORM,
@@ -20,7 +21,6 @@ export const setGranteeId = granteeId => updateNeed({granteeId})
 
 export const submitRequest = (history) => {
   return (dispatch, getState) => {
-    const state = getState()
     const {
       ttaNeed: {
         granteeId,
@@ -34,7 +34,7 @@ export const submitRequest = (history) => {
         contextLinkId,
         contextLinkType
       }
-    } = state
+    } = getState()
     const specialistTypesValues = specialistTypesNeeded.map(s => s.value)
     let topicData = []
     specialistTypesValues.forEach(t => {
@@ -81,6 +81,7 @@ const needCreated = (ttaNeedUrl, history) => {
       history.push(parsedUrl.pathname)
     }
     dispatch({type: SHOW_SUCCESS_MESSAGE})
+    setTimeout(() => dispatch({type: HIDE_SUCCESS_MESSAGE}), 30000)
   }
 }
 

@@ -14,15 +14,13 @@ class TtaNeedsController < ApplicationController
   end
 
   def show
-    @tta_need = TtaNeed.find params[:id]
     respond_to do |format|
       format.html
-      format.api_json { render_model @tta_need }
+      format.api_json { render_model TtaNeed.find(params[:id]) }
     end
   end
 
   def new
-    @grantee_id = params[:grantee_id]
   end
 
   def create
