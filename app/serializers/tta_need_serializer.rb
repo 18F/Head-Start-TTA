@@ -8,6 +8,7 @@ class TtaNeedSerializer < BaseSerializer
     :indicator,
     :purpose,
     :specialist_types_needed,
+    :urgency,
     :start_date,
     :created_at,
     :updated_at

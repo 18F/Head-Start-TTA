@@ -24,6 +24,7 @@ export const submitRequest = () => {
     const {
       ttaNeed: {
         granteeId,
+        urgency,
         startDate,
         narrative,
         indicator,
@@ -42,6 +43,7 @@ export const submitRequest = () => {
     dispatch(api.createNeed({granteeId}, {data: {
       type: "tta-needs",
       attributes: {
+        urgency,
         'start-date': startDate,
         narrative,
         indicator,

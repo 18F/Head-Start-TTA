@@ -80,6 +80,7 @@ resource "TTA Needs" do
           data: {
             type: "tta-needs",
             attributes: {
+              urgency: "Low",
               'start-date': "2020-05-07",
               narrative: "Grantee would like help setting up a new fiscal system",
               indicator: "Grantee Request",
