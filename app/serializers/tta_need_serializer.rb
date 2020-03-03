@@ -4,7 +4,14 @@ class TtaNeedSerializer < BaseSerializer
   has_many :tasks
   has_many :topics
 
-  attributes :narrative, :indicator, :specialist_types_needed, :start_date, :created_at, :updated_at
+  attributes :narrative,
+    :indicator,
+    :purpose,
+    :specialist_types_needed,
+    :urgency,
+    :start_date,
+    :created_at,
+    :updated_at
 
   def relationship_related_link(attribute_name)
     case attribute_name

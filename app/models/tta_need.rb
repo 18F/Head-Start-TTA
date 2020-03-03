@@ -2,13 +2,10 @@ class TtaNeed < ApplicationRecord
   VALID_INDICATORS = [
     "Grantee Request",
     "OHS Monitoring Report",
-    "OHS Monitoring Report / Noncompliance",
     "Risk Management Meeting",
     "PIR Results",
     "NC Priority",
-    "RO Priority",
-    "New Leadership",
-    "New Grantee"
+    "RO Priority"
   ]
 
   belongs_to :grantee

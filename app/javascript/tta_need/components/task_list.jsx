@@ -9,10 +9,11 @@ class TaskList extends PureComponent {
       removeTask,
       addTask
     } = this.props
+    const allowRemove = tasks.length !== 1
     return (
       <div className="box">
         {tasks.map((t, i) => (
-          <Task key={t.key} allowRemove={tasks.length !== 1} title={t.title} updateTask={value => { updateTask(value, i) }} removeTask={() => { removeTask(i) }} />
+          <Task key={t.key} allowRemove={allowRemove} title={t.title} updateTask={value => updateTask(value, i)} removeTask={() => removeTask(i)} addTask={addTask} />
         ))}
         <button className="usa-button" type="button" onClick={addTask}>Add outcome</button>
       </div>
