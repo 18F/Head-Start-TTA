@@ -22,6 +22,7 @@ OHS is engaging 18F to help OHS procure a centralized system for relevant TTA da
 
 ## Important Resources
 
+- [Draft RFQ](https://github.com/18F/Head_Start_Draft_RFQ)
 - [Living Deck 🔐](https://docs.google.com/presentation/d/1a59WpiUm2NW3tebcZqrMqo8Zj6Ofcfip8bOd_E2u5UI/edit)
 - [OHS Shared Drive 🔐](https://drive.google.com/drive/folders/1BIK02y1GYK1tkm6kd-3DIzWmnqB8EO-E)
 - [OHS Background Docs 🔐](https://drive.google.com/drive/folders/11apiF-CWn_g5onI5N6oPnUcJjM265BjH)
