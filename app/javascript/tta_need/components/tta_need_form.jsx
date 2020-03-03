@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import Select from 'react-select'
 import NeedIndicator from '../containers/need_indicator.jsx'
 import TaskList from '../containers/task_list.jsx'
@@ -39,12 +39,13 @@ class TTANeedForm extends Component {
   ]
   proposedStartDate() {
     const { urgency, startDate } = this.state
-    if (urgency !== "High") {
+    if (urgency === "High") {
       return (
-        <Fragment>
-          <label className="usa-label" htmlFor="start-date">Proposed start date</label>
-          <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
-        </Fragment>
+        <input type="text" className="usa-input" id="start-date" value="As soon as possible" readOnly />
+      )
+    } else {
+      return (
+        <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
       )
     }
   }
@@ -66,6 +67,7 @@ class TTANeedForm extends Component {
           <h3>Details</h3>
           <label className="usa-label" htmlFor="urgency">Urgency</label>
           <Select options={this.urgencyOptions} value={{value: urgency, label: urgency}} onChange={value => this.urgencyChanged(value)} />
+          <label className="usa-label" htmlFor="start-date">Proposed start date</label>
           {this.proposedStartDate()}
           <SpecialistList />
           <label className="usa-label" htmlFor="objectives">Outcomes for Grantee</label>
@@ -76,9 +78,9 @@ class TTANeedForm extends Component {
           <input type="text" className="usa-input" id="additional-info" value="attach files here" readOnly />
           <div className="float-right">
             {hideCancel ||
-              <button type="button" className="usa-button usa-button--outline" onClick={() => { closeForm() }}>Cancel</button>
+              <button type="button" className="usa-button usa-button--outline" onClick={closeForm}>Cancel</button>
             }
-            <button type="button" className="usa-button" onClick={() => { submitRequest() }}>Submit request</button>
+            <button type="button" className="usa-button" onClick={submitRequest}>Submit request</button>
           </div>
         </form>
       </div>
