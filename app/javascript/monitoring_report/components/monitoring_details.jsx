@@ -1,5 +1,5 @@
 import React, { PureComponent, Fragment } from 'react'
-import GranteeDetailsBox from './grantee_details_box'
+import GranteeDetailsBox from 'grantee/components/grantee_details_box'
 import MonitoringDetailsBox from './monitoring_details_box'
 
 class MonitoringDetails extends PureComponent {
@@ -12,7 +12,7 @@ class MonitoringDetails extends PureComponent {
     } = this.props
     return (
       <Fragment>
-        <GranteeDetailsBox grant={grant} grantee={grantee} people={people} />
+        <GranteeDetailsBox grants={[grant]} grantee={grantee} people={people} />
         <MonitoringDetailsBox report={report} />
       </Fragment>
     )
