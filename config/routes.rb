@@ -19,5 +19,8 @@ Rails.application.routes.draw do
     resources :tta_needs, only: :index
   end
 
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  get "logout", to: "sessions#destroy"
   root to: "grantees#index"
 end

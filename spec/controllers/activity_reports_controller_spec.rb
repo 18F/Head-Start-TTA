@@ -5,7 +5,7 @@ RSpec.describe ActivityReportsController, type: :controller do
 
   let(:invalid_attributes) { {purpose: ""} }
 
-  let(:valid_session) { {} }
+  let!(:valid_session) { {current_user_id: build_stubbed(:person).id} }
 
   let(:activity_report) { create :activity_report }
 

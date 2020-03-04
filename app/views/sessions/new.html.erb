@@ -1,0 +1,5 @@
+<%= form_tag login_path, class: "usa-form" do %>
+  <%= label_tag :person_id, "Login as", class: "usa-label" %>
+  <%= select_tag :person_id, options_from_collection_for_select(@people, "id", "name_and_role"), class: "usa-select" %>
+  <%= button_tag "Login", class: "usa-button" %>
+<% end %>
