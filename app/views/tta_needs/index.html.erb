@@ -19,7 +19,7 @@
         <td><%= t.start_date&.strftime("%B %-d, %Y") %></td>
         <td><%= t.indicator %></td>
         <td><%= t.specialist_types_needed.join(", ") %></td>
-        <td><%= link_to "Show", t, class: "usa-link" %></td>
+        <td><%= link_to "Show", t, class: "usa-link", data: {turbolinks: false} %></td>
       </tr>
     <% end %>
   </tbody>

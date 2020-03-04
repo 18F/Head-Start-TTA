@@ -4,26 +4,16 @@ import api from '../api'
 import { connect } from 'react-redux'
 import TTANeedTracker from '../components/tta_need_tracker'
 
-const mapStateToProps = (state, props) => {
-  const tasks = getRelationship(state, props.ttaNeed, 'tasks')
-  const grantee = getRelationship(state, props.ttaNeed, 'grantee')
-  const topics = getRelationship(state, props.ttaNeed, 'topics')
-  const grants = getRelationship(state, grantee, 'grants')
-  return {
-    tasks,
-    grantee,
-    grants,
-    topics,
-    showSuccess: state.app.showSuccess
-  }
-}
-const mapDispatchToProps = null
+const mapStateToProps = (state, props) => ({
+  tasks: getRelationship(state, props.ttaNeed, 'tasks'),
+  showSuccess: state.app.showSuccess
+})
 
 const enhance = compose(
   query('ttaNeed', api.getNeed, (perform, props) => (
     perform({id: props.match.params.id, include: "tasks,grantee,grantee.grants,topics"})
   )),
-  connect(mapStateToProps, mapDispatchToProps)
+  connect(mapStateToProps)
 )
 
 export default enhance(TTANeedTracker)
