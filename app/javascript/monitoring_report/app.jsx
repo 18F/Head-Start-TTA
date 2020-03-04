@@ -77,7 +77,7 @@ const mapDispatchToProps = {
 const enhance = compose(
   connect(mapStateToProps, mapDispatchToProps),
   query('report', api.getMonitoringReport, (perform, props) => (
-    perform({id: props.reportId, include: 'grant,grantee,grantee.people'})
+    perform({id: props.reportId, include: 'grant,grantee,grantee.employees,grantee.specialists'})
   ))
 )
 

@@ -3,6 +3,7 @@ class TtaNeedSerializer < BaseSerializer
   has_one :context_link
   has_many :tasks
   has_many :topics
+  has_one :requester
 
   attributes :narrative,
     :indicator,
@@ -17,6 +18,8 @@ class TtaNeedSerializer < BaseSerializer
     case attribute_name
     when :grantee
       path_helper.grantee_url(id: object.grantee_id, host: base_url)
+    when :requester
+      path_helper.person_url(id: object.requester_id, host: base_url)
     when :context_link
       if object.context_link_id.present?
         path_helper.monitoring_report_url(id: object.context_link_id, host: base_url)

@@ -5,6 +5,10 @@ FactoryBot.define do
     phone_number { FFaker::PhoneNumber.short_phone_number }
     email { FFaker::Internet.safe_email }
 
+    trait :program_specialist do
+      role { "Program Specialist" }
+    end
+
     trait :grantee_employee do
       role { "Head Start Director" }
     end

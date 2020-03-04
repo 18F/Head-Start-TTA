@@ -1,5 +1,4 @@
 import React, { PureComponent, Fragment } from 'react'
-import { partition } from 'lodash'
 
 class GranteeDetailsBox extends PureComponent {
   stringPresent(string) {
@@ -26,13 +25,13 @@ class GranteeDetailsBox extends PureComponent {
     const {
       grants,
       grantee,
-      people
+      employees,
+      specialists
     } = this.props
     if (grantee == null) {
       return (<div>Loading</div>)
     }
     const {id: granteeId, attributes: {name}} = grantee
-    const [employees, specialists] = partition(people, p => p.attributes.granteeEmployee)
     return (
       <div className="box">
         <div className="grid-row">

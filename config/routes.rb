@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :activity_reports
   get "/tta_needs/tracker", to: "tta_needs#activity_tracker"
   resources :grantees, only: %i[index show], shallow: true do
-    resources :people, only: %i[index show]
+    resources :people, only: %i[show] do
+      get "employees", on: :collection
+      get "specialists", on: :collection
+    end
     resources :grants, only: %i[index show] do
       resources :monitoring_reports, only: %i[index show]
     end

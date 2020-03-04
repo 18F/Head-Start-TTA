@@ -11,10 +11,10 @@ resource "Grantees" do
       expect(status).to eq 200
     end
 
-    context "with people" do
-      let!(:person_link) { create :person_grantee_link, grantee: grantee }
+    context "with employees" do
+      let!(:person_link) { create :person_grantee_link, :grantee_employee, grantee: grantee }
 
-      example_request "Grantee includes associated people", include: "people" do
+      example_request "Grantee includes associated people", include: "employees" do
         expect(status).to eq 200
       end
     end

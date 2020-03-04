@@ -53,6 +53,7 @@ class TtaNeedsController < ApplicationController
     unless topics.nil?
       attributes[:topic_ids] = topics.map { |t| t[:id] }
     end
+    attributes[:requester_id] = session[:current_user_id] || data.require(:relationships).require(:requester).require(:data).require(:id)
     attributes
   end
 end

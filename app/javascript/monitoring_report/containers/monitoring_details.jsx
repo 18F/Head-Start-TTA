@@ -5,11 +5,13 @@ import MonitoringDetails from '../components/monitoring_details'
 const mapStateToProps = (state, props) => {
   const grant = getRelationship(state, props.report, 'grant')
   const grantee = getRelationship(state, props.report, 'grantee')
-  const people = getRelationship(state, grantee, 'people')
+  const employees = getRelationship(state, grantee, 'employees')
+  const specialists = getRelationship(state, grantee, 'specialists')
   return {
     grant,
     grantee,
-    people
+    employees,
+    specialists
   }
 }
 
