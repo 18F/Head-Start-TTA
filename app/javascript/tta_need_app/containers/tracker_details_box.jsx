@@ -3,11 +3,15 @@ import { connect } from 'react-redux'
 import TrackerDetailsBox from '../components/tracker_details_box'
 
 const mapStateToProps = (state, props) => {
+  const requester = getRelationship(state, props.ttaNeed, 'requester')
   const grantee = getRelationship(state, props.ttaNeed, 'grantee')
+  const pocs = getRelationship(state, grantee, 'employees')
   const grants = getRelationship(state, grantee, 'grants')
   const topics = getRelationship(state, props.ttaNeed, 'topics')
   return {
+    requester,
     grantee,
+    pocs,
     grants,
     topics
   }

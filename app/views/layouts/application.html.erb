@@ -29,7 +29,6 @@
           </button>
           <div class="usa-nav__secondary">
             <ul class="usa-nav__secondary-links">
-              <li class="usa-nav__secondary-item"><%= link_to "Activity Reports", activity_reports_path %></li>
               <% if user_signed_in? %>
                 <li class="usa-nav__secondary-item"><i class="fas fa-user"></i> <%= current_user.name %></li>
                 <li class="usa-nav__secondary-item"><%= link_to "Logout", logout_path %></li>

@@ -1,50 +1,45 @@
 import React, { PureComponent, Fragment } from 'react'
 import moment from 'moment'
+import PersonListDetails from 'grantee/components/person_list_details'
+import PersonDetails from 'grantee/components/person_details'
+import GrantsList from 'grantee/components/grants_list'
 
 class TrackerDetailsBox extends PureComponent {
   render() {
     const {
-      ttaNeed,
+      ttaNeed: {id: ttaNeedId, attributes: {
+        createdAt: requestDate,
+        indicator,
+        purpose
+      }},
+      requester,
       topics,
-      grantee,
+      grantee: {attributes: {name: granteeName}},
+      pocs,
       grants
     } = this.props
-    const {attributes: {name: granteeName}} = grantee
-    const {attributes: {region}} = grants[0]
-    const {attributes: {
-      createdAt: requestDate,
-      indicator,
-      purpose
-    }} = ttaNeed
     return (
       <div className="box">
-        <p><strong>{region}</strong></p>
-        <h2>TA Request #{ttaNeed.id}</h2>
+        <p style={{margin: 0}}><strong>{grants.map(({attributes: {region}}) => region).join(", ")}</strong></p>
+        <h2>TA Request #{ttaNeedId}</h2>
         <h4>Requested: {moment(requestDate).format("M/D/YYYY")}</h4>
-        <p>
-          <strong>Requested by:</strong> Name<br/>
-          <strong>Role:</strong> Role<br/>
-          <strong>Phone:</strong> 555-555-5555<br/>
-          <strong>Email:</strong> email@email.com
-        </p>
-        <p>
-          <strong>Purpose of request:</strong><br/>
-          {indicator}<br/>
-          {purpose}
-        </p>
-        <p>
-          <strong>TA Areas:</strong><br/>
-          {topics.map(t => (
-            <Fragment>
-              {t.attributes.name}<br/>
-            </Fragment>
+        <PersonDetails person={requester} nameLabel="Requested by" />
+        <h4 style={{marginBottom: 0}}>Purpose of request:</h4>
+        <ul className="usa-list usa-list--unstyled">
+          <li>{indicator}</li>
+          <li>{purpose}</li>
+        </ul>
+        <h4 style={{marginBottom: 0}}>TA Areas:</h4>
+        <ul className="usa-list usa-list--unstyled">
+          {topics.map(({id, attributes: {name}}) => (
+            <li key={id}>{name}</li>
           ))}
-        </p>
+        </ul>
         <hr />
-        <p>
-          <strong>Grantee:</strong><br />
-          {granteeName}
-        </p>
+        <h4 style={{marginBottom: 0}}>Grantee:</h4>
+        <p style={{marginTop: 0}}>{granteeName}</p>
+        <GrantsList grants={grants} />
+        <PersonListDetails people={pocs} />
       </div>
     )
   }
