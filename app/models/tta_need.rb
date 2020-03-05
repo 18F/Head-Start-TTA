@@ -16,6 +16,8 @@ class TtaNeed < ApplicationRecord
 
   has_many :tasks, as: :parent
 
+  has_many :activity_reports
+
   validates_inclusion_of :indicator, in: VALID_INDICATORS
 
   has_and_belongs_to_many :topics

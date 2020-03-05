@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_165129) do
+ActiveRecord::Schema.define(version: 2020_03_05_154407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(version: 2020_03_04_165129) do
     t.text "next_steps", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tta_need_id"
+    t.string "contact_method"
+    t.index ["tta_need_id"], name: "index_activity_reports_on_tta_need_id"
   end
 
   create_table "activity_reports_grants", id: false, force: :cascade do |t|
@@ -173,6 +176,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_165129) do
     t.index ["grantee_id"], name: "index_tta_needs_on_grantee_id"
   end
 
+  add_foreign_key "activity_reports", "tta_needs"
   add_foreign_key "grants", "grantees"
   add_foreign_key "monitoring_reports", "grants"
   add_foreign_key "person_grantee_links", "grantees"

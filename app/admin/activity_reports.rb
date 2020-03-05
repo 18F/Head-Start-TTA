@@ -1,11 +1,12 @@
 ActiveAdmin.register ActivityReport do
-  permit_params :activity_id, :state, :status, :activity_typ, :purpose, :start_date, :end_date, :duration, :primary_reason, :narrative, :next_steps, person_ids: []
+  permit_params :activity_id, :state, :status, :contact_method, :activity_typ, :purpose, :start_date, :end_date, :duration, :primary_reason, :narrative, :next_steps, person_ids: []
 
   form do |f|
     f.inputs "Details" do
       f.input :activity_id
       f.input :state
       f.input :status
+      f.input :contact_method, as: :select, collection: ["Site Visit", "Phone", "Virtual", "Other"]
       f.input :activity_typ, label: "Activity Type"
       f.input :purpose
       f.input :start_date
