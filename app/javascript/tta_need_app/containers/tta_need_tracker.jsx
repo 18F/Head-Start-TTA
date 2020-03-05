@@ -13,7 +13,7 @@ const enhance = compose(
   query('ttaNeed', api.getNeed, (perform, props) => (
     perform({
       id: props.match.params.id,
-      include: "requester,tasks,grantee,grantee.employees,grantee.grants,topics"
+      include: "requester,tasks,activity-reports,grantee,grantee.employees,grantee.grants,topics"
     })
   )),
   connect(mapStateToProps)

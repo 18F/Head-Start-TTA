@@ -1,9 +1,8 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
+  Route
 } from 'react-router-dom'
 import TTARequestForm from './containers/tta_request_form'
 import TTANeedTracker from './containers/tta_need_tracker'
