@@ -1,9 +1,7 @@
 import React, { PureComponent, Fragment } from 'react'
+import { stringPresent } from 'common/utils'
 
 class PersonDetails extends PureComponent {
-  stringPresent(string) {
-    return string && string !== ""
-  }
   nameAndRole(name, role) {
     const { nameLabel } = this.props
     if (nameLabel && typeof nameLabel === "string") {
@@ -31,10 +29,10 @@ class PersonDetails extends PureComponent {
     return (
       <p>
         {this.nameAndRole(name, role)}
-        {this.stringPresent(phoneNumber) &&
+        {stringPresent(phoneNumber) &&
           <Fragment><strong>Phone:</strong> {phoneNumber}<br/></Fragment>
         }
-        {this.stringPresent(email) &&
+        {stringPresent(email) &&
           <Fragment>
             <strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a>
           </Fragment>

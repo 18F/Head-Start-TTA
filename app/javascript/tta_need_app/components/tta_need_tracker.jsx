@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react'
 import RequestSuccessMessage from 'tta_need/components/request_success_message'
 import TrackerDetailsBox from '../containers/tracker_details_box'
 import TrackerTimeline from '../containers/tracker_timeline'
+import OutcomesList from '../containers/outcomes_list'
 
 class TTANeedTracker extends PureComponent {
   render() {
@@ -13,6 +14,7 @@ class TTANeedTracker extends PureComponent {
     if (ttaNeed == null) {
       return (<p>Loading</p>)
     }
+    const { id: ttaNeedId } = ttaNeed
     return (
       <Fragment>
         <RequestSuccessMessage show={showSuccess} />
@@ -22,9 +24,7 @@ class TTANeedTracker extends PureComponent {
           </div>
           <div className="grid-col-8">
             <TrackerTimeline ttaNeed={ttaNeed} />
-            <div className="box">
-              <p>Outcome one</p>
-            </div>
+            <OutcomesList ttaNeedId={ttaNeedId} />
           </div>
         </div>
       </Fragment>

@@ -25,6 +25,10 @@ class TasksController < ApplicationController
 
   def create_params
     data = params.require(:data)
-    data.require(:attributes).permit :status, :title, :notes
+    attributes = data.require(:attributes).permit :status, :title, :notes
+    attributes[:created_by_id] = data.dig(:relationships, :created_by, :data, :id) || current_user_id
+    attributes[:assigned_to_id] = data.dig(:relationships, :assigned_to, :data, :id)
+    attributes[:completed_by_id] = data.dig(:relationships, :completed_by, :data, :id)
+    attributes
   end
 end

@@ -36,6 +36,11 @@ resource "Tasks" do
             status: "todo",
             title: "Grantee will send meeting notes to GS by April 1",
             notes: ""
+          },
+          relationships: {
+            "created-by": {
+              data: {type: "people", id: create(:person, :program_specialist).id}
+            }
           }
         }
       }.to_json
