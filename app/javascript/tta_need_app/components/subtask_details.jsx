@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faSquare, faCheckSquare } from '@fortawesome/free-regular-svg-icons'
 import { stringPresent } from 'common/utils'
 
 class SubtaskDetails extends PureComponent {
@@ -9,29 +9,23 @@ class SubtaskDetails extends PureComponent {
     const { task: {attributes: {status}} } = this.props
     return status === "complete"
   }
+  checkIcon() {
+    return <FontAwesomeIcon className="fa-lg" icon={this.complete() ? faCheckSquare : faSquare} />
+  }
   render() {
     const {
       task: {
         attributes: {
-          status,
           title,
-          notes,
-          createdAt,
-          dueDate
         }
       },
-      createdBy: {
-        attributes: {
-          name: createdByName
-        }
-      },
-      assignedTo,
-      completedBy
     } = this.props
     return (
-      <div className="box">
-        <p><strong>{status}</strong> {title}</p>
-      </div>
+      <li>
+        {this.checkIcon()}
+        &nbsp;
+        {title}
+      </li>
     )
   }
 }

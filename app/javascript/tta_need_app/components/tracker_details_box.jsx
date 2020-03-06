@@ -20,7 +20,7 @@ class TrackerDetailsBox extends PureComponent {
     } = this.props
     return (
       <div className="box">
-        <p style={{margin: 0}}><strong>{grants.map(({attributes: {region}}) => region).join(", ")}</strong></p>
+        <p><strong>{grants.map(({attributes: {region}}) => region).join(", ")}</strong></p>
         <h2>TA Request #{ttaNeedId}</h2>
         <h4>Requested: {moment(requestDate).format("M/D/YYYY")}</h4>
         <PersonDetails person={requester} nameLabel="Requested by" />

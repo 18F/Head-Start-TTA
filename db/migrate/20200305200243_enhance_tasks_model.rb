@@ -5,6 +5,7 @@ class EnhanceTasksModel < ActiveRecord::Migration[6.0]
       t.bigint :assigned_to_id
       t.bigint :completed_by_id
       t.datetime :due_date
+      t.datetime :completed_at
     end
   end
 end

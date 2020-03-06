@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_200243) do
     t.bigint "assigned_to_id"
     t.bigint "completed_by_id"
     t.datetime "due_date"
+    t.datetime "completed_at"
     t.index ["parent_type", "parent_id"], name: "index_tasks_on_parent_type_and_parent_id"
   end
 

@@ -21,7 +21,7 @@ class GranteeDetailsBox extends PureComponent {
             <h3>{name}</h3>
             <GrantsList grants={grants} />
             <PersonListDetails people={employees} useRoleForLabel={false} />
-            <p style={{marginBottom: 0}}><a href={`/grantees/${granteeId}`} className="usa-link">View Grantee Details</a></p>
+            <p><a href={`/grantees/${granteeId}`} className="usa-link">View Grantee Details</a></p>
           </div>
           <div className="grid-col-4">
             <h3>{grants.map(({attributes: {region}}) => region).join(", ")}</h3>

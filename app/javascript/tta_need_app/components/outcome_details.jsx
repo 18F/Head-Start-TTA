@@ -43,10 +43,10 @@ class OutcomeDetails extends PureComponent {
             <FontAwesomeIcon className="fa-2x" icon={faUser} />
           </div>
           <div className="grid-col">
-            <p style={{marginTop: 0, color: "slategray"}}>Outcome created by {createdByName} on: {moment(createdAt).format("M/D/YYYY")}</p>
+            <p className="task-metadata">Outcome created by {createdByName} on: {moment(createdAt).format("M/D/YYYY")}</p>
             <p>{title}</p>
             {stringPresent(notes) &&
-              <p>{notes}</p>
+              <p><em>Notes:</em> {notes}</p>
             }
           </div>
         </div>

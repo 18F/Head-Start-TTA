@@ -1,6 +1,6 @@
 <div class="grid-row grid-gap">
   <div class="grid-col-3">
-    <div class="box">
+    <div class="box box--vertically-padded">
       <%= @grantee.name %>
       <ul class="usa-list usa-list--unstyled">
         <% @grantee.grants.each do |grant| %>
@@ -20,7 +20,7 @@
     <%= link_to "Request TTA", new_grantee_tta_need_path(grantee_id: @grantee.id), class: "usa-button", data: {turbolinks: false} %>
   </div>
   <div class="grid-col-9">
-    <div class="box">
+    <div class="box box--vertically-padded">
       <%= form_tag grantee_path(id: @grantee.id), method: :get, class: "usa-search usa-search--small" do %>
         <%= label_tag :date, "Activity Date", class: "usa-label" %>
         <%= select_tag :date, options_for_select(date_options, @date), class: "usa-select" %>
