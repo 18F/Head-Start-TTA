@@ -3,16 +3,17 @@ import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { stringPresent } from 'common/utils'
+import { ObjectivesList } from '../containers/tasks'
 
 class OutcomeDetails extends PureComponent {
   complete() {
     const { task: {attributes: {status}} } = this.props
-    // return status === "complete"
-    return true
+    return status === "complete"
   }
   render() {
     const {
       task: {
+        id: taskId,
         attributes: {
           status,
           title,
@@ -65,6 +66,7 @@ class OutcomeDetails extends PureComponent {
             <hr />
           </Fragment>
         }
+        <ObjectivesList taskId={taskId} />
       </div>
     )
   }

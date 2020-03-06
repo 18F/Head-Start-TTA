@@ -27,6 +27,16 @@ resource "Tasks" do
     end
   end
 
+  get "/tasks/:id/subtasks" do
+    let(:task) { create :task }
+    let(:id) { task.id }
+    let!(:subtask) { create :task, title: "Subtask", parent: task }
+
+    example_request "List subtasks of a task" do
+      expect(status).to eq 200
+    end
+  end
+
   post "/tta_needs/:tta_need_id/tasks" do
     let(:raw_post) do
       {

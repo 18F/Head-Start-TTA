@@ -34,8 +34,7 @@ class TTANeedForm extends Component {
   }
   urgencyOptions = [
     {label: "High", value: "High"},
-    {label: "Normal", value: "Normal"},
-    {label: "Low", value: "Low"}
+    {label: "Normal", value: "Normal"}
   ]
   proposedStartDate() {
     const { urgency, startDate } = this.state

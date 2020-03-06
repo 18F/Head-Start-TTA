@@ -6,6 +6,11 @@ class TasksController < ApplicationController
     render_models tasks
   end
 
+  def subtasks
+    tasks = Task.where(parent_id: params[:id], parent_type: "Task")
+    render_models tasks
+  end
+
   def show
     task = Task.find params[:id]
     render_model task
