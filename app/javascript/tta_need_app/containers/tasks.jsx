@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react'
 import { query, getRelationship } from 'redux-bees'
 import api from '../api'
 import { connect } from 'react-redux'
+import { saveTask } from '../actions'
 import OutcomeDetails from '../components/outcome_details'
 import ObjectiveDetails from '../components/objective_details'
 import SubtaskDetails from '../components/subtask_details'
@@ -16,14 +17,19 @@ const connectList = (apiName, idName, loadingType, DetailsComponent) => {
 
   class TaskList extends PureComponent {
     render() {
-      const { tasks } = this.props
+      const { tasks, taskUpdated, status: {tasks: {refetch}} } = this.props
       if (tasks === null) {
         return (<p>Loading {loadingType}...</p>)
       }
       return (
         <Fragment>
           {tasks.map((t,i) => (
-            <DetailsComponent key={i} task={t} />
+            <DetailsComponent
+              key={i}
+              task={t}
+              taskUpdated={taskUpdated}
+              refetch={() => refetch()}
+              />
           ))}
         </Fragment>
       )
@@ -39,8 +45,15 @@ const connectDetails = InnerComponent => {
     assignedTo: getRelationship(state, props.task, 'assignedTo'),
     completedBy: getRelationship(state, props.task, 'completedBy')
   })
+  const mapDispatchToProps = (dispatch, props) => ({
+    saveTask: task => dispatch(saveTask(task)).then(() => {
+      if (props.taskUpdated) {
+        props.taskUpdated(task)
+      }
+    })
+  })
 
-  return connect(mapStateToProps)(InnerComponent)
+  return connect(mapStateToProps, mapDispatchToProps)(InnerComponent)
 }
 
 export const OutcomesList = connectList('getTasks', 'ttaNeedId', "outcomes", connectDetails(OutcomeDetails))

@@ -49,7 +49,7 @@ resource "Tasks" do
           },
           relationships: {
             "created-by": {
-              data: {type: "people", id: create(:person, :program_specialist).id}
+              data: {type: "people", id: create(:person, :program_specialist).id.to_s}
             }
           }
         }
@@ -61,6 +61,32 @@ resource "Tasks" do
         do_request
       }.to change(Task, :count).by(1)
       expect(status).to eq 201
+    end
+  end
+
+  patch "/tasks/:id" do
+    let(:task) { create :task }
+    let(:id) { task.id }
+
+    let(:raw_post) do
+      {
+        data: {
+          type: "tasks",
+          id: id.to_s,
+          attributes: {
+            status: "complete"
+          },
+          relationships: {
+            "completed-by": {
+              data: {type: "people", id: create(:person).id.to_s}
+            }
+          }
+        }
+      }.to_json
+    end
+
+    example_request "Update task completion" do
+      expect(status).to eq 200
     end
   end
 end

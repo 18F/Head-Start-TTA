@@ -1,25 +1,34 @@
 import React, { PureComponent, Fragment } from 'react'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { stringPresent } from 'common/utils'
 import { ObjectivesList } from '../containers/tasks'
 
 class OutcomeDetails extends PureComponent {
-  complete() {
+  constructor(props) {
+    super(props)
     const { task: {attributes: {status}} } = this.props
-    return status === "complete"
+    this.state = {
+      complete: (status === "complete")
+    }
+    this.markComplete = this.markComplete.bind(this)
+  }
+  markComplete() {
+    const { task, saveTask } = this.props
+    this.setState({complete: true}, () => {
+      saveTask({...task, attributes: {...task.attributes, status: "complete"}})
+    })
   }
   render() {
     const {
       task: {
         id: taskId,
         attributes: {
-          status,
           title,
           notes,
           createdAt,
-          dueDate,
+          completedAt,
           subtasksComplete
         }
       },
@@ -29,8 +38,14 @@ class OutcomeDetails extends PureComponent {
         }
       },
       assignedTo,
-      completedBy
+      completedBy,
+      refetch
     } = this.props
+    const { complete } = this.state
+    let completedByName = "someone"
+    if (completedBy) {
+      completedByName = completedBy.attributes.name
+    }
     return (
       <div className="box">
         <div className="grid-row">
@@ -50,8 +65,16 @@ class OutcomeDetails extends PureComponent {
             }
           </div>
         </div>
+        {complete &&
+          <Fragment>
+            <FontAwesomeIcon className="fa-lg" icon={faCheckCircle} style={{color: "green"}} />
+            <p className="task-metadata" style={{display: "inline-block", marginLeft: "0.5em"}}>
+              Marked complete by {completedByName} on: {moment(completedAt).format("M/D/YYYY")}
+            </p>
+          </Fragment>
+        }
         <hr />
-        {subtasksComplete &&
+        {subtasksComplete && !complete &&
           <Fragment>
             <p>No outstanding objectives for this outcome</p>
             <div className="grid-row">
@@ -59,14 +82,14 @@ class OutcomeDetails extends PureComponent {
                 <h4 style={{marginTop: "0.75rem"}}>Is this outcome complete?</h4>
               </div>
               <div className="grid-col-4">
-                <button className="usa-button" onClick={() => alert("Done!")}>Yes</button>
-                <button className="usa-button usa-button--secondary" onClick={() => alert("More to do!")}>No</button>
+                <button className="usa-button" onClick={this.markComplete}>Yes</button>
+                <button className="usa-button usa-button--secondary" onClick={() => alert("What should happen now?")}>No</button>
               </div>
             </div>
             <hr />
           </Fragment>
         }
-        <ObjectivesList taskId={taskId} />
+        <ObjectivesList taskId={taskId} taskUpdated={refetch} />
       </div>
     )
   }
