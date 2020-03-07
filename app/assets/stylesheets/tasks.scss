@@ -10,3 +10,26 @@
 .next-steps-list {
   margin: 1em !important;
 }
+
+ul.pizza-tracker.pizza-tracker--large {
+  font-size: 1em;
+}
+
+ul.pizza-tracker {
+  list-style-type: none;
+  font-size: 0.75em;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    max-width: 6em;
+    text-align: center;
+  }
+  .tracker-past-activity {
+    color: blue;
+  }
+
+  .tracker-today {
+    color: green;
+  }
+}
