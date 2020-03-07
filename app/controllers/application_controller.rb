@@ -2,8 +2,30 @@ class ApplicationController < ActionController::Base
   include ActiveSupport::SecurityUtils
 
   before_action :basic_auth_authenticate
+  before_action :require_user!
+
+  helper_method :user_signed_in?, :current_user
+
+  def user_signed_in?
+    current_user_id.present?
+  end
+
+  def current_user_id
+    session[:current_user_id]
+  end
+
+  def current_user
+    @current_user ||= Person.find(current_user_id) if user_signed_in?
+  end
 
   private
+
+  def require_user!
+    if request.format.html? && !user_signed_in?
+      session[:return_to] = request.env["PATH_INFO"]
+      redirect_to login_path
+    end
+  end
 
   def basic_auth_authenticate
     return unless Rails.env.production?

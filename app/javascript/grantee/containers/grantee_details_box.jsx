@@ -6,12 +6,13 @@ import GranteeDetailsBox from '../components/grantee_details_box'
 
 const mapStateToProps = (state, props) => ({
   grants: getRelationship(state, props.grantee, 'grants'),
-  people: getRelationship(state, props.grantee, 'people')
+  employees: getRelationship(state, props.grantee, 'employees'),
+  specialists: getRelationship(state, props.grantee, 'specialists')
 })
 
 const enhance = compose(
   query('grantee', api.getGrantee, (perform, props) => (
-    perform({id: props.granteeId, include: "grants,people"})
+    perform({id: props.granteeId, include: "grants,employees,specialists"})
   )),
   connect(mapStateToProps)
 )

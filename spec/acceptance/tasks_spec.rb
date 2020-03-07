@@ -27,6 +27,16 @@ resource "Tasks" do
     end
   end
 
+  get "/tasks/:id/subtasks" do
+    let(:task) { create :task }
+    let(:id) { task.id }
+    let!(:subtask) { create :task, title: "Subtask", parent: task }
+
+    example_request "List subtasks of a task" do
+      expect(status).to eq 200
+    end
+  end
+
   post "/tta_needs/:tta_need_id/tasks" do
     let(:raw_post) do
       {
@@ -36,6 +46,11 @@ resource "Tasks" do
             status: "todo",
             title: "Grantee will send meeting notes to GS by April 1",
             notes: ""
+          },
+          relationships: {
+            "created-by": {
+              data: {type: "people", id: create(:person, :program_specialist).id.to_s}
+            }
           }
         }
       }.to_json
@@ -46,6 +61,32 @@ resource "Tasks" do
         do_request
       }.to change(Task, :count).by(1)
       expect(status).to eq 201
+    end
+  end
+
+  patch "/tasks/:id" do
+    let(:task) { create :task }
+    let(:id) { task.id }
+
+    let(:raw_post) do
+      {
+        data: {
+          type: "tasks",
+          id: id.to_s,
+          attributes: {
+            status: "complete"
+          },
+          relationships: {
+            "completed-by": {
+              data: {type: "people", id: create(:person).id.to_s}
+            }
+          }
+        }
+      }.to_json
+    end
+
+    example_request "Update task completion" do
+      expect(status).to eq 200
     end
   end
 end

@@ -32,6 +32,8 @@ namespace :yarn do
       puts stderr
       if /503 Service Unavailable/.match?(stderr)
         puts "Ignoring unavailable server"
+      elsif /advisories\/1488.*1 vulnerabilities found/m.match?(stdout)
+        puts "Ignoring medium severity issue with Acorn until webpack is updated"
       else
         exit status.exitstatus
       end

@@ -1,11 +1,25 @@
 class ActivityReportsController < ApplicationController
+  include JsonapiMethods
+
   before_action :set_activity_report, only: [:show, :edit, :update, :destroy]
 
   def index
-    @activity_reports = ActivityReport.all
+    @activity_reports = if params[:tta_need_id].present?
+      ActivityReport.where(tta_need_id: params[:tta_need_id])
+    else
+      ActivityReport.all
+    end
+    respond_to do |format|
+      format.html
+      format.api_json { render_models @activity_reports }
+    end
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.api_json { render_model @activity_report }
+    end
   end
 
   def new
@@ -99,7 +113,8 @@ class ActivityReportsController < ApplicationController
       start_date: row["M"],
       end_date: row["N"],
       duration: row["O"],
-      people: process_specialists(row["R"].split(/,\s*/))
+      people: process_specialists(row["R"].split(/,\s*/)),
+      contact_method: row["S"]
     }
   end
 

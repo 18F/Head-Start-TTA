@@ -50,7 +50,7 @@ class SpecialistList extends Component {
       <Fragment>
         <label className="usa-label" htmlFor="specialist-type">Type of Specialists Needed</label>
         {specialistTypesNeeded.map((type, index) =>
-          <div className="box" key={index} style={{marginBottom: 0}}>
+          <div className="box box--vertically-padded" key={index} style={{marginBottom: 0}}>
             <Select options={this.specialistOptions} value={type} onChange={value => this.specialistTypeChanged(value, index)} />
             <TopicList scope={type.value} />
             {typesCount > 1 &&

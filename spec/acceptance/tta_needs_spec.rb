@@ -3,6 +3,7 @@ require "rspec_api_documentation/dsl"
 
 resource "TTA Needs" do
   let(:grantee) { create :grantee }
+  let(:program_specialist) { create :person, :program_specialist }
 
   get "/grantees/:grantee_id/tta_needs" do
     let(:grantee_id) { grantee.id }
@@ -54,6 +55,7 @@ resource "TTA Needs" do
             "specialist-types-needed": [topic1.scope]
           },
           relationships: {
+            requester: {data: {type: "people", id: program_specialist.id.to_s}},
             topics: {
               data: [
                 {type: "topics", id: topic1.id.to_s},
@@ -91,6 +93,7 @@ resource "TTA Needs" do
               "context-link": {
                 data: {type: "monitoring-reports", id: report.id.to_s}
               },
+              requester: {data: {type: "people", id: program_specialist.id.to_s}},
               topics: {
                 data: [{type: "topics", id: topic1.id.to_s}]
               }

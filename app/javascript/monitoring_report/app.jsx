@@ -8,6 +8,7 @@ import showdown from 'showdown'
 import xss from 'xss'
 import MonitoringDetails from './containers/monitoring_details'
 import TTANeedForm from 'tta_need/containers/tta_need_form'
+import RequestSuccessMessage from 'tta_need/components/request_success_message'
 
 class App extends PureComponent {
   renderBodyColumn(columnClass) {
@@ -48,29 +49,15 @@ class App extends PureComponent {
       )
     }
   }
-  renderSuccessMessage() {
-    const {showSuccess} = this.props
-    if (showSuccess) {
-      return (
-        <div className="grid-row">
-          <div className="grid-col">
-            <div className="usa-alert usa-alert--success">
-              <div className="usa-alert__body">
-                <h3 className="usa-alert__heading">Success</h3>
-                <p className="usa-alert__text">TTA Request has been submitted</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-  }
   render() {
-    const {report} = this.props
+    const {
+      report,
+      showSuccess
+    } = this.props
     return (
       <Fragment>
         <MonitoringDetails report={report} />
-        {this.renderSuccessMessage()}
+        <RequestSuccessMessage show={showSuccess} />
         {this.renderReportBody()}
       </Fragment>
     )
@@ -90,7 +77,7 @@ const mapDispatchToProps = {
 const enhance = compose(
   connect(mapStateToProps, mapDispatchToProps),
   query('report', api.getMonitoringReport, (perform, props) => (
-    perform({id: props.reportId, include: 'grant,grantee,grantee.people'})
+    perform({id: props.reportId, include: 'grant,grantee,grantee.employees,grantee.specialists'})
   ))
 )
 

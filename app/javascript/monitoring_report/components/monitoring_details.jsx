@@ -7,12 +7,13 @@ class MonitoringDetails extends PureComponent {
     const {
       grant,
       grantee,
-      people,
+      employees,
+      specialists,
       report
     } = this.props
     return (
       <Fragment>
-        <GranteeDetailsBox grants={[grant]} grantee={grantee} people={people} />
+        <GranteeDetailsBox grants={[grant]} grantee={grantee} employees={employees} specialists={specialists} />
         <MonitoringDetailsBox report={report} />
       </Fragment>
     )

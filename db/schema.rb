@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_210530) do
+ActiveRecord::Schema.define(version: 2020_03_05_200243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_210530) do
     t.text "next_steps", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tta_need_id"
+    t.string "contact_method"
+    t.index ["tta_need_id"], name: "index_activity_reports_on_tta_need_id"
   end
 
   create_table "activity_reports_grants", id: false, force: :cascade do |t|
@@ -140,6 +143,11 @@ ActiveRecord::Schema.define(version: 2020_03_02_210530) do
     t.bigint "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "created_by_id"
+    t.bigint "assigned_to_id"
+    t.bigint "completed_by_id"
+    t.datetime "due_date"
+    t.datetime "completed_at"
     t.index ["parent_type", "parent_id"], name: "index_tasks_on_parent_type_and_parent_id"
   end
 
@@ -168,10 +176,12 @@ ActiveRecord::Schema.define(version: 2020_03_02_210530) do
     t.date "start_date"
     t.string "purpose", default: ""
     t.string "urgency", default: "Normal"
+    t.bigint "requester_id"
     t.index ["context_link_type", "context_link_id"], name: "index_tta_needs_on_context_link_type_and_context_link_id"
     t.index ["grantee_id"], name: "index_tta_needs_on_grantee_id"
   end
 
+  add_foreign_key "activity_reports", "tta_needs"
   add_foreign_key "grants", "grantees"
   add_foreign_key "monitoring_reports", "grants"
   add_foreign_key "person_grantee_links", "grantees"

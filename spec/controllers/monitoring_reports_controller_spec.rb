@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe MonitoringReportsController, type: :controller do
-  let(:valid_session) { {} }
+  let(:valid_session) { {current_user_id: build_stubbed(:person).id} }
   let(:monitoring_report) { create :monitoring_report }
 
   describe "GET #show" do

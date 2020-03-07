@@ -11,7 +11,7 @@ class TaskList extends PureComponent {
     } = this.props
     const allowRemove = tasks.length !== 1
     return (
-      <div className="box">
+      <div className="box box--vertically-padded">
         {tasks.map((t, i) => (
           <Task key={t.key} allowRemove={allowRemove} title={t.title} updateTask={value => updateTask(value, i)} removeTask={() => removeTask(i)} addTask={addTask} />
         ))}

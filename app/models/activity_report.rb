@@ -11,6 +11,8 @@ class ActivityReport < ApplicationRecord
   has_many :follow_up_reports, class_name: "ActivityReport", foreign_key: "previous_activity_report_id"
   belongs_to :previous_activity_report, class_name: "ActivityReport", optional: true
 
+  belongs_to :tta_need, optional: true
+
   acts_as_ordered_taggable_on :materials, :topics
 
   auto_strip_attributes :activity_id

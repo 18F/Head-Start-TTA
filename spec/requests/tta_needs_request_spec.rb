@@ -4,6 +4,10 @@ RSpec.describe "TtaNeeds", type: :request do
   let!(:need) { create :tta_need }
   let(:grantee) { need.grantee }
 
+  before(:each) do
+    post login_path, params: {person_id: create(:person).id}
+  end
+
   describe "GET index" do
     it "responds with http success" do
       get grantee_tta_needs_path(grantee_id: grantee.id)

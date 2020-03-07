@@ -10,10 +10,10 @@ const mapStateToProps = state => ({
   ttaNeed: state.ttaNeed
 })
 
-const mapDispatchToProps = {
-  updateNeed,
-  closeForm,
-  submitRequest
-}
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  updateNeed: (update) => dispatch(updateNeed(update)),
+  closeForm: () => dispatch(closeForm()),
+  submitRequest: () => dispatch(submitRequest(ownProps.history))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(TTANeedForm)

@@ -6,6 +6,11 @@ class TasksController < ApplicationController
     render_models tasks
   end
 
+  def subtasks
+    tasks = Task.where(parent_id: params[:id], parent_type: "Task")
+    render_models tasks
+  end
+
   def show
     task = Task.find params[:id]
     render_model task
@@ -21,10 +26,35 @@ class TasksController < ApplicationController
     end
   end
 
+  def update
+    task = Task.find params[:id]
+    if task.update update_params
+      render_model task
+    else
+      render_errors task.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def create_params
     data = params.require(:data)
-    data.require(:attributes).permit :status, :title, :notes
+    attributes = data.require(:attributes).permit :status, :title, :notes
+    attributes[:created_by_id] = data.dig(:relationships, :created_by, :data, :id) || current_user_id
+    attributes[:assigned_to_id] = data.dig(:relationships, :assigned_to, :data, :id)
+    attributes[:completed_by_id] = data.dig(:relationships, :completed_by, :data, :id)
+    attributes
+  end
+
+  def update_params
+    data = params.require(:data)
+    attributes = data.require(:attributes).permit :status, :title, :notes, :completed_at
+    attributes[:assigned_to_id] = data.dig(:relationships, :assigned_to, :data, :id)
+    attributes[:completed_by_id] = data.dig(:relationships, :completed_by, :data, :id)
+    if attributes[:status] == "complete"
+      attributes[:completed_by_id] ||= current_user_id
+      attributes[:completed_at] ||= Time.now.utc
+    end
+    attributes
   end
 end
