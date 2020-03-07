@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import showdown from 'showdown'
 import xss from 'xss'
-import moment from 'moment'
+import { longDate } from 'common/utils'
 
 class MonitoringDetailsBox extends PureComponent {
   get formattedCitation() {
@@ -23,8 +23,8 @@ class MonitoringDetailsBox extends PureComponent {
             <div className="measure-2" dangerouslySetInnerHTML={this.formattedCitation}></div>
           </div>
           <div className="grid-col-4">
-            <p><strong>Report Date:</strong> {moment(report.reportDate).format("MMMM D, YYYY")}</p>
-            <p><strong>Due Date:</strong> {moment(report.dueDate).format("MMMM D, YYYY")}</p>
+            <p><strong>Report Date:</strong> {longDate(report.reportDate)}</p>
+            <p><strong>Due Date:</strong> {longDate(report.dueDate)}</p>
             <p><strong>Timeframe for Correction:</strong> {report.timeframe}</p>
           </div>
         </div>

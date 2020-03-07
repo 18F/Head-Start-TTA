@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquare, faCheckSquare } from '@fortawesome/free-regular-svg-icons'
 import { stringPresent } from 'common/utils'

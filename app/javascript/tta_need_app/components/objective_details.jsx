@@ -1,9 +1,9 @@
 import React, { PureComponent, Fragment } from 'react'
-import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { stringPresent } from 'common/utils'
 import { SubtasksList } from '../containers/tasks'
+import { shortDate } from 'common/utils'
 
 class ObjectiveDetails extends PureComponent {
   constructor(props) {
@@ -49,12 +49,12 @@ class ObjectiveDetails extends PureComponent {
     return (
       <div className="box">
         <h4>Objective:</h4>
-        <p className="task-metadata">Created by {createdByName} on: {moment(createdAt).format("M/D/YYYY")}</p>
+        <p className="task-metadata">Created by {createdByName} on: {shortDate(createdAt)}</p>
         {complete &&
           <Fragment>
             <FontAwesomeIcon className="fa-lg" icon={faCheckCircle} style={{color: "green"}} />
             <p className="task-metadata" style={{display: "inline-block", marginLeft: "0.5em"}}>
-              Marked complete by {completedByName} on: {moment(completedAt).format("M/D/YYYY")}
+              Marked complete by {completedByName} on: {shortDate(completedAt)}
             </p>
           </Fragment>
         }

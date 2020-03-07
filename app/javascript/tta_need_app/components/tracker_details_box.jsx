@@ -1,8 +1,8 @@
 import React, { PureComponent, Fragment } from 'react'
-import moment from 'moment'
 import PersonListDetails from 'grantee/components/person_list_details'
 import PersonDetails from 'grantee/components/person_details'
 import GrantsList from 'grantee/components/grants_list'
+import { shortDate } from 'common/utils'
 
 class TrackerDetailsBox extends PureComponent {
   render() {
@@ -22,7 +22,7 @@ class TrackerDetailsBox extends PureComponent {
       <div className="box">
         <p><strong>{grants.map(({attributes: {region}}) => region).join(", ")}</strong></p>
         <h2>TA Request #{ttaNeedId}</h2>
-        <h4>Requested: {moment(requestDate).format("M/D/YYYY")}</h4>
+        <h4>Requested: {shortDate(requestDate)}</h4>
         <PersonDetails person={requester} nameLabel="Requested by" />
         <h4 style={{marginBottom: 0}}>Purpose of request:</h4>
         <ul className="usa-list usa-list--unstyled">
