@@ -21,6 +21,9 @@ const connectList = (apiName, idName, loadingType, DetailsComponent) => {
       if (tasks === null) {
         return (<p>Loading {loadingType}...</p>)
       }
+      if (tasks.length === 0) {
+        return (<p>No {loadingType} have been defined yet.</p>)
+      }
       return (
         <Fragment>
           {tasks.map((t,i) => (
