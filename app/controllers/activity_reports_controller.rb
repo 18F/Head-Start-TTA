@@ -5,7 +5,7 @@ class ActivityReportsController < ApplicationController
 
   def index
     @activity_reports = if params[:tta_need_id].present?
-      ActivityReport.where(tta_need_id: params[:tta_need_id])
+      ActivityReport.where(tta_need_id: params[:tta_need_id]).order(:start_date)
     else
       ActivityReport.all
     end
