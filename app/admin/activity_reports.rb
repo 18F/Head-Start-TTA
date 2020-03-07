@@ -1,5 +1,5 @@
 ActiveAdmin.register ActivityReport do
-  permit_params :activity_id, :state, :status, :contact_method, :activity_typ, :purpose, :start_date, :end_date, :duration, :primary_reason, :narrative, :next_steps, person_ids: []
+  permit_params :activity_id, :tta_need_id, :state, :status, :contact_method, :activity_typ, :purpose, :start_date, :end_date, :duration, :primary_reason, :narrative, :next_steps, person_ids: []
 
   form do |f|
     f.inputs "Details" do
@@ -14,6 +14,7 @@ ActiveAdmin.register ActivityReport do
       f.input :duration
       f.input :people, as: :select, input_html: {multiple: true}
       f.input :primary_reason
+      f.input :tta_need, collection: TtaNeed.all.map { |t| t.id }
     end
     f.inputs "Markdown" do
       f.input :narrative

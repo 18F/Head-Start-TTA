@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react'
 import PersonListDetails from './person_list_details'
 import GrantsList from './grants_list'
+import { uniq } from 'lodash'
 
 class GranteeDetailsBox extends PureComponent {
   render() {
@@ -24,7 +25,7 @@ class GranteeDetailsBox extends PureComponent {
             <p><a href={`/grantees/${granteeId}`} className="usa-link">View Grantee Details</a></p>
           </div>
           <div className="grid-col-4">
-            <h3>{grants.map(({attributes: {region}}) => region).join(", ")}</h3>
+            <h3>{uniq(grants.map(({attributes: {region}}) => region)).join(", ")}</h3>
             <PersonListDetails people={specialists} useRoleForLabel={true} />
           </div>
         </div>

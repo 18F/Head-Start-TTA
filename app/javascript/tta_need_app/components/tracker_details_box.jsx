@@ -3,6 +3,7 @@ import PersonListDetails from 'grantee/components/person_list_details'
 import PersonDetails from 'grantee/components/person_details'
 import GrantsList from 'grantee/components/grants_list'
 import { shortDate } from 'common/utils'
+import { uniq } from 'lodash'
 
 class TrackerDetailsBox extends PureComponent {
   render() {
@@ -20,7 +21,7 @@ class TrackerDetailsBox extends PureComponent {
     } = this.props
     return (
       <div className="box">
-        <p><strong>{grants.map(({attributes: {region}}) => region).join(", ")}</strong></p>
+        <p><strong>{uniq(grants.map(({attributes: {region}}) => region)).join(", ")}</strong></p>
         <h2>TA Request #{ttaNeedId}</h2>
         <h4>Requested: {shortDate(requestDate)}</h4>
         <PersonDetails person={requester} nameLabel="Requested by" />
