@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { stringPresent } from 'common/utils'
 import { ObjectivesList } from '../containers/tasks'
 import { shortDate } from 'common/utils'
@@ -48,23 +48,12 @@ class OutcomeDetails extends PureComponent {
     }
     return (
       <div className="box">
-        <div className="grid-row">
-          <div className="grid-col">
-            <h3>Anticipated Outcome</h3>
-          </div>
-        </div>
-        <div className="grid-row">
-          <div className="grid-col-1" style={{textAlign: "center"}}>
-            <FontAwesomeIcon className="fa-2x" icon={faUser} />
-          </div>
-          <div className="grid-col">
-            <p className="task-metadata">Outcome created by {createdByName} on: {shortDate(createdAt)}</p>
-            <p>{title}</p>
-            {stringPresent(notes) &&
-              <p><em>Notes:</em> {notes}</p>
-            }
-          </div>
-        </div>
+        <h3>Anticipated Outcome</h3>
+        <p className="task-metadata">Outcome created by {createdByName} on: {shortDate(createdAt)}</p>
+        <p>{title}</p>
+        {stringPresent(notes) &&
+          <p><em>Notes:</em> {notes}</p>
+        }
         {complete &&
           <Fragment>
             <FontAwesomeIcon className="fa-lg" icon={faCheckCircle} style={{color: "green"}} />

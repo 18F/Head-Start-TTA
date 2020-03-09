@@ -37,7 +37,7 @@ class TrackerTimeline extends PureComponent {
           <li><FontAwesomeIcon className="fa-2x" icon={faUserPlus} /><br />Specialist Assigned<br />&nbsp;</li>
           <li><FontAwesomeIcon className="fa-2x" icon={faPlane} /><br />Travel Approved<br />&nbsp;</li>
           <li><FontAwesomeIcon className="fa-2x" icon={faEllipsisH} /><br />Activities<br />&nbsp;<br />&nbsp;</li>
-          <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closout Review<br />&nbsp;</li>
+          <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br />&nbsp;</li>
         </ul>
       )
     }
@@ -51,7 +51,7 @@ class TrackerTimeline extends PureComponent {
         ))}
         <li><FontAwesomeIcon className="tracker-today fa-2x" icon={faCalendarAlt} /><br />Today<br/>&nbsp;<br/>&nbsp;</li>
         <li><FontAwesomeIcon className="fa-2x" icon={faUsers} /><br />Site Visit Activity<br />{shortDate(moment().add(1, 'week'))}</li>
-        <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closout Review<br/>&nbsp;</li>
+        <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br/>&nbsp;</li>
       </ul>
     )
   }
