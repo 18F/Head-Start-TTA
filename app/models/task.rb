@@ -16,4 +16,12 @@ class Task < ApplicationRecord
   def complete?
     status == "complete"
   end
+
+  def reset_status
+    subtasks.each(&:reset_status)
+    self.status = "todo"
+    self.completed_by = nil
+    self.completed_at = nil
+    save
+  end
 end

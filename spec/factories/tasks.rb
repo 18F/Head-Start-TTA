@@ -5,5 +5,15 @@ FactoryBot.define do
     notes { "" }
     association :parent, factory: :tta_need
     association :created_by, factory: :person
+
+    trait :subtask do
+      association :parent, factory: :task
+    end
+
+    trait :complete do
+      status { "complete" }
+      association :completed_by, factory: :person
+      completed_at { Time.now }
+    end
   end
 end

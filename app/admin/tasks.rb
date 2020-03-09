@@ -1,18 +1,12 @@
 ActiveAdmin.register Task do
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
+  batch_action :reset_status do |ids|
+    batch_action_collection.find(ids).each do |task|
+      task.reset_status
+    end
+    redirect_to collection_path, alert: "The tasks have been reset."
+  end
+
   permit_params :status, :title, :notes, :parent_type, :parent_id, :created_by_id, :assigned_to_id, :completed_by_id, :due_date, :completed_at, :created_at
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:status, :title, :notes, :parent_type, :parent_id, :created_by_id, :assigned_to_id, :completed_by_id, :due_date, :completed_at]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
 
   form do |f|
     f.inputs "Details" do
