@@ -6,7 +6,7 @@ ruby "2.6.5"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.0.2"
 # Use postgresql as the database for Active Record
-gem "pg", ">= 0.18", "< 2.0"
+gem "pg", "~> 1.2"
 gem "auto_strip_attributes", "~> 2.5"
 gem "activeadmin", "~> 2.6"
 
@@ -46,7 +46,7 @@ group :development, :test do
   gem "standard", "~> 0.1"
   gem "brakeman", "~> 4.7"
   gem "bundler-audit", "~> 0.6"
-  gem "rspec-rails", "4.0.0.rc1"
+  gem "rspec-rails", "~> 4.0"
   gem "shoulda", "4.0.0.rc1"
   gem "factory_bot_rails", "~> 5.1"
   gem "rspec_api_documentation", "~> 6.1"
