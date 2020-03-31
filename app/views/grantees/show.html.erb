@@ -36,6 +36,38 @@
       <% end %>
     </div>
 
+    <% @grantee.reviews.each do |review| %>
+      <div class="box box--vertically-padded box--split">
+        <div class="grid-row">
+          <div class="grid-col grid-col-8">
+            <p><%= review.name %> / <%= review.review_type %></p>
+            <div class="usa-accordion">
+              <% review.finding_histories.sort_by(&:ordinal).each do |fh| %>
+                <h2 class="usa-accordion__heading">
+                  <button class="usa-accordion__button" aria-expanded="false" aria-controls="f-<%= fh.id %>">
+                    <%= fh.determination %>
+                  </button>
+                </h2>
+                <div id="f-<%= fh.id %>" class="usa-accordion__content usa-prose">
+                  <p>Status: <%= fh.status_name %></p>
+                  <ul>
+                    <% fh.finding_grants.each do |fg| %>
+                      <li><%= fg.inspect %></li>
+                    <% end %>
+                  </ul>
+                  <p><%= fh.narrative %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="grid-col grid-col-4">
+            <p><%= review.start_date.to_date.to_s(:long) %> - <%= review.end_date.to_date.to_s(:long) %></p>
+            <p><%= review.full_status %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <% @monitoring_reports.each do |mr| %>
       <div class="box">
         <div class="grid-row">
