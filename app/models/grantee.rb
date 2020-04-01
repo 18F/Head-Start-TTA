@@ -30,6 +30,6 @@ class Grantee < ApplicationRecord
   end
 
   def reviews
-    @reviews ||= monitoring_data.flat_map(&:reviews).sort_by(&:start_date)
+    @reviews ||= monitoring_data.flat_map(&:reviews).sort_by(&:start_date).reverse
   end
 end

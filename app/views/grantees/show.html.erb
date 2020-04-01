@@ -40,25 +40,26 @@
       <div class="box box--vertically-padded box--split">
         <div class="grid-row">
           <div class="grid-col grid-col-8">
-            <p><%= review.name %> / <%= review.review_type %></p>
-            <div class="usa-accordion">
-              <% review.finding_histories.sort_by(&:ordinal).each do |fh| %>
-                <h2 class="usa-accordion__heading">
-                  <button class="usa-accordion__button" aria-expanded="false" aria-controls="f-<%= fh.id %>">
-                    <%= fh.determination %>
-                  </button>
-                </h2>
-                <div id="f-<%= fh.id %>" class="usa-accordion__content usa-prose">
-                  <p>Status: <%= fh.status_name %></p>
-                  <ul>
-                    <% fh.finding_grants.each do |fg| %>
-                      <li><%= fg.inspect %></li>
-                    <% end %>
-                  </ul>
-                  <p><%= fh.narrative %></p>
-                </div>
+            <h1><%= review.name %> / <%= review.review_type %></h1>
+            <% review.finding_grants.sort_by(&:reported_date).each do |fg| %>
+              <p><%= fg.finding_type %> / <%= fg.status_name %></p>
+              <% fg.standards.each do |s| %>
+                <p><%= s.citation %></p>
+                <p><%= s.text %></p>
               <% end %>
-            </div>
+              <div class="usa-accordion">
+                <% fg.finding_histories.sort_by(&:ordinal).each do |fh| %>
+                  <h2 class="usa-accordion__heading">
+                    <button class="usa-accordion__button" aria-expanded="false" aria-controls="f-<%= fh.id %>">
+                      <%= fh.determination %> / <%= fh.status_name %>
+                    </button>
+                  </h2>
+                  <div id="f-<%= fh.id %>" class="usa-accordion__content usa-prose">
+                    <p><%= fh.narrative %></p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
           </div>
           <div class="grid-col grid-col-4">
             <p><%= review.start_date.to_date.to_s(:long) %> - <%= review.end_date.to_date.to_s(:long) %></p>
