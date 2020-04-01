@@ -37,33 +37,39 @@
     </div>
 
     <% @grantee.reviews.each do |review| %>
-      <div class="box box--vertically-padded box--split">
-        <div class="grid-row">
-          <div class="grid-col grid-col-8">
-            <h1><%= review.name %> / <%= review.review_type %></h1>
-            <% review.finding_grants.sort_by(&:reported_date).each do |fg| %>
-              <p><%= fg.finding_type %> / <%= fg.status_name %></p>
-              <% fg.standards.each do |s| %>
-                <p><%= s.citation %></p>
-                <p><%= s.text %></p>
-              <% end %>
-              <div class="usa-accordion">
-                <% fg.finding_histories.sort_by(&:ordinal).each do |fh| %>
-                  <h2 class="usa-accordion__heading">
-                    <button class="usa-accordion__button" aria-expanded="false" aria-controls="f-<%= fh.id %>">
-                      <%= fh.determination %> / <%= fh.status_name %>
-                    </button>
-                  </h2>
-                  <div id="f-<%= fh.id %>" class="usa-accordion__content usa-prose">
-                    <p><%= fh.narrative %></p>
-                  </div>
+      <div class="usa-accordion">
+        <h1 class="usa-accordion__heading">
+          <button class="usa-accordion__button" aria-expanded="false" aria-controls="r-<%= review.id %>">
+            <%= review.name %> / <%= review.review_type %> / <%= review.full_status %>
+          </button>
+        </h1>
+        <div id="r-<%= review.id %>" class="usa-accordion__content box box--vertically-padded box--split">
+          <div class="grid-row">
+            <div class="grid-col grid-col-8">
+              <% review.finding_grants.sort_by(&:reported_date).each do |fg| %>
+                <p><%= fg.finding_type %> / <%= fg.status_name %></p>
+                <% fg.standards.each do |s| %>
+                  <p><%= s.citation %></p>
+                  <p><%= s.text %></p>
                 <% end %>
-              </div>
-            <% end %>
-          </div>
-          <div class="grid-col grid-col-4">
-            <p><%= review.start_date.to_date.to_s(:long) %> - <%= review.end_date.to_date.to_s(:long) %></p>
-            <p><%= review.full_status %></p>
+                <div class="usa-accordion">
+                  <% fg.finding_histories.sort_by(&:ordinal).each do |fh| %>
+                    <h2 class="usa-accordion__heading">
+                      <button class="usa-accordion__button" aria-expanded="false" aria-controls="f-<%= fh.id %>">
+                        <%= fh.determination %> / <%= fh.status_name %>
+                      </button>
+                    </h2>
+                    <div id="f-<%= fh.id %>" class="usa-accordion__content usa-prose">
+                      <p><%= fh.narrative %></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <div class="grid-col grid-col-4">
+              <p><%= review.start_date.to_date.to_s(:long) %> - <%= review.end_date.to_date.to_s(:long) %></p>
+              <p><%= review.full_status %></p>
+            </div>
           </div>
         </div>
       </div>
