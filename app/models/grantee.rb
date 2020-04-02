@@ -30,6 +30,10 @@ class Grantee < ApplicationRecord
   end
 
   def reviews
-    @reviews ||= monitoring_data.flat_map(&:reviews).sort_by(&:start_date).reverse
+    @reviews ||= if Rails.configuration.x.ohsmon.enabled
+      monitoring_data.flat_map(&:reviews).sort_by(&:start_date).reverse
+    else
+      []
+    end
   end
 end
