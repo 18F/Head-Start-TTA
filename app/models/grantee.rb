@@ -24,4 +24,12 @@ class Grantee < ApplicationRecord
   def report_specialists
     ta_specialists.where.not(id: assigned_specialists.select(:id)).distinct.order(:name)
   end
+
+  def monitoring_data
+    @monitoring_data ||= Monitoring::Grantee.includes(:reviews).where(name: name).all
+  end
+
+  def reviews
+    @reviews ||= monitoring_data.flat_map(&:reviews).sort_by(&:start_date).reverse
+  end
 end
