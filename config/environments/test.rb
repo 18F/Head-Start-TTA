@@ -45,4 +45,7 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
+
+  config.x.ohsmon.enabled = false
+  config.x.ohsmon.base_url = "http://localhost:5000/api"
 end

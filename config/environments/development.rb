@@ -59,4 +59,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.x.ohsmon.enabled = ENV.fetch("OHSMON_API", "false") == "true"
+  config.x.ohsmon.base_url = ENV["OSHMON_API_URL"]
 end
