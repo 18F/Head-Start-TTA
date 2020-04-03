@@ -63,7 +63,7 @@ class ObjectiveDetails extends PureComponent {
         <hr />
         {subtasksComplete && !complete &&
           <Fragment>
-            <p>No outstanding action items for this objective</p>
+            <p>No outstanding tasks for this objective</p>
             <div className="grid-row">
               <div className="grid-col-8">
                 <h4 style={{marginTop: "0.75rem"}}>Is this objective complete?</h4>

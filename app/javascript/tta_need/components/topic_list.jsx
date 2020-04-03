@@ -50,17 +50,17 @@ class TopicList extends PureComponent {
     const topicCount = this.topics.length
     return (
       <Fragment>
-        <label className="usa-label" htmlFor="topics">TA Area(s)</label>
+        <label className="usa-label" htmlFor="topics">Topics</label>
         {this.topics.map((topic, index) => (
           <Fragment key={index}>
             <Select options={this.options} value={topic} onChange={value => this.topicChanged(value, index)} />
             {topicCount > 1 &&
-              <p style={{margin: 0}}><a href="#" onClick={e => this.removeTopic(e, index)}>Remove area</a></p>
+              <p style={{margin: 0}}><a href="#" onClick={e => this.removeTopic(e, index)}>Remove topic</a></p>
             }
           </Fragment>
         ))}
         {topicCount < this.options.length &&
-          <p style={{margin: 0}}><a href="#" onClick={this.addTopic}>Add another area</a></p>
+          <p style={{margin: 0}}><a href="#" onClick={this.addTopic}>Add another topic</a></p>
         }
       </Fragment>
     )

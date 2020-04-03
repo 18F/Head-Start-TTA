@@ -61,5 +61,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.x.ohsmon.enabled = ENV.fetch("OHSMON_API", "false") == "true"
-  config.x.ohsmon.base_url = ENV["OSHMON_API_URL"]
+  config.x.ohsmon.base_url = ENV["OHSMON_API_URL"]
 end

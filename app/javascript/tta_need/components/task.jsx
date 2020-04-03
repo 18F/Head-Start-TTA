@@ -27,7 +27,7 @@ class Task extends PureComponent {
           <input type="text" className="usa-input" value={title} onChange={this.updateTask} onKeyUp={this.addNewTask} />
         </div>
         {allowRemove &&
-          <button className="usa-button usa-button--secondary" type="button" onClick={removeTask}>Remove outcome</button>
+          <button className="usa-button usa-button--secondary" type="button" onClick={removeTask}>Remove goal</button>
         }
       </div>
     )
