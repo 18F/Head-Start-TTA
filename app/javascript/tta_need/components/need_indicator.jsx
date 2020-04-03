@@ -11,30 +11,19 @@ class NeedIndicator extends Component {
   }
   indicatorOptions = [
     { value: "Grantee Request", label: "Grantee Request" },
-    { value: "OHS Monitoring Report", label: "OHS Monitoring Report" },
-    { value: "Risk Management Meeting", label: "Risk Management Meeting" },
-    { value: "PIR Results", label: "PIR Results" },
-    { value: "NC Priority", label: "NC Priority" },
-    { value: "RO Priority", label: "RO Priority" }
+    { value: "New Leadership", label: "New Leadership" },
+    { value: "New Grantee or Program", label: "New Grantee or Program" },
+    { value: "CO or RO Priority", label: "CO or RO Priority" },
+    { value: "Monitoring", label: "Monitoring" },
+    { value: "Area of Concern", label: "Area of Concern" },
+    { value: "Planning", label: "Planning" },
+    { value: "Professional Development", label: "Professional Development" },
+    { value: "Promoting Quality", label: "Promoting Quality" },
   ]
   purposeOptions = {
-    "Grantee Request": [
-      { value: "New Management", label: "New Management" },
-      { value: "New Grantee or Program", label: "New Grantee or Program" },
-      { value: "Other", label: "Other" }
-    ],
-    "OHS Monitoring Report": [
+    "Monitoring": [
       { value: "Deficiency", label: "Deficiency" },
-      { value: "Noncompliance", label: "Noncompliance" },
-      { value: "Area of Concern", label: "Area of Concern" }
-    ],
-    "Risk Management Meeting": [
-      { value: "Under Enrollment", label: "Under Enrollment" },
-      { value: "Other", label: "Other" }
-    ],
-    "PIR Results": [
-      { value: "Under Enrollment", label: "Under Enrollment" },
-      { value: "Other", label: "Other" }
+      { value: "Noncompliance", label: "Noncompliance" }
     ]
   }
   purposeSelector() {
@@ -43,7 +32,7 @@ class NeedIndicator extends Component {
     if (options) {
       return (
         <Fragment>
-          <label className="usa-label" htmlFor="request-purpose">Purpose of request</label>
+          <label className="usa-label" htmlFor="request-purpose">Purpose Details</label>
           <Select options={options} id="request-purpose" value={{value: purpose, label: purpose}} onChange={value => this.purposeChanged(value)} />
         </Fragment>
       )
@@ -73,8 +62,7 @@ class NeedIndicator extends Component {
     } = this.state
     return (
       <Fragment>
-        <h3>Indicator of need</h3>
-        <label className="usa-label" htmlFor="indicator">Source of request</label>
+        <label className="usa-label" htmlFor="indicator">Purpose</label>
         <Select options={this.indicatorOptions} id="indicator" value={{value: indicator, label: indicator}} onChange={value => this.indicatorChanged(value)} />
         {this.indicatorHint()}
         {this.purposeSelector()}

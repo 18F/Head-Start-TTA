@@ -14,8 +14,9 @@ class SpecialistList extends Component {
   specialistOptions = [
     { value: "Grantee Specialist", label: "Grantee Specialist" },
     { value: "Early Childhood Specialist", label: "Early Childhood Specialist" },
+    { value: "Family Engagement", label: "Family Engagement" },
     { value: "Health Specialist", label: "Health Specialist" },
-    { value: "Systems Specialist", label: "Systems Specialist" }
+    { value: "System Specialist", label: "System Specialist" }
   ]
   specialistTypeChanged(value, index) {
     let types = this.state.specialistTypesNeeded
