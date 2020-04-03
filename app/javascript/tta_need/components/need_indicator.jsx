@@ -51,7 +51,7 @@ class NeedIndicator extends Component {
   }
   indicatorHint() {
     const { indicator } = this.state
-    if (indicator === "OHS Monitoring Report") {
+    if (indicator === "Monitoring") {
       return (<p className="usa-hint">This Monitoring Report will be attached to the request</p>)
     }
   }
