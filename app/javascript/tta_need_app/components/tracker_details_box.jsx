@@ -30,7 +30,7 @@ class TrackerDetailsBox extends PureComponent {
           <li>{indicator}</li>
           <li>{purpose}</li>
         </ul>
-        <h4 style={{marginBottom: 0}}>TA Areas:</h4>
+        <h4 style={{marginBottom: 0}}>Topics:</h4>
         <ul className="usa-list usa-list--unstyled">
           {topics.map(({id, attributes: {name}}) => (
             <li key={id}>{name}</li>

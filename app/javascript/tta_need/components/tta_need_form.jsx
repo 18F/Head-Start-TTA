@@ -42,7 +42,7 @@ class TTANeedForm extends Component {
           <label className="usa-label" htmlFor="start-date">Proposed start date</label>
           <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
           <SpecialistList />
-          <label className="usa-label" htmlFor="objectives">Grantee Goals</label>
+          <label className="usa-label" htmlFor="objectives">TTA Goals</label>
           <TaskList />
           <label className="usa-label" htmlFor="narrative">Additional Information</label>
           <textarea className="usa-textarea" id="narrative" value={narrative} name="narrative" onChange={this.inputChanged} />
