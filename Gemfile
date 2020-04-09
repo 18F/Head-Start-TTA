@@ -43,10 +43,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "standard", "~> 0.1"
-  gem "brakeman", "~> 4.7"
+  gem "brakeman", "~> 4.8"
   gem "bundler-audit", "~> 0.6"
   gem "rspec-rails", "~> 4.0"
-  gem "shoulda", "4.0.0.rc1"
+  gem "shoulda", "4.0.0.rc2"
   gem "factory_bot_rails", "~> 5.1"
   gem "rspec_api_documentation", "~> 6.1"
 end
