@@ -1,0 +1,21 @@
+<h1>TTA Dashboard</h1>
+
+<table class="usa-table">
+  <thead>
+    <tr>
+      <th scope="col">Request ID</th>
+      <th scope="col">Grantee</th>
+      <th scope="col">Region</th>
+      <th scope="col">Requested On</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @request_sheet[:rows].each do |row| %>
+      <tr>
+        <th scope="row"><%= row[:cells][1][:display_value] %></th>
+        <td><%= row[:cells][0][:display_value] %></td>
+        <td><%= row[:cells][4][:display_value] %></td>
+        <td><%= Time.parse(row[:cells][14][:value]).in_time_zone("America/New_York").strftime("%B %d, %Y %l:%M %p") %></td>
+    <% end %>
+  </tbody>
+</table>
