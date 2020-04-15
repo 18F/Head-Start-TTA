@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
   def central_office
-    @request_sheet = SmartsheetFacade.new.request_sheet
+    @sheet = SmartsheetFacade.new
   end
 end

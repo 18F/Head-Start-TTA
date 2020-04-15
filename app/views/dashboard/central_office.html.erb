@@ -1,5 +1,6 @@
 <h1>TTA Dashboard</h1>
 
+<h2>TTA Need Requests</h2>
 <table class="usa-table">
   <thead>
     <tr>
@@ -7,15 +8,44 @@
       <th scope="col">Grantee</th>
       <th scope="col">Region</th>
       <th scope="col">Requested On</th>
+      <th scope="col">Specialists</th>
     </tr>
   </thead>
   <tbody>
-    <% @request_sheet[:rows].each do |row| %>
+    <% @sheet.request_sheet.each do |row| %>
       <tr>
-        <th scope="row"><%= row[:cells][1][:display_value] %></th>
-        <td><%= row[:cells][0][:display_value] %></td>
-        <td><%= row[:cells][4][:display_value] %></td>
-        <td><%= Time.parse(row[:cells][14][:value]).in_time_zone("America/New_York").strftime("%B %d, %Y %l:%M %p") %></td>
+        <th scope="row"><%= row.request_id %></th>
+        <td><%= link_to_grantee row.grantee %></td>
+        <td><%= row.region %></td>
+        <td><%= Time.parse(row.created).in_time_zone("America/New_York").strftime("%B %d, %Y %l:%M %p") %></td>
+        <td><%= @sheet.assignment_sheet.select_request_id(row.request_id).map(&:assigned_tta_specialists).join(", ") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>TTA Plans</h2>
+<table class="usa-table">
+  <thead>
+    <tr>
+      <th scope="col">Request ID</th>
+      <th scope="col">Grantee</th>
+      <th scope="col">Specialist</th>
+      <th scope="col">Dates</th>
+      <th scope="col">Goals</th>
+      <th scope="col">Objectives</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sheet.plan_sheet.each do |row| %>
+      <tr>
+        <th scope="row"><%= row.request_id %></th>
+        <td><%= link_to_grantee row.grantee %></td>
+        <td><%= row.created_by %></td>
+        <td><%= row.start_date %> - <%= row.end_date %></td>
+        <td><%= sanitize row.tta_goals.gsub("\n", "<br>") %></td>
+        <td><%= sanitize row.objectives.gsub("\n", "<br>") %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
