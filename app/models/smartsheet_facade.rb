@@ -36,8 +36,8 @@ class SmartsheetFacade
     end
 
     def each(&block)
-      @mapped_rows ||= sheet[:rows].lazy.map { |r| puts "RCA lazy mapping"; SheetRow.new(r, header_map) }
-      @mapped_rows.each &block
+      @mapped_rows ||= sheet[:rows].lazy.map { |r| SheetRow.new(r, header_map) }
+      @mapped_rows.each(&block)
     end
 
     def select_request_id(request_id)
@@ -59,6 +59,10 @@ class SmartsheetFacade
       else
         super
       end
+    end
+
+    def respond_to_missing?(method_name, include_private = false)
+      header_map.has_key?(method_name) || super
     end
   end
 end

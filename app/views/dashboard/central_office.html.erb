@@ -49,3 +49,31 @@
     <% end %>
   </tbody>
 </table>
+
+<h2>TTA Reports</h2>
+<table class="usa-table">
+  <thead>
+    <tr>
+      <th scope="col">Request ID</th>
+      <th scope="col">Grantee</th>
+      <th scope="col">Specialist</th>
+      <th scope="col">Dates</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Objectives</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sheet.report_sheet.each do |row| %>
+      <tr>
+        <th scope="row"><%= row.request_id %></th>
+        <td><%= link_to_grantee row.grantee %></td>
+        <td><%= row.created_by %></td>
+        <td><%= row.start_date %> - <%= row.end_date %></td>
+        <td><%= row.duration %></td>
+        <td><%= sanitize row.objectives.gsub("\n", "<br>") %></td>
+        <td><%= row.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
