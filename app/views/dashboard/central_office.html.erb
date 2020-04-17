@@ -9,6 +9,7 @@
       <th scope="col">Region</th>
       <th scope="col">Requested On</th>
       <th scope="col">Specialists</th>
+      <th scope="col">Details</th>
     </tr>
   </thead>
   <tbody>
@@ -19,12 +20,13 @@
         <td><%= row.region %></td>
         <td><%= Time.parse(row.created).in_time_zone("America/New_York").strftime("%B %d, %Y %l:%M %p") %></td>
         <td><%= @sheet.assignment_sheet.select_request_id(row.request_id).map(&:assigned_tta_specialists).join(", ") %></td>
+        <td>&nbsp;</td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<h2>TTA Plans</h2>
+<h2>Upcoming Activities</h2>
 <table class="usa-table">
   <thead>
     <tr>
@@ -37,7 +39,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @sheet.plan_sheet.each do |row| %>
+    <% @sheet.plan_sheet.each_upcoming_activity do |row| %>
       <tr>
         <th scope="row"><%= row.request_id %></th>
         <td><%= link_to_grantee row.grantee %></td>

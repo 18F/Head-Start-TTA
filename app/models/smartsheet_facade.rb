@@ -19,7 +19,7 @@ class SmartsheetFacade
   end
 
   def plan_sheet
-    @plan_sheet ||= Sheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:plan_sheet]))
+    @plan_sheet ||= PlanSheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:plan_sheet]))
   end
 
   def report_sheet
@@ -36,12 +36,23 @@ class SmartsheetFacade
     end
 
     def each(&block)
-      @mapped_rows ||= sheet[:rows].lazy.map { |r| SheetRow.new(r, header_map) }
-      @mapped_rows.each(&block)
+      rows.each(&block)
     end
 
     def select_request_id(request_id)
       select { |r| r.request_id == request_id }
+    end
+
+    private
+
+    def rows
+      @rows ||= sheet[:rows].lazy.map { |r| SheetRow.new(r, header_map) }
+    end
+  end
+
+  class PlanSheet < Sheet
+    def each_upcoming_activity(&block)
+      rows.select { |row| !Time.parse(row.start_date).past? }.each(&block)
     end
   end
 
