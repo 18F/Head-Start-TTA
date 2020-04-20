@@ -1,0 +1,81 @@
+<h1>TTA Dashboard</h1>
+
+<h2>TTA Need Requests</h2>
+<table class="usa-table">
+  <thead>
+    <tr>
+      <th scope="col">Request ID</th>
+      <th scope="col">Grantee</th>
+      <th scope="col">Region</th>
+      <th scope="col">Requested On</th>
+      <th scope="col">Specialists</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sheet.request_sheet.each do |row| %>
+      <tr>
+        <th scope="row"><%= row.request_id %></th>
+        <td><%= link_to_grantee row.grantee %></td>
+        <td><%= row.region %></td>
+        <td><%= Time.parse(row.created).in_time_zone("America/New_York").strftime("%B %d, %Y %l:%M %p") %></td>
+        <td><%= @sheet.assignment_sheet.select_request_id(row.request_id).map(&:assigned_tta_specialists).join(", ") %></td>
+        <td>&nbsp;</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Upcoming Activities</h2>
+<table class="usa-table">
+  <thead>
+    <tr>
+      <th scope="col">Request ID</th>
+      <th scope="col">Grantee</th>
+      <th scope="col">Specialist</th>
+      <th scope="col">Dates</th>
+      <th scope="col">Goals</th>
+      <th scope="col">Objectives</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sheet.plan_sheet.each_upcoming_activity do |row| %>
+      <tr>
+        <th scope="row"><%= row.request_id %></th>
+        <td><%= link_to_grantee row.grantee %></td>
+        <td><%= row.created_by %></td>
+        <td><%= row.start_date %> - <%= row.end_date %></td>
+        <td><%= sanitize row.tta_goals.gsub("\n", "<br>") %></td>
+        <td><%= sanitize row.objectives.gsub("\n", "<br>") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>TTA Reports</h2>
+<table class="usa-table">
+  <thead>
+    <tr>
+      <th scope="col">Request ID</th>
+      <th scope="col">Grantee</th>
+      <th scope="col">Specialist</th>
+      <th scope="col">Dates</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Objectives</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sheet.report_sheet.each do |row| %>
+      <tr>
+        <th scope="row"><%= row.request_id %></th>
+        <td><%= link_to_grantee row.grantee %></td>
+        <td><%= row.created_by %></td>
+        <td><%= row.start_date %> - <%= row.end_date %></td>
+        <td><%= row.duration %></td>
+        <td><%= sanitize row.objectives.gsub("\n", "<br>") %></td>
+        <td><%= row.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

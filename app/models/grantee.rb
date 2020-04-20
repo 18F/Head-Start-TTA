@@ -13,6 +13,8 @@ class Grantee < ApplicationRecord
 
   auto_strip_attributes :name
 
+  scope :find_grant_number, ->(grant_number) { joins(:grants).where(grants: {number: grant_number}) }
+
   def employees
     people.where(person_grantee_links: {grantee_employee: true}).order(:name)
   end

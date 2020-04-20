@@ -1,0 +1,15 @@
+development: &defaults
+  request_sheet: "6741614392567684"
+  assignment_sheet: "7678535738386308"
+  plan_sheet: "1798319635752836"
+  report_sheet: "837690070460292"
+
+production:
+  request_sheet: "<%= ENV["SMARTSHEET_REQUEST_SHEET"] %>"
+  assignment_sheet: "<%= ENV["SMARTSHEET_ASSIGNMENT_SHEET"] %>"
+  plan_sheet: "<%= ENV["SMARTSHEET_PLAN_SHEET"] %>"
+  report_sheet: "<%= ENV["SMARTSHEET_REPORT_SHEET"] %>"
+
+test:
+  <<: *defaults
+  request_sheet: "4419104384804740"
