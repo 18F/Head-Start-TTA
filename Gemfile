@@ -36,6 +36,7 @@ gem "jsonapi-serializers", "~> 1.0"
 gem "apitome", "~> 0.3"
 gem "json_api_client", "~> 1.16"
 gem "smartsheet", github: "rahearn/smartsheet-ruby-sdk", branch: "update-dependencies"
+gem "chartkick", "~> 3.3"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false

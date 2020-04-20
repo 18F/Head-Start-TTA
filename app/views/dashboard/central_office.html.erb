@@ -13,18 +13,21 @@
     </tr>
   </thead>
   <tbody>
-    <% @sheet.request_sheet.each do |row| %>
+    <% @dashboard.request_sheet.each do |row| %>
       <tr>
         <th scope="row"><%= row.request_id %></th>
         <td><%= link_to_grantee row.grantee %></td>
         <td><%= row.region %></td>
         <td><%= Time.parse(row.created).in_time_zone("America/New_York").strftime("%B %d, %Y %l:%M %p") %></td>
-        <td><%= @sheet.assignment_sheet.select_request_id(row.request_id).map(&:assigned_tta_specialists).join(", ") %></td>
+        <td><%= @dashboard.assignment_sheet.select_request_id(row.request_id).map(&:assigned_tta_specialists).join(", ") %></td>
         <td>&nbsp;</td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<h2>Specialists</h2>
+<%= pie_chart @dashboard.assigned_specialists_counts %>
 
 <h2>Upcoming Activities</h2>
 <table class="usa-table">
@@ -39,7 +42,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @sheet.plan_sheet.each_upcoming_activity do |row| %>
+    <% @dashboard.plan_sheet.each_upcoming_activity do |row| %>
       <tr>
         <th scope="row"><%= row.request_id %></th>
         <td><%= link_to_grantee row.grantee %></td>
@@ -66,7 +69,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @sheet.report_sheet.each do |row| %>
+    <% @dashboard.report_sheet.each do |row| %>
       <tr>
         <th scope="row"><%= row.request_id %></th>
         <td><%= link_to_grantee row.grantee %></td>

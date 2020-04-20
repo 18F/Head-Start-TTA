@@ -15,7 +15,7 @@ class SmartsheetFacade
   end
 
   def assignment_sheet
-    @assignment_sheet ||= Sheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:assignment_sheet]))
+    @assignment_sheet ||= AssignmentSheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:assignment_sheet]))
   end
 
   def plan_sheet
@@ -53,6 +53,12 @@ class SmartsheetFacade
   class PlanSheet < Sheet
     def each_upcoming_activity(&block)
       rows.select { |row| !Time.parse(row.start_date).past? }.each(&block)
+    end
+  end
+
+  class AssignmentSheet < Sheet
+    def has_upcoming_activity?(specialist_name)
+      rows.find { |row| row.assigned_tta_specialists == specialist_name && !Date.parse(row.proposed_start_date).past? }
     end
   end
 
