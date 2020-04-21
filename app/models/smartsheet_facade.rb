@@ -23,7 +23,7 @@ class SmartsheetFacade
   end
 
   def report_sheet
-    @report_sheet ||= Sheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:report_sheet]))
+    @report_sheet ||= ReportSheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:report_sheet]))
   end
 
   class Sheet
@@ -32,7 +32,7 @@ class SmartsheetFacade
     attr_reader :sheet, :header_map
     def initialize(sheet)
       @sheet = sheet
-      @header_map = sheet[:columns].map { |c| [c[:title].underscore.gsub(/[?()]/, "").gsub(/\s+/, "_"), c[:index]] }.to_h.with_indifferent_access
+      @header_map = sheet[:columns].map { |c| [c[:title].underscore.gsub(/[^a-z\s_]/, "").gsub(/\s+/, "_"), c[:index]] }.to_h.with_indifferent_access
     end
 
     def each(&block)
@@ -58,7 +58,19 @@ class SmartsheetFacade
 
   class AssignmentSheet < Sheet
     def has_upcoming_activity?(specialist_name)
-      rows.find { |row| row.assigned_tta_specialists == specialist_name && !Date.parse(row.proposed_start_date).past? }
+      rows.find do |row|
+        row.assigned_tta_specialists.include?(specialist_name) &&
+          (
+            row.proposed_start_date.blank? ||
+            !Date.parse(row.proposed_start_date).past?
+          )
+      end
+    end
+  end
+
+  class ReportSheet < Sheet
+    def most_recent_activities(n = 10)
+      rows.sort_by { |row| Date.parse(row.start_date) }.last(n)
     end
   end
 

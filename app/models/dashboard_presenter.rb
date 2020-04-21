@@ -1,6 +1,11 @@
 class DashboardPresenter < SimpleDelegator
   def deployments_by_month
-    month_counter = Hash.new { |h,k| h[k] = 0 }
+    month_counter = {}
+    month = 1.year.ago
+    13.times do
+      month_counter[month.strftime("%b %Y")] = 0
+      month += 1.month
+    end
     request_sheet.each do |row|
       requested = Time.parse(row.created).in_time_zone("America/New_York")
       if requested > 1.year.ago.beginning_of_month
