@@ -45,6 +45,12 @@ class SmartsheetFacade
     end
 
     def filter_dates!(start_date, end_date)
+      if start_date.present?
+        @rows = rows.select { |r| r.proposed_start_date.nil? || Date.parse(r.proposed_start_date).after?(Date.parse(start_date)) }
+        if end_date.present?
+          @rows = rows.select { |r| r.proposed_start_date.nil? || Date.parse(r.proposed_start_date).before?(Date.parse(end_date)) }
+        end
+      end
       self
     end
 
@@ -121,6 +127,12 @@ class SmartsheetFacade
 
   module FilterDates
     def filter_dates!(start_date, end_date)
+      if start_date.present?
+        @rows = rows.select { |r| Date.parse(r.start_date).after?(Date.parse(start_date)) }
+        if end_date.present?
+          @rows = rows.select { |r| Date.parse(r.end_date).before?(Date.parse(end_date)) }
+        end
+      end
       self
     end
   end

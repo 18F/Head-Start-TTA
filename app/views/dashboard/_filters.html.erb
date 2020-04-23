@@ -1,6 +1,6 @@
 <%= form_tag root_path, method: :get, class: "usa-form usa-form--bottom-margin" do %>
   <%= label_tag :region, nil, class: "usa-label" %>
-  <%= select_tag :region, options_for_select([["All", ""], ["Region 1", "1"], ["Region 14", "14"]], selected: params[:region]), class: "usa-select" %>
+  <%= select_tag :region, options_for_select(region_filter_options, selected: params[:region]), class: "usa-select" %>
   <%= label_tag :start_date, "Start date", class: "usa-label" %>
   <%= date_field_tag :start_date, params[:start_date] %>
   <%= label_tag :end_date, "End date", class: "usa-label" %>

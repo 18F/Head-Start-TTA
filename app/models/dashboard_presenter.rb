@@ -1,6 +1,6 @@
 class DashboardPresenter < SimpleDelegator
   attr_reader :params
-  
+
   def initialize(params)
     @params = params
     super SmartsheetFacade.new
