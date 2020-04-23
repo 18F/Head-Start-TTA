@@ -1,0 +1,15 @@
+<%= form_tag root_path, method: :get, class: "usa-form usa-form--bottom-margin" do %>
+  <%= label_tag :region, nil, class: "usa-label" %>
+  <%= select_tag :region, options_for_select([["All", ""], ["Region 1", "1"], ["Region 14", "14"]], selected: params[:region]), class: "usa-select" %>
+  <%= label_tag :start_date, "Start date", class: "usa-label" %>
+  <%= date_field_tag :start_date, params[:start_date] %>
+  <%= label_tag :end_date, "End date", class: "usa-label" %>
+  <%= date_field_tag :end_date, params[:end_date] %>
+  <%= label_tag :source, nil, class: "usa-label" %>
+  <%= select_tag :source, options_for_select([["All", ""], "Grantee", "Regional Office"], selected: params[:source]), class: "usa-select" %>
+  <%= label_tag :purpose, nil, class: "usa-label" %>
+  <%= select_tag :purpose, options_for_select(purpose_filter_options, selected: params[:purpose]), class: "usa-select" %>
+  <%= label_tag :specialist_type, "Type of Specialists", class: "usa-label" %>
+  <%= select_tag :specialist_type, options_for_select(specialist_filter_options, selected: params[:specialist_type]), class: "usa-select" %>
+  <%= submit_tag "Update", class: "usa-button" %>
+<% end %>

@@ -39,8 +39,32 @@ class SmartsheetFacade
       rows.each(&block)
     end
 
-    def select_request_id(request_id)
-      select { |r| r.request_id == request_id }
+    def filter_region!(region)
+      @rows = rows.select { |r| r.region == region } if region.present?
+      self
+    end
+
+    def filter_dates!(start_date, end_date)
+      self
+    end
+
+    def filter_source!(source)
+      @rows = rows.select { |r| r.initiated_by == source } if source.present?
+      self
+    end
+
+    def filter_purpose!(purpose)
+      @rows = rows.select { |r| r.reason_for_request&.include?(purpose) } if purpose.present?
+      self
+    end
+
+    def filter_specialist_type!(specialist_type)
+      @rows = rows.select { |r| r.type_of_specialist_needed&.include?(specialist_type) } if specialist_type.present?
+      self
+    end
+
+    def find_request_id(request_id)
+      find { |r| r.request_id == request_id }
     end
 
     private
@@ -50,16 +74,10 @@ class SmartsheetFacade
     end
   end
 
-  class PlanSheet < Sheet
-    def each_upcoming_activity(&block)
-      rows.select { |row| !Time.parse(row.start_date).past? }.each(&block)
-    end
-  end
-
   class AssignmentSheet < Sheet
     def has_upcoming_activity?(specialist_name)
       rows.find do |row|
-        row.assigned_tta_specialists.include?(specialist_name) &&
+        row.assigned_tta_specialists&.include?(specialist_name) &&
           (
             row.proposed_start_date.blank? ||
             !Date.parse(row.proposed_start_date).past?
@@ -68,7 +86,58 @@ class SmartsheetFacade
     end
   end
 
+  module FiltersFromRequest
+    def filter_source!(source)
+      if source.present?
+        @rows = rows.select { |r| request(r.request_id)&.initiated_by == source }
+      end
+      self
+    end
+
+    def filter_purpose!(purpose)
+      if purpose.present?
+        @rows = rows.select { |r| request(r.request_id)&.reason_for_request&.include?(purpose) }
+      end
+      self
+    end
+
+    def filter_specialist_type!(specialist_type)
+      if specialist_type.present?
+        @rows = rows.select { |r| request(r.request_id)&.type_of_specialist_needed&.include?(specialist_type) }
+      end
+      self
+    end
+
+    private
+
+    def request(request_id)
+      request_sheet.find_request_id(request_id)
+    end
+
+    def request_sheet
+      @request_sheet ||= SmartsheetFacade.new.request_sheet
+    end
+  end
+
+  module FilterDates
+    def filter_dates!(start_date, end_date)
+      self
+    end
+  end
+
+  class PlanSheet < Sheet
+    include FiltersFromRequest
+    include FilterDates
+
+    def each_upcoming_activity(&block)
+      select { |row| !Time.parse(row.start_date).past? }.each(&block)
+    end
+  end
+
   class ReportSheet < Sheet
+    include FiltersFromRequest
+    include FilterDates
+
     def most_recent_activities(n = 10)
       rows.sort_by { |row| Date.parse(row.start_date) }.last(n)
     end

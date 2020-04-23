@@ -1,11 +1,12 @@
-<h1>TTA Dashboard</h1>
+<h1>Central Office Dashboard</h1>
 
 <div class="grid-row grid-gap">
   <div class="grid-col-3">
     <div class="box">
-      <p>TODO</p>
+      <%= render "filters" %>
     </div>
   </div>
+
   <div class="grid-col-9">
     <h2>TTA Need Requests</h2>
     <%= column_chart @dashboard.deployments_by_month, height: "100px" %>
@@ -28,7 +29,7 @@
             <td><%= link_to_grantee row.grantee %></td>
             <td><%= row.region %></td>
             <td><%= Time.parse(row.created).in_time_zone("America/New_York").strftime("%B %d, %Y %l:%M %p") %></td>
-            <td><%= @dashboard.assignment_sheet.select_request_id(row.request_id).map(&:assigned_tta_specialists).join(", ") %></td>
+            <td><%= @dashboard.assignment_sheet.find_request_id(row.request_id).assigned_tta_specialists %></td>
             <td>&nbsp;</td>
           </tr>
         <% end %>
@@ -37,7 +38,7 @@
 
     <h2>Specialists</h2>
     <div class="grid-row">
-      <div class="grid-col-9">
+      <div class="grid-col-10">
         <h2>Upcoming Activities</h2>
         <ul>
           <% @dashboard.plan_sheet.each_upcoming_activity do |row| %>
@@ -45,8 +46,8 @@
           <% end %>
         </ul>
       </div>
-      <div class="grid-col-3">
-        <%= pie_chart @dashboard.assigned_specialists_counts %>
+      <div class="grid-col-2">
+        <%= pie_chart @dashboard.assigned_specialists_counts, height: "100%" %>
       </div>
     </div>
 

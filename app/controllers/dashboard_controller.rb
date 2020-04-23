@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
   def central_office
-    @dashboard = DashboardPresenter.new(SmartsheetFacade.new)
+    @dashboard = DashboardPresenter.new(params)
   end
 end

@@ -1,4 +1,11 @@
 class DashboardPresenter < SimpleDelegator
+  attr_reader :params
+  
+  def initialize(params)
+    @params = params
+    super SmartsheetFacade.new
+  end
+
   def deployments_by_month
     month_counter = {}
     month = 1.year.ago
@@ -22,5 +29,15 @@ class DashboardPresenter < SimpleDelegator
       Assigned: assigned.count,
       Available: available.count
     }
+  end
+
+  %i[request_sheet assignment_sheet plan_sheet report_sheet].each do |method_name|
+    define_method method_name do
+      super().filter_region!(params[:region])
+        .filter_dates!(params[:start_date], params[:end_date])
+        .filter_source!(params[:source])
+        .filter_purpose!(params[:purpose])
+        .filter_specialist_type!(params[:specialist_type])
+    end
   end
 end
