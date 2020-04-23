@@ -1,4 +1,4 @@
-FROM circleci/ruby:2.6.5-node
+FROM circleci/ruby:2.6.6-node
 
 USER root
 RUN curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github' && \

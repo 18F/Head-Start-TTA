@@ -7,7 +7,7 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/ruby:2.6.5-node
+      - image: circleci/ruby:2.6.6-node
     steps:
       - checkout
       # Download and cache dependencies
@@ -42,7 +42,7 @@ jobs:
   rspec:
     working_directory: ~/repo
     docker:
-      - image: circleci/ruby:2.6.5-node
+      - image: circleci/ruby:2.6.6-node
         environment:
           RAILS_ENV: test
       - image: circleci/postgres:11-alpine
@@ -102,7 +102,7 @@ jobs:
   deploy:
     working_directory: ~/repo
     docker:
-      - image: rcahearn/rubycf:2.6.5-node
+      - image: rcahearn/rubycf:2.6.6-node
         environment:
           RAILS_ENV: test
       - image: circleci/postgres:11-alpine
