@@ -15,7 +15,7 @@ class SmartsheetFacade
   end
 
   def assignment_sheet
-    @assignment_sheet ||= Sheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:assignment_sheet]))
+    @assignment_sheet ||= AssignmentSheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:assignment_sheet]))
   end
 
   def plan_sheet
@@ -23,7 +23,7 @@ class SmartsheetFacade
   end
 
   def report_sheet
-    @report_sheet ||= Sheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:report_sheet]))
+    @report_sheet ||= ReportSheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:report_sheet]))
   end
 
   class Sheet
@@ -32,15 +32,45 @@ class SmartsheetFacade
     attr_reader :sheet, :header_map
     def initialize(sheet)
       @sheet = sheet
-      @header_map = sheet[:columns].map { |c| [c[:title].underscore.gsub(/[?()]/, "").gsub(/\s+/, "_"), c[:index]] }.to_h.with_indifferent_access
+      @header_map = sheet[:columns].map { |c| [c[:title].underscore.gsub(/[^a-z\s_]/, "").gsub(/\s+/, "_"), c[:index]] }.to_h.with_indifferent_access
     end
 
     def each(&block)
       rows.each(&block)
     end
 
-    def select_request_id(request_id)
-      select { |r| r.request_id == request_id }
+    def filter_region!(region)
+      @rows = rows.select { |r| r.region == region } if region.present?
+      self
+    end
+
+    def filter_dates!(start_date, end_date)
+      if start_date.present?
+        @rows = rows.select { |r| r.proposed_start_date.nil? || Date.parse(r.proposed_start_date).after?(Date.parse(start_date)) }
+        if end_date.present?
+          @rows = rows.select { |r| r.proposed_start_date.nil? || Date.parse(r.proposed_start_date).before?(Date.parse(end_date)) }
+        end
+      end
+      self
+    end
+
+    def filter_source!(source)
+      @rows = rows.select { |r| r.initiated_by == source } if source.present?
+      self
+    end
+
+    def filter_purpose!(purpose)
+      @rows = rows.select { |r| r.reason_for_request&.include?(purpose) } if purpose.present?
+      self
+    end
+
+    def filter_specialist_type!(specialist_type)
+      @rows = rows.select { |r| r.type_of_specialist_needed&.include?(specialist_type) } if specialist_type.present?
+      self
+    end
+
+    def find_request_id(request_id)
+      find { |r| r.request_id == request_id }
     end
 
     private
@@ -50,9 +80,78 @@ class SmartsheetFacade
     end
   end
 
+  class AssignmentSheet < Sheet
+    def has_upcoming_activity?(specialist_name)
+      rows.find do |row|
+        row.assigned_tta_specialists&.include?(specialist_name) &&
+          (
+            row.proposed_start_date.blank? ||
+            !Date.parse(row.proposed_start_date).past?
+          )
+      end
+    end
+  end
+
+  module FiltersFromRequest
+    def filter_source!(source)
+      if source.present?
+        @rows = rows.select { |r| request(r.request_id)&.initiated_by == source }
+      end
+      self
+    end
+
+    def filter_purpose!(purpose)
+      if purpose.present?
+        @rows = rows.select { |r| request(r.request_id)&.reason_for_request&.include?(purpose) }
+      end
+      self
+    end
+
+    def filter_specialist_type!(specialist_type)
+      if specialist_type.present?
+        @rows = rows.select { |r| request(r.request_id)&.type_of_specialist_needed&.include?(specialist_type) }
+      end
+      self
+    end
+
+    private
+
+    def request(request_id)
+      request_sheet.find_request_id(request_id)
+    end
+
+    def request_sheet
+      @request_sheet ||= SmartsheetFacade.new.request_sheet
+    end
+  end
+
+  module FilterDates
+    def filter_dates!(start_date, end_date)
+      if start_date.present?
+        @rows = rows.select { |r| Date.parse(r.start_date).after?(Date.parse(start_date)) }
+        if end_date.present?
+          @rows = rows.select { |r| Date.parse(r.end_date).before?(Date.parse(end_date)) }
+        end
+      end
+      self
+    end
+  end
+
   class PlanSheet < Sheet
+    include FiltersFromRequest
+    include FilterDates
+
     def each_upcoming_activity(&block)
-      rows.select { |row| !Time.parse(row.start_date).past? }.each(&block)
+      select { |row| !Time.parse(row.start_date).past? }.each(&block)
+    end
+  end
+
+  class ReportSheet < Sheet
+    include FiltersFromRequest
+    include FilterDates
+
+    def most_recent_activities(n = 10)
+      rows.sort_by { |row| Date.parse(row.start_date) }.last(n)
     end
   end
 
