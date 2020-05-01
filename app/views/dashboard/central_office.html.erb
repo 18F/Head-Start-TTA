@@ -30,7 +30,7 @@
             <td><%= row.region %></td>
             <td><%= Time.parse(row.created).in_time_zone("America/New_York").strftime("%B %d, %Y %l:%M %p") %></td>
             <td><%= @dashboard.assignment_sheet.find_request_id(row.request_id)&.assigned_tta_specialists %></td>
-            <td>&nbsp;</td>
+            <td><%= link_to "Show", smartsheet_request_details_path(row) %></td>
           </tr>
         <% end %>
       </tbody>

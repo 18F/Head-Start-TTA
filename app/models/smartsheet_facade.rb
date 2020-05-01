@@ -1,7 +1,7 @@
 class SmartsheetFacade
   attr_reader :client
 
-  @@sheet_id_config = Rails.application.config_for(:smartsheet).freeze
+  SHEET_ID_CONFIG = Rails.application.config_for(:smartsheet).freeze
 
   def initialize
     @client = Smartsheet::Client.new(
@@ -11,28 +11,33 @@ class SmartsheetFacade
   end
 
   def request_sheet
-    @request_sheet ||= Sheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:request_sheet]))
+    @request_sheet ||= Sheet.new(client.sheets.get(sheet_id: SHEET_ID_CONFIG[:request_sheet]), client)
   end
 
   def assignment_sheet
-    @assignment_sheet ||= AssignmentSheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:assignment_sheet]))
+    @assignment_sheet ||= AssignmentSheet.new(client.sheets.get(sheet_id: SHEET_ID_CONFIG[:assignment_sheet]), client)
   end
 
   def plan_sheet
-    @plan_sheet ||= PlanSheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:plan_sheet]))
+    @plan_sheet ||= PlanSheet.new(client.sheets.get(sheet_id: SHEET_ID_CONFIG[:plan_sheet]), client)
   end
 
   def report_sheet
-    @report_sheet ||= ReportSheet.new(client.sheets.get(sheet_id: @@sheet_id_config[:report_sheet]))
+    @report_sheet ||= ReportSheet.new(client.sheets.get(sheet_id: SHEET_ID_CONFIG[:report_sheet]), client)
   end
 
   class Sheet
     include Enumerable
 
-    attr_reader :sheet, :header_map
-    def initialize(sheet)
+    attr_reader :sheet, :header_map, :client
+    def initialize(sheet, client)
       @sheet = sheet
       @header_map = sheet[:columns].map { |c| [c[:title].underscore.gsub(/[^a-z\s_]/, "").gsub(/\s+/, "_"), c[:index]] }.to_h.with_indifferent_access
+      @client = client
+    end
+
+    def get_row(row_id)
+      find { |r| r.row_id.to_s == row_id.to_s } || fetch_row(row_id)
     end
 
     def each(&block)
@@ -74,6 +79,13 @@ class SmartsheetFacade
     end
 
     private
+
+    def fetch_row(row_id)
+      SheetRow.new(
+        client.sheets.rows.get(sheet_id: sheet[:id], row_id: row_id),
+        header_map
+      )
+    end
 
     def rows
       @rows ||= sheet[:rows].lazy.map { |r| SheetRow.new(r, header_map) }
@@ -142,7 +154,7 @@ class SmartsheetFacade
     include FilterDates
 
     def each_upcoming_activity(&block)
-      select { |row| !Time.parse(row.start_date).past? }.each(&block)
+      select { |row| !Date.parse(row.start_date).past? }.each(&block)
     end
   end
 
@@ -160,6 +172,14 @@ class SmartsheetFacade
     def initialize(row, header_map)
       @row = row
       @header_map = header_map
+    end
+
+    def to_param
+      row_id.to_s
+    end
+
+    def row_id
+      row[:id]
     end
 
     def method_missing(method_name, *args, &block)
