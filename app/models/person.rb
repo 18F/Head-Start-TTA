@@ -1,11 +1,14 @@
 class Person < ApplicationRecord
   TTA_ROLES = [
     "Grantee Specialist",
-    "ECS",
     "Early Childhood Specialist",
     "Family Engagement Specialist",
     "Health Specialist",
     "System Specialist"
+  ].freeze
+  OTHER_ROLES = [
+    "TTAC",
+    "Program Specialist"
   ].freeze
 
   validates_presence_of :name, :role
