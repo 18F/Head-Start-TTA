@@ -1,8 +1,13 @@
 <%= form_tag login_path, class: "usa-form" do %>
   <%= label_tag :person_id, "Login as", class: "usa-label" %>
   <%= select_tag :person_id, options_from_collection_for_select(@people, "id", "name_and_role"), include_blank: true, class: "usa-select" %>
-  <h5>--- Or, create a new User ---</h5>
-  <%= label_tag :name, nil, class: "usa-label" %>
-  <%= text_field_tag :name, "", class: "usa-input" %>
+  <br>
+  <fieldset>
+    <legend>Or, create a new User</legend>
+    <%= label_tag :name, nil, class: "usa-label" %>
+    <%= text_field_tag :name, "", class: "usa-input" %>
+    <%= label_tag :role, nil, class: "usa-label" %>
+    <%= select_tag :role, options_for_select(login_role_options), class: "usa-select" %>
+  </fieldset>
   <%= button_tag "Login", class: "usa-button" %>
 <% end %>

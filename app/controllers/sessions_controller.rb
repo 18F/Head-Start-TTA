@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if params[:person_id].present?
       session[:current_user_id] = params[:person_id]
     elsif params[:name].present?
-      new_person = Person.find_or_create_by(name: params[:name], role: "Program Specialist")
+      new_person = Person.find_or_create_by(name: params[:name], role: params[:role])
       session[:current_user_id] = new_person.id
     end
     redirect_to return_path
