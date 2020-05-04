@@ -65,7 +65,7 @@ class SmartsheetFacade
     end
 
     def filter_purpose!(purpose)
-      @rows = rows.select { |r| r.reason_for_request&.include?(purpose) } if purpose.present?
+      @rows = rows.select { |r| r.purpose&.include?(purpose) } if purpose.present?
       self
     end
 
@@ -92,18 +92,6 @@ class SmartsheetFacade
     end
   end
 
-  class AssignmentSheet < Sheet
-    def has_upcoming_activity?(specialist_name)
-      rows.find do |row|
-        row.assigned_tta_specialists&.include?(specialist_name) &&
-          (
-            row.proposed_start_date.blank? ||
-            !Date.parse(row.proposed_start_date).past?
-          )
-      end
-    end
-  end
-
   module FiltersFromRequest
     def filter_source!(source)
       if source.present?
@@ -114,7 +102,7 @@ class SmartsheetFacade
 
     def filter_purpose!(purpose)
       if purpose.present?
-        @rows = rows.select { |r| request(r.request_id)&.reason_for_request&.include?(purpose) }
+        @rows = rows.select { |r| request(r.request_id)&.purpose&.include?(purpose) }
       end
       self
     end
@@ -134,6 +122,20 @@ class SmartsheetFacade
 
     def request_sheet
       @request_sheet ||= SmartsheetFacade.new.request_sheet
+    end
+  end
+
+  class AssignmentSheet < Sheet
+    include FiltersFromRequest
+
+    def has_upcoming_activity?(specialist_name)
+      rows.find do |row|
+        row.assigned_tta_specialists&.include?(specialist_name) &&
+          (
+            row.proposed_start_date.blank? ||
+            !Date.parse(row.proposed_start_date).past?
+          )
+      end
     end
   end
 

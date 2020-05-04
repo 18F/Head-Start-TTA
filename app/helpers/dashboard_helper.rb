@@ -23,7 +23,7 @@ module DashboardHelper
       ["Region 10", "10"],
       ["Region 11", "11"],
       ["Region 12", "12"],
-      ["Region CDI", "CDI"],
+      ["CDI", "CDI"],
       ["Region 14", "14"]
     ]
   end
