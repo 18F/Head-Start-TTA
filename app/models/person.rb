@@ -9,7 +9,7 @@ class Person < ApplicationRecord
   OTHER_ROLES = [
     "TTAC",
     "Program Specialist"
-  ]
+  ].freeze
 
   validates_presence_of :name, :role
 
