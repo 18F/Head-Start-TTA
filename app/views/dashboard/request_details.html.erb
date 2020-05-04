@@ -1,1 +1,31 @@
-<%= @request.inspect %>
+<h1>TTA Need</h1>
+
+<dl>
+  <dt>RequestID</dt>
+  <dd><%= @request.request_id %></dd>
+  <dt>Region</dt>
+  <dd><%= @request.region %></dd>
+  <dt>Purpose</dt>
+  <dd><%= @request.purpose %></dd>
+  <dt>Initiated By</dt>
+  <dd><%= @request.initiated_by %></dd>
+  <dt>Topics</dt>
+  <dd><%= @request.topics %></dd>
+  <dt>Type of Specialists Needed</dt>
+  <dd><%= @request.type_of_specialist_needed %></dd>
+  <dt>TTA Goals</dt>
+  <dd>
+    <% @request.tta_goals.split("\n").each do |goal| %>
+      <%= goal %>
+      <br>
+    <% end %>
+  </dd>
+  <dt>Proposed Start Date</dt>
+  <dd><%= @request.proposed_start_date.present? ? Date.parse(@request.proposed_start_date).strftime("%m/%d/%Y") : "" %></dd>
+  <dt>Context</dt>
+  <dd>
+    <% @request.additional_information.split("\n").each do |context| %>
+      <p><%= context %></p>
+    <% end %>
+  </dd>
+</dl>
