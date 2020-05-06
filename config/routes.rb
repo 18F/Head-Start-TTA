@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :topics, only: :index
       resources :tasks, only: %i[index show create update] do
         get "subtasks", on: :member
+        post "subtasks", on: :member, to: "tasks#create"
       end
       get ":react_route", to: "tta_needs#show"
     end

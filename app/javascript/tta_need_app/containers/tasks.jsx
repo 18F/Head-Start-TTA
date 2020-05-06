@@ -2,12 +2,13 @@ import React, { PureComponent, Fragment } from 'react'
 import { query, getRelationship } from 'redux-bees'
 import api from '../api'
 import { connect } from 'react-redux'
-import { saveTask } from '../actions'
-import OutcomeDetails from '../components/outcome_details'
+import { createTask, saveTask } from '../actions'
+import GoalDetails from '../components/goal_details'
+import ObjectiveForm from '../components/objective_form'
 import ObjectiveDetails from '../components/objective_details'
 import SubtaskDetails from '../components/subtask_details'
 
-const connectList = (apiName, idName, loadingType, DetailsComponent) => {
+const connectList = (apiName, idName, loadingType, DetailsComponent, NewForm) => {
   const q = query('tasks', api[apiName], (perform, props) => (
     perform({
       [idName]: props[idName],
@@ -16,12 +17,25 @@ const connectList = (apiName, idName, loadingType, DetailsComponent) => {
   ))
 
   class TaskList extends PureComponent {
+    constructor(props) {
+      super(props)
+      this.createTask = this.createTask.bind(this)
+    }
+    createTask(parentId, title) {
+      const {dispatch, status: {tasks: {refetch}}} = this.props
+      return dispatch(createTask(parentId, title)).then(() => refetch())
+    }
     render() {
-      const { tasks, taskUpdated, status: {tasks: {refetch}} } = this.props
+      const {
+        tasks,
+        taskUpdated,
+        planning,
+        status: {tasks: {refetch}}
+      } = this.props
       if (tasks === null) {
         return (<p>Loading {loadingType}...</p>)
       }
-      if (tasks.length === 0) {
+      if (tasks.length === 0 && !planning) {
         return (<p>No {loadingType} have been defined yet.</p>)
       }
       return (
@@ -30,10 +44,12 @@ const connectList = (apiName, idName, loadingType, DetailsComponent) => {
             <DetailsComponent
               key={i}
               task={t}
+              planning={planning}
               taskUpdated={taskUpdated}
               refetch={() => refetch()}
               />
           ))}
+          {planning && NewForm !== null && <NewForm parentId={this.props[idName]} createTask={this.createTask} />}
         </Fragment>
       )
     }
@@ -59,6 +75,6 @@ const connectDetails = InnerComponent => {
   return connect(mapStateToProps, mapDispatchToProps)(InnerComponent)
 }
 
-export const OutcomesList = connectList('getTasks', 'ttaNeedId', "outcomes", connectDetails(OutcomeDetails))
-export const ObjectivesList = connectList('getSubtasks', 'taskId', "objectives", connectDetails(ObjectiveDetails))
-export const SubtasksList = connectList('getSubtasks', 'taskId', "next steps", connectDetails(SubtaskDetails))
+export const GoalsList = connectList('getTasks', 'ttaNeedId', "goals", connectDetails(GoalDetails), null)
+export const ObjectivesList = connectList('getSubtasks', 'taskId', "objectives", connectDetails(ObjectiveDetails), ObjectiveForm)
+export const SubtasksList = connectList('getSubtasks', 'taskId', "next steps", connectDetails(SubtaskDetails), null)

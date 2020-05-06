@@ -64,6 +64,35 @@ resource "Tasks" do
     end
   end
 
+  post "/tasks/:id/subtasks" do
+    let!(:goal) { create :task }
+    let(:id) { goal.id }
+    let(:raw_post) do
+      {
+        data: {
+          type: "tasks",
+          attributes: {
+            status: "todo",
+            title: "An objective to meet goal #{id}",
+            notes: ""
+          },
+          relationships: {
+            "created-by": {
+              data: {type: "people", id: create(:person).id.to_s}
+            }
+          }
+        }
+      }.to_json
+    end
+
+    example "Greate a new objective" do
+      expect {
+        do_request
+      }.to change(Task, :count).by(1)
+      expect(status).to eq 201
+    end
+  end
+
   patch "/tasks/:id" do
     let(:task) { create :task }
     let(:id) { task.id }

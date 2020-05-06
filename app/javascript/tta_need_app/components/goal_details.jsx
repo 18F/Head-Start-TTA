@@ -5,7 +5,7 @@ import { stringPresent } from 'common/utils'
 import { ObjectivesList } from '../containers/tasks'
 import { shortDate } from 'common/utils'
 
-class OutcomeDetails extends PureComponent {
+class GoalDetails extends PureComponent {
   constructor(props) {
     super(props)
     const { task: {attributes: {status}} } = this.props
@@ -39,6 +39,7 @@ class OutcomeDetails extends PureComponent {
       },
       assignedTo,
       completedBy,
+      planning,
       refetch
     } = this.props
     const { complete } = this.state
@@ -78,10 +79,11 @@ class OutcomeDetails extends PureComponent {
             <hr />
           </Fragment>
         }
-        <ObjectivesList taskId={taskId} taskUpdated={refetch} />
+        {planning && <h4>How will you meet this goal?</h4>}
+        <ObjectivesList taskId={taskId} planning={planning} taskUpdated={refetch} />
       </div>
     )
   }
 }
 
-export default OutcomeDetails
+export default GoalDetails

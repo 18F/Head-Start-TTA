@@ -47,7 +47,7 @@ class ObjectiveDetails extends PureComponent {
     }
     const { complete } = this.state
     return (
-      <div className="box">
+      <Fragment>
         <h4>Objective:</h4>
         <p className="task-metadata">Created by {createdByName} on: {shortDate(createdAt)}</p>
         {complete &&
@@ -79,7 +79,7 @@ class ObjectiveDetails extends PureComponent {
         <ul className="usa-list usa-list--unstyled next-steps-list">
           <SubtasksList taskId={taskId} taskUpdated={refetch} />
         </ul>
-      </div>
+      </Fragment>
     )
   }
 }

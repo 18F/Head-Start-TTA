@@ -3,7 +3,7 @@ import RequestSuccessMessage from 'tta_need/components/request_success_message'
 import needDetailsBox from '../containers/need_details_box'
 import TrackerDetailsComponent from './tracker_details_box'
 import TrackerTimeline from '../containers/tracker_timeline'
-import { OutcomesList } from '../containers/tasks'
+import { GoalsList } from '../containers/tasks'
 
 class TTANeedTracker extends PureComponent {
   render() {
@@ -26,7 +26,7 @@ class TTANeedTracker extends PureComponent {
           </div>
           <div className="grid-col-8">
             <TrackerTimeline ttaNeed={ttaNeed} />
-            <OutcomesList ttaNeedId={ttaNeedId} />
+            <GoalsList ttaNeedId={ttaNeedId} />
           </div>
         </div>
       </Fragment>
