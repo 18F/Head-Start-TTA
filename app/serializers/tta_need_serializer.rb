@@ -9,6 +9,7 @@ class TtaNeedSerializer < BaseSerializer
   attributes :narrative,
     :indicator,
     :purpose,
+    :initiated_by,
     :specialist_types_needed,
     :urgency,
     :start_date,

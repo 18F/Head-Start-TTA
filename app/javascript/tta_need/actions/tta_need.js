@@ -29,6 +29,7 @@ export const submitRequest = (history) => {
         narrative,
         indicator,
         purpose,
+        initiatedBy,
         specialistTypesNeeded,
         topics,
         contextLinkId,
@@ -48,6 +49,7 @@ export const submitRequest = (history) => {
         narrative,
         indicator,
         purpose,
+        'initiated-by': initiatedBy,
         'specialist-types-needed': specialistTypesValues
       },
       relationships: {

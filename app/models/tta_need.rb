@@ -1,15 +1,16 @@
 class TtaNeed < ApplicationRecord
   VALID_INDICATORS = [
-    "Grantee Request",
-    "New Leadership",
-    "New Grantee or Program",
-    "CO or RO Priority",
-    "Monitoring",
+    "New Grantee/Program",
+    "New Program Leadership",
     "Area of Concern",
+    "Monitoring",
+    "National Priority",
+    "Regional Office Priority",
     "Planning",
     "Professional Development",
-    "Promoting Quality"
-  ]
+    "Continuous Quality Improvement",
+    "School Readiness"
+  ].freeze
 
   belongs_to :grantee
   delegate :name, to: :grantee, prefix: true

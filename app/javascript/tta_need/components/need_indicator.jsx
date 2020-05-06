@@ -10,15 +10,16 @@ class NeedIndicator extends Component {
     }
   }
   indicatorOptions = [
-    { value: "Grantee Request", label: "Grantee Request" },
-    { value: "New Leadership", label: "New Leadership" },
-    { value: "New Grantee or Program", label: "New Grantee or Program" },
-    { value: "CO or RO Priority", label: "CO or RO Priority" },
-    { value: "Monitoring", label: "Monitoring" },
+    { value: "New Grantee/Program", label: "New Grantee/Program" },
+    { value: "New Program Leadership", label: "New Program Leadership" },
     { value: "Area of Concern", label: "Area of Concern" },
+    { value: "Monitoring", label: "Monitoring" },
+    { value: "National Priority", label: "National Priority" },
+    { value: "Regional Office Priority", label: "Regional Office Priority" },
     { value: "Planning", label: "Planning" },
     { value: "Professional Development", label: "Professional Development" },
-    { value: "Promoting Quality", label: "Promoting Quality" },
+    { value: "Continuous Quality Improvement", label: "Continuous Quality Improvement" },
+    { value: "School Readiness", label: "School Readiness" }
   ]
   purposeOptions = {
     "Monitoring": [

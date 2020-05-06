@@ -1,6 +1,5 @@
 import { getRelationship } from 'redux-bees'
 import { connect } from 'react-redux'
-import TrackerDetailsBox from '../components/tracker_details_box'
 
 const mapStateToProps = (state, props) => {
   const requester = getRelationship(state, props.ttaNeed, 'requester')
@@ -17,4 +16,4 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-export default connect(mapStateToProps)(TrackerDetailsBox)
+export default connect(mapStateToProps)
