@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_152727) do
+ActiveRecord::Schema.define(version: 2020_05_07_160343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(version: 2020_05_07_152727) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tta_need_id"], name: "index_activity_plans_on_tta_need_id"
+  end
+
+  create_table "activity_plans_grantee_roles", id: false, force: :cascade do |t|
+    t.bigint "activity_plan_id", null: false
+    t.bigint "grantee_role_id", null: false
   end
 
   create_table "activity_reports", force: :cascade do |t|
@@ -69,6 +74,12 @@ ActiveRecord::Schema.define(version: 2020_05_07_152727) do
   create_table "activity_reports_people", id: false, force: :cascade do |t|
     t.bigint "person_id", null: false
     t.bigint "activity_report_id", null: false
+  end
+
+  create_table "grantee_roles", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "grantees", force: :cascade do |t|
