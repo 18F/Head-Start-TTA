@@ -33,8 +33,8 @@ class TrackerTimeline extends PureComponent {
       return (
         <ul className="pizza-tracker pizza-tracker--large">
           <li><FontAwesomeIcon className="tracker-past-activity fa-2x" icon={faCommentAlt} /><br />TTA Request Submitted<br />{shortDate(createdAt)}</li>
+          <li><FontAwesomeIcon className="tracker-past-activity fa-2x" icon={faUserPlus} /><br />Specialist Assigned<br />{shortDate(createdAt)}</li>
           <li><FontAwesomeIcon className="tracker-today fa-2x" icon={faCalendarAlt} /><br />Today<br />&nbsp;<br />&nbsp;</li>
-          <li><FontAwesomeIcon className="fa-2x" icon={faUserPlus} /><br />Specialist Assigned<br />&nbsp;</li>
           <li><FontAwesomeIcon className="fa-2x" icon={faPlane} /><br />Travel Approved<br />&nbsp;</li>
           <li><FontAwesomeIcon className="fa-2x" icon={faEllipsisH} /><br />Activities<br />&nbsp;<br />&nbsp;</li>
           <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br />&nbsp;</li>

@@ -1,4 +1,5 @@
 import React, { PureComponent, Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import RequestSuccessMessage from 'tta_need/components/request_success_message'
 import needDetailsBox from '../containers/need_details_box'
 import TrackerDetailsComponent from './tracker_details_box'
@@ -23,6 +24,7 @@ class TTANeedTracker extends PureComponent {
         <div className="grid-row grid-gap">
           <div className="grid-col-4">
             <TrackerDetailsBox ttaNeed={ttaNeed} />
+            <Link to={`/tta_needs/${ttaNeedId}/plan`} className="usa-button">Create Activity Plan</Link>
           </div>
           <div className="grid-col-8">
             <TrackerTimeline ttaNeed={ttaNeed} />
