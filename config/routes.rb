@@ -27,9 +27,10 @@ Rails.application.routes.draw do
   scope :smartsheet do
     get "tta_needs/:id", to: "dashboard#request_details", as: :smartsheet_request_details
   end
+  get "dashboard", to: "dashboard#central_office"
 
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   get "logout", to: "sessions#destroy"
-  root to: "dashboard#central_office"
+  root to: "grantees#index"
 end
