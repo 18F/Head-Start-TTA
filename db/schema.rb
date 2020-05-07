@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_112252) do
+ActiveRecord::Schema.define(version: 2020_05_07_152727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 2020_05_06_112252) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "activity_plans", force: :cascade do |t|
+    t.bigint "tta_need_id", null: false
+    t.datetime "start_at", null: false
+    t.datetime "end_at"
+    t.string "format", null: false
+    t.text "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tta_need_id"], name: "index_activity_plans_on_tta_need_id"
   end
 
   create_table "activity_reports", force: :cascade do |t|
@@ -182,6 +193,7 @@ ActiveRecord::Schema.define(version: 2020_05_06_112252) do
     t.index ["grantee_id"], name: "index_tta_needs_on_grantee_id"
   end
 
+  add_foreign_key "activity_plans", "tta_needs"
   add_foreign_key "activity_reports", "tta_needs"
   add_foreign_key "grants", "grantees"
   add_foreign_key "monitoring_reports", "grants"

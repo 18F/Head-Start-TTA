@@ -20,6 +20,7 @@ class TtaNeed < ApplicationRecord
 
   has_many :tasks, as: :parent
 
+  has_many :activity_plans
   has_many :activity_reports, -> { order(:start_date) }
 
   validates_inclusion_of :indicator, in: VALID_INDICATORS
