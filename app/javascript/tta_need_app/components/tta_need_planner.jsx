@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react'
 import needDetailsBox from '../containers/need_details_box'
 import PlanningDetailsComponent from './planning_details_box'
-import { GoalsList } from '../containers/tasks'
+import ActivityPlanForm from '../containers/activity_plan_form'
 
 class TTANeedPlanner extends PureComponent {
   render() {
@@ -17,7 +17,7 @@ class TTANeedPlanner extends PureComponent {
       <Fragment>
         <h1>TTA Planning</h1>
         <PlanningDetailsBox ttaNeed={ttaNeed} />
-        <GoalsList ttaNeedId={ttaNeedId} planning={true} />
+        <ActivityPlanForm ttaNeed={ttaNeed} />
       </Fragment>
     )
   }

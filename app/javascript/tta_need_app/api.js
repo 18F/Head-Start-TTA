@@ -6,6 +6,8 @@ const apiEndpoints = {
   getTasks: { method: get, path: "/tta_needs/:ttaNeedId/tasks" },
   getSubtasks: { method: get, path: "/tasks/:taskId/subtasks" },
   createTask: { method: post, path: "/tasks/:parentId/subtasks" },
-  saveTask: { method: patch, path: "/tasks/:id" }
+  saveTask: { method: patch, path: "/tasks/:id" },
+  createActivityPlan: { method: post, path: "/tta_needs/:ttaNeedId/plans" }
 }
+
 export default buildApi(apiEndpoints, config)
