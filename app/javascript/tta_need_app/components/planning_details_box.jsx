@@ -43,6 +43,8 @@ class PlanningDetailsBox extends PureComponent {
           <div className="grid-col">
             <h4 style={{marginBottom: 0}}>Source of Request</h4>
             <p style={{marginTop: 0}}>{initiatedBy}</p>
+            <h4 style={{marginBottom: 0}}>Grantee Aware of Request</h4>
+            <p style={{marginTop: 0}}>Yes</p>
           </div>
         </div>
         <hr/>

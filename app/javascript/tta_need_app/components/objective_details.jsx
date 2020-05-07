@@ -39,6 +39,7 @@ class ObjectiveDetails extends PureComponent {
       },
       assignedTo,
       completedBy,
+      planning,
       refetch
     } = this.props
     let completedByName = "someone"
@@ -60,10 +61,8 @@ class ObjectiveDetails extends PureComponent {
         }
         <p>{title}</p>
         {stringPresent(notes) && <p><em>Notes:</em> {notes}</p>}
-        <hr />
         {subtasksComplete && !complete &&
           <Fragment>
-            <p>No outstanding tasks for this objective</p>
             <div className="grid-row">
               <div className="grid-col-8">
                 <h4 style={{marginTop: "0.75rem"}}>Is this objective complete?</h4>
@@ -77,8 +76,9 @@ class ObjectiveDetails extends PureComponent {
           </Fragment>
         }
         <ul className="usa-list usa-list--unstyled next-steps-list">
-          <SubtasksList taskId={taskId} taskUpdated={refetch} />
+          <SubtasksList taskId={taskId} planning={planning} taskUpdated={refetch} />
         </ul>
+        <hr />
       </Fragment>
     )
   }

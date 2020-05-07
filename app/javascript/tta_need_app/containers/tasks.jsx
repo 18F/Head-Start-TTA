@@ -4,11 +4,11 @@ import api from '../api'
 import { connect } from 'react-redux'
 import { createTask, saveTask } from '../actions'
 import GoalDetails from '../components/goal_details'
-import ObjectiveForm from '../components/objective_form'
+import NewTaskForm from '../components/new_task_form'
 import ObjectiveDetails from '../components/objective_details'
 import SubtaskDetails from '../components/subtask_details'
 
-const connectList = (apiName, idName, loadingType, DetailsComponent, NewForm) => {
+const connectList = (apiName, idName, loadingType, DetailsComponent, newFormLabel) => {
   const q = query('tasks', api[apiName], (perform, props) => (
     perform({
       [idName]: props[idName],
@@ -21,9 +21,15 @@ const connectList = (apiName, idName, loadingType, DetailsComponent, NewForm) =>
       super(props)
       this.createTask = this.createTask.bind(this)
     }
-    createTask(parentId, title) {
+    createTask(title) {
       const {dispatch, status: {tasks: {refetch}}} = this.props
-      return dispatch(createTask(parentId, title)).then(() => refetch())
+      return dispatch(createTask(this.props[idName], title)).then(() => {
+        if (this.props.taskUpdated) {
+          this.props.taskUpdated().then(() => refetch())
+        } else {
+          refetch()
+        }
+      })
     }
     render() {
       const {
@@ -36,7 +42,7 @@ const connectList = (apiName, idName, loadingType, DetailsComponent, NewForm) =>
         return (<p>Loading {loadingType}...</p>)
       }
       if (tasks.length === 0 && !planning) {
-        return (<p>No {loadingType} have been defined yet.</p>)
+        return (<p>No {loadingType} have been defined.</p>)
       }
       return (
         <Fragment>
@@ -49,7 +55,7 @@ const connectList = (apiName, idName, loadingType, DetailsComponent, NewForm) =>
               refetch={() => refetch()}
               />
           ))}
-          {planning && NewForm !== null && <NewForm parentId={this.props[idName]} createTask={this.createTask} />}
+          {planning && newFormLabel !== null && <NewTaskForm label={newFormLabel} createTask={this.createTask} />}
         </Fragment>
       )
     }
@@ -76,5 +82,5 @@ const connectDetails = InnerComponent => {
 }
 
 export const GoalsList = connectList('getTasks', 'ttaNeedId', "goals", connectDetails(GoalDetails), null)
-export const ObjectivesList = connectList('getSubtasks', 'taskId', "objectives", connectDetails(ObjectiveDetails), ObjectiveForm)
-export const SubtasksList = connectList('getSubtasks', 'taskId', "next steps", connectDetails(SubtaskDetails), null)
+export const ObjectivesList = connectList('getSubtasks', 'taskId', "objectives", connectDetails(ObjectiveDetails), "New Objective")
+export const SubtasksList = connectList('getSubtasks', 'taskId', "next steps", connectDetails(SubtaskDetails), "New Task")

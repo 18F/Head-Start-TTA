@@ -48,7 +48,7 @@ class GoalDetails extends PureComponent {
       completedByName = completedBy.attributes.name
     }
     return (
-      <div className="box">
+      <div className="box box--bottom-padded">
         <h3>TTA Goal</h3>
         <p className="task-metadata">TTA Goal created by {createdByName} on: {shortDate(createdAt)}</p>
         <p>{title}</p>
@@ -66,7 +66,6 @@ class GoalDetails extends PureComponent {
         <hr />
         {subtasksComplete && !complete &&
           <Fragment>
-            <p>No outstanding objectives for this goal</p>
             <div className="grid-row">
               <div className="grid-col-8">
                 <h4 style={{marginTop: "0.75rem"}}>Is this goal complete?</h4>

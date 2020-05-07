@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-class ObjectiveForm extends PureComponent {
+class NewTaskForm extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {title: ""}
@@ -17,18 +17,19 @@ class ObjectiveForm extends PureComponent {
     }
   }
   createTask() {
-    const { parentId, createTask } = this.props
+    const { createTask } = this.props
     const { title } = this.state
-    createTask(parentId, title).then(() => this.setState({title: ""}))
+    createTask(title).then(() => this.setState({title: ""}))
   }
   formSubmission(event) {
     event.preventDefault()
   }
   render() {
     const { title } = this.state
+    const { label } = this.props
     return (
       <form className="usa-form usa-form--large" onSubmit={this.formSubmission}>
-        <label className="usa-label" htmlFor="new-objective-title">Objective:</label>
+        <label className="usa-label" htmlFor="new-objective-title">{label}:</label>
         <input type="text" className="usa-input" id="new-objective-title" value={title} onChange={this.updateTask} onKeyUp={this.keyUp} autoComplete="off" />
         <button className="usa-button" type="button" onClick={this.createTask}>Save</button>
       </form>
@@ -36,4 +37,4 @@ class ObjectiveForm extends PureComponent {
   }
 }
 
-export default ObjectiveForm
+export default NewTaskForm
