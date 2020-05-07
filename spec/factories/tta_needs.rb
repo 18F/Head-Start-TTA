@@ -3,6 +3,7 @@ FactoryBot.define do
     grantee
     association :requester, factory: [:person, :program_specialist]
     narrative { "We need to teach this grantee" }
-    indicator { "Grantee Request" }
+    indicator { "New Program Leadership" }
+    initiated_by { "Grantee" }
   end
 end

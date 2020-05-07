@@ -12,6 +12,10 @@
   padding: 1rem;
 }
 
+.box--bottom-padded {
+  padding-bottom: 1rem;
+}
+
 .box--split {
   & .grid-col:first-child {
     padding-right: 1rem;

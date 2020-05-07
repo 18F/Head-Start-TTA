@@ -9,6 +9,7 @@ class TTANeedForm extends Component {
     super(props)
     this.state = {
       narrative: props.ttaNeed.narrative,
+      initiatedBy: props.ttaNeed.initiatedBy,
       startDate: props.ttaNeed.startDate
     }
     this.inputChanged = this.inputChanged.bind(this)
@@ -24,6 +25,13 @@ class TTANeedForm extends Component {
     this.setState(update)
     updateNeed(update)
   }
+  initiatedChanged({value}) {
+    this.sendUpdate({initiatedBy: value})
+  }
+  initiatedByOptions = [
+    { value: "Grantee", label: "Grantee" },
+    { value: "Regional Office", label: "Regional Office" }
+  ]
   render() {
     const {
       submitRequest,
@@ -32,12 +40,15 @@ class TTANeedForm extends Component {
     } = this.props
     const {
       narrative,
+      initiatedBy,
       startDate
     } = this.state
     return (
       <div className="grid-col">
         <h2>TTA Request</h2>
         <form className="usa-form usa-form--large">
+          <label className="usa-label" htmlFor="initiated-by">Initiated By</label>
+          <Select options={this.initiatedByOptions} id="initiated-by" value={{value: initiatedBy, label: initiatedBy}} onChange={value => this.initiatedChanged(value)} />
           <NeedIndicator />
           <label className="usa-label" htmlFor="start-date">Proposed start date</label>
           <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />

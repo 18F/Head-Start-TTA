@@ -48,10 +48,10 @@ resource "TTA Needs" do
         data: {
           type: "tta-needs",
           attributes: {
-            'start-date': "2020-05-07",
+            "start-date": "2020-05-07",
             narrative: "Grantee would like help setting up a new fiscal system",
-            indicator: "Grantee Request",
-            purpose: "New Management",
+            indicator: "New Program Leadership",
+            "initiated-by": "Grantee",
             "specialist-types-needed": [topic1.scope]
           },
           relationships: {
@@ -85,8 +85,8 @@ resource "TTA Needs" do
               urgency: "Low",
               'start-date': "2020-05-07",
               narrative: "Grantee would like help setting up a new fiscal system",
-              indicator: "Grantee Request",
-              purpose: "New Management",
+              indicator: "New Program Leadership",
+              "initiated-by": "Grantee",
               "specialist-types-needed": [topic1.scope]
             },
             relationships: {

@@ -5,7 +5,7 @@ import { stringPresent } from 'common/utils'
 import { ObjectivesList } from '../containers/tasks'
 import { shortDate } from 'common/utils'
 
-class OutcomeDetails extends PureComponent {
+class GoalDetails extends PureComponent {
   constructor(props) {
     super(props)
     const { task: {attributes: {status}} } = this.props
@@ -39,6 +39,7 @@ class OutcomeDetails extends PureComponent {
       },
       assignedTo,
       completedBy,
+      planning,
       refetch
     } = this.props
     const { complete } = this.state
@@ -47,7 +48,7 @@ class OutcomeDetails extends PureComponent {
       completedByName = completedBy.attributes.name
     }
     return (
-      <div className="box">
+      <div className="box box--bottom-padded">
         <h3>TTA Goal</h3>
         <p className="task-metadata">TTA Goal created by {createdByName} on: {shortDate(createdAt)}</p>
         <p>{title}</p>
@@ -65,7 +66,6 @@ class OutcomeDetails extends PureComponent {
         <hr />
         {subtasksComplete && !complete &&
           <Fragment>
-            <p>No outstanding objectives for this goal</p>
             <div className="grid-row">
               <div className="grid-col-8">
                 <h4 style={{marginTop: "0.75rem"}}>Is this goal complete?</h4>
@@ -78,10 +78,11 @@ class OutcomeDetails extends PureComponent {
             <hr />
           </Fragment>
         }
-        <ObjectivesList taskId={taskId} taskUpdated={refetch} />
+        {planning && <h4>How will you meet this goal?</h4>}
+        <ObjectivesList taskId={taskId} planning={planning} taskUpdated={refetch} />
       </div>
     )
   }
 }
 
-export default OutcomeDetails
+export default GoalDetails

@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 import TTARequestForm from './containers/tta_request_form'
 import TTANeedTracker from './containers/tta_need_tracker'
+import TTANeedPlanner from './containers/tta_need_planner'
 
 class TTANeedApp extends PureComponent {
   render() {
@@ -13,6 +14,7 @@ class TTANeedApp extends PureComponent {
       <Router>
         <Switch>
           <Route path="/grantees/:granteeId/tta_needs/new" component={TTARequestForm} />
+          <Route path="/tta_needs/:id/plan" component={TTANeedPlanner} />
           <Route path="/tta_needs/:id" component={TTANeedTracker} />
         </Switch>
       </Router>

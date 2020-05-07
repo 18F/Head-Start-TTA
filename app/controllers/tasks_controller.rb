@@ -17,8 +17,13 @@ class TasksController < ApplicationController
   end
 
   def create
-    tta_need = TtaNeed.find(params[:tta_need_id])
-    task = tta_need.tasks.build create_params
+    task = if params[:tta_need_id].present?
+      parent = TtaNeed.find(params[:tta_need_id])
+      parent.tasks.build create_params
+    else
+      parent = Task.find(params[:id])
+      parent.subtasks.build create_params
+    end
     if task.save
       render_model task, render_options: {status: :created}
     else
