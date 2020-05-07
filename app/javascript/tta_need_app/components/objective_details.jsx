@@ -61,7 +61,7 @@ class ObjectiveDetails extends PureComponent {
         }
         <p>{title}</p>
         {stringPresent(notes) && <p><em>Notes:</em> {notes}</p>}
-        {subtasksComplete && !complete &&
+        {!planning && subtasksComplete && !complete &&
           <Fragment>
             <div className="grid-row">
               <div className="grid-col-8">

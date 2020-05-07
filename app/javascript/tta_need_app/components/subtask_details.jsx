@@ -23,7 +23,12 @@ class SubtaskDetails extends PureComponent {
   }
   checkIcon() {
     const { complete } = this.state
-    return <FontAwesomeIcon style={{cursor: "pointer"}} onClick={this.toggleStatus} className="fa-lg" icon={complete ? faCheckSquare : faSquare} />
+    const { planning } = this.props
+    if (planning) {
+      return <FontAwesomeIcon className="fa-lg" icon={complete ? faCheckSquare : faSquare} />
+    } else {
+      return <FontAwesomeIcon style={{cursor: "pointer"}} onClick={this.toggleStatus} className="fa-lg" icon={complete ? faCheckSquare : faSquare} />
+    }
   }
   render() {
     const { task: {attributes: {title}} } = this.props

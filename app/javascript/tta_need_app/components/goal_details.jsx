@@ -64,7 +64,7 @@ class GoalDetails extends PureComponent {
           </Fragment>
         }
         <hr />
-        {subtasksComplete && !complete &&
+        {!planning && subtasksComplete && !complete &&
           <Fragment>
             <div className="grid-row">
               <div className="grid-col-8">
