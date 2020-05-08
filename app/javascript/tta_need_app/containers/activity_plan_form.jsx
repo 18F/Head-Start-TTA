@@ -5,12 +5,11 @@ import api from '../api'
 import { createPlan } from '../actions'
 import ActivityPlanForm from '../components/activity_plan_form'
 
-const mapStateToProps = (state, props) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  createPlan: (ttaNeedId, startDate, location, format, audience) => (
+    dispatch(createPlan(ttaNeedId, startDate, location, format, audience, ownProps.history))
+  )
 })
-
-const mapDispatchToProps = {
-  createPlan
-}
 
 const enhance = compose(
   query('granteeRoles', api.getGranteeRoles),

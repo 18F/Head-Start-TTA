@@ -1,5 +1,7 @@
 import React, { PureComponent, Fragment } from 'react'
 import DatePicker from 'react-datepicker'
+import Select from 'react-select'
+import { stringPresent } from 'common/utils'
 import { GoalsList } from '../containers/tasks'
 import "react-datepicker/dist/react-datepicker.css"
 
@@ -10,25 +12,38 @@ class ActivityPlanForm extends PureComponent {
       startDate: new Date(),
       location: "",
       format: "",
-      audience: ""
+      audience: []
     }
     this.savePlan = this.savePlan.bind(this)
   }
   savePlan() {
-    const { createPlan } = this.props
     const { startDate, location, format, audience } = this.state
-    createPlan(startDate.toISOString(), location, format, audience)
+    if (audience.length === 0 || !stringPresent(format)) {
+      return
+    }
+    const { createPlan, ttaNeed: {id: ttaNeedId} } = this.props
+    createPlan(ttaNeedId, startDate.toISOString(), location, format, audience)
   }
   updateStart = date => { this.setState({startDate: date}) }
   updateFormat = event => { this.setState({format: event.target.value}) }
   updateLocation = event => { this.setState({location: event.target.value}) }
+  audienceChanged = (selected, action) => {
+    if (selected === null) {
+      this.setState({audience: []})
+    } else {
+      this.setState({audience: selected.map(({value}) => (value))})
+    }
+  }
   render() {
-    const { ttaNeed: {id: ttaNeedId} } = this.props
+    const { granteeRoles, ttaNeed: {id: ttaNeedId} } = this.props
+    if (granteeRoles === null) {
+      return <p>Loading...</p>
+    }
     const { startDate, format, location } = this.state
     return (
       <Fragment>
         <form className="usa-form usa-form--full">
-          <div className="grid-row">
+          <div className="grid-row grid-gap">
             <div className="grid-col">
               <label className="usa-label" htmlFor="start-at">Activity Start</label>
               <DatePicker
@@ -39,11 +54,17 @@ class ActivityPlanForm extends PureComponent {
                 showTimeSelect
                 dateFormat="Pp"
               />
-              <p>Audience</p>
+              <label className="usa-label" htmlFor="audience">Audience</label>
+              <Select
+                id="audience"
+                options={granteeRoles.map(({id, attributes: {title}}) => ({label: title, value: id}))}
+                onChange={this.audienceChanged}
+                isMulti
+              />
             </div>
             <div className="grid-col">
               <fieldset className="usa-fieldset">
-                <legend>Format</legend>
+                <legend className="usa-label">Format</legend>
                 <div className="usa-radio">
                   <input type="radio" className="usa-radio__input" id="format-on-site" name="format" checked={format === "On-site"} onChange={this.updateFormat} value="On-site" />
                   <label className="usa-radio__label" htmlFor="format-on-site">On-site</label>

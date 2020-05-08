@@ -23,6 +23,7 @@ resource "Activity Plans" do
   end
 
   post "/tta_needs/:tta_need_id/activity_plans" do
+    let!(:grantee_role) { create :grantee_role }
     let(:start_date) { 1.day.from_now }
     let(:end_date) { start_date + 1.hour }
     let(:raw_post) do
@@ -33,7 +34,8 @@ resource "Activity Plans" do
             "start-at": start_date.iso8601,
             "end-at": end_date.iso8601,
             format: "Virtual",
-            location: "https://video.service.com/meetingid"
+            location: "https://video.service.com/meetingid",
+            "grantee-role-ids": [grantee_role.id.to_s]
           }
         }
       }.to_json

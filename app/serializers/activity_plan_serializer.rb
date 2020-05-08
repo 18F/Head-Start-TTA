@@ -2,6 +2,7 @@ class ActivityPlanSerializer < BaseSerializer
   has_one :tta_need
 
   attributes :start_at, :end_at, :format, :location, :created_at, :updated_at
+  attribute(:grantee_role_ids) { object.grantee_role_ids.map(&:to_s) }
 
   def relationship_related_link(attribute)
     case attribute

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :topics, only: %i[index show], shallow: true do
     resources :tta_needs, only: :index
   end
+  resources :grantee_roles, only: %i[index show]
 
   scope :smartsheet do
     get "tta_needs/:id", to: "dashboard#request_details", as: :smartsheet_request_details

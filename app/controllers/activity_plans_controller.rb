@@ -23,6 +23,6 @@ class ActivityPlansController < ApplicationController
   private
 
   def activity_plan_params
-    params.require(:data).require(:attributes).permit :start_at, :end_at, :format, :location
+    params.require(:data).require(:attributes).permit :start_at, :end_at, :format, :location, grantee_role_ids: []
   end
 end
