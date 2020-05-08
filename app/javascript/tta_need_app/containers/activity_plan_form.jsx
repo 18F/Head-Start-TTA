@@ -1,3 +1,5 @@
+import { compose } from 'redux'
+import { query } from 'redux-bees'
 import { connect } from 'react-redux'
 import api from '../api'
 import { createPlan } from '../actions'
@@ -10,4 +12,9 @@ const mapDispatchToProps = {
   createPlan
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ActivityPlanForm)
+const enhance = compose(
+  query('granteeRoles', api.getGranteeRoles),
+  connect(null, mapDispatchToProps)
+)
+
+export default enhance(ActivityPlanForm)
