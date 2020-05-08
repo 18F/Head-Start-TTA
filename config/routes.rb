@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
     resources :tta_needs, only: %i[index show new create] do
       resources :activity_reports, only: :index
+      resources :activity_plans, only: %i[index show create]
       resources :topics, only: :index
       resources :tasks, only: %i[index show create update] do
         get "subtasks", on: :member

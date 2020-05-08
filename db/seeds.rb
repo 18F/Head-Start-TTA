@@ -1,7 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alonGrantee Specialistide the database with db:setup).
 
-
 GranteeRole.find_or_create_by title: "CEO"
 GranteeRole.find_or_create_by title: "Chief Financial Officer"
 GranteeRole.find_or_create_by title: "Executive Director / Program Director"
