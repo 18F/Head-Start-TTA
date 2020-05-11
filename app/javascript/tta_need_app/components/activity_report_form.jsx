@@ -23,7 +23,7 @@ class ActivityReportForm extends PureComponent {
   }
   saveReport() {
     const { startAt, endAt, duration, format, audience } = this.state
-    if (audience.length === 0 || !stringPresent(format)) {
+    if (!stringPresent(duration) || audience.length === 0 || !stringPresent(format)) {
       return
     }
     const { createReport, ttaNeed: {id: ttaNeedId} } = this.props

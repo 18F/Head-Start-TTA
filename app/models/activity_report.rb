@@ -1,10 +1,11 @@
 class ActivityReport < ApplicationRecord
-  validates_presence_of :activity_id, :activity_typ, :purpose, :start_date, :end_date, :duration
+  validates_presence_of :activity_id, :activity_typ, :start_date, :end_date, :duration
   validates_uniqueness_of :activity_id
   validates_inclusion_of :report_typ, in: %w[GS EC]
 
   has_and_belongs_to_many :grants
   has_many :grantees, through: :grants
+  has_and_belongs_to_many :grantee_roles
 
   has_and_belongs_to_many :people
 
@@ -17,6 +18,8 @@ class ActivityReport < ApplicationRecord
 
   auto_strip_attributes :activity_id
 
+  before_validation :set_activity_id
+
   update_index "activity_reports_index#activity_report", :self
 
   def linked?
@@ -25,5 +28,13 @@ class ActivityReport < ApplicationRecord
 
   def region
     grants.map(&:region).uniq.compact.join(", ")
+  end
+
+  private
+
+  def set_activity_id
+    if activity_id.blank? && tta_need.present?
+      self.activity_id = "#{tta_need.id}-#{tta_need.activity_reports.count}"
+    end
   end
 end

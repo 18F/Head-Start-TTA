@@ -3,6 +3,7 @@ class ActivityReportSerializer < BaseSerializer
 
   attributes :start_date, :contact_method, :created_at, :updated_at
   attribute(:activity_type) { object.activity_typ }
+  attribute(:grantee_roles) { object.grantee_roles.map { |gr| {id: gr.id.to_s, title: gr.title} } }
 
   def relationship_related_link(attribute)
     case attribute

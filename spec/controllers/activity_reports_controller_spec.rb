@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe ActivityReportsController, type: :controller do
   let(:valid_attributes) { attributes_for :activity_report }
 
-  let(:invalid_attributes) { {purpose: ""} }
+  let(:invalid_attributes) { {activity_typ: ""} }
 
   let!(:valid_session) { {current_user_id: build_stubbed(:person).id} }
 

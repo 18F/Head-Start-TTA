@@ -41,15 +41,15 @@ export const createPlan = (ttaNeedId, startDate, location, format, audience, his
   }
 }
 
-export const createReport = (ttaNeedId, attributes) => {
+export const createReport = (ttaNeedId, attributes, history) => {
   return dispatch => {
     return dispatch(api.createActivityReport({ttaNeedId}, {data: {
       type: "activity-reports",
       attributes: {
-        "start-date": attributes.startAt.iso8601(),
-        "end-date": attributes.endAt.iso8601(),
+        "start-date": attributes.startAt.toISOString(),
+        "end-date": attributes.endAt.toISOString(),
         duration: attributes.duration,
-        "activity-type": attributes.format,
+        "contact-method": attributes.format,
         "grantee-role-ids": attributes.audience
       }
     }}).then(({status}) => {

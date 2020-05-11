@@ -29,6 +29,20 @@ class ActivityReportsController < ApplicationController
   end
 
   def create
+    if params[:tta_need_id].blank?
+      create_via_upload
+    else
+      tta_need = TtaNeed.find params[:tta_need_id]
+      report = tta_need.activity_reports.build json_api_params
+      if report.save
+        render_model report, render_options: {status: :created}
+      else
+        render_errors report.errors, status: :unprocessable_entity
+      end
+    end
+  end
+
+  def create_via_upload
     file = params[:file]
     @specialist_type = params[:file_type].upcase
     book = Creek::Book.new file.path, check_file_extension: false
@@ -70,6 +84,19 @@ class ActivityReportsController < ApplicationController
   end
 
   private
+
+  def json_api_params
+    params.require(:data).require(:attributes).permit(
+      :start_date,
+      :end_date,
+      :duration,
+      :contact_method,
+      grantee_role_ids: []
+    ).tap do |attrs|
+      attrs[:report_typ] = "GS"
+      attrs[:activity_typ] = "Single Grantee"
+    end
+  end
 
   def set_activity_report
     @activity_report = ActivityReport.find(params[:id])
