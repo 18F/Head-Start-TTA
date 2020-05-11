@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
     resources :tta_needs, only: %i[index show new create] do
       resources :activity_reports, only: :index
+      resources :activity_plans, only: %i[index show create]
       resources :topics, only: :index
       resources :tasks, only: %i[index show create update] do
         get "subtasks", on: :member
@@ -23,13 +24,15 @@ Rails.application.routes.draw do
   resources :topics, only: %i[index show], shallow: true do
     resources :tta_needs, only: :index
   end
+  resources :grantee_roles, only: %i[index show]
 
   scope :smartsheet do
     get "tta_needs/:id", to: "dashboard#request_details", as: :smartsheet_request_details
   end
+  get "dashboard", to: "dashboard#central_office"
 
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   get "logout", to: "sessions#destroy"
-  root to: "dashboard#central_office"
+  root to: "grantees#index"
 end

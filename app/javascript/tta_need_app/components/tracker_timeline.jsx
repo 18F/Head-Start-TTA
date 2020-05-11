@@ -18,7 +18,7 @@ class TrackerTimeline extends PureComponent {
   activityIcon(method) {
     if (method === "Virtual") {
       return faLaptop
-    } else if (method === "Site Visit") {
+    } else if (method === "Site Visit" || method === "On-site") {
       return faUsers
     } else {
       return faPhoneVolume
@@ -27,8 +27,12 @@ class TrackerTimeline extends PureComponent {
   render() {
     const {
       ttaNeed: {attributes: {createdAt}},
+      activityPlans,
       activityReports
     } = this.props
+    if (activityPlans === null || activityReports === null) {
+      return <p>Loading...</p>
+    }
     if (activityReports.length == 0) {
       return (
         <ul className="pizza-tracker pizza-tracker--large">
@@ -36,7 +40,10 @@ class TrackerTimeline extends PureComponent {
           <li><FontAwesomeIcon className="tracker-past-activity fa-2x" icon={faUserPlus} /><br />Specialist Assigned<br />{shortDate(createdAt)}</li>
           <li><FontAwesomeIcon className="tracker-today fa-2x" icon={faCalendarAlt} /><br />Today<br />&nbsp;<br />&nbsp;</li>
           <li><FontAwesomeIcon className="fa-2x" icon={faPlane} /><br />Travel Approved<br />&nbsp;</li>
-          <li><FontAwesomeIcon className="fa-2x" icon={faEllipsisH} /><br />Activities<br />&nbsp;<br />&nbsp;</li>
+          {activityPlans.length === 0 && <li><FontAwesomeIcon className="fa-2x" icon={faEllipsisH} /><br />Activities<br />&nbsp;<br />&nbsp;</li>}
+          {activityPlans.map(({id, attributes: {startAt, format}}) => (
+            <li key={id}><FontAwesomeIcon className="fa-2x" icon={this.activityIcon(format)} /><br />{format} Activity<br />{shortDate(startAt)}</li>
+          ))}
           <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br />&nbsp;</li>
         </ul>
       )

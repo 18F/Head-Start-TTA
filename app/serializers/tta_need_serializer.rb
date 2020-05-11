@@ -5,6 +5,7 @@ class TtaNeedSerializer < BaseSerializer
   has_many :topics
   has_one :requester
   has_many :activity_reports
+  has_many :activity_plans
 
   attributes :narrative,
     :indicator,
