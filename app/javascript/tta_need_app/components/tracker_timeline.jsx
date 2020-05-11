@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCommentAlt,
@@ -26,7 +27,7 @@ class TrackerTimeline extends PureComponent {
   }
   render() {
     const {
-      ttaNeed: {attributes: {createdAt}},
+      ttaNeed: {id: ttaNeedId, attributes: {createdAt}},
       activityPlans,
       activityReports
     } = this.props
@@ -42,7 +43,12 @@ class TrackerTimeline extends PureComponent {
           <li><FontAwesomeIcon className="fa-2x" icon={faPlane} /><br />Travel Approved<br />&nbsp;</li>
           {activityPlans.length === 0 && <li><FontAwesomeIcon className="fa-2x" icon={faEllipsisH} /><br />Activities<br />&nbsp;<br />&nbsp;</li>}
           {activityPlans.map(({id, attributes: {startAt, format}}) => (
-            <li key={id}><FontAwesomeIcon className="fa-2x" icon={this.activityIcon(format)} /><br />{format} Activity<br />{shortDate(startAt)}</li>
+            <li key={id}>
+              <FontAwesomeIcon className="fa-2x" icon={this.activityIcon(format)} /><br />
+              <Link to={`/tta_needs/${ttaNeedId}/plan/${id}/report`}>
+                {format} Activity<br />{shortDate(startAt)}
+              </Link>
+            </li>
           ))}
           <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br />&nbsp;</li>
         </ul>

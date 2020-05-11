@@ -18,7 +18,7 @@ Rails.application.routes.draw do
         get "subtasks", on: :member
         post "subtasks", on: :member, to: "tasks#create"
       end
-      get ":react_route", to: "tta_needs#show"
+      get ":react_route", to: "tta_needs#show", constraints: { react_route: /.*/ }
     end
   end
   resources :topics, only: %i[index show], shallow: true do

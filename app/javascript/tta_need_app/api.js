@@ -8,6 +8,7 @@ const apiEndpoints = {
   createTask: { method: post, path: "/tasks/:parentId/subtasks" },
   saveTask: { method: patch, path: "/tasks/:id" },
   createActivityPlan: { method: post, path: "/tta_needs/:ttaNeedId/activity_plans" },
+  getActivityPlan: { method: get, path: "/activity_plans/:id" },
   getGranteeRoles: { method: get, path: "/grantee_roles" }
 }
 
