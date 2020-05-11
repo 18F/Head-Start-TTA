@@ -40,3 +40,22 @@ export const createPlan = (ttaNeedId, startDate, location, format, audience, his
     }))
   }
 }
+
+export const createReport = (ttaNeedId, attributes) => {
+  return dispatch => {
+    return dispatch(api.createActivityReport({ttaNeedId}, {data: {
+      type: "activity-reports",
+      attributes: {
+        "start-date": attributes.startAt.iso8601(),
+        "end-date": attributes.endAt.iso8601(),
+        duration: attributes.duration,
+        "activity-type": attributes.format,
+        "grantee-role-ids": attributes.audience
+      }
+    }}).then(({status}) => {
+      if (status === 201) {
+        history.push(`/tta_needs/${ttaNeedId}`)
+      }
+    }))
+  }
+}
