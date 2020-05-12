@@ -21,9 +21,9 @@ const connectList = (apiName, idName, loadingType, DetailsComponent, newFormLabe
       super(props)
       this.createTask = this.createTask.bind(this)
     }
-    createTask(title) {
+    createTask(title, links) {
       const {dispatch, status: {tasks: {refetch}}} = this.props
-      return dispatch(createTask(this.props[idName], title)).then(() => {
+      return dispatch(createTask(this.props[idName], title, links)).then(() => {
         if (this.props.taskUpdated) {
           this.props.taskUpdated().then(() => refetch())
         } else {

@@ -34,6 +34,20 @@ class SubtaskDetails extends PureComponent {
     const { setTaskNotes } = this.props
     this.setState({notes}, () => { setTaskNotes(id, notes) })
   }
+  linksDisplay() {
+    const { task: {attributes: {links}} } = this.props
+    if (links.length === 0) {
+      return null
+    } else {
+      return (
+        <ul className="usa-list">
+          {links.map((link, index) => (
+            <li key={index}><a href={link} target="_blank">{link}</a></li>
+          ))}
+        </ul>
+      )
+    }
+  }
   notesField() {
     const {
       reporting,
@@ -60,6 +74,7 @@ class SubtaskDetails extends PureComponent {
         {this.checkIcon()}
         &nbsp;
         <span style={{fontSize: "1.06rem"}}>{title}</span>
+        {this.linksDisplay()}
         {this.notesField()}
       </li>
     )

@@ -33,6 +33,20 @@ class ObjectiveDetails extends PureComponent {
     const { setTaskNotes } = this.props
     this.setState({notes}, () => { setTaskNotes(id, notes) })
   }
+  linksDisplay() {
+    const { task: {attributes: {links}} } = this.props
+    if (links.length === 0) {
+      return null
+    } else {
+      return (
+        <ul className="usa-list">
+          {links.map((link, index) => (
+            <li key={index}><a href={link} target="_blank">{link}</a></li>
+          ))}
+        </ul>
+      )
+    }
+  }
   notesField() {
     const {
       reporting,
@@ -93,9 +107,16 @@ class ObjectiveDetails extends PureComponent {
         }
         <p>{title}</p>
         {this.notesField()}
-        <ul className="usa-list usa-list--unstyled next-steps-list">
-          <SubtasksList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
-        </ul>
+        <div className="grid-row">
+          <div className="grid-col-8">
+            <ul className="usa-list usa-list--unstyled next-steps-list">
+              <SubtasksList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
+            </ul>
+          </div>
+          <div className="grid-col-4">
+            {this.linksDisplay()}
+          </div>
+        </div>
         {this.showCompletion &&
           <div className="grid-row">
             <div className="grid-col">

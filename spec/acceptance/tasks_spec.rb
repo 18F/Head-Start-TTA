@@ -74,7 +74,8 @@ resource "Tasks" do
           attributes: {
             status: "todo",
             title: "An objective to meet goal #{id}",
-            notes: ""
+            notes: "",
+            links: ["https://www.example.com/resource_link"]
           },
           relationships: {
             "created-by": {
