@@ -63,7 +63,6 @@ class TrackerTimeline extends PureComponent {
           <li key={id}><FontAwesomeIcon className="tracker-past-activity fa-2x" icon={this.activityIcon(contactMethod)} /><br />{contactMethod} Activity<br />{shortDate(startDate)}</li>
         ))}
         <li><FontAwesomeIcon className="tracker-today fa-2x" icon={faCalendarAlt} /><br />Today<br/>&nbsp;<br/>&nbsp;</li>
-        <li><FontAwesomeIcon className="fa-2x" icon={faUsers} /><br />Site Visit Activity<br />{shortDate(moment().add(1, 'week'))}</li>
         <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br/>&nbsp;</li>
       </ul>
     )

@@ -9,7 +9,8 @@ const initialState = {
   ...ttaNeedInitialState,
   app: {
     showSuccess: false
-  }
+  },
+  taskNotes: {}
 }
 
 export default createStore(

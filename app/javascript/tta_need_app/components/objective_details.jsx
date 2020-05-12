@@ -29,13 +29,35 @@ class ObjectiveDetails extends PureComponent {
     const { complete } = this.state
     return subtasksComplete && !complete && (reporting || !planning)
   }
+  updateNotes = (id, notes) => {
+    const { setTaskNotes } = this.props
+    this.setState({notes}, () => { setTaskNotes(id, notes) })
+  }
+  notesField() {
+    const {
+      reporting,
+      task: {id, attributes: {notes}}
+    } = this.props
+    if (reporting) {
+      const { notes: formNotes } = this.state
+      return (
+        <form className="usa-form usa-form--large">
+          <label className="usa-label" htmlFor={`notes-${id}`}>Notes</label>
+          <textarea className="usa-textarea" id={`notes-${id}`} style={{height: "3.5rem"}} value={formNotes} onChange={(e) => { this.updateNotes(id, e.target.value) }} />
+        </form>
+      )
+    } else if (stringPresent(notes)) {
+      return (<p><em>Notes:</em> {notes}</p>)
+    } else {
+      return null
+    }
+  }
   render() {
     const {
       task: {
         id: taskId,
         attributes: {
           title,
-          notes,
           createdAt,
           completedAt,
           subtasksComplete
@@ -70,13 +92,13 @@ class ObjectiveDetails extends PureComponent {
           </Fragment>
         }
         <p>{title}</p>
-        {stringPresent(notes) && <p><em>Notes:</em> {notes}</p>}
+        {this.notesField()}
         <ul className="usa-list usa-list--unstyled next-steps-list">
           <SubtasksList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
         </ul>
         {this.showCompletion &&
           <div className="grid-row">
-            <div className="grid-col-3 grid-offset-10">
+            <div className="grid-col">
               <button className="usa-button" onClick={this.markComplete}>Mark complete</button>
             </div>
           </div>

@@ -7,7 +7,8 @@ class TTANeedReporter extends PureComponent {
   render() {
     const {
       ttaNeed,
-      activityPlan
+      activityPlan,
+      history
     } = this.props
     if (ttaNeed === null || activityPlan === null) {
       return <p>Loading...</p>

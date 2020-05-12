@@ -34,7 +34,6 @@ class ActivityReportForm extends PureComponent {
   updateDuration = event => { this.setState({duration: event.target.value}) }
   updateFormat = event => { this.setState({format: event.target.value}) }
   audienceChanged = (selected, action) => {
-    debugger
     if (selected === null) {
       this.setState({audience: []})
     } else {

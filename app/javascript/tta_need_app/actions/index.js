@@ -1,4 +1,7 @@
 import api from '../api'
+import { trim, map } from 'lodash'
+
+export const TASK_NOTES = "TASK_NOTES"
 
 export const createTask = (parentId, title) => {
   return dispatch => {
@@ -23,6 +26,12 @@ export const saveTask = ({id, attributes: {status, notes}}) => {
     }}))
   }
 }
+
+export const setTaskNotes = (taskId, notes) => ({
+  type: TASK_NOTES,
+  taskId,
+  notes
+})
 
 export const createPlan = (ttaNeedId, startDate, location, format, audience, history) => {
   return dispatch => {
@@ -55,8 +64,30 @@ export const createReport = (ttaNeedId, attributes, history) => {
       }
     }}).then(({status}) => {
       if (status === 201) {
-        history.push(`/tta_needs/${ttaNeedId}`)
+        dispatch(saveTasks()).then(() => {
+          history.push(`/tta_needs/${ttaNeedId}`)
+        })
       }
     }))
+  }
+}
+
+const saveTasks = () => {
+  return (dispatch, getState) => {
+    const { taskNotes } = getState()
+    return Promise.all(
+      map(taskNotes, (notes, id) => {
+        const trimmed = trim(notes)
+        if (trimmed === "") {
+          return true
+        } else {
+          return dispatch(api.saveTask({id, include: "created-by,completed-by,assigned-to"}, {data: {
+            type: "tasks",
+            id,
+            attributes: {notes: trimmed}
+          }}))
+        }
+      })
+    )
   }
 }
