@@ -7,6 +7,7 @@ import {
 import TTARequestForm from './containers/tta_request_form'
 import TTANeedTracker from './containers/tta_need_tracker'
 import TTANeedPlanner from './containers/tta_need_planner'
+import TTANeedReporter from './containers/tta_need_reporter'
 
 class TTANeedApp extends PureComponent {
   render() {
@@ -14,6 +15,7 @@ class TTANeedApp extends PureComponent {
       <Router>
         <Switch>
           <Route path="/grantees/:granteeId/tta_needs/new" component={TTARequestForm} />
+          <Route path="/tta_needs/:ttaNeedId/plan/:planId/report" component={TTANeedReporter} />
           <Route path="/tta_needs/:id/plan" component={TTANeedPlanner} />
           <Route path="/tta_needs/:id" component={TTANeedTracker} />
         </Switch>

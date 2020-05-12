@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_160343) do
+ActiveRecord::Schema.define(version: 2020_05_12_172729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,11 @@ ActiveRecord::Schema.define(version: 2020_05_07_160343) do
     t.bigint "tta_need_id"
     t.string "contact_method"
     t.index ["tta_need_id"], name: "index_activity_reports_on_tta_need_id"
+  end
+
+  create_table "activity_reports_grantee_roles", id: false, force: :cascade do |t|
+    t.bigint "activity_report_id", null: false
+    t.bigint "grantee_role_id", null: false
   end
 
   create_table "activity_reports_grants", id: false, force: :cascade do |t|
@@ -170,6 +175,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_160343) do
     t.bigint "completed_by_id"
     t.datetime "due_date"
     t.datetime "completed_at"
+    t.text "links", default: [], array: true
     t.index ["parent_type", "parent_id"], name: "index_tasks_on_parent_type_and_parent_id"
   end
 

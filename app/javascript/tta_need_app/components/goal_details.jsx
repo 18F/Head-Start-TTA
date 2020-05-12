@@ -1,9 +1,10 @@
 import React, { PureComponent, Fragment } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import { stringPresent } from 'common/utils'
+import { stringPresent, shortDate } from 'common/utils'
 import { ObjectivesList } from '../containers/tasks'
-import { shortDate } from 'common/utils'
+import showdown from 'showdown'
+import xss from 'xss'
 
 class GoalDetails extends PureComponent {
   constructor(props) {
@@ -14,18 +15,32 @@ class GoalDetails extends PureComponent {
     }
     this.markComplete = this.markComplete.bind(this)
   }
+  title() {
+    const { task: {attributes: {title}} } = this.props
+    const converter = new showdown.Converter()
+    const body = {__html: xss(converter.makeHtml(title))}
+    return (<div dangerouslySetInnerHTML={body}></div>)
+  }
   markComplete() {
     const { task, saveTask } = this.props
     this.setState({complete: true}, () => {
       saveTask({...task, attributes: {...task.attributes, status: "complete"}})
     })
   }
+  get showCompletion() {
+    const {
+      task: {attributes: {subtasksComplete}},
+      planning,
+      reporting,
+    } = this.props
+    const { complete } = this.state
+    return subtasksComplete && !complete && (reporting || !planning)
+  }
   render() {
     const {
       task: {
         id: taskId,
         attributes: {
-          title,
           notes,
           createdAt,
           completedAt,
@@ -40,6 +55,7 @@ class GoalDetails extends PureComponent {
       assignedTo,
       completedBy,
       planning,
+      reporting,
       refetch
     } = this.props
     const { complete } = this.state
@@ -51,7 +67,7 @@ class GoalDetails extends PureComponent {
       <div className="box box--bottom-padded">
         <h3>TTA Goal</h3>
         <p className="task-metadata">TTA Goal created by {createdByName} on: {shortDate(createdAt)}</p>
-        <p>{title}</p>
+        {this.title()}
         {stringPresent(notes) &&
           <p><em>Notes:</em> {notes}</p>
         }
@@ -64,7 +80,7 @@ class GoalDetails extends PureComponent {
           </Fragment>
         }
         <hr />
-        {!planning && subtasksComplete && !complete &&
+        {this.showCompletion &&
           <Fragment>
             <div className="grid-row">
               <div className="grid-col-8">
@@ -78,8 +94,8 @@ class GoalDetails extends PureComponent {
             <hr />
           </Fragment>
         }
-        {planning && <h4>How will you meet this goal?</h4>}
-        <ObjectivesList taskId={taskId} planning={planning} taskUpdated={refetch} />
+        {planning && !reporting && <h4>How will you meet this goal?</h4>}
+        <ObjectivesList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
       </div>
     )
   }

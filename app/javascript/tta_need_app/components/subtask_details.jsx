@@ -23,11 +23,48 @@ class SubtaskDetails extends PureComponent {
   }
   checkIcon() {
     const { complete } = this.state
-    const { planning } = this.props
-    if (planning) {
+    const { planning, reporting } = this.props
+    if (planning && !reporting) {
       return <FontAwesomeIcon className="fa-lg" icon={complete ? faCheckSquare : faSquare} />
     } else {
       return <FontAwesomeIcon style={{cursor: "pointer"}} onClick={this.toggleStatus} className="fa-lg" icon={complete ? faCheckSquare : faSquare} />
+    }
+  }
+  updateNotes = (id, notes) => {
+    const { setTaskNotes } = this.props
+    this.setState({notes}, () => { setTaskNotes(id, notes) })
+  }
+  linksDisplay() {
+    const { task: {attributes: {links}} } = this.props
+    if (links.length === 0) {
+      return null
+    } else {
+      return (
+        <ul className="usa-list">
+          {links.map((link, index) => (
+            <li key={index}><a href={link} target="_blank">{link}</a></li>
+          ))}
+        </ul>
+      )
+    }
+  }
+  notesField() {
+    const {
+      reporting,
+      task: {id, attributes: {notes}}
+    } = this.props
+    if (reporting) {
+      const { notes: formNotes } = this.state
+      return (
+        <form className="usa-form usa-form--bottom-margin usa-form--left-margin">
+          <label className="usa-label" htmlFor={`notes-${id}`} style={{marginTop: "0.5rem"}}>Notes</label>
+          <textarea className="usa-textarea" id={`notes-${id}`} style={{height: "3.5rem"}} value={formNotes} onChange={(e) => { this.updateNotes(id, e.target.value) }} />
+        </form>
+      )
+    } else if (stringPresent(notes)) {
+      return (<p><em>Notes:</em> {notes}</p>)
+    } else {
+      return null
     }
   }
   render() {
@@ -36,7 +73,9 @@ class SubtaskDetails extends PureComponent {
       <li>
         {this.checkIcon()}
         &nbsp;
-        {title}
+        <span style={{fontSize: "1.06rem"}}>{title}</span>
+        {this.linksDisplay()}
+        {this.notesField()}
       </li>
     )
   }

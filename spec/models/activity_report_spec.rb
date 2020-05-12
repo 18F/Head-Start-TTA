@@ -7,7 +7,6 @@ RSpec.describe ActivityReport, type: :model do
     it { should validate_presence_of :activity_id }
     it { should validate_uniqueness_of :activity_id }
     it { should validate_presence_of :activity_typ }
-    it { should validate_presence_of :purpose }
     it { should validate_presence_of :start_date }
     it { should validate_presence_of :end_date }
     it { should validate_presence_of :duration }

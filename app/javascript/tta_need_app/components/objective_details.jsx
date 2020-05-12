@@ -20,13 +20,58 @@ class ObjectiveDetails extends PureComponent {
       saveTask({...task, attributes: {...task.attributes, status: "complete"}})
     })
   }
+  get showCompletion() {
+    const {
+      task: {attributes: {subtasksComplete}},
+      planning,
+      reporting
+    } = this.props
+    const { complete } = this.state
+    return subtasksComplete && !complete && (reporting || !planning)
+  }
+  updateNotes = (id, notes) => {
+    const { setTaskNotes } = this.props
+    this.setState({notes}, () => { setTaskNotes(id, notes) })
+  }
+  linksDisplay() {
+    const { task: {attributes: {links}} } = this.props
+    if (links.length === 0) {
+      return null
+    } else {
+      return (
+        <ul className="usa-list">
+          {links.map((link, index) => (
+            <li key={index}><a href={link} target="_blank">{link}</a></li>
+          ))}
+        </ul>
+      )
+    }
+  }
+  notesField() {
+    const {
+      reporting,
+      task: {id, attributes: {notes}}
+    } = this.props
+    if (reporting) {
+      const { notes: formNotes } = this.state
+      return (
+        <form className="usa-form usa-form--large">
+          <label className="usa-label" htmlFor={`notes-${id}`}>Notes</label>
+          <textarea className="usa-textarea" id={`notes-${id}`} style={{height: "3.5rem"}} value={formNotes} onChange={(e) => { this.updateNotes(id, e.target.value) }} />
+        </form>
+      )
+    } else if (stringPresent(notes)) {
+      return (<p><em>Notes:</em> {notes}</p>)
+    } else {
+      return null
+    }
+  }
   render() {
     const {
       task: {
         id: taskId,
         attributes: {
           title,
-          notes,
           createdAt,
           completedAt,
           subtasksComplete
@@ -40,6 +85,7 @@ class ObjectiveDetails extends PureComponent {
       assignedTo,
       completedBy,
       planning,
+      reporting,
       refetch
     } = this.props
     let completedByName = "someone"
@@ -60,24 +106,24 @@ class ObjectiveDetails extends PureComponent {
           </Fragment>
         }
         <p>{title}</p>
-        {stringPresent(notes) && <p><em>Notes:</em> {notes}</p>}
-        {!planning && subtasksComplete && !complete &&
-          <Fragment>
-            <div className="grid-row">
-              <div className="grid-col-8">
-                <h4 style={{marginTop: "0.75rem"}}>Is this objective complete?</h4>
-              </div>
-              <div className="grid-col-4">
-                <button className="usa-button" onClick={this.markComplete}>Yes</button>
-                <button className="usa-button usa-button--secondary" onClick={() => alert("What should happen now?")}>No</button>
-              </div>
+        {this.notesField()}
+        <div className="grid-row">
+          <div className="grid-col-8">
+            <ul className="usa-list usa-list--unstyled next-steps-list">
+              <SubtasksList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
+            </ul>
+          </div>
+          <div className="grid-col-4">
+            {this.linksDisplay()}
+          </div>
+        </div>
+        {this.showCompletion &&
+          <div className="grid-row">
+            <div className="grid-col">
+              <button className="usa-button" onClick={this.markComplete}>Mark complete</button>
             </div>
-            <hr />
-          </Fragment>
+          </div>
         }
-        <ul className="usa-list usa-list--unstyled next-steps-list">
-          <SubtasksList taskId={taskId} planning={planning} taskUpdated={refetch} />
-        </ul>
         <hr />
       </Fragment>
     )
