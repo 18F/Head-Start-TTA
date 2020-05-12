@@ -106,11 +106,17 @@ class ObjectiveDetails extends PureComponent {
           </Fragment>
         }
         <p>{title}</p>
-        {this.linksDisplay()}
         {this.notesField()}
-        <ul className="usa-list usa-list--unstyled next-steps-list">
-          <SubtasksList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
-        </ul>
+        <div className="grid-row">
+          <div className="grid-col-8">
+            <ul className="usa-list usa-list--unstyled next-steps-list">
+              <SubtasksList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
+            </ul>
+          </div>
+          <div className="grid-col-4">
+            {this.linksDisplay()}
+          </div>
+        </div>
         {this.showCompletion &&
           <div className="grid-row">
             <div className="grid-col">
