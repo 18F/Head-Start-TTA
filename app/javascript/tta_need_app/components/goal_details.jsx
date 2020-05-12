@@ -1,9 +1,10 @@
 import React, { PureComponent, Fragment } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import { stringPresent } from 'common/utils'
+import { stringPresent, shortDate } from 'common/utils'
 import { ObjectivesList } from '../containers/tasks'
-import { shortDate } from 'common/utils'
+import showdown from 'showdown'
+import xss from 'xss'
 
 class GoalDetails extends PureComponent {
   constructor(props) {
@@ -13,6 +14,12 @@ class GoalDetails extends PureComponent {
       complete: (status === "complete")
     }
     this.markComplete = this.markComplete.bind(this)
+  }
+  title() {
+    const { task: {attributes: {title}} } = this.props
+    const converter = new showdown.Converter()
+    const body = {__html: xss(converter.makeHtml(title))}
+    return (<div dangerouslySetInnerHTML={body}></div>)
   }
   markComplete() {
     const { task, saveTask } = this.props
@@ -34,7 +41,6 @@ class GoalDetails extends PureComponent {
       task: {
         id: taskId,
         attributes: {
-          title,
           notes,
           createdAt,
           completedAt,
@@ -61,7 +67,7 @@ class GoalDetails extends PureComponent {
       <div className="box box--bottom-padded">
         <h3>TTA Goal</h3>
         <p className="task-metadata">TTA Goal created by {createdByName} on: {shortDate(createdAt)}</p>
-        <p>{title}</p>
+        {this.title()}
         {stringPresent(notes) &&
           <p><em>Notes:</em> {notes}</p>
         }
