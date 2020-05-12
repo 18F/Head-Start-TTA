@@ -109,7 +109,7 @@ class ActivityReportForm extends PureComponent {
             </div>
           </div>
         </form>
-        <GoalsList ttaNeedId={ttaNeedId} planning={false} />
+        <GoalsList ttaNeedId={ttaNeedId} planning={true} reporting={true} />
         <button className="usa-button" onClick={this.saveReport}>Save report</button>
       </Fragment>
     )

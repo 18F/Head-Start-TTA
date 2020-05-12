@@ -11,13 +11,14 @@ export const createTask = (parentId, title) => {
   }
 }
 
-export const saveTask = ({id, attributes: {status}}) => {
+export const saveTask = ({id, attributes: {status, notes}}) => {
   return dispatch => {
     return dispatch(api.saveTask({id, include: "created-by,completed-by,assigned-to"}, {data: {
       type: "tasks",
       id,
       attributes: {
-        status
+        status,
+        notes
       }
     }}))
   }

@@ -20,6 +20,15 @@ class GoalDetails extends PureComponent {
       saveTask({...task, attributes: {...task.attributes, status: "complete"}})
     })
   }
+  get showCompletion() {
+    const {
+      task: {attributes: {subtasksComplete}},
+      planning,
+      reporting,
+    } = this.props
+    const { complete } = this.state
+    return subtasksComplete && !complete && (reporting || !planning)
+  }
   render() {
     const {
       task: {
@@ -40,6 +49,7 @@ class GoalDetails extends PureComponent {
       assignedTo,
       completedBy,
       planning,
+      reporting,
       refetch
     } = this.props
     const { complete } = this.state
@@ -64,7 +74,7 @@ class GoalDetails extends PureComponent {
           </Fragment>
         }
         <hr />
-        {!planning && subtasksComplete && !complete &&
+        {this.showCompletion &&
           <Fragment>
             <div className="grid-row">
               <div className="grid-col-8">
@@ -78,8 +88,8 @@ class GoalDetails extends PureComponent {
             <hr />
           </Fragment>
         }
-        {planning && <h4>How will you meet this goal?</h4>}
-        <ObjectivesList taskId={taskId} planning={planning} taskUpdated={refetch} />
+        {planning && !reporting && <h4>How will you meet this goal?</h4>}
+        <ObjectivesList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
       </div>
     )
   }

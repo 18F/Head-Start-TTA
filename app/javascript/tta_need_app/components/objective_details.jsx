@@ -20,6 +20,15 @@ class ObjectiveDetails extends PureComponent {
       saveTask({...task, attributes: {...task.attributes, status: "complete"}})
     })
   }
+  get showCompletion() {
+    const {
+      task: {attributes: {subtasksComplete}},
+      planning,
+      reporting
+    } = this.props
+    const { complete } = this.state
+    return subtasksComplete && !complete && (reporting || !planning)
+  }
   render() {
     const {
       task: {
@@ -40,6 +49,7 @@ class ObjectiveDetails extends PureComponent {
       assignedTo,
       completedBy,
       planning,
+      reporting,
       refetch
     } = this.props
     let completedByName = "someone"
@@ -61,23 +71,16 @@ class ObjectiveDetails extends PureComponent {
         }
         <p>{title}</p>
         {stringPresent(notes) && <p><em>Notes:</em> {notes}</p>}
-        {!planning && subtasksComplete && !complete &&
-          <Fragment>
-            <div className="grid-row">
-              <div className="grid-col-8">
-                <h4 style={{marginTop: "0.75rem"}}>Is this objective complete?</h4>
-              </div>
-              <div className="grid-col-4">
-                <button className="usa-button" onClick={this.markComplete}>Yes</button>
-                <button className="usa-button usa-button--secondary" onClick={() => alert("What should happen now?")}>No</button>
-              </div>
-            </div>
-            <hr />
-          </Fragment>
-        }
         <ul className="usa-list usa-list--unstyled next-steps-list">
-          <SubtasksList taskId={taskId} planning={planning} taskUpdated={refetch} />
+          <SubtasksList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
         </ul>
+        {this.showCompletion &&
+          <div className="grid-row">
+            <div className="grid-col-3 grid-offset-10">
+              <button className="usa-button" onClick={this.markComplete}>Mark complete</button>
+            </div>
+          </div>
+        }
         <hr />
       </Fragment>
     )
