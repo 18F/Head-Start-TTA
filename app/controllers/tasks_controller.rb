@@ -44,7 +44,7 @@ class TasksController < ApplicationController
 
   def create_params
     data = params.require(:data)
-    attributes = data.require(:attributes).permit :status, :title, :notes
+    attributes = data.require(:attributes).permit :status, :title, :notes, links: []
     attributes[:created_by_id] = data.dig(:relationships, :created_by, :data, :id) || current_user_id
     attributes[:assigned_to_id] = data.dig(:relationships, :assigned_to, :data, :id)
     attributes[:completed_by_id] = data.dig(:relationships, :completed_by, :data, :id)
@@ -53,7 +53,7 @@ class TasksController < ApplicationController
 
   def update_params
     data = params.require(:data)
-    attributes = data.require(:attributes).permit :status, :title, :notes, :completed_at
+    attributes = data.require(:attributes).permit :status, :title, :notes, :completed_at, links: []
     assigned_to_id = data.dig(:relationships, :assigned_to, :data, :id)
     attributes[:assigned_to_id] = assigned_to_id if assigned_to_id.present?
     if attributes[:status] == "complete"

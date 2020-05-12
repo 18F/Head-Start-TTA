@@ -3,12 +3,13 @@ import { trim, map } from 'lodash'
 
 export const TASK_NOTES = "TASK_NOTES"
 
-export const createTask = (parentId, title) => {
+export const createTask = (parentId, title, links) => {
   return dispatch => {
     return dispatch(api.createTask({parentId}, {data: {
       type: "tasks",
       attributes: {
-        title
+        title,
+        links
       }
     }}))
   }

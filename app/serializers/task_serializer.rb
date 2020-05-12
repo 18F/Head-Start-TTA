@@ -5,7 +5,7 @@ class TaskSerializer < BaseSerializer
   has_one :completed_by
   has_many :subtasks
 
-  attributes :status, :title, :notes, :due_date, :completed_at, :created_at, :updated_at
+  attributes :status, :title, :notes, :links, :due_date, :completed_at, :created_at, :updated_at
   attribute(:subtasks_complete) { object.subtasks.all?(&:complete?) }
 
   def relationship_related_link(attribute_name)
