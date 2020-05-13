@@ -15,11 +15,10 @@ class GoalDetails extends PureComponent {
     }
     this.markComplete = this.markComplete.bind(this)
   }
-  title() {
+  get title() {
     const { task: {attributes: {title}} } = this.props
     const converter = new showdown.Converter()
-    const body = {__html: xss(converter.makeHtml(title))}
-    return (<div dangerouslySetInnerHTML={body}></div>)
+    return {__html: xss(converter.makeHtml(title))}
   }
   markComplete() {
     const { task, saveTask } = this.props
@@ -67,7 +66,7 @@ class GoalDetails extends PureComponent {
       <div className="box box--bottom-padded">
         <h3>TTA Goal</h3>
         <p className="task-metadata">TTA Goal created by {createdByName} on: {shortDate(createdAt)}</p>
-        {this.title()}
+        <div dangerouslySetInnerHTML={this.title}></div>
         {stringPresent(notes) &&
           <p><em>Notes:</em> {notes}</p>
         }
