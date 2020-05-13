@@ -100,7 +100,7 @@ class ObjectiveDetails extends PureComponent {
     const { complete } = this.state
     return (
       <Fragment>
-        <h4>Objective:</h4>
+        <h3>Objective:</h3>
         <p className="task-metadata">Created by {createdByName} on: {shortDate(createdAt)}</p>
         {complete &&
           <Fragment>
@@ -114,6 +114,8 @@ class ObjectiveDetails extends PureComponent {
         {this.notesField()}
         <div className="grid-row">
           <div className="grid-col-8">
+            <h4 className="hinted">Tasks</h4>
+            <p className="usa-hint">What specific steps and actions will happen at the activity to make progress on this objective?</p>
             <ul className="usa-list usa-list--unstyled next-steps-list">
               <SubtasksList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
             </ul>

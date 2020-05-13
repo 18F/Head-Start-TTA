@@ -55,7 +55,7 @@ class NewTaskForm extends PureComponent {
           <form className="usa-form usa-form--large" onSubmit={this.formSubmission}>
             <label className="usa-label" htmlFor="new-objective-title">{label}:</label>
             <input type="text" className="usa-input" id="new-objective-title" value={title} onChange={this.updateTask} onKeyUp={this.keyUp} autoComplete="off" />
-            <label className="usa-label" htmlFor="new-objective-links-0">Supplemental Material Links</label>
+            <label className="usa-label" htmlFor="new-objective-links-0">Supplemental Materials and Resources</label>
             {links.map((link,index) => (
               <input key={index} type="text" className="usa-input" id={`new-objetive-links-${index}`} value={link} onChange={(e) => { this.updateLink(index, e.target.value) }} />
             ))}

@@ -64,8 +64,9 @@ class GoalDetails extends PureComponent {
     }
     return (
       <div className="box box--bottom-padded">
-        <h3>TTA Goal</h3>
-        <p className="task-metadata">TTA Goal created by {createdByName} on: {shortDate(createdAt)}</p>
+        <h2 className="hinted">Goal:</h2>
+        <p className="usa-hint">Goals are broad statements that describe how TTA will support grantee's wants and needs</p>
+        <p className="task-metadata">Goal created by {createdByName} on: {shortDate(createdAt)}</p>
         <div dangerouslySetInnerHTML={this.title}></div>
         {stringPresent(notes) &&
           <p><em>Notes:</em> {notes}</p>
@@ -93,7 +94,15 @@ class GoalDetails extends PureComponent {
             <hr />
           </Fragment>
         }
-        {planning && !reporting && <h4>How will you meet this goal?</h4>}
+        {planning && !reporting &&
+          <Fragment>
+            <h3 className="hinted">Define Activity Objectives - How will you meet this goal?</h3>
+            <p className="usa-hint">
+              Describe your objectives for this activity. What must be accomplished to achive this goal?<br />
+              They should be specific, measurable, attainable, realistic, and time-bound (SMART)
+            </p>
+          </Fragment>
+        }
         <ObjectivesList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
       </div>
     )
