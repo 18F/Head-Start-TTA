@@ -57,7 +57,7 @@ const connectList = (apiName, idName, loadingType, DetailsComponent, newFormLabe
               refetch={() => refetch()}
               />
           ))}
-          {planning && newFormLabel !== null && <NewTaskForm label={newFormLabel} createTask={this.createTask} />}
+          {planning && newFormLabel !== null && <NewTaskForm label={newFormLabel} reporting={reporting} createTask={this.createTask} />}
         </Fragment>
       )
     }
@@ -85,5 +85,5 @@ const connectDetails = InnerComponent => {
 }
 
 export const GoalsList = connectList('getTasks', 'ttaNeedId', "goals", connectDetails(GoalDetails), null)
-export const ObjectivesList = connectList('getSubtasks', 'taskId', "objectives", connectDetails(ObjectiveDetails), "New Objective")
-export const SubtasksList = connectList('getSubtasks', 'taskId', "next steps", connectDetails(SubtaskDetails), "New Task")
+export const ObjectivesList = connectList('getSubtasks', 'taskId', "objectives", connectDetails(ObjectiveDetails), "Objective")
+export const SubtasksList = connectList('getSubtasks', 'taskId', "next steps", connectDetails(SubtaskDetails), "Task")
