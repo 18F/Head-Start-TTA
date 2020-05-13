@@ -7,7 +7,7 @@ class NewTaskForm extends PureComponent {
     super(props)
     this.state = {
       title: "",
-      links: [""]
+      links: []
     }
     this.updateTask = this.updateTask.bind(this)
     this.keyUp = this.keyUp.bind(this)
@@ -55,11 +55,11 @@ class NewTaskForm extends PureComponent {
           <form className="usa-form usa-form--large" onSubmit={this.formSubmission}>
             <label className="usa-label" htmlFor="new-objective-title">{label}:</label>
             <input type="text" className="usa-input" id="new-objective-title" value={title} onChange={this.updateTask} onKeyUp={this.keyUp} autoComplete="off" />
-            <label className="usa-label" htmlFor="new-objective-links-0">Links</label>
+            <label className="usa-label" htmlFor="new-objective-links-0">Supplemental Material Links</label>
             {links.map((link,index) => (
               <input key={index} type="text" className="usa-input" id={`new-objetive-links-${index}`} value={link} onChange={(e) => { this.updateLink(index, e.target.value) }} />
             ))}
-            <p style={{margin: 0}}><a href="#" onClick={this.addLink}>Add another link</a></p>
+            <p style={{margin: 0}}><a href="#" onClick={this.addLink}>Add {links.length === 0 ? "a" : "another"} link</a></p>
             <button className="usa-button usa-button--outline" type="button" onClick={() => alert("Tell us what you would have attached here")}>Add attachment</button>
             <br />
             <button className="usa-button" type="button" onClick={this.createTask}>Save</button>
