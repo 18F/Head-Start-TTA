@@ -6,9 +6,10 @@ import { stringPresent } from 'common/utils'
 class SubtaskDetails extends PureComponent {
   constructor(props) {
     super(props)
-    const { task: {attributes: {status}} } = this.props
+    const { task: {attributes: {status, notes}} } = this.props
     this.state = {
-      complete: (status === "complete")
+      complete: (status === "complete"),
+      notes
     }
     this.toggleStatus = this.toggleStatus.bind(this)
   }
@@ -51,14 +52,14 @@ class SubtaskDetails extends PureComponent {
   notesField() {
     const {
       reporting,
-      task: {id, attributes: {notes}}
+      task: {id}
     } = this.props
+    const { notes } = this.state
     if (reporting) {
-      const { notes: formNotes } = this.state
       return (
         <form className="usa-form usa-form--bottom-margin usa-form--left-margin">
           <label className="usa-label" htmlFor={`notes-${id}`} style={{marginTop: "0.5rem"}}>Task Notes</label>
-          <textarea className="usa-textarea" id={`notes-${id}`} style={{height: "3.5rem"}} value={formNotes} onChange={(e) => { this.updateNotes(id, e.target.value) }} />
+          <textarea className="usa-textarea" id={`notes-${id}`} style={{height: "3.5rem"}} value={notes} onChange={(e) => { this.updateNotes(id, e.target.value) }} />
         </form>
       )
     } else if (stringPresent(notes)) {

@@ -47,9 +47,9 @@ const connectList = (apiName, idName, loadingType, DetailsComponent, newFormLabe
       }
       return (
         <Fragment>
-          {tasks.map((t,i) => (
+          {tasks.map((t) => (
             <DetailsComponent
-              key={i}
+              key={t.id}
               task={t}
               planning={planning}
               reporting={reporting}
