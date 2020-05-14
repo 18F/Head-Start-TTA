@@ -40,11 +40,14 @@ class ObjectiveDetails extends PureComponent {
       return null
     } else {
       return (
-        <ul className="usa-list">
-          {links.map((link, index) => (
-            <li key={index}><a href={link} target="_blank">{link}</a></li>
-          ))}
-        </ul>
+        <Fragment>
+          <h4>Supplemental Materials</h4>
+          <ul className="usa-list">
+            {links.map((link, index) => (
+              <li key={index}><a href={link} target="_blank">{link}</a></li>
+            ))}
+          </ul>
+        </Fragment>
       )
     }
   }
