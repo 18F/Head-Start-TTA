@@ -9,9 +9,10 @@ import xss from 'xss'
 class ObjectiveDetails extends PureComponent {
   constructor(props) {
     super(props)
-    const { task: {attributes: {status}} } = this.props
+    const { task: {attributes: {status, notes}} } = this.props
     this.state = {
-      complete: (status === "complete")
+      complete: (status === "complete"),
+      notes
     }
     this.markComplete = this.markComplete.bind(this)
   }
@@ -40,11 +41,14 @@ class ObjectiveDetails extends PureComponent {
       return null
     } else {
       return (
-        <ul className="usa-list">
-          {links.map((link, index) => (
-            <li key={index}><a href={link} target="_blank">{link}</a></li>
-          ))}
-        </ul>
+        <Fragment>
+          <h4>Supplemental Materials</h4>
+          <ul className="usa-list">
+            {links.map((link, index) => (
+              <li key={index}><a href={link} target="_blank">{link}</a></li>
+            ))}
+          </ul>
+        </Fragment>
       )
     }
   }
@@ -56,14 +60,14 @@ class ObjectiveDetails extends PureComponent {
   notesField() {
     const {
       reporting,
-      task: {id, attributes: {notes}}
+      task: {id}
     } = this.props
+    const { notes } = this.state
     if (reporting) {
-      const { notes: formNotes } = this.state
       return (
         <form className="usa-form usa-form--large">
           <label className="usa-label" htmlFor={`notes-${id}`}>Objective Notes <span className="usa-hint">(Optional)</span></label>
-          <textarea className="usa-textarea" id={`notes-${id}`} style={{height: "3.5rem"}} value={formNotes} onChange={(e) => { this.updateNotes(id, e.target.value) }} />
+          <textarea className="usa-textarea" id={`notes-${id}`} style={{height: "3.5rem"}} value={notes} onChange={(e) => { this.updateNotes(id, e.target.value) }} />
         </form>
       )
     } else if (stringPresent(notes)) {
