@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css"
 class ActivityReportForm extends PureComponent {
   constructor(props) {
     super(props)
-    let endAt = new Date()
+    let endAt = null
     if (stringPresent(props.activityPlan.attributes.endAt)) {
       endAt = new Date(props.activityPlan.attributes.endAt)
     }

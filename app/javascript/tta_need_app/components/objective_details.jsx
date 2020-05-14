@@ -62,7 +62,7 @@ class ObjectiveDetails extends PureComponent {
       const { notes: formNotes } = this.state
       return (
         <form className="usa-form usa-form--large">
-          <label className="usa-label" htmlFor={`notes-${id}`}>Objective Notes</label>
+          <label className="usa-label" htmlFor={`notes-${id}`}>Objective Notes <span className="usa-hint">(Optional)</span></label>
           <textarea className="usa-textarea" id={`notes-${id}`} style={{height: "3.5rem"}} value={formNotes} onChange={(e) => { this.updateNotes(id, e.target.value) }} />
         </form>
       )

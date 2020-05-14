@@ -9,7 +9,7 @@ class ActivityPlanForm extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      startDate: new Date(),
+      startDate: null,
       location: "",
       format: "",
       audience: []
@@ -18,7 +18,7 @@ class ActivityPlanForm extends PureComponent {
   }
   savePlan() {
     const { startDate, location, format, audience } = this.state
-    if (audience.length === 0 || !stringPresent(format)) {
+    if (startDate === null || audience.length === 0 || !stringPresent(format)) {
       return
     }
     const { createPlan, ttaNeed: {id: ttaNeedId} } = this.props
