@@ -26,7 +26,7 @@ class NewTaskForm extends PureComponent {
     const { createTask } = this.props
     const { title, links } = this.state
     const filteredLinks = filter(links, (l) => (stringPresent(l)))
-    createTask(title, filteredLinks).then(() => this.setState({title: "", links: [""]}))
+    createTask(title, filteredLinks).then(() => this.setState({title: "", links: []}))
   }
   formSubmission(event) {
     event.preventDefault()

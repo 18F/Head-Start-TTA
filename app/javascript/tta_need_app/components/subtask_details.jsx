@@ -57,7 +57,7 @@ class SubtaskDetails extends PureComponent {
       const { notes: formNotes } = this.state
       return (
         <form className="usa-form usa-form--bottom-margin usa-form--left-margin">
-          <label className="usa-label" htmlFor={`notes-${id}`} style={{marginTop: "0.5rem"}}>Notes</label>
+          <label className="usa-label" htmlFor={`notes-${id}`} style={{marginTop: "0.5rem"}}>Task Notes</label>
           <textarea className="usa-textarea" id={`notes-${id}`} style={{height: "3.5rem"}} value={formNotes} onChange={(e) => { this.updateNotes(id, e.target.value) }} />
         </form>
       )
