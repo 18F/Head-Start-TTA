@@ -2,8 +2,7 @@ import api from '../api'
 import { trim, map, filter } from 'lodash'
 import { stringPresent } from 'common/utils'
 
-export const TASK_NOTES = "TASK_NOTES"
-export const TASK_LINKS = "TASK_LINKS"
+export const TASK_DETAILS = "TASK_DETAILS"
 
 export const createTask = (parentId, title, links) => {
   return dispatch => {
@@ -30,16 +29,13 @@ export const saveTask = ({id, attributes: {status, notes}}) => {
   }
 }
 
-export const setTaskNotes = (taskId, notes) => ({
-  type: TASK_NOTES,
+export const setTaskDetails = (taskId, notes, links) => ({
+  type: TASK_DETAILS,
   taskId,
-  notes
-})
-
-export const setTaskLinks = (taskId, links) => ({
-  type: TASK_LINKS,
-  taskId,
-  links
+  details: {
+    notes,
+    links
+  }
 })
 
 export const createPlan = (ttaNeedId, startDate, location, format, audience, history) => {

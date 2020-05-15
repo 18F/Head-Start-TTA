@@ -1,11 +1,9 @@
-import { TASK_NOTES, TASK_LINKS } from '../actions'
+import { TASK_DETAILS } from '../actions'
 
 const taskDetails = (state = {}, action) => {
   switch(action.type) {
-    case TASK_NOTES:
-      return {...state, [action.taskId]: {...state[action.taskId], notes: action.notes}}
-    case TASK_LINKS:
-      return {...state, [action.taskId]: {...state[action.taskId], links: action.links}}
+    case TASK_DETAILS:
+      return {...state, [action.taskId]: action.details}
     default:
       return state
   }

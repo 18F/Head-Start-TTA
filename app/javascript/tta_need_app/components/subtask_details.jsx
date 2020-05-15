@@ -35,14 +35,16 @@ class SubtaskDetails extends PureComponent {
     }
   }
   updateNotes = (id, notes) => {
-    const { setTaskNotes } = this.props
-    this.setState({notes}, () => { setTaskNotes(id, notes) })
+    const { setTaskDetails } = this.props
+    const { links } = this.state
+    this.setState({notes}, () => { setTaskDetails(id, notes, links) })
   }
   updateLink(id, index, link) {
-    const newLinks = [...this.state.links]
+    const { notes, links } = this.state
+    const newLinks = [...links]
     newLinks.splice(index, 1, link)
-    const { setTaskLinks } = this.props
-    this.setState({links: newLinks}, () => { setTaskLinks(id, newLinks) })
+    const { setTaskDetails } = this.props
+    this.setState({links: newLinks}, () => { setTaskDetails(id, notes, newLinks) })
   }
   addLink(e) {
     e.preventDefault()
@@ -50,11 +52,9 @@ class SubtaskDetails extends PureComponent {
     this.setState({links: [...links, ""]})
   }
   linksDisplay() {
-    const { reporting, task: {id: taskId} } = this.props
+    const { reporting, planning, task: {id: taskId} } = this.props
     const { links } = this.state
-    if (!reporting && links.length === 0) {
-      return null
-    } else if (reporting) {
+    if (reporting || planning) {
       const divId = `task-${taskId}-materials`
       return (
         <div className="usa-accordion usa-accordion--bordered">
@@ -72,6 +72,8 @@ class SubtaskDetails extends PureComponent {
           </div>
         </div>
       )
+    } else if (links.length === 0) {
+      return null
     } else {
       return (
         <ul className="usa-list">

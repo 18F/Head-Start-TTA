@@ -9,12 +9,15 @@ import xss from 'xss'
 class ObjectiveDetails extends PureComponent {
   constructor(props) {
     super(props)
-    const { task: {attributes: {status, notes}} } = this.props
+    const { task: {attributes: {status, notes, links}} } = this.props
     this.state = {
       complete: (status === "complete"),
-      notes
+      notes,
+      links
     }
     this.markComplete = this.markComplete.bind(this)
+    this.updateLink = this.updateLink.bind(this)
+    this.addLink = this.addLink.bind(this)
   }
   markComplete() {
     const { task, saveTask } = this.props
@@ -32,12 +35,40 @@ class ObjectiveDetails extends PureComponent {
     return subtasksComplete && !complete && (reporting || !planning)
   }
   updateNotes = (id, notes) => {
-    const { setTaskNotes } = this.props
-    this.setState({notes}, () => { setTaskNotes(id, notes) })
+    const { setTaskDetails } = this.props
+    const { links } = this.state
+    this.setState({notes}, () => { setTaskDetails(id, notes, links) })
+  }
+  updateLink(id, index, link) {
+    const { notes, links } = this.state
+    const newLinks = [...links]
+    newLinks.splice(index, 1, link)
+    const { setTaskDetails } = this.props
+    this.setState({links: newLinks}, () => { setTaskDetails(id, notes, newLinks) })
+  }
+  addLink(e) {
+    e.preventDefault()
+    const { links } = this.state
+    this.setState({links: [...links, ""]})
   }
   linksDisplay() {
-    const { task: {attributes: {links}} } = this.props
-    if (links.length === 0) {
+    const { reporting, planning, task: {id: taskId} } = this.props
+    const { links } = this.state
+    if (reporting || planning) {
+      const divId = `task-${taskId}-materials`
+      return (
+        <Fragment>
+          <h4>Supplemental Materials and Resources</h4>
+          <form className="usa-form">
+            {links.map((link, index) => (
+              <input key={index} type="text" className="usa-input" value={link} onChange={(e) => { this.updateLink(taskId, index, e.target.value) }} />
+            ))}
+            <p style={{margin: 0}}><a href="#" onClick={this.addLink}>Add {links.length === 0 ? "a" : "another"} link</a></p>
+            <button className="usa-button usa-button--outline" type="button" onClick={() => alert("Tell us what you would have attached here")}>Add attachment</button>
+          </form>
+        </Fragment>
+      )
+    } else if (links.length === 0) {
       return null
     } else {
       return (
