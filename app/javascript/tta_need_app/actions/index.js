@@ -1,7 +1,9 @@
 import api from '../api'
-import { trim, map } from 'lodash'
+import { trim, map, filter } from 'lodash'
+import { stringPresent } from 'common/utils'
 
 export const TASK_NOTES = "TASK_NOTES"
+export const TASK_LINKS = "TASK_LINKS"
 
 export const createTask = (parentId, title, links) => {
   return dispatch => {
@@ -32,6 +34,12 @@ export const setTaskNotes = (taskId, notes) => ({
   type: TASK_NOTES,
   taskId,
   notes
+})
+
+export const setTaskLinks = (taskId, links) => ({
+  type: TASK_LINKS,
+  taskId,
+  links
 })
 
 export const createPlan = (ttaNeedId, startDate, location, format, audience, history) => {
@@ -75,19 +83,19 @@ export const createReport = (ttaNeedId, attributes, history) => {
 
 const saveTasks = () => {
   return (dispatch, getState) => {
-    const { taskNotes } = getState()
+    const { taskDetails } = getState()
     return Promise.all(
-      map(taskNotes, (notes, id) => {
+      map(taskDetails, ({notes, links}, id) => {
         const trimmed = trim(notes)
-        if (trimmed === "") {
-          return true
-        } else {
-          return dispatch(api.saveTask({id, include: "created-by,completed-by,assigned-to"}, {data: {
-            type: "tasks",
-            id,
-            attributes: {notes: trimmed}
-          }}))
-        }
+        const filteredLinks = filter(links, (l) => stringPresent(l))
+        return dispatch(api.saveTask({id, include: "created-by,completed-by,assigned-to"}, {data: {
+          type: "tasks",
+          id,
+          attributes: {
+            notes: trimmed,
+            links: filteredLinks
+          }
+        }}))
       })
     )
   }

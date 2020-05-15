@@ -2,7 +2,7 @@ import React, { PureComponent, Fragment } from 'react'
 import { query, getRelationship } from 'redux-bees'
 import api from '../api'
 import { connect } from 'react-redux'
-import { createTask, saveTask, setTaskNotes } from '../actions'
+import { createTask, saveTask, setTaskNotes, setTaskLinks } from '../actions'
 import GoalDetails from '../components/goal_details'
 import NewTaskForm from '../components/new_task_form'
 import ObjectiveDetails from '../components/objective_details'
@@ -78,7 +78,8 @@ const connectDetails = InnerComponent => {
         props.taskUpdated(task)
       }
     }),
-    setTaskNotes: (id, notes) => dispatch(setTaskNotes(id, notes))
+    setTaskNotes: (id, notes) => dispatch(setTaskNotes(id, notes)),
+    setTaskLinks: (id, links) => dispatch(setTaskLinks(id, links))
   })
 
   return connect(mapStateToProps, mapDispatchToProps)(InnerComponent)

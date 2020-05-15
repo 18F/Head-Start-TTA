@@ -6,12 +6,15 @@ import { stringPresent } from 'common/utils'
 class SubtaskDetails extends PureComponent {
   constructor(props) {
     super(props)
-    const { task: {attributes: {status, notes}} } = this.props
+    const { task: {attributes: {status, notes, links}} } = this.props
     this.state = {
       complete: (status === "complete"),
-      notes
+      notes,
+      links
     }
     this.toggleStatus = this.toggleStatus.bind(this)
+    this.updateLink = this.updateLink.bind(this)
+    this.addLink = this.addLink.bind(this)
   }
   toggleStatus() {
     const { complete } = this.state
@@ -35,10 +38,40 @@ class SubtaskDetails extends PureComponent {
     const { setTaskNotes } = this.props
     this.setState({notes}, () => { setTaskNotes(id, notes) })
   }
+  updateLink(id, index, link) {
+    const newLinks = [...this.state.links]
+    newLinks.splice(index, 1, link)
+    const { setTaskLinks } = this.props
+    this.setState({links: newLinks}, () => { setTaskLinks(id, newLinks) })
+  }
+  addLink(e) {
+    e.preventDefault()
+    const { links } = this.state
+    this.setState({links: [...links, ""]})
+  }
   linksDisplay() {
-    const { task: {attributes: {links}} } = this.props
-    if (links.length === 0) {
+    const { reporting, task: {id: taskId} } = this.props
+    const { links } = this.state
+    if (!reporting && links.length === 0) {
       return null
+    } else if (reporting) {
+      const divId = `task-${taskId}-materials`
+      return (
+        <div className="usa-accordion usa-accordion--bordered">
+          <h5 className="usa-accordion__heading">
+            <button className="usa-accordion__button" aria-expanded="false" aria-controls={divId}>Supplemental Materials and Resources</button>
+          </h5>
+          <div id={divId} className="usa-accordion__content" hidden={true}>
+            <form className="usa-form">
+              {links.map((link, index) => (
+                <input key={index} type="text" className="usa-input" value={link} onChange={(e) => { this.updateLink(taskId, index, e.target.value) }} />
+              ))}
+              <p style={{margin: 0}}><a href="#" onClick={this.addLink}>Add {links.length === 0 ? "a" : "another"} link</a></p>
+              <button className="usa-button usa-button--outline" type="button" onClick={() => alert("Tell us what you would have attached here")}>Add attachment</button>
+            </form>
+          </div>
+        </div>
+      )
     } else {
       return (
         <ul className="usa-list">
