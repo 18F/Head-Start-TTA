@@ -10,7 +10,7 @@ const initialState = {
   app: {
     showSuccess: false
   },
-  taskNotes: {}
+  taskDetails: {}
 }
 
 export default createStore(
