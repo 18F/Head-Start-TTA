@@ -32,8 +32,8 @@ namespace :yarn do
       puts stderr
       if /503 Service Unavailable/.match?(stderr)
         puts "Ignoring unavailable server"
-      elsif /advisories\/1486.*1 vulnerabilities found/m.match?(stdout)
-        puts "Ignoring high severity issue only present in development environment"
+      # elsif /advisories\/1486.*1 vulnerabilities found/m.match?(stdout)
+      #   puts "Ignoring high severity issue only present in development environment"
       else
         exit status.exitstatus
       end
