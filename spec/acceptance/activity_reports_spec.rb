@@ -23,6 +23,8 @@ resource "Activity Reports" do
   end
 
   post "/tta_needs/:tta_need_id/activity_reports" do
+    let(:grantee) { create(:grant, :grantee).grantee }
+    let(:tta_need) { create :tta_need, grantee: grantee }
     let!(:grantee_role) { create :grantee_role }
     let(:start_date) { 1.day.ago }
     let(:end_date) { start_date + 1.hour }
@@ -44,8 +46,9 @@ resource "Activity Reports" do
     example "Create a new Activity Report" do
       expect {
         do_request
-      }.to change(ActivityReport, :count).by 1
+      }.to change(ActivityReport, :count).from(0).to(1)
       expect(status).to eq 201
+      expect(ActivityReport.first.grantees).to eq [grantee]
     end
   end
 end
