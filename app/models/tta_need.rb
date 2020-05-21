@@ -13,6 +13,7 @@ class TtaNeed < ApplicationRecord
   ].freeze
 
   belongs_to :grantee
+  has_many :grants, through: :grantee
   delegate :name, to: :grantee, prefix: true
   belongs_to :context_link, polymorphic: true, optional: true
 

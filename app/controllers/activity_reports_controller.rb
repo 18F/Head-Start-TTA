@@ -35,6 +35,7 @@ class ActivityReportsController < ApplicationController
       tta_need = TtaNeed.find params[:tta_need_id]
       report = tta_need.activity_reports.build json_api_params
       if report.save
+        report.grants << tta_need.grants
         render_model report, render_options: {status: :created}
       else
         render_errors report.errors, status: :unprocessable_entity
