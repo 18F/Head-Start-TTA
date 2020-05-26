@@ -1,10 +1,8 @@
 import React, { PureComponent, Fragment } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import { stringPresent, shortDate } from 'common/utils'
+import { stringPresent, renderMarkdown, shortDate } from 'common/utils'
 import { ObjectivesList } from '../containers/tasks'
-import showdown from 'showdown'
-import xss from 'xss'
 
 class GoalDetails extends PureComponent {
   constructor(props) {
@@ -17,8 +15,7 @@ class GoalDetails extends PureComponent {
   }
   get title() {
     const { task: {attributes: {title}} } = this.props
-    const converter = new showdown.Converter()
-    return {__html: xss(converter.makeHtml(title))}
+    return renderMarkdown(title)
   }
   markComplete() {
     const { task, saveTask } = this.props
