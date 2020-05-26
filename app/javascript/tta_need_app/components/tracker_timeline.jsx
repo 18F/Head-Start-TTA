@@ -60,7 +60,12 @@ class TrackerTimeline extends PureComponent {
         <li><FontAwesomeIcon className="tracker-past-activity fa-2x" icon={faUserPlus} /><br />Specialist Assigned<br />{shortDate(moment(createdAt).add(1, 'week'))}</li>
         <li><FontAwesomeIcon className="tracker-past-activity fa-2x" icon={faPlane} /><br />Travel Approved<br />{shortDate(moment(createdAt).add(2, 'weeks'))}</li>
         {activityReports.map(({id, attributes: {startDate, contactMethod}}) => (
-          <li key={id}><FontAwesomeIcon className="tracker-past-activity fa-2x" icon={this.activityIcon(contactMethod)} /><br />{contactMethod} Activity<br />{shortDate(startDate)}</li>
+          <li key={id}>
+            <FontAwesomeIcon className="tracker-past-activity fa-2x" icon={this.activityIcon(contactMethod)} /><br />
+            <Link to={`/tta_needs/${ttaNeedId}/reports/${id}`}>
+              {contactMethod} Activity<br />{shortDate(startDate)}
+            </Link>
+          </li>
         ))}
         <li><FontAwesomeIcon className="tracker-today fa-2x" icon={faCalendarAlt} /><br />Today<br/>&nbsp;<br/>&nbsp;</li>
         <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br/>&nbsp;</li>

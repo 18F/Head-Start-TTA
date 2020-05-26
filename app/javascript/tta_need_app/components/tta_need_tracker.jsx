@@ -1,10 +1,11 @@
 import React, { PureComponent, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import RequestSuccessMessage from 'tta_need/components/request_success_message'
 import needDetailsBox from '../containers/need_details_box'
 import TrackerDetailsComponent from './tracker_details_box'
 import TrackerTimeline from '../containers/tracker_timeline'
 import { GoalsList } from '../containers/tasks'
+import ActivityReport from '../containers/activity_report'
 
 class TTANeedTracker extends PureComponent {
   render() {
@@ -28,6 +29,9 @@ class TTANeedTracker extends PureComponent {
           </div>
           <div className="grid-col-8">
             <TrackerTimeline ttaNeed={ttaNeed} />
+            <Route path="/tta_needs/:ttaNeedId/reports/:reportId" render={routeParams => (
+              <ActivityReport {...routeParams} ttaNeed={ttaNeed} />
+            )} />
             <GoalsList ttaNeedId={ttaNeedId} />
           </div>
         </div>
