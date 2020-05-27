@@ -28,9 +28,10 @@ class GoalDetails extends PureComponent {
       task: {attributes: {subtasksComplete}},
       planning,
       reporting,
+      activitiesCompleted
     } = this.props
     const { complete } = this.state
-    return subtasksComplete && !complete && (reporting || !planning)
+    return activitiesCompleted && subtasksComplete && !complete && (reporting || !planning)
   }
   render() {
     const {
@@ -80,12 +81,8 @@ class GoalDetails extends PureComponent {
         {this.showCompletion &&
           <Fragment>
             <div className="grid-row">
-              <div className="grid-col-8">
-                <h4 style={{marginTop: "0.75rem"}}>Is this goal complete?</h4>
-              </div>
-              <div className="grid-col-4">
-                <button className="usa-button" onClick={this.markComplete}>Yes</button>
-                <button className="usa-button usa-button--secondary" onClick={() => alert("What should happen now?")}>No</button>
+              <div className="grid-col">
+                <button className="usa-button" onClick={this.markComplete}>Mark goal complete</button>
               </div>
             </div>
             <hr />
