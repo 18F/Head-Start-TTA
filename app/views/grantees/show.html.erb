@@ -20,6 +20,9 @@
     <% if policy(:tta_request).create? %>
       <%= link_to "Request TTA", new_grantee_tta_need_path(grantee_id: @grantee.id), class: "usa-button" %>
     <% end %>
+    <% if policy(:tta_plan).create? %>
+      <%= link_to "Plan TTA", new_grantee_tta_plan_path(grantee_id: @grantee.id), class: "usa-button" %>
+    <% end %>
   </div>
   <div class="grid-col-9">
     <div class="box box--vertically-padded">

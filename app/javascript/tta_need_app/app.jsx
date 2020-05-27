@@ -15,6 +15,9 @@ class TTANeedApp extends PureComponent {
       <Router>
         <Switch>
           <Route path="/grantees/:granteeId/tta_needs/new" component={TTARequestForm} />
+          <Route path="/grantees/:granteeId/tta_plans/new">
+            <p>Plans App!</p>
+          </Route>
           <Route path="/tta_needs/:ttaNeedId/plan/:planId/report" component={TTANeedReporter} />
           <Route path="/tta_needs/:id/plan" component={TTANeedPlanner} />
           <Route path="/tta_needs/:id" component={TTANeedTracker} />
