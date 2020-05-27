@@ -17,7 +17,9 @@
       <%= render partial: "person", collection: @grantee.assigned_specialists %>
       <%= render partial: "person", collection: @grantee.report_specialists %>
     </div>
-    <%= link_to "Request TTA", new_grantee_tta_need_path(grantee_id: @grantee.id), class: "usa-button", data: {turbolinks: false} %>
+    <% if policy(:tta_request).create? %>
+      <%= link_to "Request TTA", new_grantee_tta_need_path(grantee_id: @grantee.id), class: "usa-button" %>
+    <% end %>
   </div>
   <div class="grid-col-9">
     <div class="box box--vertically-padded">

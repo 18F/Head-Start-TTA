@@ -23,8 +23,21 @@ class Person < ApplicationRecord
   has_many :completed_tasks, foreign_key: :completed_by_id, class_name: "Task"
 
   scope :tta_specialists, -> { where role: TTA_ROLES }
+  scope :ps, -> { where role: "Program Specialist" }
 
   def name_and_role
     "#{name} - #{role}"
+  end
+
+  def ecs?
+    role == "Early Childhood Specialist"
+  end
+
+  def tta_specialist?
+    TTA_ROLES.include? role
+  end
+
+  def ps?
+    role == "Program Specialist"
   end
 end
