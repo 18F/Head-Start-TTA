@@ -1,11 +1,12 @@
 import { compose } from 'redux'
-import { query } from 'redux-bees'
+import { query, getRelationship } from 'redux-bees'
 import api from '../api'
 import { connect } from 'react-redux'
 import TTANeedTracker from '../components/tta_need_tracker'
 
 const mapStateToProps = (state, props) => ({
-  showSuccess: state.app.showSuccess
+  showSuccess: state.app.showSuccess,
+  activityReports: getRelationship(state, props.ttaNeed, 'activityReports')
 })
 
 const enhance = compose(

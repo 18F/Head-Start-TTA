@@ -12,5 +12,9 @@ FactoryBot.define do
     trait :grantee_employee do
       role { "Head Start Director" }
     end
+
+    trait :ecs do
+      role { "Early Childhood Specialist" }
+    end
   end
 end

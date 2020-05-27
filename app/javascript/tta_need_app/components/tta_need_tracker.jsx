@@ -11,6 +11,7 @@ class TTANeedTracker extends PureComponent {
   render() {
     const {
       ttaNeed,
+      activityReports,
       showSuccess
     } = this.props
     if (ttaNeed == null) {
@@ -32,7 +33,7 @@ class TTANeedTracker extends PureComponent {
             <Route path="/tta_needs/:ttaNeedId/reports/:reportId" render={routeParams => (
               <ActivityReport {...routeParams} ttaNeed={ttaNeed} />
             )} />
-            <GoalsList ttaNeedId={ttaNeedId} />
+            <GoalsList activitiesCompleted={activityReports.length > 0} ttaNeedId={ttaNeedId} />
           </div>
         </div>
       </Fragment>

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include ActiveSupport::SecurityUtils
+  include Pundit
 
   before_action :basic_auth_authenticate
   before_action :require_user!

@@ -37,6 +37,7 @@ const connectList = (apiName, idName, loadingType, DetailsComponent, newFormLabe
         taskUpdated,
         planning,
         reporting,
+        activitiesCompleted,
         status: {tasks: {refetch}}
       } = this.props
       if (tasks === null) {
@@ -51,6 +52,7 @@ const connectList = (apiName, idName, loadingType, DetailsComponent, newFormLabe
             <DetailsComponent
               key={t.id}
               task={t}
+              activitiesCompleted={activitiesCompleted}
               planning={planning}
               reporting={reporting}
               taskUpdated={taskUpdated}

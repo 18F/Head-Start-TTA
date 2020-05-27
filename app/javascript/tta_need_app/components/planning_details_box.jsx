@@ -22,7 +22,7 @@ class PlanningDetailsBox extends PureComponent {
     } = this.props
     return (
       <Fragment>
-        <p>TA Request #{ttaNeedId}</p>
+        <p>TA Need #{ttaNeedId}</p>
         <p>Requested: {shortDate(requestDate)}</p>
         <h2>TTA is requested for</h2>
         <div className="grid-row">
