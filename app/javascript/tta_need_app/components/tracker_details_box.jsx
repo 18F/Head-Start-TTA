@@ -22,7 +22,7 @@ class TrackerDetailsBox extends PureComponent {
     return (
       <div className="box">
         <p><strong>{uniq(grants.map(({attributes: {region}}) => region)).join(", ")}</strong></p>
-        <h2>TA Request #{ttaNeedId}</h2>
+        <h2>TA Need #{ttaNeedId}</h2>
         <h4>Requested: {shortDate(requestDate)}</h4>
         <PersonDetails person={requester} nameLabel="Requested by" />
         <h4 style={{marginBottom: 0}}>Purpose of request:</h4>

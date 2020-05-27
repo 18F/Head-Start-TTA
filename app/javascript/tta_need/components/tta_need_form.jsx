@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
-import NeedIndicator from '../containers/need_indicator.jsx'
-import TaskList from '../containers/task_list.jsx'
-import SpecialistList from '../containers/specialist_list.jsx'
+import NeedIndicator from '../containers/need_indicator'
+import TaskList from '../containers/task_list'
+import SpecialistList from '../containers/specialist_list'
+import TopicList from '../containers/topic_list'
 
 class TTANeedForm extends Component {
   constructor(props) {
@@ -32,10 +33,19 @@ class TTANeedForm extends Component {
     { value: "Grantee", label: "Grantee" },
     { value: "Regional Office", label: "Regional Office" }
   ]
+  get formHeader() {
+    const { ecsPlans } = this.props
+    if (ecsPlans) {
+      return "ECS TTA Plan"
+    } else {
+      return "TTA Request"
+    }
+  }
   render() {
     const {
       submitRequest,
       closeForm,
+      ecsPlans,
       hideCancel
     } = this.props
     const {
@@ -45,14 +55,14 @@ class TTANeedForm extends Component {
     } = this.state
     return (
       <div className="grid-col">
-        <h2>TTA Request</h2>
+        <h2>{this.formHeader}</h2>
         <form className="usa-form usa-form--large">
           <label className="usa-label" htmlFor="initiated-by">Initiated By</label>
           <Select options={this.initiatedByOptions} id="initiated-by" value={{value: initiatedBy, label: initiatedBy}} onChange={value => this.initiatedChanged(value)} />
           <NeedIndicator />
           <label className="usa-label" htmlFor="start-date">Proposed start date</label>
           <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
-          <SpecialistList />
+          {ecsPlans ? <TopicList scope="Early Childhood Specialist" /> : <SpecialistList />}
           <label className="usa-label" htmlFor="objectives">TTA Goals</label>
           <TaskList />
           <label className="usa-label" htmlFor="narrative">Additional Information</label>

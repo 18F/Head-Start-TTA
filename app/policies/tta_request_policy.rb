@@ -1,5 +1,5 @@
 class TtaRequestPolicy < Struct.new(:user, :tta_request)
   def create?
-    user.ps?
+    user&.ps?
   end
 end
