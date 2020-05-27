@@ -15,7 +15,7 @@ class TrackerDetailsBox extends PureComponent {
       }},
       requester,
       topics,
-      grantee: {attributes: {name: granteeName}},
+      grantee: {id: granteeId, attributes: {name: granteeName}},
       pocs,
       grants
     } = this.props
@@ -38,7 +38,7 @@ class TrackerDetailsBox extends PureComponent {
         </ul>
         <hr />
         <h4 style={{marginBottom: 0}}>Grantee:</h4>
-        <p style={{marginTop: 0}}>{granteeName}</p>
+        <p style={{marginTop: 0}}><a href={`/grantees/${granteeId}`} className="usa-link">{granteeName}</a></p>
         <GrantsList grants={grants} />
         <PersonListDetails people={pocs} />
       </div>

@@ -2,21 +2,14 @@ import React, { PureComponent, Fragment } from 'react'
 import PersonListDetails from 'grantee/components/person_list_details'
 import PersonDetails from 'grantee/components/person_details'
 import GrantsList from 'grantee/components/grants_list'
-import showdown from 'showdown'
-import xss from 'xss'
-import { shortDate } from 'common/utils'
+import { shortDate, renderMarkdown } from 'common/utils'
 
 class PlanningDetailsBox extends PureComponent {
-  narrative() {
-    const { ttaNeed: {attributes: {narrative}} } = this.props
-    const converter = new showdown.Converter()
-    const body = {__html: xss(converter.makeHtml(narrative))}
-    return (<div className="font-body-md measure-2" dangerouslySetInnerHTML={body}></div>)
-  }
   render() {
     const {
       ttaNeed: {id: ttaNeedId, attributes: {
         createdAt: requestDate,
+        narrative,
         indicator,
         purpose,
         initiatedBy
@@ -71,7 +64,7 @@ class PlanningDetailsBox extends PureComponent {
           </div>
           <div className="grid-col">
             <h3>Description</h3>
-            {this.narrative()}
+            <div className="font-body-md measure-2" dangerouslySetInnerHTML={renderMarkdown(narrative)}></div>
           </div>
         </div>
         <hr/>

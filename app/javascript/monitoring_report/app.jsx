@@ -4,8 +4,7 @@ import { query } from 'redux-bees'
 import api from './api'
 import { connect } from 'react-redux'
 import { openForm } from 'tta_need/actions'
-import showdown from 'showdown'
-import xss from 'xss'
+import { renderMarkdown } from 'common/utils'
 import MonitoringDetails from './containers/monitoring_details'
 import TTANeedForm from 'tta_need/containers/tta_need_form'
 import RequestSuccessMessage from 'tta_need/components/request_success_message'
@@ -16,12 +15,10 @@ class App extends PureComponent {
       return
     }
     const {report: {attributes: {narrative}}} = this.props
-    const converter = new showdown.Converter()
-    const body = {__html: xss(converter.makeHtml(narrative))}
     return (
       <div className={columnClass}>
         <h2>Monitoring Report</h2>
-        <div className="font-body-md measure-2" dangerouslySetInnerHTML={body}></div>
+        <div className="font-body-md measure-2" dangerouslySetInnerHTML={renderMarkdown(narrative)}></div>
       </div>
     )
   }

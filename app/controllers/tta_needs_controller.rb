@@ -3,7 +3,7 @@ class TtaNeedsController < ApplicationController
 
   def index
     @tta_needs = if params[:grantee_id].present?
-      TtaNeed.where(grantee_id: params[:grantee_id])
+      TtaNeed.where(grantee_id: params[:grantee_id]).order(id: :desc)
     elsif params[:topic_id].present?
       TtaNeed.joins(:topics).where(topics: {id: params[:topic_id]})
     end
