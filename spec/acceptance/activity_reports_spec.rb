@@ -25,6 +25,7 @@ resource "Activity Reports" do
   post "/tta_needs/:tta_need_id/activity_reports" do
     let(:grantee) { create(:grant, :grantee).grantee }
     let(:tta_need) { create :tta_need, grantee: grantee }
+    let(:plan) { create :activity_plan, tta_need: tta_need, start_at: start_date }
     let!(:grantee_role) { create :grantee_role }
     let(:start_date) { 1.day.ago }
     let(:end_date) { start_date + 1.hour }
@@ -37,6 +38,7 @@ resource "Activity Reports" do
             "end-date": end_date.iso8601,
             "duration": "1",
             "contact-method": "Virtual",
+            "activity-plan-id": plan.id.to_s,
             "grantee-role-ids": [grantee_role.id.to_s]
           }
         }

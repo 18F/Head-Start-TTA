@@ -13,6 +13,7 @@ class ActivityReport < ApplicationRecord
   belongs_to :previous_activity_report, class_name: "ActivityReport", optional: true
 
   belongs_to :tta_need, optional: true
+  belongs_to :activity_plan, optional: true
 
   acts_as_ordered_taggable_on :materials, :topics
 

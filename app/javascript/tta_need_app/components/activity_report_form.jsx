@@ -26,8 +26,12 @@ class ActivityReportForm extends PureComponent {
     if (!stringPresent(duration) || audience.length === 0 || !stringPresent(format)) {
       return
     }
-    const { createReport, ttaNeed: {id: ttaNeedId} } = this.props
-    createReport(ttaNeedId, {startAt, endAt, duration, format, audience})
+    const {
+      createReport,
+      activityPlan: {id: planId},
+      ttaNeed: {id: ttaNeedId}
+    } = this.props
+    createReport(ttaNeedId, planId, {startAt, endAt, duration, format, audience})
   }
   updateStart = date => { this.setState({startAt: date}) }
   updateEnd = date => { this.setState({endAt: date}) }

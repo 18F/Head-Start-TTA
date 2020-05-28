@@ -2,6 +2,7 @@ class ActivityReportSerializer < BaseSerializer
   has_one :tta_need
 
   attributes :start_date, :end_date, :duration, :contact_method, :created_at, :updated_at
+  attribute(:activity_plan_id) { object.activity_plan_id.to_s }
   attribute(:activity_type) { object.activity_typ }
   attribute(:grantee_roles) { object.grantee_roles.map { |gr| {id: gr.id.to_s, title: gr.title} } }
 

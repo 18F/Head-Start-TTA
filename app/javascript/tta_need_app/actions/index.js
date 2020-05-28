@@ -56,7 +56,7 @@ export const createPlan = (ttaNeedId, startDate, location, format, audience, his
   }
 }
 
-export const createReport = (ttaNeedId, attributes, history) => {
+export const createReport = (ttaNeedId, planId, attributes, history) => {
   return dispatch => {
     return dispatch(api.createActivityReport({ttaNeedId}, {data: {
       type: "activity-reports",
@@ -65,6 +65,7 @@ export const createReport = (ttaNeedId, attributes, history) => {
         "end-date": attributes.endAt.toISOString(),
         duration: attributes.duration,
         "contact-method": attributes.format,
+        "activity-plan-id": planId,
         "grantee-role-ids": attributes.audience
       }
     }}).then(({status}) => {
