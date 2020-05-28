@@ -14,7 +14,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { shortDate } from 'common/utils'
 import moment from 'moment'
-import { findIndex } from 'lodash'
+import { findIndex, find, sortBy } from 'lodash'
 
 class TrackerTimeline extends PureComponent {
   activityIcon(method) {
@@ -45,19 +45,45 @@ class TrackerTimeline extends PureComponent {
       activityPlans,
       activityReports
     } = this.props
-    let entries = activityPlans.map(({id, attributes: {startAt, format}}) => ({
-      startAt,
-      id,
-      ui: (
-        <Fragment>
-          <FontAwesomeIcon className="fa-2x" icon={this.activityIcon(format)} /><br />
-          <Link to={`/tta_needs/${ttaNeedId}/plan/${id}/report`}>
-            {format} Activity<br />{shortDate(startAt)}
-          </Link>
-        </Fragment>
-      )
-    }))
-    let todayIndex = findIndex(entries, ({startAt}) => (moment(startAt).isAfter(moment())))
+    let entries = activityPlans.map(({id, attributes: {startAt, format}}) => {
+      const report = find(activityReports, ({attributes: {activityPlanId}}) => (activityPlanId === id))
+      if (report) {
+        const {
+          id: reportId,
+          attributes: {startDate, contactMethod}
+        } = report
+        return {
+          id,
+          startDate,
+          ui: (
+            <Fragment>
+              <FontAwesomeIcon className="tracker-past-activity fa-2x" icon={this.activityIcon(contactMethod)} /><br />
+              <Link to={`/tta_needs/${ttaNeedId}/reports/${reportId}`}>
+                {contactMethod}<br />Activity<br />{shortDate(startDate)}
+              </Link>
+            </Fragment>
+          )
+        }
+      } else {
+        return {
+          id,
+          startDate: startAt,
+          ui: (
+            <Fragment>
+              <FontAwesomeIcon className="fa-2x" icon={this.activityIcon(format)} /><br />
+              <Link to={`/tta_needs/${ttaNeedId}/plan/${id}/report`}>
+                {format}<br />Plan<br />{shortDate(startAt)}
+              </Link>
+            </Fragment>
+          )
+        }
+      }
+    })
+    entries = sortBy(entries, ['startDate'])
+    let todayIndex = findIndex(entries, ({startDate}) => (moment(startDate).isAfter(moment())))
+    if (todayIndex === -1) {
+      todayIndex = entries.length
+    }
     entries.splice(todayIndex, 0, {id: 0, ui: <Fragment><FontAwesomeIcon className="tracker-today fa-2x" icon={faCalendarAlt} /><br />Today<br />&nbsp;<br />&nbsp;</Fragment>})
     return (<Fragment>{entries.map(({id, ui}) => (<li key={id}>{ui}</li>))}</Fragment>)
   }
@@ -83,20 +109,6 @@ class TrackerTimeline extends PureComponent {
         <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br />&nbsp;</li>
       </ul>
     )
-    // return (
-    //   <ul className="pizza-tracker">
-    //     {activityReports.map(({id, attributes: {startDate, contactMethod}}) => (
-    //       <li key={id}>
-    //         <FontAwesomeIcon className="tracker-past-activity fa-2x" icon={this.activityIcon(contactMethod)} /><br />
-    //         <Link to={`/tta_needs/${ttaNeedId}/reports/${id}`}>
-    //           {contactMethod} Activity<br />{shortDate(startDate)}
-    //         </Link>
-    //       </li>
-    //     ))}
-    //     <li><FontAwesomeIcon className="tracker-today fa-2x" icon={faCalendarAlt} /><br />Today<br/>&nbsp;<br/>&nbsp;</li>
-    //     <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br/>&nbsp;</li>
-    //   </ul>
-    // )
   }
 }
 
