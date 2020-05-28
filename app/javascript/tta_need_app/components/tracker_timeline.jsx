@@ -42,30 +42,31 @@ class TrackerTimeline extends PureComponent {
   get timelineEntries() {
     const {
       ttaNeed: {id: ttaNeedId},
-      activityPlans
+      activityPlans,
+      activityReports
     } = this.props
-    let entries = [...activityPlans]
-
-    return (
-      <Fragment>
-        {activityPlans.map(({id, attributes: {startAt, format}}) => (
-          <li key={id}>
-            <FontAwesomeIcon className="fa-2x" icon={this.activityIcon(format)} /><br />
-            <Link to={`/tta_needs/${ttaNeedId}/plan/${id}/report`}>
-              {format} Activity<br />{shortDate(startAt)}
-            </Link>
-          </li>
-        ))}
-      </Fragment>
-    )
+    let entries = activityPlans.map(({id, attributes: {startAt, format}}) => ({
+      startAt,
+      id,
+      ui: (
+        <Fragment>
+          <FontAwesomeIcon className="fa-2x" icon={this.activityIcon(format)} /><br />
+          <Link to={`/tta_needs/${ttaNeedId}/plan/${id}/report`}>
+            {format} Activity<br />{shortDate(startAt)}
+          </Link>
+        </Fragment>
+      )
+    }))
+    let todayIndex = findIndex(entries, ({startAt}) => (moment(startAt).isAfter(moment())))
+    entries.splice(todayIndex, 0, {id: 0, ui: <Fragment><FontAwesomeIcon className="tracker-today fa-2x" icon={faCalendarAlt} /><br />Today<br />&nbsp;<br />&nbsp;</Fragment>})
+    return (<Fragment>{entries.map(({id, ui}) => (<li key={id}>{ui}</li>))}</Fragment>)
   }
   render() {
     const {
       ttaNeed: {id: ttaNeedId, attributes: {createdAt}},
-      activityPlans,
-      activityReports
+      activityPlans
     } = this.props
-    if (activityPlans === null || activityReports === null) {
+    if (activityPlans === null) {
       return <p>Loading...</p>
     }
     return (
@@ -82,23 +83,20 @@ class TrackerTimeline extends PureComponent {
         <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br />&nbsp;</li>
       </ul>
     )
-    return (
-      <ul className="pizza-tracker">
-        <li><FontAwesomeIcon className="tracker-past-activity fa-2x" icon={faCommentAlt} /><br />TTA Request Submitted<br />{shortDate(createdAt)}</li>
-        {this.specialistAssignedStep(moment(createdAt).add(1, 'week'))}
-        <li><FontAwesomeIcon className="tracker-past-activity fa-2x" icon={faPlane} /><br />Travel Approved<br />{shortDate(moment(createdAt).add(2, 'weeks'))}</li>
-        {activityReports.map(({id, attributes: {startDate, contactMethod}}) => (
-          <li key={id}>
-            <FontAwesomeIcon className="tracker-past-activity fa-2x" icon={this.activityIcon(contactMethod)} /><br />
-            <Link to={`/tta_needs/${ttaNeedId}/reports/${id}`}>
-              {contactMethod} Activity<br />{shortDate(startDate)}
-            </Link>
-          </li>
-        ))}
-        <li><FontAwesomeIcon className="tracker-today fa-2x" icon={faCalendarAlt} /><br />Today<br/>&nbsp;<br/>&nbsp;</li>
-        <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br/>&nbsp;</li>
-      </ul>
-    )
+    // return (
+    //   <ul className="pizza-tracker">
+    //     {activityReports.map(({id, attributes: {startDate, contactMethod}}) => (
+    //       <li key={id}>
+    //         <FontAwesomeIcon className="tracker-past-activity fa-2x" icon={this.activityIcon(contactMethod)} /><br />
+    //         <Link to={`/tta_needs/${ttaNeedId}/reports/${id}`}>
+    //           {contactMethod} Activity<br />{shortDate(startDate)}
+    //         </Link>
+    //       </li>
+    //     ))}
+    //     <li><FontAwesomeIcon className="tracker-today fa-2x" icon={faCalendarAlt} /><br />Today<br/>&nbsp;<br/>&nbsp;</li>
+    //     <li><FontAwesomeIcon className="fa-2x" icon={faFileContract} /><br />Closeout Review<br/>&nbsp;</li>
+    //   </ul>
+    // )
   }
 }
 
