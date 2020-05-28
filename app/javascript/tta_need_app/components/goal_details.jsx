@@ -53,6 +53,7 @@ class GoalDetails extends PureComponent {
       completedBy,
       planning,
       reporting,
+      activitiesCompleted,
       refetch
     } = this.props
     const { complete } = this.state
@@ -97,7 +98,7 @@ class GoalDetails extends PureComponent {
             </p>
           </Fragment>
         }
-        <ObjectivesList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
+        <ObjectivesList taskId={taskId} planning={planning} reporting={reporting} activitiesCompleted={activitiesCompleted} taskUpdated={refetch} />
       </div>
     )
   }

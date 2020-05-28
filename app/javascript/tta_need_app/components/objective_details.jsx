@@ -27,10 +27,11 @@ class ObjectiveDetails extends PureComponent {
     const {
       task: {attributes: {subtasksComplete}},
       planning,
-      reporting
+      reporting,
+      activitiesCompleted
     } = this.props
     const { complete } = this.state
-    return subtasksComplete && !complete && (reporting || !planning)
+    return subtasksComplete && !complete && (reporting || (!planning && activitiesCompleted))
   }
   updateNotes = (id, notes) => {
     const { setTaskDetails } = this.props
@@ -123,6 +124,7 @@ class ObjectiveDetails extends PureComponent {
       completedBy,
       planning,
       reporting,
+      activitiesCompleted,
       refetch
     } = this.props
     let completedByName = "someone"
@@ -148,7 +150,7 @@ class ObjectiveDetails extends PureComponent {
             <h4 className="hinted">Tasks</h4>
             <p className="usa-hint">What specific steps and actions will happen at the activity to make progress on this objective?</p>
             <ul className="usa-list usa-list--unstyled next-steps-list">
-              <SubtasksList taskId={taskId} planning={planning} reporting={reporting} taskUpdated={refetch} />
+              <SubtasksList taskId={taskId} planning={planning} reporting={reporting} activitiesCompleted={activitiesCompleted} taskUpdated={refetch} />
             </ul>
           </div>
           <div className="grid-col-4">

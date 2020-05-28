@@ -23,7 +23,7 @@ class RequestSuccessMessage extends PureComponent {
               <div className="usa-alert usa-alert--success">
                 <div className="usa-alert__body">
                   <h3 className="usa-alert__heading">Success</h3>
-                  <p className="usa-alert__text">TTA Request has been submitted</p>
+                  <p className="usa-alert__text">TTA goals have been submitted</p>
                 </div>
               </div>
             </div>

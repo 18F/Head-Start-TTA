@@ -14,7 +14,7 @@ class ActivityReport extends PureComponent {
       }}
     } = this.props
     return (
-      <div className="grid-row">
+      <div className="grid-row grid-gap">
         <div className="grid-col">
           <h3>TTA Need Description</h3>
           <div className="font-body-md measure-2" dangerouslySetInnerHTML={renderMarkdown(narrative)}></div>
