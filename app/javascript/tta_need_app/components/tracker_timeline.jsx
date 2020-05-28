@@ -96,7 +96,7 @@ class TrackerTimeline extends PureComponent {
       return <p>Loading...</p>
     }
     return (
-      <ul className={`pizza-tracker ${activityPlans.length < 4 ? "pizza-tracker--large" : ""}`}>
+      <ul className={`pizza-tracker ${activityPlans.length < 5 ? "pizza-tracker--large" : ""}`}>
         <li><FontAwesomeIcon className="tracker-past-activity fa-2x" icon={faCommentAlt} /><br />TTA Need Submitted<br />{shortDate(createdAt)}</li>
         {this.specialistAssignedStep(createdAt)}
         {activityPlans.length === 0 &&

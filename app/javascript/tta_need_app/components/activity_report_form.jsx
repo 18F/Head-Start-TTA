@@ -8,21 +8,22 @@ import "react-datepicker/dist/react-datepicker.css"
 class ActivityReportForm extends PureComponent {
   constructor(props) {
     super(props)
-    let endAt = null
-    if (stringPresent(props.activityPlan.attributes.endAt)) {
-      endAt = new Date(props.activityPlan.attributes.endAt)
+    const { activityPlan: {attributes: planAttrs} } = props
+    let endDate = null
+    if (stringPresent(planAttrs.endAt)) {
+      endDate = new Date(planAttrs.endAt)
     }
     this.state = {
-      startAt: new Date(props.activityPlan.attributes.startAt),
-      endAt: endAt,
+      startDate: new Date(planAttrs.startAt),
+      endDate,
       duration: "",
-      format: props.activityPlan.attributes.format,
-      audience: props.activityPlan.attributes.granteeRoles.map(({id}) => (id))
+      format: planAttrs.format,
+      audience: planAttrs.granteeRoles.map(({id}) => (id))
     }
     this.saveReport = this.saveReport.bind(this)
   }
   saveReport() {
-    const { startAt, endAt, duration, format, audience } = this.state
+    const { startDate, endDate, duration, format, audience } = this.state
     if (!stringPresent(duration) || audience.length === 0 || !stringPresent(format)) {
       return
     }
@@ -31,10 +32,10 @@ class ActivityReportForm extends PureComponent {
       activityPlan: {id: planId},
       ttaNeed: {id: ttaNeedId}
     } = this.props
-    createReport(ttaNeedId, planId, {startAt, endAt, duration, format, audience})
+    createReport(ttaNeedId, planId, {startDate, endDate, duration, format, audience})
   }
-  updateStart = date => { this.setState({startAt: date}) }
-  updateEnd = date => { this.setState({endAt: date}) }
+  updateStart = date => { this.setState({startDate: date}) }
+  updateEnd = date => { this.setState({endDate: date}) }
   updateDuration = event => { this.setState({duration: event.target.value}) }
   updateFormat = event => { this.setState({format: event.target.value}) }
   audienceChanged = (selected, action) => {
@@ -54,7 +55,7 @@ class ActivityReportForm extends PureComponent {
     if (granteeRoles === null) {
       return <p>Loading...</p>
     }
-    const { startAt, endAt, duration, format, audience } = this.state
+    const { startDate, endDate, duration, format, audience } = this.state
     return (
       <Fragment>
         <form className="usa-form usa-form--full">
@@ -64,19 +65,15 @@ class ActivityReportForm extends PureComponent {
               <DatePicker
                 id="start-at"
                 className="usa-input"
-                selected={startAt}
+                selected={startDate}
                 onChange={this.updateStart}
-                showTimeSelect
-                dateFormat="Pp"
               />
               <label className="usa-label" htmlFor="end-at">Activity End</label>
               <DatePicker
                 id="end-at"
                 className="usa-input"
-                selected={endAt}
+                selected={endDate}
                 onChange={this.updateEnd}
-                showTimeSelect
-                dateFormat="Pp"
               />
               <label className="usa-label" htmlFor="duration">Duration <span className="usa-hint">(in hours)</span></label>
               <input type="text" className="usa-input" value={duration} onChange={this.updateDuration} />
