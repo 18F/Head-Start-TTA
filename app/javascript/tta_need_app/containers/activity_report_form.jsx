@@ -6,8 +6,8 @@ import { createReport } from '../actions'
 import ActivityReportForm from '../components/activity_report_form'
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  createReport: (ttaNeedId, attributes) => (
-    dispatch(createReport(ttaNeedId, attributes, ownProps.history))
+  createReport: (ttaNeedId, planId, attributes) => (
+    dispatch(createReport(ttaNeedId, planId, attributes, ownProps.history))
   )
 })
 

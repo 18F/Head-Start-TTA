@@ -92,6 +92,7 @@ class ActivityReportsController < ApplicationController
       :end_date,
       :duration,
       :contact_method,
+      :activity_plan_id,
       grantee_role_ids: []
     ).tap do |attrs|
       attrs[:report_typ] = "GS"
