@@ -13,16 +13,16 @@ class EclkcApi
   end
 
   def centers(query_params)
-    @response = client.get(CENTER_API_ROUTE) do |req|
+    @response = client.get(CENTER_API_ROUTE) { |req|
       req.params = req.params.merge query_params
-    end
+    }
     @response_json = JSON.parse(response.body).with_indifferent_access
   end
 
   def programs(query_params)
-    @response = client.get(PROGRAM_API_ROUTE) do |req|
+    @response = client.get(PROGRAM_API_ROUTE) { |req|
       req.params = req.params.merge query_params
-    end
+    }
     @response_json = JSON.parse(response.body).with_indifferent_access
   end
 

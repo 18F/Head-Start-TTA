@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe EclkcApi, type: :model do
+RSpec.describe EclkcApi, :vcr, type: :model do
   describe "#centers" do
     it "returns a list of centers" do
       centers_response = subject.centers state: "MD"

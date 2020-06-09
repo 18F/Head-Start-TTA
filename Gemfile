@@ -70,4 +70,5 @@ end
 
 group :test do
   gem "rspec_junit_formatter", "~> 0.4"
+  gem "vcr", "~> 6.0"
 end

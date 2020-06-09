@@ -1,0 +1,1444 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://eclkc.ohs.acf.hhs.gov/eclkc-apis/locator/api/center?apikey=<ECLKC_API_TOKEN>&state=MD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v1.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 09 Jun 2020 13:36:09 GMT
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '158752'
+      connection:
+      - keep-alive
+      set-cookie:
+      - AWSALB=a14678Edi4bzwuppfupK4LqkpP/7SSFRBHnA9vEUTzbw+1hN2ZOmqmDf4lOdyRZPerCdlKOBdtLjtAxCHCXFWIoChETbt8A6BF3rUD7MlXO//QKFD1TDKB2Dtq+f;
+        Expires=Tue, 16 Jun 2020 13:36:09 GMT; Path=/, AWSALBCORS=a14678Edi4bzwuppfupK4LqkpP/7SSFRBHnA9vEUTzbw+1hN2ZOmqmDf4lOdyRZPerCdlKOBdtLjtAxCHCXFWIoChETbt8A6BF3rUD7MlXO//QKFD1TDKB2Dtq+f;
+        Expires=Tue, 16 Jun 2020 13:36:09 GMT; Path=/; SameSite=None; Secure
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-methods:
+      - GET, OPTIONS
+      access-control-allow-headers:
+      - Content-Type
+      cache-control:
+      - max-age=86400
+      etag:
+      - W/"26c20-eLjQLZgj476AwUanof4aH6K6okA"
+      x-varnish:
+      - 48210819 41139235
+      age:
+      - '3576'
+      via:
+      - 1.1 varnish (Varnish/6.0)
+      x-varnish-cache:
+      - HIT
+      strict-transport-security:
+      - max-age=31536000; includeSubdomains; preload
+      x-frame-options:
+      - DENY
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      referrer-policy:
+      - same-origin
+      content-security-policy:
+      - 'default-src ''self'' blob: ; media-src * data: ; connect-src *; img-src *
+        data: about: ; script-src ''self'' blob: ''unsafe-inline'' ''unsafe-eval''
+        https://www.printfriendly.com https://tagmanager.google.com https://use.typekit.net
+        https://s.ytimg.com https://www.youtube.com https://alleninteractions.atlassian.net
+        https://player.vzaar.com https://dap.digitalgov.gov https://code.jquery.com
+        https://*.kxcdn.com https://siteimproveanalytics.com https://www.googletagmanager.com
+        https://www.google-analytics.com https://ajax.googleapis.com https://maxcdn.bootstrapcdn.com
+        https://maps.googleapis.com; script-src-elem ''self'' blob: ''unsafe-inline''
+        https://tagmanager.google.com https://use.typekit.net https://s.ytimg.com
+        https://www.youtube.com https://cdn.siteimprove.net https://www.printfriendly.com
+        https://dap.digitalgov.gov https://player.vzaar.com https://cdnjs.cloudflare.com
+        https://code.jquery.com https://use.fortawesome.com https://ajax.googleapis.com
+        https://maxcdn.bootstrapcdn.com https://siteimproveanalytics.com https://*.google-analytics.com
+        https://www.googletagmanager.com https://maps.googleapis.com https://*.kxcdn.com;
+        style-src ''self'' ''unsafe-inline'' https://cdn.printfriendly.com https://tagmanager.google.com
+        https://use.fontawesome.com https://maxcdn.bootstrapcdn.com https://fonts.googleapis.com;
+        style-src-elem ''self'' ''unsafe-inline'' https://tagmanager.google.com https://cdn.printfriendly.com
+        https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://use.fortawesome.com
+        https://fonts.googleapis.com; font-src ''self'' data: https://use.typekit.net
+        https://maxcdn.bootstrapcdn.com https://fonts.gstatic.com; frame-src ''self''
+        https://www.youtube.com https://docs.google.com https://drive.google.com https://ncecdtl.wufoo.com
+        https://*.printfriendly.com https://cdn.embedly.com https://data.hrsa.gov
+        https://player.vimeo.com https://maps.google.com https://view.vzaar.com https://app.smartsheet.com;
+        frame-ancestors https://eclkc.ohs.acf.hhs.gov https://*.lingotek.com'
+      accept-ranges:
+      - bytes
+    body:
+      encoding: UTF-8
+      string: '{"results":231,"documents":[{"addressLineOne":"4901 Quincy St","addressLineTwo":"","cid":"100223","grantNumber":"03HP000227","delegateNumber":"200","type":2,"longitude":-76.9345,"latitude":38.9365,"name":"Learning
+        World Child Development Center","city":"Bladensburg","state":"MD","zipFive":"20710","zipFour":"2104","phone":"(301)
+        277-0609","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Prince
+        George''s County","program":{"addressLineOne":"7833 Walker Dr","addressLineTwo":"Ste
+        610","name":"Lourie Center for Young Children''s Social and Emotional Wellness","city":"Greenbelt","state":"MD","zipFive":"20770","zipFour":"3233","phone":"(301)
+        277-0609","registrationPhone":"(301)891-1900","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"5977
+        Fisher Rd","addressLineTwo":"","cid":"100224","grantNumber":"03HP000227","delegateNumber":"200","type":2,"longitude":-76.9569,"latitude":38.8077,"name":"The
+        Kids'' Corner Child Care Center","city":"Temple Hills","state":"MD","zipFive":"20748","zipFour":"5905","phone":"(301)
+        505-5959","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Prince
+        George''s County","program":{"addressLineOne":"7833 Walker Dr","addressLineTwo":"Ste
+        610","name":"Lourie Center for Young Children''s Social and Emotional Wellness","city":"Greenbelt","state":"MD","zipFive":"20770","zipFour":"3233","phone":"(301)
+        505-5959","registrationPhone":"(301)891-1900","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"6817
+        Old Branch Ave","addressLineTwo":"","cid":"100225","grantNumber":"03HP000227","delegateNumber":"200","type":2,"longitude":-76.9009,"latitude":38.7955,"name":"Little
+        Imaginations Child Care Center","city":"Temple Hills","state":"MD","zipFive":"20748","zipFour":"6905","phone":"(301)
+        698-9805","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Prince
+        George''s County","program":{"addressLineOne":"7833 Walker Dr","addressLineTwo":"Ste
+        610","name":"Lourie Center for Young Children''s Social and Emotional Wellness","city":"Greenbelt","state":"MD","zipFive":"20770","zipFour":"3233","phone":"(301)
+        698-9805","registrationPhone":"(301)891-1900","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"7000
+        Adelphi Rd","addressLineTwo":"","cid":"100226","grantNumber":"03HP000227","delegateNumber":"200","type":2,"longitude":-76.9544,"latitude":38.9751,"name":"Northwestern
+        Child Development Center","city":"Hyattsville","state":"MD","zipFive":"20782","zipFour":"1454","phone":"(301)
+        985-1820","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Prince
+        George''s County","program":{"addressLineOne":"7833 Walker Dr","addressLineTwo":"Ste
+        610","name":"Lourie Center for Young Children''s Social and Emotional Wellness","city":"Greenbelt","state":"MD","zipFive":"20770","zipFour":"3233","phone":"(301)
+        985-1820","registrationPhone":"(301)891-1900","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"6200
+        Riverdale Rd","addressLineTwo":"","cid":"100229","grantNumber":"03HP000227","delegateNumber":"200","type":2,"longitude":-76.9115,"latitude":38.9614,"name":"Refreshing
+        Spring Learning Center","city":"Riverdale","state":"MD","zipFive":"20737","zipFour":"2112","phone":"(240)
+        206-6798","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Prince
+        George''s County","program":{"addressLineOne":"7833 Walker Dr","addressLineTwo":"Ste
+        610","name":"Lourie Center for Young Children''s Social and Emotional Wellness","city":"Greenbelt","state":"MD","zipFive":"20770","zipFour":"3233","phone":"(240)
+        206-6798","registrationPhone":"(301)891-1900","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"6149
+        Marlboro Pike","addressLineTwo":"","cid":"101270","grantNumber":"03CH010635","delegateNumber":"000","type":1,"longitude":-76.9017,"latitude":38.8556,"name":"Easterseals
+        Head Start Center?Marlboro Pike","city":"District Heights","state":"MD","zipFive":"20747","zipFour":"2102","phone":"","googleMapZoomLevel":10,"county":"Prince
+        George''s County","programCounty":"Montgomery County","program":{"addressLineOne":"1420
+        Spring St","addressLineTwo":"","name":"Easter Seals Serving DC|MD|VA","city":"Silver
+        Spring","state":"MD","zipFive":"20910","zipFour":"2701","phone":"","registrationPhone":"","identifier":"easter_seals_serving_dc_md_va_md"}},{"addressLineOne":"6149
+        Marlboro Pike","addressLineTwo":"","cid":"101271","grantNumber":"03CH010635","delegateNumber":"200","type":2,"longitude":-76.9017,"latitude":38.8556,"name":"Easterseals
+        Head Start Center?Marlboro Pike","city":"District Heights","state":"MD","zipFive":"20747","zipFour":"2102","phone":"","googleMapZoomLevel":10,"county":"Prince
+        George''s County","programCounty":"Montgomery County","program":{"addressLineOne":"1420
+        Spring St","addressLineTwo":"","name":"Easter Seals Serving DC|MD|VA","city":"Silver
+        Spring","state":"MD","zipFive":"20910","zipFour":"2701","phone":"","registrationPhone":"","identifier":"easter_seals_serving_dc_md_va_md"}},{"addressLineOne":"6400
+        Allentown Rd","addressLineTwo":"","cid":"101272","grantNumber":"03CH010635","delegateNumber":"000","type":1,"longitude":-76.9082,"latitude":38.8007,"name":"Easterseals
+        Head Start Center?Allentown Road","city":"Temple Hills","state":"MD","zipFive":"20748","zipFour":"2611","phone":"","googleMapZoomLevel":10,"county":"Prince
+        George''s County","programCounty":"Montgomery County","program":{"addressLineOne":"1420
+        Spring St","addressLineTwo":"","name":"Easter Seals Serving DC|MD|VA","city":"Silver
+        Spring","state":"MD","zipFive":"20910","zipFour":"2701","phone":"","registrationPhone":"","identifier":"easter_seals_serving_dc_md_va_md"}},{"addressLineOne":"6400
+        Allentown Rd","addressLineTwo":"","cid":"101273","grantNumber":"03CH010635","delegateNumber":"200","type":2,"longitude":-76.9082,"latitude":38.8007,"name":"Easterseals
+        Head Start Center?Allentown Road","city":"Temple Hills","state":"MD","zipFive":"20748","zipFour":"2611","phone":"","googleMapZoomLevel":10,"county":"Prince
+        George''s County","programCounty":"Montgomery County","program":{"addressLineOne":"1420
+        Spring St","addressLineTwo":"","name":"Easter Seals Serving DC|MD|VA","city":"Silver
+        Spring","state":"MD","zipFive":"20910","zipFour":"2701","phone":"","registrationPhone":"","identifier":"easter_seals_serving_dc_md_va_md"}},{"addressLineOne":"11
+        W 10th St","addressLineTwo":"","cid":"102845","grantNumber":"03CH010485","delegateNumber":"000","type":1,"longitude":-77.4093,"latitude":39.4273,"name":"Staley
+        Center","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"4584","phone":"(301)
+        620-7874","googleMapZoomLevel":10,"county":"Frederick County","programCounty":"Frederick
+        County","program":{"addressLineOne":"1000 N Market St","addressLineTwo":"
+        ","name":"Young Men''s Christian Association of Frederick County","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"4628","phone":"(301)
+        620-7874","registrationPhone":"(301)378-9140","identifier":"young_mens_christian_association_of_frederick_county_md"}},{"addressLineOne":"770
+        Dennett Rd","addressLineTwo":"","cid":"103004","grantNumber":"03HP000361","delegateNumber":"200","type":2,"longitude":-79.3872,"latitude":39.4068,"name":"Dennett
+        Road Early Learning Center","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1419","phone":"(301)
+        334-7494","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 E Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1307","phone":"(301)
+        334-7494","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"41
+        High View Dr","addressLineTwo":"","cid":"103005","grantNumber":"03HP000361","delegateNumber":"200","type":2,"longitude":-79.394,"latitude":39.4058,"name":"Overlook
+        Child Development Center","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1724","phone":"(301)
+        334-4211","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 E Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1307","phone":"(301)
+        334-4211","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"841
+        1st Ave","addressLineTwo":"","cid":"103006","grantNumber":"03HP000361","delegateNumber":"200","type":2,"longitude":-79.4058,"latitude":39.6629,"name":"Friendsville
+        Elementary School","city":"Friendsville","state":"MD","zipFive":"21531","zipFour":"3042","phone":"(301)
+        334-9314","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 E Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1307","phone":"(301)
+        334-9314","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"200
+        Road B","addressLineTwo":"Hollingsworth Manor","cid":"103276","grantNumber":"03CH011229","delegateNumber":"206","type":2,"longitude":-75.8478,"latitude":39.603,"name":"Cecil
+        Family Education Center","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        287-1100","googleMapZoomLevel":10,"county":"Cecil County","programCounty":"Cecil
+        County","program":{"addressLineOne":"200 Road B","addressLineTwo":" ","name":"Maryland
+        Rural Development Corporation","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        287-1100","registrationPhone":"","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"824
+        Fairmount Ave","addressLineTwo":"","cid":"103277","grantNumber":"03CH011229","delegateNumber":"204","type":2,"longitude":-76.0849,"latitude":38.5682,"name":"Dorchester
+        Early Head Start","city":"Cambridge","state":"MD","zipFive":"21613","zipFour":"2113","phone":"(410)
+        901-2015","googleMapZoomLevel":10,"county":"Dorchester County","programCounty":"Dorchester
+        County","program":{"addressLineOne":"824 Fairmount Ave","addressLineTwo":"St.
+        Clair Early Head Start","name":"SHORE UP!, Inc.","city":"Cambridge","state":"MD","zipFive":"21613","zipFour":"2113","phone":"(410)
+        901-2015","registrationPhone":"(410)901-2015","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"100
+        N Chester St","addressLineTwo":"","cid":"103278","grantNumber":"03CH011229","delegateNumber":"201","type":2,"longitude":-76.5887,"latitude":39.2936,"name":"Southeast
+        Early Head Start at Kennedy Krieger Institute","city":"Baltimore","state":"MD","zipFive":"21231","zipFour":"1627","phone":"(443)
+        923-4300","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"100 N Chester St","addressLineTwo":"","name":"Kennedy
+        Krieger Institute","city":"Baltimore","state":"MD","zipFive":"21231","zipFour":"1627","phone":"(443)
+        923-4300","registrationPhone":"(443)923-4300","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"100
+        N 6th St","addressLineTwo":"","cid":"103279","grantNumber":"03CH011229","delegateNumber":"202","type":2,"longitude":-75.8266,"latitude":38.886,"name":"Caroline
+        Co. Family Support Center","city":"Denton","state":"MD","zipFive":"21629","zipFour":"1110","phone":"(410)
+        479-3298","googleMapZoomLevel":10,"county":"Caroline County","programCounty":"Caroline
+        County","program":{"addressLineOne":"Caroline County Family Support Center","addressLineTwo":"100
+        North 6th Street","name":"Caroline County Public Schools","city":"Denton","state":"MD","zipFive":"21629","zipFour":"1110","phone":"(410)
+        479-3298","registrationPhone":"(410)479-3298","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"323
+        S University Ave","addressLineTwo":"","cid":"103280","grantNumber":"03CH011229","delegateNumber":"202","type":2,"longitude":-75.7807,"latitude":38.6894,"name":"Federalsburg
+        Judy Hoyer EHS Center","city":"Federalsburg","state":"MD","zipFive":"21632","zipFour":"1438","phone":"(410)
+        754-2467","googleMapZoomLevel":10,"county":"Caroline County","programCounty":"Caroline
+        County","program":{"addressLineOne":"Caroline County Family Support Center","addressLineTwo":"100
+        North 6th Street","name":"Caroline County Public Schools","city":"Denton","state":"MD","zipFive":"21629","zipFour":"1110","phone":"(410)
+        754-2467","registrationPhone":"(410)479-3298","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"6243
+        Shady Side Rd","addressLineTwo":"","cid":"103281","grantNumber":"03CH011229","delegateNumber":"203","type":2,"longitude":-76.5136,"latitude":38.8356,"name":"Anne
+        Arundel Early Head Start","city":"Shady Side","state":"MD","zipFive":"20764","zipFour":"9689","phone":"(410)
+        867-8945","googleMapZoomLevel":10,"county":"Anne Arundel County","programCounty":"Anne
+        Arundel County","program":{"addressLineOne":"6243 Shady Side Road","addressLineTwo":"","name":"Anne
+        Arundel Community Action Agency","city":"Shady Side","state":"MD","zipFive":"20764","zipFour":"9689","phone":"(410)
+        867-8945","registrationPhone":"(410)867-8945","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"215
+        Bay St","addressLineTwo":"Ste 1","cid":"103282","grantNumber":"03CH011229","delegateNumber":"205","type":2,"longitude":-76.0804,"latitude":38.7789,"name":"Talbot
+        Famliy Support Center","city":"Easton","state":"MD","zipFive":"21601","zipFour":"2782","phone":"(410)
+        820-6940","googleMapZoomLevel":10,"county":"Talbot County","programCounty":"Talbot
+        County","program":{"addressLineOne":"215 Bay Street, Suite 1","addressLineTwo":"","name":"Talbot
+        County Health Department","city":"Easton","state":"MD","zipFive":"21601","zipFour":"2631","phone":"(410)
+        820-6940","registrationPhone":"(410)820-6940","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"215
+        Bay St","addressLineTwo":"Ste 1","cid":"103545","grantNumber":"03HP000398","delegateNumber":"203","type":2,"longitude":-76.0804,"latitude":38.7789,"name":"Talbot
+        County Early Head Start","city":"Easton","state":"MD","zipFive":"21601","zipFour":"2782","phone":"(410)
+        820-6940","googleMapZoomLevel":10,"county":"Talbot County","programCounty":"Talbot
+        County","program":{"addressLineOne":"215 Bay Street, Suite 1","addressLineTwo":"","name":"Talbot
+        County Health Department","city":"Easton","state":"MD","zipFive":"21601","zipFour":"2631","phone":"(410)
+        820-6940","registrationPhone":"(410)820-6940","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"100
+        N 6th St","addressLineTwo":"","cid":"103546","grantNumber":"03HP000398","delegateNumber":"202","type":2,"longitude":-75.8266,"latitude":38.8859,"name":"Caroline
+        County Family Support Center","city":"Denton","state":"MD","zipFive":"21629","zipFour":"1110","phone":"(410)
+        479-3298","googleMapZoomLevel":10,"county":"Caroline County","programCounty":"Caroline
+        County","program":{"addressLineOne":"Caroline County Family Support Center","addressLineTwo":"100
+        North 6th Street","name":"Caroline County Public Schools","city":"Denton","state":"MD","zipFive":"21629","zipFour":"1110","phone":"(410)
+        479-3298","registrationPhone":"(410)479-3298","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"323
+        S University Ave","addressLineTwo":"","cid":"103547","grantNumber":"03HP000398","delegateNumber":"202","type":2,"longitude":-75.7807,"latitude":38.6894,"name":"Federalsburg
+        Early Head Start Center","city":"Federalsburg","state":"MD","zipFive":"21632","zipFour":"1438","phone":"(410)
+        754-2467","googleMapZoomLevel":10,"county":"Caroline County","programCounty":"Caroline
+        County","program":{"addressLineOne":"Caroline County Family Support Center","addressLineTwo":"100
+        North 6th Street","name":"Caroline County Public Schools","city":"Denton","state":"MD","zipFive":"21629","zipFour":"1110","phone":"(410)
+        754-2467","registrationPhone":"(410)479-3298","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"6243
+        Shady Side Rd","addressLineTwo":"","cid":"103548","grantNumber":"03HP000398","delegateNumber":"201","type":2,"longitude":-76.5136,"latitude":38.8356,"name":"Anne
+        Arundel Early Head Start","city":"Shady Side","state":"MD","zipFive":"20764","zipFour":"9689","phone":"(410)
+        867-8945","googleMapZoomLevel":10,"county":"Anne Arundel County","programCounty":"Anne
+        Arundel County","program":{"addressLineOne":"6243 Shady Side Road","addressLineTwo":"","name":"Anne
+        Arundel Community Action Agency","city":"Shady Side","state":"MD","zipFive":"20764","zipFour":"9689","phone":"(410)
+        867-8945","registrationPhone":"(410)867-8945","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"200
+        Road B","addressLineTwo":"Hollingsworth Manor","cid":"103549","grantNumber":"03HP000398","delegateNumber":"206","type":2,"longitude":-75.8478,"latitude":39.603,"name":"Cecil
+        Family Education Center","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        287-1100","googleMapZoomLevel":10,"county":"Cecil County","programCounty":"Cecil
+        County","program":{"addressLineOne":"200 Road B","addressLineTwo":" ","name":"Maryland
+        Rural Development Corporation","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        287-1100","registrationPhone":"","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"1114
+        N Mount St","addressLineTwo":"","cid":"103550","grantNumber":"03HP000398","delegateNumber":"204","type":2,"longitude":-76.645,"latitude":39.3017,"name":"PACT
+        Early Head Start Center","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"2216","phone":"(410)
+        982-0845","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1114 N Mount St","addressLineTwo":"","name":"PACT:Helping
+        Children with Special Needs","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"2216","phone":"(410)
+        982-0845","registrationPhone":"(410)298-7000","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"2803
+        N Dukeland St","addressLineTwo":"","cid":"103551","grantNumber":"03HP000398","delegateNumber":"205","type":2,"longitude":-76.6646,"latitude":39.32,"name":"Dayspring
+        Early Head Start","city":"Baltimore","state":"MD","zipFive":"21216","zipFour":"2801","phone":"","googleMapZoomLevel":10,"county":"Baltimore
+        city","programCounty":"Baltimore city","program":{"addressLineOne":"2803 N
+        Dukeland Street","addressLineTwo":"","name":"Dayspring EHS","city":"Baltimore","state":"MD","zipFive":"21216","zipFour":"-1","phone":"","registrationPhone":"(443)278-8744","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"2525
+        Kirk Ave","addressLineTwo":"","cid":"104317","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6004,"latitude":39.319,"name":"Y
+        Head Start at Kirk","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"4827","phone":"","googleMapZoomLevel":10,"county":"Baltimore
+        city","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":" ","name":"YMCA of Central Maryland, Inc.
+        Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"1319
+        Woodbridge Station Way","addressLineTwo":"Ste 101","cid":"105411","grantNumber":"03CH011288","delegateNumber":"000","type":1,"longitude":-76.3301,"latitude":39.4311,"name":"MRDC
+        Head Start - Edgewood Center","city":"Edgewood","state":"MD","zipFive":"21040","zipFour":"3852","phone":"(410)
+        612-9001","googleMapZoomLevel":10,"county":"Harford County","programCounty":"Cecil
+        County","program":{"addressLineOne":"200 Road B","addressLineTwo":"Hollingsworth
+        Manor","name":"MARYLAND RURAL DEVELOPMENT CORPORATION","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        612-9001","registrationPhone":"","identifier":"maryland_rural_development_corporation_md"}},{"addressLineOne":"100
+        E Bel Air Ave","addressLineTwo":"","cid":"105412","grantNumber":"03CH011288","delegateNumber":"000","type":1,"longitude":-76.1581,"latitude":39.506,"name":"MRDC
+        Head Start - Aberdeen East building","city":"Aberdeen","state":"MD","zipFive":"21001","zipFour":"3837","phone":"(410)
+        272-3520","googleMapZoomLevel":10,"county":"Harford County","programCounty":"Cecil
+        County","program":{"addressLineOne":"200 Road B","addressLineTwo":"Hollingsworth
+        Manor","name":"MARYLAND RURAL DEVELOPMENT CORPORATION","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        272-3520","registrationPhone":"","identifier":"maryland_rural_development_corporation_md"}},{"addressLineOne":"233
+        S Bohemia Ave","addressLineTwo":"","cid":"105413","grantNumber":"03CH011288","delegateNumber":"000","type":1,"longitude":-75.8706,"latitude":39.4014,"name":"MRDC
+        Head Start- Cecilton Center","city":"Cecilton","state":"MD","zipFive":"21913","zipFour":"1010","phone":"(410)
+        275-1986","googleMapZoomLevel":10,"county":"Cecil County","programCounty":"Cecil
+        County","program":{"addressLineOne":"200 Road B","addressLineTwo":"Hollingsworth
+        Manor","name":"MARYLAND RURAL DEVELOPMENT CORPORATION","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        275-1986","registrationPhone":"","identifier":"maryland_rural_development_corporation_md"}},{"addressLineOne":"26245
+        Williamsburg Rd","addressLineTwo":"","cid":"105414","grantNumber":"03CH011288","delegateNumber":"000","type":1,"longitude":-75.7963,"latitude":38.6867,"name":"MRDC
+        Head Start - Federalsburg Center","city":"Federalsburg","state":"MD","zipFive":"21632","zipFour":"2755","phone":"(410)
+        754-3453","googleMapZoomLevel":10,"county":"Caroline County","programCounty":"Cecil
+        County","program":{"addressLineOne":"200 Road B","addressLineTwo":"Hollingsworth
+        Manor","name":"MARYLAND RURAL DEVELOPMENT CORPORATION","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        754-3453","registrationPhone":"","identifier":"maryland_rural_development_corporation_md"}},{"addressLineOne":"200
+        Road B","addressLineTwo":"","cid":"105415","grantNumber":"03CH011288","delegateNumber":"000","type":1,"longitude":-75.8479,"latitude":39.603,"name":"MRDC
+        Head Start-Family Education Center (FEC)","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        398-6638","googleMapZoomLevel":10,"county":"Cecil County","programCounty":"Cecil
+        County","program":{"addressLineOne":"200 Road B","addressLineTwo":"Hollingsworth
+        Manor","name":"MARYLAND RURAL DEVELOPMENT CORPORATION","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        398-6638","registrationPhone":"","identifier":"maryland_rural_development_corporation_md"}},{"addressLineOne":"101
+        Cedar Ln","addressLineTwo":"","cid":"105416","grantNumber":"03CH011288","delegateNumber":"000","type":1,"longitude":-75.819,"latitude":38.9976,"name":"MRDC
+        Head Start - Greensboro Center","city":"Greensboro","state":"MD","zipFive":"21639","zipFour":"1580","phone":"(410)
+        482-2585","googleMapZoomLevel":10,"county":"Caroline County","programCounty":"Cecil
+        County","program":{"addressLineOne":"200 Road B","addressLineTwo":"Hollingsworth
+        Manor","name":"MARYLAND RURAL DEVELOPMENT CORPORATION","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        482-2585","registrationPhone":"","identifier":"maryland_rural_development_corporation_md"}},{"addressLineOne":"413
+        W Bel Air Ave","addressLineTwo":"","cid":"105417","grantNumber":"03CH011288","delegateNumber":"000","type":1,"longitude":-76.17,"latitude":39.512,"name":"MRDC
+        Head Start - Aberdeen West building","city":"Aberdeen","state":"MD","zipFive":"21001","zipFour":"2424","phone":"(410)
+        272-6366","googleMapZoomLevel":10,"county":"Harford County","programCounty":"Cecil
+        County","program":{"addressLineOne":"200 Road B","addressLineTwo":"Hollingsworth
+        Manor","name":"MARYLAND RURAL DEVELOPMENT CORPORATION","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)
+        272-6366","registrationPhone":"","identifier":"maryland_rural_development_corporation_md"}},{"addressLineOne":"21161
+        Lexwood Dr","addressLineTwo":"","cid":"105517","grantNumber":"03HP000161","delegateNumber":"200","type":2,"longitude":-76.4855,"latitude":38.2487,"name":"Little
+        Peoples","city":"Lexington Park","state":"MD","zipFive":"20653","zipFour":"2346","phone":"(301)
+        866-5997","googleMapZoomLevel":10,"county":"St. Mary''s County","programCounty":"Charles
+        County","program":{"addressLineOne":"8371 Old Leonardtown Road","addressLineTwo":"","name":"Southern
+        Maryland Tri-County Community Action Committee, Inc.","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(301)
+        866-5997","registrationPhone":"(301)274-4474 - 221","identifier":"southern_maryland_tri_county_community_action_committee_inc_md"}},{"addressLineOne":"4
+        N Prospect Ave","addressLineTwo":"","cid":"105519","grantNumber":"03HP000161","delegateNumber":"200","type":2,"longitude":-77.159,"latitude":38.5987,"name":"Claire''s
+        Day Care","city":"Indian Head","state":"MD","zipFive":"20640","zipFour":"1835","phone":"(301)
+        743-6060","googleMapZoomLevel":10,"county":"Charles County","programCounty":"Charles
+        County","program":{"addressLineOne":"8371 Old Leonardtown Road","addressLineTwo":"","name":"Southern
+        Maryland Tri-County Community Action Committee, Inc.","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(301)
+        743-6060","registrationPhone":"(301)274-4474 - 221","identifier":"southern_maryland_tri_county_community_action_committee_inc_md"}},{"addressLineOne":"2200
+        Old Washington Rd","addressLineTwo":"","cid":"105522","grantNumber":"03HP000161","delegateNumber":"200","type":2,"longitude":-76.8823,"latitude":38.6496,"name":"Vision
+        and Dreams","city":"Waldorf","state":"MD","zipFive":"20601","zipFour":"3174","phone":"(240)
+        448-3830","googleMapZoomLevel":10,"county":"Charles County","programCounty":"Charles
+        County","program":{"addressLineOne":"8371 Old Leonardtown Road","addressLineTwo":"","name":"Southern
+        Maryland Tri-County Community Action Committee, Inc.","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(240)
+        448-3830","registrationPhone":"(301)274-4474 - 221","identifier":"southern_maryland_tri_county_community_action_committee_inc_md"}},{"addressLineOne":"11695
+        Doolittle Dr","addressLineTwo":"","cid":"105525","grantNumber":"03HP000161","delegateNumber":"200","type":2,"longitude":-76.9037,"latitude":38.6112,"name":"Inspiring
+        Dreams","city":"Waldorf","state":"MD","zipFive":"20602","zipFour":"2898","phone":"(240)
+        585-5242","googleMapZoomLevel":10,"county":"Charles County","programCounty":"Charles
+        County","program":{"addressLineOne":"8371 Old Leonardtown Road","addressLineTwo":"","name":"Southern
+        Maryland Tri-County Community Action Committee, Inc.","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(240)
+        585-5242","registrationPhone":"(301)274-4474 - 221","identifier":"southern_maryland_tri_county_community_action_committee_inc_md"}},{"addressLineOne":"1345
+        University Blvd E","addressLineTwo":"","cid":"105999","grantNumber":"03CH011320","delegateNumber":"200","type":2,"longitude":-76.9856,"latitude":38.9869,"name":"CentroNia
+        Early Head Start","city":"Takoma Park","state":"MD","zipFive":"20912","zipFour":"7445","phone":"(301)
+        543-8040","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"1345 University Blvd.","addressLineTwo":"","name":"CentroNia","city":"TAKOMA
+        PARK","state":"MD","zipFive":"20912","zipFour":"-1","phone":"(301) 543-8040","registrationPhone":"(301)543-8040","identifier":"centronia_inc_md"}},{"addressLineOne":"5451
+        Beaverkill Rd","addressLineTwo":"","cid":"106204","grantNumber":"03CH011370","delegateNumber":"000","type":1,"longitude":-76.8861,"latitude":39.2249,"name":"Old
+        Cedar Lane Head Start Center","city":"Columbia","state":"MD","zipFive":"21044","zipFour":"2359","phone":"(410)
+        313-7246","googleMapZoomLevel":10,"county":"Howard County","programCounty":"Howard
+        County","program":{"addressLineOne":"9820 Patuxent Woods Dr","addressLineTwo":"Howard
+        County Head Start","name":"Community Action Council of Howard County","city":"Columbia","state":"MD","zipFive":"21046","zipFour":"1534","phone":"(410)
+        313-7246","registrationPhone":"(410)313-6589","identifier":"community_action_council_of_howard_county_md"}},{"addressLineOne":"8510
+        High Ridge Rd","addressLineTwo":"","cid":"106205","grantNumber":"03CH011370","delegateNumber":"000","type":1,"longitude":-76.805,"latitude":39.292,"name":"Ellicott
+        City Head Start","city":"Ellicott City","state":"MD","zipFive":"21043","zipFour":"3308","phone":"(410)
+        313-1909","googleMapZoomLevel":10,"county":"Howard County","programCounty":"Howard
+        County","program":{"addressLineOne":"9820 Patuxent Woods Dr","addressLineTwo":"Howard
+        County Head Start","name":"Community Action Council of Howard County","city":"Columbia","state":"MD","zipFive":"21046","zipFour":"1534","phone":"(410)
+        313-1909","registrationPhone":"(410)313-6589","identifier":"community_action_council_of_howard_county_md"}},{"addressLineOne":"6680
+        Cradlerock Way","addressLineTwo":"","cid":"106206","grantNumber":"03CH011370","delegateNumber":"000","type":1,"longitude":-76.8442,"latitude":39.1919,"name":"Dasher
+        Green Head Start","city":"Columbia","state":"MD","zipFive":"21045","zipFour":"4912","phone":"(410)
+        313-6210","googleMapZoomLevel":10,"county":"Howard County","programCounty":"Howard
+        County","program":{"addressLineOne":"9820 Patuxent Woods Dr","addressLineTwo":"Howard
+        County Head Start","name":"Community Action Council of Howard County","city":"Columbia","state":"MD","zipFive":"21046","zipFour":"1534","phone":"(410)
+        313-6210","registrationPhone":"(410)313-6589","identifier":"community_action_council_of_howard_county_md"}},{"addressLineOne":"9325
+        Presbyterian Cir","addressLineTwo":"","cid":"106207","grantNumber":"03CH011370","delegateNumber":"000","type":1,"longitude":-76.835,"latitude":39.2377,"name":"First
+        Presbyterian Head Start","city":"Columbia","state":"MD","zipFive":"21045","zipFour":"1829","phone":"(410)
+        884-3510","googleMapZoomLevel":10,"county":"Howard County","programCounty":"Howard
+        County","program":{"addressLineOne":"9820 Patuxent Woods Dr","addressLineTwo":"Howard
+        County Head Start","name":"Community Action Council of Howard County","city":"Columbia","state":"MD","zipFive":"21046","zipFour":"1534","phone":"(410)
+        884-3510","registrationPhone":"(410)313-6589","identifier":"community_action_council_of_howard_county_md"}},{"addressLineOne":"6200
+        Riverdale Rd","addressLineTwo":"","cid":"106473","grantNumber":"03CH010622","delegateNumber":"000","type":1,"longitude":-76.9115,"latitude":38.9614,"name":"Lourie
+        Center Head Start at Refreshing Spring","city":"Riverdale","state":"MD","zipFive":"20737","zipFour":"2112","phone":"(240)
+        750-5473","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"12301 Academy Way","addressLineTwo":"
+        ","name":"The Reginald S. Lourie Center for Infants and Young Children","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2000","phone":"(240)
+        750-5473","registrationPhone":"(301)891-1900","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"6200
+        Riverdale Rd","addressLineTwo":"","cid":"106474","grantNumber":"03CH010622","delegateNumber":"200","type":2,"longitude":-76.9115,"latitude":38.9614,"name":"Lourie
+        Center Head Start at Refreshing Spring","city":"Riverdale","state":"MD","zipFive":"20737","zipFour":"2112","phone":"(240)
+        750-5473","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"12301 Academy Way","addressLineTwo":"
+        ","name":"The Reginald S. Lourie Center for Infants and Young Children","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2000","phone":"(240)
+        750-5473","registrationPhone":"(301)891-1901","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"6501
+        Lowland Dr","addressLineTwo":"","cid":"106475","grantNumber":"03CH010622","delegateNumber":"000","type":1,"longitude":-76.8935,"latitude":38.9035,"name":"Lourie
+        Center Head Start at Highland Park","city":"Landover","state":"MD","zipFive":"20785","zipFour":"4359","phone":"(240)
+        750-5473","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"12301 Academy Way","addressLineTwo":"
+        ","name":"The Reginald S. Lourie Center for Infants and Young Children","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2000","phone":"(240)
+        750-5473","registrationPhone":"(301)891-1900","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"1822
+        Metzerott Rd","addressLineTwo":"Community Center Building","cid":"106476","grantNumber":"03CH010622","delegateNumber":"000","type":1,"longitude":-76.976,"latitude":39.0064,"name":"Lourie
+        Center Head Start at KidsKare","city":"Adelphi","state":"MD","zipFive":"20783","zipFour":"5141","phone":"(240)
+        750-5473","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"12301 Academy Way","addressLineTwo":"
+        ","name":"The Reginald S. Lourie Center for Infants and Young Children","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2000","phone":"(240)
+        750-5473","registrationPhone":"(301)891-1900","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"841
+        1st Ave","addressLineTwo":"Friendsville Elementary School","cid":"107020","grantNumber":"03CH011408","delegateNumber":"000","type":1,"longitude":-79.4058,"latitude":39.6629,"name":"Friendsville
+        Elementary School","city":"Friendsville","state":"MD","zipFive":"21531","zipFour":"3042","phone":"(301)
+        334-9314","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        334-9314","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"770
+        Dennett Rd","addressLineTwo":"","cid":"107021","grantNumber":"03CH011408","delegateNumber":"000","type":1,"longitude":-79.3839,"latitude":39.4056,"name":"Dennett
+        Road Early Learning Center","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1419","phone":"(301)
+        334-7494","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        334-7494","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"288
+        W Main St","addressLineTwo":"","cid":"107022","grantNumber":"03CH011408","delegateNumber":"000","type":1,"longitude":-79.1882,"latitude":39.387,"name":"Kitzmiller
+        Head Start","city":"Kitzmiller","state":"MD","zipFive":"21538","zipFour":"1245","phone":"(301)
+        453-3595","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        453-3595","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"203
+        S South St","addressLineTwo":"","cid":"107023","grantNumber":"03CH011408","delegateNumber":"000","type":1,"longitude":-79.3203,"latitude":39.6263,"name":"Accident
+        Head Start","city":"Accident","state":"MD","zipFive":"21520","zipFour":"2093","phone":"(301)
+        746-8880","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        746-8880","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"120
+        Grant Street","addressLineTwo":"","cid":"107024","grantNumber":"03CH011408","delegateNumber":"000","type":1,"longitude":-79.1546,"latitude":39.6949,"name":"Grantsville
+        Early Childhood Education Center","city":"Grantsville","state":"MD","zipFive":"21536","zipFour":"-1","phone":"(301)
+        895-5498","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        895-5498","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"104
+        E Center St","addressLineTwo":"","cid":"107025","grantNumber":"03CH011408","delegateNumber":"000","type":1,"longitude":-79.4077,"latitude":39.4115,"name":"Garrett
+        County Community Action, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1307","phone":"(301)
+        334-9431","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        334-9431","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"770
+        Dennett Rd","addressLineTwo":"","cid":"107026","grantNumber":"03CH011408","delegateNumber":"200","type":2,"longitude":-79.3839,"latitude":39.4056,"name":"Dennett
+        Road Early Learning Center","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1419","phone":"(301)
+        334-7494","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        334-7494","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"41
+        High View Dr","addressLineTwo":"","cid":"107027","grantNumber":"03CH011408","delegateNumber":"200","type":2,"longitude":-79.3943,"latitude":39.4049,"name":"Overlook
+        Child Development Center","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1724","phone":"(301)
+        334-4211","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        334-4211","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"120
+        Grant Street","addressLineTwo":"","cid":"107028","grantNumber":"03CH011408","delegateNumber":"200","type":2,"longitude":-79.1546,"latitude":39.6949,"name":"Grantsville
+        Early Childhood Education Center","city":"Grantsville","state":"MD","zipFive":"21536","zipFour":"-1","phone":"(301)
+        895-5498","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        895-5498","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"104
+        E Center St","addressLineTwo":"","cid":"107029","grantNumber":"03CH011408","delegateNumber":"200","type":2,"longitude":-79.4077,"latitude":39.4115,"name":"Garrett
+        County Community Action, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1307","phone":"(301)
+        334-9431","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        334-9431","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"1025
+        Memorial Dr","addressLineTwo":"","cid":"107030","grantNumber":"03CH011408","delegateNumber":"200","type":2,"longitude":-79.3931,"latitude":39.4173,"name":"Garrett
+        County Health Department","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"4343","phone":"(301)
+        334-7777","googleMapZoomLevel":10,"county":"Garrett County","programCounty":"Garrett
+        County","program":{"addressLineOne":"104 East Center Street","addressLineTwo":"","name":"Garrett
+        County Community Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)
+        334-7777","registrationPhone":"(301)334-9431 - 6127","identifier":"garrett_county_community_action_committee_inc_md"}},{"addressLineOne":"3290
+        Kessler Rd","addressLineTwo":"","cid":"41257","grantNumber":"03CH3420","delegateNumber":"000","type":1,"longitude":-76.655,"latitude":39.2353,"name":"Riverview
+        Center","city":"Lansdowne","state":"MD","zipFive":"21227","zipFour":"4743","phone":"(410)
+        536-4611","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        536-4611","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"6838
+        Alter St","addressLineTwo":"","cid":"41258","grantNumber":"03CH3420","delegateNumber":"000","type":1,"longitude":-76.7218,"latitude":39.3522,"name":"Campfield
+        Center","city":"Baltimore","state":"MD","zipFive":"21207","zipFour":"6404","phone":"(410)
+        602-8190","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        602-8190","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"799
+        Back River Neck Rd","addressLineTwo":"","cid":"41259","grantNumber":"03CH3420","delegateNumber":"000","type":1,"longitude":-76.4269,"latitude":39.2887,"name":"Back
+        River Center","city":"Essex","state":"MD","zipFive":"21221","zipFour":"1919","phone":"(410)
+        391-1566","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        391-1566","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"27
+        Main Ave","addressLineTwo":"","cid":"41260","grantNumber":"03CH3420","delegateNumber":"000","type":1,"longitude":-76.7405,"latitude":39.28,"name":"Emily
+        Harris Center","city":"Catonsville","state":"MD","zipFive":"21228","zipFour":"3133","phone":"(410)
+        788-8802","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        788-8802","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"1782
+        Merritt Blvd","addressLineTwo":"","cid":"41261","grantNumber":"03CH3420","delegateNumber":"000","type":1,"longitude":-76.5044,"latitude":39.2683,"name":"Merritt
+        Park Center","city":"Baltimore","state":"MD","zipFive":"21222","zipFour":"3212","phone":"(410)
+        288-0706","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        288-0706","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"4601
+        Fullerton Ave","addressLineTwo":"","cid":"41262","grantNumber":"03CH3420","delegateNumber":"000","type":1,"longitude":-76.5176,"latitude":39.3579,"name":"Kenwood
+        Center","city":"Nottingham","state":"MD","zipFive":"21236","zipFour":"4623","phone":"(410)
+        665-0951","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        665-0951","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"641
+        Main St","addressLineTwo":"","cid":"41263","grantNumber":"03CH3420","delegateNumber":"000","type":1,"longitude":-76.503,"latitude":39.235,"name":"Fleming
+        Center","city":"Baltimore","state":"MD","zipFive":"21222","zipFour":"6248","phone":"(410)
+        282-6977","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        282-6977","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"1801
+        Glen Keith Blvd","addressLineTwo":"Ste 108","cid":"41264","grantNumber":"03CH3420","delegateNumber":"000","type":1,"longitude":-76.5713,"latitude":39.3865,"name":"Towson
+        Center","city":"Baltimore","state":"MD","zipFive":"21234","zipFour":"5100","phone":"(410)
+        668-8315","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        668-8315","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"4165
+        McDowell Ln","addressLineTwo":"","cid":"41265","grantNumber":"03CH3420","delegateNumber":"000","type":1,"longitude":-76.6458,"latitude":39.2391,"name":"Highland
+        Village","city":"Baltimore","state":"MD","zipFive":"21227","zipFour":"3542","phone":"(410)
+        789-4404","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        789-4404","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"3290
+        Kessler Rd","addressLineTwo":"","cid":"41266","grantNumber":"03CH3420","delegateNumber":"200","type":2,"longitude":-76.655,"latitude":39.2353,"name":"Riverview
+        Center","city":"Lansdowne","state":"MD","zipFive":"21227","zipFour":"4743","phone":"(410)
+        536-4611","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        536-4611","registrationPhone":"(410)248-0372 - 123","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"4601
+        Fullerton Ave","addressLineTwo":"","cid":"41268","grantNumber":"03CH3420","delegateNumber":"200","type":2,"longitude":-76.5176,"latitude":39.3579,"name":"Kenwood
+        Center","city":"Nottingham","state":"MD","zipFive":"21236","zipFour":"4623","phone":"(410)
+        665-0951","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        665-0951","registrationPhone":"(410)248-0372 - 123","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"4165
+        McDowell Ln","addressLineTwo":"","cid":"41269","grantNumber":"03CH3420","delegateNumber":"200","type":2,"longitude":-76.6458,"latitude":39.2391,"name":"Highland
+        Village","city":"Baltimore","state":"MD","zipFive":"21227","zipFour":"3542","phone":"(410)
+        789-4404","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        789-4404","registrationPhone":"(410)248-0372 - 123","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"6838
+        Alter St","addressLineTwo":"","cid":"51825","grantNumber":"03CH3420","delegateNumber":"200","type":2,"longitude":-76.7218,"latitude":39.3522,"name":"Campfield
+        Center","city":"Baltimore","state":"MD","zipFive":"21207","zipFour":"6404","phone":"(410)
+        602-8190","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        602-8190","registrationPhone":"(410)248-0372 - 123","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"8720
+        Carroll Ave","addressLineTwo":"","cid":"55926","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-76.9924,"latitude":38.9981,"name":"New
+        Hampshire Estates ES","city":"Silver Spring","state":"MD","zipFive":"20903","zipFour":"3149","phone":"(240)
+        740-1580","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-1580","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"18820
+        Strawberry Knoll Rd","addressLineTwo":"","cid":"55927","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.183,"latitude":39.1657,"name":"Strawberry
+        Knoll ES","city":"Gaithersburg","state":"MD","zipFive":"20879","zipFour":"1700","phone":"(301)
+        840-7112","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(301)
+        840-7112","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"451
+        Beall Ave","addressLineTwo":"","cid":"55928","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.1612,"latitude":39.0887,"name":"Beall
+        3s Part Day","city":"Rockville","state":"MD","zipFive":"20850","zipFour":"1844","phone":"(240)
+        740-1220","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-1220","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"3301
+        Weller Rd","addressLineTwo":"","cid":"55929","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.0669,"latitude":39.0652,"name":"Weller
+        Road ES","city":"Silver Spring","state":"MD","zipFive":"20906","zipFour":"4156","phone":"(301)
+        287-8601","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(301)
+        287-8601","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"5911
+        Ridgway Ave","addressLineTwo":"","cid":"55930","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.1203,"latitude":39.0675,"name":"Twinbrook
+        ES","city":"Rockville","state":"MD","zipFive":"20851","zipFour":"1931","phone":"(240)
+        740-3450","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-3450","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"15101
+        Bauer Dr","addressLineTwo":"","cid":"55931","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.104,"latitude":39.1028,"name":"Maryvale
+        ES","city":"Rockville","state":"MD","zipFive":"20853","zipFour":"1536","phone":"(240)
+        740-4330","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-4330","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"710
+        Beacon Rd","addressLineTwo":"","cid":"55932","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-76.9848,"latitude":39.0089,"name":"JoAnn
+        Leleck ES","city":"Silver Spring","state":"MD","zipFive":"20903","zipFour":"2568","phone":"(240)
+        740-1900","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-1900","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"1200
+        Swingingdale Dr","addressLineTwo":"","cid":"55934","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-76.9873,"latitude":39.0911,"name":"Dr.
+        Charles Drew ES","city":"Silver Spring","state":"MD","zipFive":"20905","zipFour":"7049","phone":"(301)
+        989-6030","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(301)
+        989-6030","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"851
+        Quince Orchard Blvd","addressLineTwo":"","cid":"55935","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.2308,"latitude":39.1382,"name":"Brown
+        Station ES","city":"Gaithersburg","state":"MD","zipFive":"20878","zipFour":"1603","phone":"(240)
+        740-0260","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-0260","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"12500
+        Wisteria Dr","addressLineTwo":"","cid":"55936","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.2615,"latitude":39.1674,"name":"McAuliffe
+        ES","city":"Germantown","state":"MD","zipFive":"20874","zipFour":"5338","phone":"(301)
+        353-0910","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(301)
+        353-0910","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"3100
+        Regina Dr","addressLineTwo":"","cid":"55937","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.0612,"latitude":39.075,"name":"Georgian
+        Forest ES","city":"Silver Spring","state":"MD","zipFive":"20906","zipFour":"5353","phone":"(240)
+        740-0720","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-0720","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"13407
+        Lydia St","addressLineTwo":"","cid":"55938","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.0754,"latitude":39.0768,"name":"Harmony
+        Hills ES","city":"Silver Spring","state":"MD","zipFive":"20906","zipFour":"5225","phone":"(240)
+        740-0780","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-0780","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"9930
+        Moyer Rd","addressLineTwo":"","cid":"55939","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.207,"latitude":39.2659,"name":"Clearspring
+        ES","city":"Damascus","state":"MD","zipFive":"20872","zipFour":"2393","phone":"(240)
+        740-2580","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-2580","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"101
+        W Deer Park Rd","addressLineTwo":"","cid":"55940","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.1955,"latitude":39.1272,"name":"Summit
+        Hall ES","city":"Gaithersburg","state":"MD","zipFive":"20877","zipFour":"1850","phone":"(301)
+        284-4150","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(301)
+        284-4150","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"3100
+        Medway St","addressLineTwo":"","cid":"55941","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.0636,"latitude":39.0504,"name":"Highland
+        ES","city":"Silver Spring","state":"MD","zipFive":"20902","zipFour":"2225","phone":"(240)
+        740-1770","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-1770","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"8712
+        Oakmont St","addressLineTwo":"","cid":"55942","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.1791,"latitude":39.1333,"name":"Washington
+        Grove ES","city":"Gaithersburg","state":"MD","zipFive":"20877","zipFour":"1236","phone":"(240)
+        740-0300","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-0300","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"631
+        Silver Spring Ave","addressLineTwo":"","cid":"55943","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.0153,"latitude":38.9922,"name":"East
+        Silver Spring ES","city":"Silver Spring","state":"MD","zipFive":"20910","zipFour":"4607","phone":"(240)
+        740-0620","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-0620","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"705
+        Bayfield St","addressLineTwo":"","cid":"55944","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-76.9972,"latitude":38.9958,"name":"Rolling
+        Terrace ES","city":"Takoma Park","state":"MD","zipFive":"20912","zipFour":"7307","phone":"(240)
+        740-1950","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-1950","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"1700
+        Yale Pl","addressLineTwo":"","cid":"55946","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.1626,"latitude":39.1031,"name":"College
+        Gardens ES","city":"Rockville","state":"MD","zipFive":"20850","zipFour":"1116","phone":"(301)
+        279-8470","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(301)
+        279-8470","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"19001
+        Watkins Mill Rd","addressLineTwo":"","cid":"55947","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.2111,"latitude":39.1678,"name":"Watkins
+        Mill ES","city":"Gaithersburg","state":"MD","zipFive":"20886","zipFour":"6910","phone":"(301)
+        840-7181","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(301)
+        840-7181","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"18201
+        Contour Rd","addressLineTwo":"","cid":"55949","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.1967,"latitude":39.1553,"name":"South
+        Lake ES","city":"Gaithersburg","state":"MD","zipFive":"20877","zipFour":"2601","phone":"(301)
+        337-3450","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(301)
+        337-3450","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"18501
+        Cinnamon Dr","addressLineTwo":"","cid":"55950","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.2635,"latitude":39.1577,"name":"Clopper
+        Mill ES","city":"Germantown","state":"MD","zipFive":"20874","zipFour":"2060","phone":"(240)
+        740-2180","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-2180","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"807
+        Daleview Dr","addressLineTwo":"","cid":"55951","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-76.9941,"latitude":39.0065,"name":"Montgomery
+        Knolls ES","city":"Silver Spring","state":"MD","zipFive":"20901","zipFour":"3603","phone":"(240)
+        740-0840","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-0840","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"12520
+        Heurich Rd","addressLineTwo":"","cid":"55952","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.0424,"latitude":39.0611,"name":"Glenallen
+        ES","city":"Silver Spring","state":"MD","zipFive":"20902","zipFour":"1442","phone":"(240)
+        740-0840","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-0840","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"11711
+        Joseph Mill Rd","addressLineTwo":"","cid":"55953","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.0852,"latitude":39.048,"name":"Viers
+        Mill ES","city":"Silver Spring","state":"MD","zipFive":"20906","zipFour":"4868","phone":"(240)
+        740-1000","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-1000","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"4510
+        Faroe Pl","addressLineTwo":"","cid":"55954","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.0897,"latitude":39.0672,"name":"Wheaton
+        Woods ES","city":"Rockville","state":"MD","zipFive":"20853","zipFour":"3004","phone":"(240)
+        740-0220","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-0220","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"21301
+        Seneca Crossing Dr","addressLineTwo":"","cid":"55955","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.2323,"latitude":39.2078,"name":"Sally
+        Ride ES","city":"Germantown","state":"MD","zipFive":"20876","zipFour":"4378","phone":"(301)
+        353-0994","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(301)
+        353-0994","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"8225
+        Bells Mill Rd","addressLineTwo":"","cid":"55956","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.1688,"latitude":39.0317,"name":"Bells
+        Mill","city":"Potomac","state":"MD","zipFive":"20854","zipFour":"4066","phone":"(240)
+        740-0480","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-0480","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"411
+        Sisson St","addressLineTwo":"","cid":"55957","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-77.017,"latitude":39.0442,"name":"Kemp
+        Mill Elementary School","city":"Silver Spring","state":"MD","zipFive":"20902","zipFour":"3150","phone":"(301)
+        649-8046","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(301)
+        649-8046","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"6210
+        Shiloh Church Hurlock Rd","addressLineTwo":"","cid":"56713","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-75.8608,"latitude":38.6237,"name":"Hurlock
+        Head Start Center","city":"Hurlock","state":"MD","zipFive":"21643","zipFour":"3933","phone":"(410)
+        943-1036","googleMapZoomLevel":10,"county":"Dorchester County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        943-1036","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"130
+        Flower St","addressLineTwo":"","cid":"56714","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-75.2091,"latitude":38.3257,"name":"Berlin
+        Head Start Center","city":"Berlin","state":"MD","zipFive":"21811","zipFour":"1349","phone":"(410)
+        641-0553","googleMapZoomLevel":10,"county":"Worcester County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        641-0553","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"115
+        S Lynchburg St","addressLineTwo":"Ste D","cid":"56715","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-76.0744,"latitude":39.211,"name":"Chestertown
+        Head Start Center","city":"Chestertown","state":"MD","zipFive":"21620","zipFour":"1198","phone":"(410)
+        778-3355","googleMapZoomLevel":10,"county":"Kent County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        778-3355","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"6352
+        Worcester Hwy","addressLineTwo":"","cid":"56717","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-75.3417,"latitude":38.2261,"name":"Snow
+        Hill Head Start Center","city":"Newark","state":"MD","zipFive":"21841","zipFour":"2226","phone":"(410)
+        632-3624","googleMapZoomLevel":10,"county":"Worcester County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        632-3624","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"824
+        Fairmount Ave","addressLineTwo":"","cid":"56719","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-76.0849,"latitude":38.5682,"name":"St.
+        Clair Head Start Center","city":"Cambridge","state":"MD","zipFive":"21613","zipFour":"2113","phone":"(410)
+        901-2015","googleMapZoomLevel":10,"county":"Dorchester County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        901-2015","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"12459
+        Independence Ct","addressLineTwo":"","cid":"56720","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-75.6914,"latitude":38.2226,"name":"Princess
+        Anne Head Start","city":"Princess Anne","state":"MD","zipFive":"21853","zipFour":"3018","phone":"(410)
+        651-4386","googleMapZoomLevel":10,"county":"Somerset County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        651-4386","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"5480
+        Stockton Rd","addressLineTwo":"","cid":"56721","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-75.4172,"latitude":38.056,"name":"Stockton
+        Head Start Center","city":"Stockton","state":"MD","zipFive":"21864","zipFour":"2046","phone":"(410)
+        632-0923","googleMapZoomLevel":10,"county":"Worcester County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        632-0923","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"5441
+        Main St","addressLineTwo":"","cid":"56722","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-76.1854,"latitude":38.962,"name":"Grasonville
+        Head Start Center","city":"Grasonville","state":"MD","zipFive":"21638","zipFour":"1134","phone":"(410)
+        827-3258","googleMapZoomLevel":10,"county":"Queen Anne''s County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        827-3258","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"305
+        Glenwood Ave","addressLineTwo":"","cid":"56723","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-76.0845,"latitude":38.7743,"name":"Easton
+        Head Start Center","city":"Easton","state":"MD","zipFive":"21601","zipFour":"4104","phone":"(410)
+        822-6641","googleMapZoomLevel":10,"county":"Talbot County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        822-6641","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"520
+        Snow Hill Rd","addressLineTwo":"","cid":"56724","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-75.5883,"latitude":38.3571,"name":"Salisbury
+        Head Start Center","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        749-1142","googleMapZoomLevel":10,"county":"Wicomico County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        749-1142","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"30842
+        Eden Allen Rd","addressLineTwo":"","cid":"56725","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-75.6812,"latitude":38.2825,"name":"Eden
+        Head Start Center","city":"Eden","state":"MD","zipFive":"21822","zipFour":"2272","phone":"(410)
+        543-1243","googleMapZoomLevel":10,"county":"Somerset County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        543-1243","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"210
+        N Somerset Ave","addressLineTwo":"","cid":"56726","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-75.8432,"latitude":37.9867,"name":"Crisfield
+        Head Start Center","city":"Crisfield","state":"MD","zipFive":"21817","zipFour":"1528","phone":"(410)
+        968-0560","googleMapZoomLevel":10,"county":"Somerset County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        968-0560","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"100
+        Seymour Ave","addressLineTwo":"","cid":"56727","grantNumber":"03CH10054","delegateNumber":"000","type":1,"longitude":-76.2169,"latitude":38.7815,"name":"St.
+        Michaels Head Start Center (Elementary School)","city":"Saint Michaels","state":"MD","zipFive":"21663","zipFour":"2930","phone":"(410)
+        745-2851","googleMapZoomLevel":10,"county":"Talbot County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        745-2851","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"520
+        Snow Hill Rd","addressLineTwo":"","cid":"56729","grantNumber":"03CH10054","delegateNumber":"200","type":2,"longitude":-75.5883,"latitude":38.3571,"name":"Salisbury
+        Head Start Center","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        749-0391","googleMapZoomLevel":10,"county":"Wicomico County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        749-0391","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"210
+        N Somerset Ave","addressLineTwo":"","cid":"56730","grantNumber":"03CH10054","delegateNumber":"200","type":2,"longitude":-75.8432,"latitude":37.9867,"name":"Crisfield
+        Head Start Center","city":"Crisfield","state":"MD","zipFive":"21817","zipFour":"1528","phone":"(410)
+        968-0560","googleMapZoomLevel":10,"county":"Somerset County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        968-0560","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"6352
+        Worcester Hwy","addressLineTwo":"","cid":"56731","grantNumber":"03CH10054","delegateNumber":"200","type":2,"longitude":-75.3417,"latitude":38.2261,"name":"Snow
+        Hill Head Start Center","city":"Newark","state":"MD","zipFive":"21841","zipFour":"2226","phone":"(410)
+        632-3624","googleMapZoomLevel":10,"county":"Worcester County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        632-3624","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"130
+        Flower St","addressLineTwo":"","cid":"56732","grantNumber":"03CH10054","delegateNumber":"200","type":2,"longitude":-75.2091,"latitude":38.3257,"name":"Berlin
+        Head Start Center","city":"Berlin","state":"MD","zipFive":"21811","zipFour":"1349","phone":"(410)
+        641-0553","googleMapZoomLevel":10,"county":"Worcester County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        641-0553","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"4501
+        Stumptown Road","addressLineTwo":"","cid":"56794","grantNumber":"03CH10015","delegateNumber":"000","type":1,"longitude":-77.1539,"latitude":39.6544,"name":"Taneytown
+        Head Start","city":"Taneytown","state":"MD","zipFive":"21787","zipFour":"-1","phone":"(410)
+        756-6449","googleMapZoomLevel":10,"county":"Carroll County","programCounty":"Carroll
+        County","program":{"addressLineOne":"255 Clifton Blvd","addressLineTwo":"Ste
+        101","name":"Catholic Charities","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"4785","phone":"(410)
+        756-6449","registrationPhone":"(667)600-2571","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"255
+        Clifton Blvd","addressLineTwo":"Ste 101","cid":"56795","grantNumber":"03CH10015","delegateNumber":"000","type":1,"longitude":-76.9862,"latitude":39.5837,"name":"Catholic
+        Charities Clifton","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"4785","phone":"(667)
+        600-2571","googleMapZoomLevel":10,"county":"Carroll County","programCounty":"Carroll
+        County","program":{"addressLineOne":"255 Clifton Blvd","addressLineTwo":"Ste
+        101","name":"Catholic Charities","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"4785","phone":"(667)
+        600-2571","registrationPhone":"(667)600-2571","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"255
+        Clifton Blvd","addressLineTwo":"Ste 101","cid":"56796","grantNumber":"03CH10015","delegateNumber":"200","type":2,"longitude":-76.9862,"latitude":39.5837,"name":"Catholic
+        Charities Clifton","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"4785","phone":"(667)
+        600-2571","googleMapZoomLevel":10,"county":"Carroll County","programCounty":"Carroll
+        County","program":{"addressLineOne":"255 Clifton Blvd","addressLineTwo":"Ste
+        101","name":"Associated Catholic Charities, Inc.","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"4785","phone":"(667)
+        600-2571","registrationPhone":"(667)600-2571","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"1
+        Park Ave","addressLineTwo":"","cid":"56797","grantNumber":"03CH10015","delegateNumber":"200","type":2,"longitude":-76.9981,"latitude":39.575,"name":"Westminster
+        Church of the Brethren","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"4714","phone":"(410)
+        848-0859","googleMapZoomLevel":10,"county":"Carroll County","programCounty":"Carroll
+        County","program":{"addressLineOne":"255 Clifton Blvd","addressLineTwo":"Ste
+        101","name":"Associated Catholic Charities, Inc.","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"4785","phone":"(410)
+        848-0859","registrationPhone":"(667)600-2571","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"3
+        E College Ave","addressLineTwo":"","cid":"58181","grantNumber":"03CH010166","delegateNumber":"000","type":1,"longitude":-78.9317,"latitude":39.6547,"name":"Frostburg
+        Area HS","city":"Frostburg","state":"MD","zipFive":"21532","zipFour":"1745","phone":"(301)
+        689-3011","googleMapZoomLevel":10,"county":"Allegany County","programCounty":"Allegany
+        County","program":{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","name":"HRDC
+        Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)
+        689-3011","registrationPhone":"(301)777-5970","identifier":"allegany_county_human_resources_md"}},{"addressLineOne":"301
+        Cumberland St","addressLineTwo":"","cid":"58182","grantNumber":"03CH010166","delegateNumber":"000","type":1,"longitude":-78.7697,"latitude":39.6536,"name":"Cumberland
+        Street","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"2007","phone":"(301)
+        783-1790","googleMapZoomLevel":10,"county":"Allegany County","programCounty":"Allegany
+        County","program":{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","name":"HRDC
+        Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)
+        783-1790","registrationPhone":"(301)777-5970","identifier":"allegany_county_human_resources_md"}},{"addressLineOne":"310
+        Seymour St","addressLineTwo":"","cid":"58183","grantNumber":"03CH010166","delegateNumber":"000","type":1,"longitude":-78.7599,"latitude":39.6343,"name":"Seymour
+        Street Head Start/Early Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"4141","phone":"(301)
+        783-1780","googleMapZoomLevel":10,"county":"Allegany County","programCounty":"Allegany
+        County","program":{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","name":"HRDC
+        Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)
+        783-1780","registrationPhone":"(301)777-5970","identifier":"allegany_county_human_resources_md"}},{"addressLineOne":"14401
+        Barton Blvd SW","addressLineTwo":"","cid":"58184","grantNumber":"03CH010166","delegateNumber":"000","type":1,"longitude":-78.8512,"latitude":39.5771,"name":"Bel
+        Air Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"5800","phone":"(301)
+        783-1802","googleMapZoomLevel":10,"county":"Allegany County","programCounty":"Allegany
+        County","program":{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","name":"HRDC
+        Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)
+        783-1802","registrationPhone":"(301)777-5970","identifier":"allegany_county_human_resources_md"}},{"addressLineOne":"16915
+        Lower Georges Creek Rd SW","addressLineTwo":"","cid":"58185","grantNumber":"03CH010166","delegateNumber":"000","type":1,"longitude":-78.9742,"latitude":39.5735,"name":"Susan
+        K. Westfall","city":"Lonaconing","state":"MD","zipFive":"21539","zipFour":"1100","phone":"(301)
+        783-1803","googleMapZoomLevel":10,"county":"Allegany County","programCounty":"Allegany
+        County","program":{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","name":"HRDC
+        Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)
+        783-1803","registrationPhone":"(301)777-5970","identifier":"allegany_county_human_resources_md"}},{"addressLineOne":"13201
+        New School Rd NW","addressLineTwo":"","cid":"58186","grantNumber":"03CH010166","delegateNumber":"000","type":1,"longitude":-78.8793,"latitude":39.7003,"name":"Mount
+        Savage Head Start Center","city":"Mount Savage","state":"MD","zipFive":"21545","zipFour":"1050","phone":"(301)
+        783-1851","googleMapZoomLevel":10,"county":"Allegany County","programCounty":"Allegany
+        County","program":{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","name":"HRDC
+        Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)
+        783-1851","registrationPhone":"(301)777-5970","identifier":"allegany_county_human_resources_md"}},{"addressLineOne":"310
+        Seymour St","addressLineTwo":"","cid":"58187","grantNumber":"03CH010166","delegateNumber":"200","type":2,"longitude":-78.7599,"latitude":39.6343,"name":"Seymour
+        Street Head Start/Early Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"4141","phone":"(301)
+        783-1780","googleMapZoomLevel":10,"county":"Allegany County","programCounty":"Allegany
+        County","program":{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","name":"HRDC
+        Early Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)
+        783-1780","registrationPhone":"(301)777-5970","identifier":"allegany_county_human_resources_md"}},{"addressLineOne":"125
+        Virginia Ave","addressLineTwo":"","cid":"58188","grantNumber":"03CH010166","delegateNumber":"200","type":2,"longitude":-78.7628,"latitude":39.6371,"name":"Early
+        Head Start Home Based","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)
+        783-1730","googleMapZoomLevel":10,"county":"Allegany County","programCounty":"Allegany
+        County","program":{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","name":"HRDC
+        Early Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)
+        783-1730","registrationPhone":"(301)777-5970","identifier":"allegany_county_human_resources_md"}},{"addressLineOne":"7000
+        Adelphi Rd","addressLineTwo":"","cid":"58223","grantNumber":"03CH010188","delegateNumber":"200","type":2,"longitude":-76.9522,"latitude":38.9755,"name":"Northwestern
+        High School Child Care Center","city":"Hyattsville","state":"MD","zipFive":"20782","zipFour":"1454","phone":"(301)
+        985-1820","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"12301 Academy Way","addressLineTwo":"
+        ","name":"The Lourie Center for Children?s Social & Emotional Wellness","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2000","phone":"(301)
+        985-1820","registrationPhone":"(301)891-1914","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"7833
+        Walker Dr","addressLineTwo":"Ste 610","cid":"58224","grantNumber":"03CH010188","delegateNumber":"200","type":2,"longitude":-76.8933,"latitude":38.9985,"name":"Lourie
+        Center Early Head Start - Physical office","city":"Greenbelt","state":"MD","zipFive":"20770","zipFour":"3233","phone":"(301)
+        891-1914","googleMapZoomLevel":10,"county":"Prince George''s County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"12301 Academy Way","addressLineTwo":"
+        ","name":"The Lourie Center for Children?s Social & Emotional Wellness","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2000","phone":"(301)
+        891-1914","registrationPhone":"(301)891-1914","identifier":"reginald_s_lourie_center_for_infants_young_children_md"}},{"addressLineOne":"131
+        W North Ave","addressLineTwo":"","cid":"82306","grantNumber":"03CH010326","delegateNumber":"200","type":2,"longitude":-77.72,"latitude":39.6486,"name":"MLK","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"3737","phone":"(301)
+        797-5231","googleMapZoomLevel":10,"county":"Washington County","programCounty":"Washington
+        County","program":{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        797-5231","registrationPhone":"(301)733-0088","identifier":"head_start_of_washington_county_inc_md"}},{"addressLineOne":"40
+        Elgin Blvd","addressLineTwo":"","cid":"82307","grantNumber":"03CH010326","delegateNumber":"200","type":2,"longitude":-77.7336,"latitude":39.6455,"name":"Elgin
+        Station","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"5304","phone":"(301)
+        791-7333","googleMapZoomLevel":10,"county":"Washington County","programCounty":"Washington
+        County","program":{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        791-7333","registrationPhone":"(301)733-0088","identifier":"head_start_of_washington_county_inc_md"}},{"addressLineOne":"325
+        Memorial Blvd W","addressLineTwo":"","cid":"82308","grantNumber":"03CH010326","delegateNumber":"000","type":1,"longitude":-77.7265,"latitude":39.6346,"name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        733-0088","googleMapZoomLevel":10,"county":"Washington County","programCounty":"Washington
+        County","program":{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        733-0088","registrationPhone":"(301)733-0088","identifier":"head_start_of_washington_county_inc_md"}},{"addressLineOne":"1048
+        Noland Dr","addressLineTwo":"","cid":"82309","grantNumber":"03CH010326","delegateNumber":"000","type":1,"longitude":-77.748,"latitude":39.6287,"name":"Noland
+        Center","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"7110","phone":"(301)
+        797-4602","googleMapZoomLevel":10,"county":"Washington County","programCounty":"Washington
+        County","program":{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        797-4602","registrationPhone":"(301)733-0088","identifier":"head_start_of_washington_county_inc_md"}},{"addressLineOne":"837
+        Spruce St","addressLineTwo":"","cid":"82310","grantNumber":"03CH010326","delegateNumber":"000","type":1,"longitude":-77.7286,"latitude":39.6267,"name":"Sargent
+        Shriver","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6330","phone":"(301)
+        733-4640","googleMapZoomLevel":10,"county":"Washington County","programCounty":"Washington
+        County","program":{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        733-4640","registrationPhone":"(301)733-0088","identifier":"head_start_of_washington_county_inc_md"}},{"addressLineOne":"131
+        W North Ave","addressLineTwo":"","cid":"82311","grantNumber":"03CH010326","delegateNumber":"000","type":1,"longitude":-77.72,"latitude":39.6486,"name":"MLK","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"3737","phone":"(301)
+        797-5231","googleMapZoomLevel":10,"county":"Washington County","programCounty":"Washington
+        County","program":{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        797-5231","registrationPhone":"(301)733-0088","identifier":"head_start_of_washington_county_inc_md"}},{"addressLineOne":"40
+        Elgin Blvd","addressLineTwo":"","cid":"82312","grantNumber":"03CH010326","delegateNumber":"000","type":1,"longitude":-77.7336,"latitude":39.6455,"name":"Elgin
+        Station","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"5304","phone":"(301)
+        791-7333","googleMapZoomLevel":10,"county":"Washington County","programCounty":"Washington
+        County","program":{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        791-7333","registrationPhone":"(301)733-0088","identifier":"head_start_of_washington_county_inc_md"}},{"addressLineOne":"325
+        Memorial Blvd W","addressLineTwo":"","cid":"82313","grantNumber":"03CH010326","delegateNumber":"200","type":2,"longitude":-77.7265,"latitude":39.6346,"name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        733-0088","googleMapZoomLevel":10,"county":"Washington County","programCounty":"Washington
+        County","program":{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        733-0088","registrationPhone":"(301)733-0088","identifier":"head_start_of_washington_county_inc_md"}},{"addressLineOne":"12459
+        Independence Ct","addressLineTwo":"","cid":"86061","grantNumber":"03CH10054","delegateNumber":"200","type":2,"longitude":-75.6914,"latitude":38.2226,"name":"Princess
+        Anne Head Start","city":"Princess Anne","state":"MD","zipFive":"21853","zipFour":"3018","phone":"(410)
+        651-4386","googleMapZoomLevel":10,"county":"Somerset County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        651-4386","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"824
+        Fairmount Ave","addressLineTwo":"","cid":"86063","grantNumber":"03CH10054","delegateNumber":"200","type":2,"longitude":-76.0849,"latitude":38.5682,"name":"St.
+        Clair Head Start Center","city":"Cambridge","state":"MD","zipFive":"21613","zipFour":"2113","phone":"(410)
+        901-2015","googleMapZoomLevel":10,"county":"Dorchester County","programCounty":"Wicomico
+        County","program":{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","name":"SHORE
+        UP, INC","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)
+        901-2015","registrationPhone":"(410)749-1142 - 345","identifier":"shore_up_inc_md"}},{"addressLineOne":"213
+        Croll Dr","addressLineTwo":"","cid":"86571","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.5235,"latitude":38.9822,"name":"Y
+        Head Start Anne Arundel County @ Annapolis Gardens","city":"Annapolis","state":"MD","zipFive":"21401","zipFour":"3108","phone":"","googleMapZoomLevel":10,"county":"Anne
+        Arundel County","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":"","name":"YMCA OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"282
+        Whitaker Rd","addressLineTwo":"","cid":"86572","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.5734,"latitude":39.1371,"name":"Y
+        Head Start Anne Arundel County @Freetown","city":"Pasadena","state":"MD","zipFive":"21122","zipFour":"1143","phone":"","googleMapZoomLevel":10,"county":"Anne
+        Arundel County","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":"","name":"YMCA OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"5757
+        Belle Grove Rd","addressLineTwo":"","cid":"86574","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.636,"latitude":39.2186,"name":"Y
+        Head Start Anne Arundel County @Lloyd Keaser","city":"Brooklyn Park","state":"MD","zipFive":"21225","zipFour":"3308","phone":"(410)
+        636-6587","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"","name":"YMCA
+        OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        636-6587","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"1710
+        Meade Village Cir","addressLineTwo":"","cid":"86575","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.7063,"latitude":39.1255,"name":"Y
+        Head Start Anne Arundel County @Meade Village","city":"Severn","state":"MD","zipFive":"21144","zipFour":"2445","phone":"","googleMapZoomLevel":10,"county":"Anne
+        Arundel County","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":"","name":"YMCA OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"1140
+        Reece Rd","addressLineTwo":"","cid":"86771","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.7083,"latitude":39.1223,"name":"Van
+        Bokklen Elementary","city":"Severn","state":"MD","zipFive":"21144","zipFour":"2422","phone":"","googleMapZoomLevel":10,"county":"Anne
+        Arundel County","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":"","name":"YMCA OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"4502
+        Belle Grove Rd","addressLineTwo":"","cid":"86772","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.6219,"latitude":39.2296,"name":"Belle
+        Grove Elementary","city":"Brooklyn","state":"MD","zipFive":"21225","zipFour":"2656","phone":"","googleMapZoomLevel":10,"county":"Baltimore
+        city","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":"","name":"YMCA OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"1
+        George and Marion Phelps Ln","addressLineTwo":"","cid":"86773","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.5277,"latitude":38.9784,"name":"Mills
+        Parole Elementary","city":"Annapolis","state":"MD","zipFive":"21401","zipFour":"4111","phone":"","googleMapZoomLevel":10,"county":"Anne
+        Arundel County","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":"","name":"YMCA OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"420
+        Fifth St","addressLineTwo":"","cid":"86774","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.4832,"latitude":38.97,"name":"Eastport
+        Elementary","city":"Annapolis","state":"MD","zipFive":"21403","zipFour":"2537","phone":"","googleMapZoomLevel":10,"county":"Anne
+        Arundel County","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":"","name":"YMCA OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"111
+        Dogwood Rd","addressLineTwo":"","cid":"86775","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.4885,"latitude":38.9534,"name":"Georgetown
+        East Elementary","city":"Annapolis","state":"MD","zipFive":"21403","zipFour":"2701","phone":"","googleMapZoomLevel":10,"county":"Anne
+        Arundel County","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":"","name":"YMCA OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"1925
+        Reece Rd","addressLineTwo":"","cid":"86776","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.7181,"latitude":39.1179,"name":"Meade
+        Heights Elementary","city":"Fort George G Meade","state":"MD","zipFive":"20755","zipFour":"1407","phone":"","googleMapZoomLevel":10,"county":"Anne
+        Arundel County","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":"","name":"YMCA OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"111
+        Dogwood Rd","addressLineTwo":"","cid":"86777","grantNumber":"03CH010431","delegateNumber":"000","type":1,"longitude":-76.4886,"latitude":38.9535,"name":"Tyler
+        Heights Elementary","city":"Annapolis","state":"MD","zipFive":"21403","zipFour":"2701","phone":"","googleMapZoomLevel":10,"county":"Anne
+        Arundel County","programCounty":"Baltimore County","program":{"addressLineOne":"303
+        W Chesapeake Ave","addressLineTwo":"","name":"YMCA OF CENTRAL MARYLAND, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"837
+        Spruce St","addressLineTwo":"","cid":"87095","grantNumber":"03CH010326","delegateNumber":"200","type":2,"longitude":-77.7286,"latitude":39.6267,"name":"Sargent
+        Shriver","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6330","phone":"(301)
+        733-4640","googleMapZoomLevel":10,"county":"Washington County","programCounty":"Washington
+        County","program":{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","name":"Head
+        Start of Washington County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)
+        733-4640","registrationPhone":"(301)733-0088","identifier":"head_start_of_washington_county_inc_md"}},{"addressLineOne":"12423
+        Old Willow Brook Rd SE","addressLineTwo":"","cid":"87557","grantNumber":"03CH010166","delegateNumber":"000","type":1,"longitude":-78.7323,"latitude":39.6543,"name":"Allegany
+        College Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"8343","phone":"(301)
+        783-1807","googleMapZoomLevel":10,"county":"Allegany County","programCounty":"Allegany
+        County","program":{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","name":"HRDC
+        Head Start","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)
+        783-1807","registrationPhone":"(301)777-5970","identifier":"allegany_county_human_resources_md"}},{"addressLineOne":"629
+        N Market St","addressLineTwo":"Bernard W. Brown Community Center","cid":"87837","grantNumber":"03CH010485","delegateNumber":"000","type":1,"longitude":-77.4101,"latitude":39.4224,"name":"Bernard
+        Brown Center","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"5244","phone":"(301)
+        369-5239","googleMapZoomLevel":10,"county":"Frederick County","programCounty":"Frederick
+        County","program":{"addressLineOne":"1000 N Market St","addressLineTwo":"
+        ","name":"Young Men''s Christian Association of Frederick County","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"4628","phone":"(301)
+        369-5239","registrationPhone":"(301)378-9140","identifier":"young_mens_christian_association_of_frederick_county_md"}},{"addressLineOne":"300
+        S Seton Ave","addressLineTwo":"Emmitsburg Community Center","cid":"87838","grantNumber":"03CH010485","delegateNumber":"000","type":1,"longitude":-77.3281,"latitude":39.7015,"name":"Emmitsburg
+        Center","city":"Emmitsburg","state":"MD","zipFive":"21727","zipFour":"9235","phone":"(301)
+        600-6343","googleMapZoomLevel":10,"county":"Frederick County","programCounty":"Frederick
+        County","program":{"addressLineOne":"1000 N Market St","addressLineTwo":"
+        ","name":"Young Men''s Christian Association of Frederick County","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"4628","phone":"(301)
+        600-6343","registrationPhone":"(301)378-9140","identifier":"young_mens_christian_association_of_frederick_county_md"}},{"addressLineOne":"35
+        E Frederick St","addressLineTwo":"Children''s Center of Walkersville","cid":"87839","grantNumber":"03CH010485","delegateNumber":"000","type":1,"longitude":-77.3455,"latitude":39.4847,"name":"Walkersville
+        Center","city":"Walkersville","state":"MD","zipFive":"21793","zipFour":"8255","phone":"(301)
+        845-0141","googleMapZoomLevel":10,"county":"Frederick County","programCounty":"Frederick
+        County","program":{"addressLineOne":"1000 N Market St","addressLineTwo":"
+        ","name":"Young Men''s Christian Association of Frederick County","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"4628","phone":"(301)
+        845-0141","registrationPhone":"(301)378-9140","identifier":"young_mens_christian_association_of_frederick_county_md"}},{"addressLineOne":"111
+        Pennsylvania Ave","addressLineTwo":"Lucas Village Community Center Building","cid":"87840","grantNumber":"03CH010485","delegateNumber":"000","type":1,"longitude":-77.3987,"latitude":39.4107,"name":"Lucas
+        Village Center","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"5744","phone":"(301)
+        378-9833","googleMapZoomLevel":10,"county":"Frederick County","programCounty":"Frederick
+        County","program":{"addressLineOne":"1000 N Market St","addressLineTwo":"
+        ","name":"Young Men''s Christian Association of Frederick County","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"4628","phone":"(301)
+        378-9833","registrationPhone":"(301)378-9140","identifier":"young_mens_christian_association_of_frederick_county_md"}},{"addressLineOne":"7932
+        Opossumtown Pike","addressLineTwo":"Carl and Norma Miller Children''s Center
+        - Frederick Community College","cid":"87843","grantNumber":"03CH010485","delegateNumber":"000","type":1,"longitude":-77.4208,"latitude":39.4516,"name":"FCC
+        Head Start Classroom","city":"Frederick","state":"MD","zipFive":"21702","zipFour":"2964","phone":"(301)
+        228-3902","googleMapZoomLevel":10,"county":"Frederick County","programCounty":"Frederick
+        County","program":{"addressLineOne":"1000 N Market St","addressLineTwo":"
+        ","name":"Young Men''s Christian Association of Frederick County","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"4628","phone":"(301)
+        228-3902","registrationPhone":"(301)378-9140","identifier":"young_mens_christian_association_of_frederick_county_md"}},{"addressLineOne":"11820
+        Liberty Rd","addressLineTwo":"Liberty Elementary School","cid":"88328","grantNumber":"03CH010485","delegateNumber":"000","type":1,"longitude":-77.2532,"latitude":39.4833,"name":"Liberty
+        Elementary Center","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"2670","phone":"(240)
+        236-1800","googleMapZoomLevel":10,"county":"Frederick County","programCounty":"Frederick
+        County","program":{"addressLineOne":"1000 N Market St","addressLineTwo":"
+        ","name":"Young Men''s Christian Association of Frederick County","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"4628","phone":"(240)
+        236-1800","registrationPhone":"(301)378-9140","identifier":"young_mens_christian_association_of_frederick_county_md"}},{"addressLineOne":"14315
+        Fairdale Rd","addressLineTwo":"","cid":"88840","grantNumber":"03CH9990","delegateNumber":"001","type":1,"longitude":-76.9563,"latitude":39.0907,"name":"Fairland
+        Es","city":"Silver Spring","state":"MD","zipFive":"20905","zipFour":"4532","phone":"(240)
+        740-0640","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking
+        Horse Road Center","name":"Montgomery County Public Schools","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)
+        740-0640","registrationPhone":"(240)740-4530","identifier":"montgomery_county_of_md"}},{"addressLineOne":"5115
+        Old Court Rd","addressLineTwo":"Mt. Olive United Methodist Church","cid":"88854","grantNumber":"03CH3420","delegateNumber":"000","type":1,"longitude":-76.7765,"latitude":39.3631,"name":"Randallstown
+        Head Start","city":"Randallstown","state":"MD","zipFive":"21133","zipFour":"4701","phone":"(410)
+        655-0978","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA OF Central Maryland, INC","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        655-0978","registrationPhone":"(410)248-0372","identifier":"y_m_c_a_of_central_maryland_inc_md"}},{"addressLineOne":"495
+        S Center St","addressLineTwo":"","cid":"90804","grantNumber":"03CH10015","delegateNumber":"000","type":1,"longitude":-76.9918,"latitude":39.5604,"name":"Carroll
+        Springs","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"5635","phone":"(410)
+        751-3620","googleMapZoomLevel":10,"county":"Carroll County","programCounty":"Carroll
+        County","program":{"addressLineOne":"255 Clifton Blvd","addressLineTwo":"Ste
+        101","name":"Catholic Charities","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"4785","phone":"(410)
+        751-3620","registrationPhone":"(667)600-2571","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"640
+        E Diamond Ave","addressLineTwo":"Ste A","cid":"91020","grantNumber":"03CH010583","delegateNumber":"200","type":2,"longitude":-77.1815,"latitude":39.1403,"name":"Discovery
+        Station Child Development Center Early Head Start","city":"Gaithersburg","state":"MD","zipFive":"20877","zipFour":"5323","phone":"(301)
+        840-4078","googleMapZoomLevel":10,"county":"Montgomery County","programCounty":"Montgomery
+        County","program":{"addressLineOne":"640 E. Diamond Ave.","addressLineTwo":"Suite
+        A","name":"Family Services Agency, Inc.","city":"Gaithersburg","state":"MD","zipFive":"20877","zipFour":"-1","phone":"(301)
+        840-4078","registrationPhone":"(301)840-3272","identifier":"family_services_inc_md"}},{"addressLineOne":"422
+        S Stokes St","addressLineTwo":"","cid":"91459","grantNumber":"03CH010594","delegateNumber":"200","type":2,"longitude":-76.0935,"latitude":39.5437,"name":"Havre
+        de Grace Office","city":"Havre De Grace","state":"MD","zipFive":"21078","zipFour":"3324","phone":"(667)
+        600-2160","googleMapZoomLevel":10,"county":"Harford County","programCounty":"Harford
+        County","program":{"addressLineOne":"1980 Brookside Dr","addressLineTwo":"","name":"ASSOCIATED
+        CATHOLIC CHARITIES","city":"Edgewood","state":"MD","zipFive":"21040","zipFour":"1800","phone":"(667)
+        600-2160","registrationPhone":"(410)612-1760","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"1980
+        Brookside Dr","addressLineTwo":"","cid":"91460","grantNumber":"03CH010594","delegateNumber":"200","type":2,"longitude":-76.3112,"latitude":39.4336,"name":"Edgewood
+        EHS","city":"Edgewood","state":"MD","zipFive":"21040","zipFour":"1800","phone":"(410)
+        612-1760","googleMapZoomLevel":10,"county":"Harford County","programCounty":"Harford
+        County","program":{"addressLineOne":"1980 Brookside Dr","addressLineTwo":"","name":"ASSOCIATED
+        CATHOLIC CHARITIES","city":"Edgewood","state":"MD","zipFive":"21040","zipFour":"1800","phone":"(410)
+        612-1760","registrationPhone":"(410)612-1760","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"1000
+        Bannister Cir","addressLineTwo":"","cid":"92596","grantNumber":"03CH010639","delegateNumber":"000","type":1,"longitude":-76.9031,"latitude":38.5939,"name":"Eva
+        Turner","city":"Waldorf","state":"MD","zipFive":"20602","zipFour":"1643","phone":"(301)
+        645-9720","googleMapZoomLevel":10,"county":"Charles County","programCounty":"Charles
+        County","program":{"addressLineOne":"8371 Old Leonardtown Road","addressLineTwo":"","name":"Southern
+        Maryland Tri-County Community Action Committee","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(301)
+        645-9720","registrationPhone":"(301)274-4474 - 221","identifier":"southern_maryland_tri_county_community_action_committee_inc_md"}},{"addressLineOne":"6655
+        Weaver St","addressLineTwo":"","cid":"92597","grantNumber":"03CH010639","delegateNumber":"000","type":1,"longitude":-77.0789,"latitude":38.6196,"name":"Brawners","city":"Indian
+        Head","state":"MD","zipFive":"20640","zipFour":"3149","phone":"(301) 375-6157","googleMapZoomLevel":10,"county":"Charles
+        County","programCounty":"Charles County","program":{"addressLineOne":"8371
+        Old Leonardtown Road","addressLineTwo":"","name":"Southern Maryland Tri-County
+        Community Action Committee","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(301)
+        375-6157","registrationPhone":"(301)274-4474 - 221","identifier":"southern_maryland_tri_county_community_action_committee_inc_md"}},{"addressLineOne":"10515
+        Theodore Green Blvd","addressLineTwo":"Ste 201","cid":"92598","grantNumber":"03CH010639","delegateNumber":"000","type":1,"longitude":-76.946,"latitude":38.5881,"name":"J
+        Woodall","city":"White Plains","state":"MD","zipFive":"20695","zipFour":"3044","phone":"(301)
+        392-5711","googleMapZoomLevel":10,"county":"Charles County","programCounty":"Charles
+        County","program":{"addressLineOne":"8371 Old Leonardtown Road","addressLineTwo":"","name":"Southern
+        Maryland Tri-County Community Action Committee","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(301)
+        392-5711","registrationPhone":"(301)274-4474 - 221","identifier":"southern_maryland_tri_county_community_action_committee_inc_md"}},{"addressLineOne":"1285
+        Hillcrest Dr","addressLineTwo":"Hillcrest Elementary School","cid":"92879","grantNumber":"03CH010485","delegateNumber":"000","type":1,"longitude":-77.4502,"latitude":39.4105,"name":"Hillcrest
+        YMCA Head Start Center","city":"Frederick","state":"MD","zipFive":"21703","zipFour":"1396","phone":"(240)
+        236-3200","googleMapZoomLevel":10,"county":"Frederick County","programCounty":"Frederick
+        County","program":{"addressLineOne":"1000 N Market St","addressLineTwo":"
+        ","name":"Young Men''s Christian Association of Frederick County","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"4628","phone":"(240)
+        236-3200","registrationPhone":"(301)378-9140","identifier":"young_mens_christian_association_of_frederick_county_md"}},{"addressLineOne":"6655
+        Weaver St","addressLineTwo":"","cid":"93163","grantNumber":"03CH010639","delegateNumber":"200","type":2,"longitude":-77.0789,"latitude":38.6196,"name":"Brawners","city":"Indian
+        Head","state":"MD","zipFive":"20640","zipFour":"3149","phone":"(301) 375-6157","googleMapZoomLevel":10,"county":"Charles
+        County","programCounty":"Charles County","program":{"addressLineOne":"8371
+        Old Leonardtown Road","addressLineTwo":"","name":"SOUTHERN MARYLAND TRI-COUNTY
+        COMMUNITY ACTION COMMITTEE, INC","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(301)
+        375-6157","registrationPhone":"(301)274-4474 - 221","identifier":"southern_maryland_tri_county_community_action_committee_inc_md"}},{"addressLineOne":"11655
+        Hg Trueman Rd","addressLineTwo":"","cid":"97087","grantNumber":"03CH010879","delegateNumber":"000","type":1,"longitude":-76.4367,"latitude":38.3759,"name":"Patuxent
+        Elementary Calvert County Public Schools Head Start","city":"Lusby","state":"MD","zipFive":"20657","zipFour":"2922","phone":"(443)
+        550-8062","googleMapZoomLevel":10,"county":"Calvert County","programCounty":"Calvert
+        County","program":{"addressLineOne":"1245 Plum Point Rd","addressLineTwo":"Plum
+        Point Elementary School","name":"Calvert County Public Schools","city":"Huntingtown","state":"MD","zipFive":"20639","zipFour":"9248","phone":"(443)
+        550-8062","registrationPhone":"(443)550-8062","identifier":"board_of_education_of_calvert_county_inc_md"}},{"addressLineOne":"295
+        Williams Rd","addressLineTwo":"","cid":"97088","grantNumber":"03CH010879","delegateNumber":"000","type":1,"longitude":-76.6099,"latitude":38.5409,"name":"Barstow
+        Elementary Calvert County Public Schools Head Start","city":"Prince Frederick","state":"MD","zipFive":"20678","zipFour":"3535","phone":"(443)
+        550-8062","googleMapZoomLevel":10,"county":"Calvert County","programCounty":"Calvert
+        County","program":{"addressLineOne":"1245 Plum Point Rd","addressLineTwo":"Plum
+        Point Elementary School","name":"Calvert County Public Schools","city":"Huntingtown","state":"MD","zipFive":"20639","zipFour":"9248","phone":"(443)
+        550-8062","registrationPhone":"(443)550-8062","identifier":"board_of_education_of_calvert_county_inc_md"}},{"addressLineOne":"150
+        Clyde Jones Rd","addressLineTwo":"","cid":"97089","grantNumber":"03CH010879","delegateNumber":"000","type":1,"longitude":-76.6033,"latitude":38.6699,"name":"Sunderland
+        Elementary Calvert County Public Schools Head Start","city":"Sunderland","state":"MD","zipFive":"20689","zipFour":"9684","phone":"(443)
+        550-8062","googleMapZoomLevel":10,"county":"Calvert County","programCounty":"Calvert
+        County","program":{"addressLineOne":"1245 Plum Point Rd","addressLineTwo":"Plum
+        Point Elementary School","name":"Calvert County Public Schools","city":"Huntingtown","state":"MD","zipFive":"20639","zipFour":"9248","phone":"(443)
+        550-8062","registrationPhone":"(443)550-8062","identifier":"board_of_education_of_calvert_county_inc_md"}},{"addressLineOne":"27184
+        Point Lookout Rd","addressLineTwo":"","cid":"97090","grantNumber":"03CH010878","delegateNumber":"000","type":1,"longitude":-76.675,"latitude":38.33,"name":"SMCPS
+        Head Start-Benjamin Banneker-Little Ben","city":"Loveville","state":"MD","zipFive":"20656","zipFour":"2013","phone":"(301)
+        690-2441","googleMapZoomLevel":10,"county":"St. Mary''s County","programCounty":"St.
+        Mary''s County","program":{"addressLineOne":"27184 Point Lookout Rd","addressLineTwo":"Head
+        Start Annex-Loveville","name":"St. Mary''s County Public Schools","city":"Loveville","state":"MD","zipFive":"20656","zipFour":"2013","phone":"(301)
+        690-2441","registrationPhone":"(301)690-2441 - 1","identifier":"board_of_education_of_st_marys_county_md"}},{"addressLineOne":"46060
+        Millstone Landing Rd","addressLineTwo":"","cid":"97091","grantNumber":"03CH010878","delegateNumber":"000","type":1,"longitude":-76.4832,"latitude":38.2933,"name":"SMCPS
+        Head Start-Green Holly","city":"Lexington Park","state":"MD","zipFive":"20653","zipFour":"2149","phone":"(301)
+        690-2441","googleMapZoomLevel":10,"county":"St. Mary''s County","programCounty":"St.
+        Mary''s County","program":{"addressLineOne":"27184 Point Lookout Rd","addressLineTwo":"Head
+        Start Annex-Loveville","name":"St. Mary''s County Public Schools","city":"Loveville","state":"MD","zipFive":"20656","zipFour":"2013","phone":"(301)
+        690-2441","registrationPhone":"(301)690-2441 - 1","identifier":"board_of_education_of_st_marys_county_md"}},{"addressLineOne":"45711
+        Military Ln","addressLineTwo":"","cid":"97092","grantNumber":"03CH010878","delegateNumber":"000","type":1,"longitude":-76.4931,"latitude":38.28,"name":"SMCPS
+        Head Start Greenview Knolls","city":"Great Mills","state":"MD","zipFive":"20634","zipFour":"2575","phone":"(301)
+        690-2441","googleMapZoomLevel":10,"county":"St. Mary''s County","programCounty":"St.
+        Mary''s County","program":{"addressLineOne":"27184 Point Lookout Rd","addressLineTwo":"Head
+        Start Annex-Loveville","name":"St. Mary''s County Public Schools","city":"Loveville","state":"MD","zipFive":"20656","zipFour":"2013","phone":"(301)
+        690-2441","registrationPhone":"(301)690-2441 - 1","identifier":"board_of_education_of_st_marys_county_md"}},{"addressLineOne":"4301
+        W Bay Ave","addressLineTwo":"","cid":"98764","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.593,"latitude":39.2262,"name":"CCHSBC
+        Curtis Bay Site","city":"Baltimore","state":"MD","zipFive":"21225","zipFour":"2518","phone":"(667)
+        600-3762","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3762","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"1501
+        N Dukeland St","addressLineTwo":"","cid":"98765","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6635,"latitude":39.3052,"name":"CCHSBC
+        Dukeland Site","city":"Baltimore","state":"MD","zipFive":"21216","zipFour":"4009","phone":"(667)
+        600-3779","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3779","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"765
+        W Hamburg St","addressLineTwo":"","cid":"98766","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6277,"latitude":39.2807,"name":"CCHSBC
+        Hamburg Site","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2539","phone":"(667)
+        600-3776","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3776","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"1500
+        Harlem Ave","addressLineTwo":"","cid":"98767","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6411,"latitude":39.2971,"name":"CCHSBC
+        Harlem Park Site","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"2103","phone":"(667)
+        600-3771","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3771","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"1800
+        Hollins St","addressLineTwo":"","cid":"98768","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6458,"latitude":39.2875,"name":"CCHSBC
+        Hollins Site","city":"Baltimore","state":"MD","zipFive":"21223","zipFour":"2394","phone":"(667)
+        600-3769","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3769","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"2920
+        Joseph Ave","addressLineTwo":"","cid":"98769","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6257,"latitude":39.2499,"name":"CCHSBC
+        Joseph Site","city":"Baltimore","state":"MD","zipFive":"21225","zipFour":"1139","phone":"(667)
+        600-3752","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3752","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"2848
+        W Lafayette Ave","addressLineTwo":"","cid":"98770","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6643,"latitude":39.2982,"name":"CCHSBC
+        Lafayette Site","city":"Baltimore","state":"MD","zipFive":"21216","zipFour":"4619","phone":"(667)
+        600-3791","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3791","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"2707
+        Sethlow Rd","addressLineTwo":"","cid":"98771","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6296,"latitude":39.2491,"name":"CCHSBC
+        Sethlow Site","city":"Baltimore","state":"MD","zipFive":"21225","zipFour":"1308","phone":"(667)
+        600-3748","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3748","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"31
+        S Schroeder St","addressLineTwo":"","cid":"98772","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6328,"latitude":39.2874,"name":"CCHSBC
+        Schroeder Site","city":"Baltimore","state":"MD","zipFive":"21223","zipFour":"2559","phone":"(667)
+        600-3790","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3790","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"224
+        Washburn Ave","addressLineTwo":"","cid":"98773","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6082,"latitude":39.236,"name":"CCHSBC
+        Washburn Site","city":"Baltimore","state":"MD","zipFive":"21225","zipFour":"2019","phone":"(667)
+        600-3744","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3744","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"915
+        Sterrett St","addressLineTwo":"","cid":"98774","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.627,"latitude":39.2812,"name":"CCHSBC
+        Sterrett Site","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(600)
+        667-3783","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(600)
+        667-3783","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"2401
+        Nevada St","addressLineTwo":"","cid":"98775","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6378,"latitude":39.2622,"name":"CCHSBC
+        Nevada Site","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"3012","phone":"(667)
+        600-3740","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3740","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"2612
+        Wilkens Ave","addressLineTwo":"","cid":"98776","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6562,"latitude":39.2789,"name":"CCHSBC
+        Wilkens Site","city":"Baltimore","state":"MD","zipFive":"21223","zipFour":"3313","phone":"(667)
+        600-3764","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3764","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"2400
+        Round Rd","addressLineTwo":"","cid":"98777","grantNumber":"03CH011075","delegateNumber":"000","type":1,"longitude":-76.6276,"latitude":39.2522,"name":"CCHSBC
+        Arundel Site","city":"Baltimore","state":"MD","zipFive":"21225","zipFour":"1001","phone":"(667)
+        600-3690","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"915 Sterrett St","addressLineTwo":" ","name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)
+        600-3690","registrationPhone":"(667)600-3784","identifier":"associated_catholic_charities_inc_md"}},{"addressLineOne":"1427
+        N Caroline St","addressLineTwo":"","cid":"99145","grantNumber":"03CH010999","delegateNumber":"000","type":1,"longitude":-76.5981,"latitude":39.307,"name":"Caroline
+        #1","city":"Baltimore","state":"MD","zipFive":"21213","zipFour":"2837","phone":"(410)
+        685-7288","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"2305 N. Charles St.","addressLineTwo":"Ste
+        300","name":"St. Vincent de Paul of Baltimore, Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"5292","phone":"(410)
+        685-7288","registrationPhone":"(410)276-5724 - 114","identifier":"st_vincent_de_paul_of_baltimore_inc_md"}},{"addressLineOne":"242
+        S Patterson Park Ave","addressLineTwo":"","cid":"99146","grantNumber":"03CH010999","delegateNumber":"000","type":1,"longitude":-76.5847,"latitude":39.2882,"name":"Patterson
+        Park","city":"Baltimore","state":"MD","zipFive":"21231","zipFour":"2123","phone":"(410)
+        276-5724","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"2305 N. Charles St.","addressLineTwo":"Ste
+        300","name":"St. Vincent de Paul of Baltimore, Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"5292","phone":"(410)
+        276-5724","registrationPhone":"(410)276-5724 - 114","identifier":"st_vincent_de_paul_of_baltimore_inc_md"}},{"addressLineOne":"1415
+        N Caroline St","addressLineTwo":"","cid":"99147","grantNumber":"03CH010999","delegateNumber":"000","type":1,"longitude":-76.5978,"latitude":39.307,"name":"Caroline
+        #2","city":"Baltimore","state":"MD","zipFive":"21213","zipFour":"2837","phone":"(410)
+        685-7288","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"2305 N. Charles St.","addressLineTwo":"Ste
+        300","name":"St. Vincent de Paul of Baltimore, Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"5292","phone":"(410)
+        685-7288","registrationPhone":"(410)276-5724 - 114","identifier":"st_vincent_de_paul_of_baltimore_inc_md"}},{"addressLineOne":"6400
+        E Pratt St","addressLineTwo":"","cid":"99148","grantNumber":"03CH010999","delegateNumber":"000","type":1,"longitude":-76.539,"latitude":39.2913,"name":"Fatima","city":"Baltimore","state":"MD","zipFive":"21224","zipFour":"2812","phone":"(410)
+        558-0919","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"2305 N. Charles St.","addressLineTwo":"Ste
+        300","name":"St. Vincent de Paul of Baltimore, Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"5292","phone":"(410)
+        558-0919","registrationPhone":"(410)276-5724 - 114","identifier":"st_vincent_de_paul_of_baltimore_inc_md"}},{"addressLineOne":"4330
+        Pimlico Rd","addressLineTwo":"Ste C","cid":"99149","grantNumber":"03CH010999","delegateNumber":"000","type":1,"longitude":-76.665,"latitude":39.3397,"name":"Art
+        Center","city":"Baltimore","state":"MD","zipFive":"21215","zipFour":"6986","phone":"(410)
+        466-1383","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"2305 N. Charles St.","addressLineTwo":"Ste
+        300","name":"St. Vincent de Paul of Baltimore, Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"5292","phone":"(410)
+        466-1383","registrationPhone":"(410)276-5724 - 114","identifier":"st_vincent_de_paul_of_baltimore_inc_md"}},{"addressLineOne":"5001
+        Park Heights Ave","addressLineTwo":"","cid":"99150","grantNumber":"03CH010999","delegateNumber":"000","type":1,"longitude":-76.6733,"latitude":39.3478,"name":"Pimlico","city":"Baltimore","state":"MD","zipFive":"21215","zipFour":"5814","phone":"(410)
+        542-4242","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"2305 N. Charles St.","addressLineTwo":"Ste
+        300","name":"St. Vincent de Paul of Baltimore, Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"5292","phone":"(410)
+        542-4242","registrationPhone":"(410)276-5724 - 114","identifier":"st_vincent_de_paul_of_baltimore_inc_md"}},{"addressLineOne":"3705
+        W Rogers Ave","addressLineTwo":"","cid":"99151","grantNumber":"03CH010999","delegateNumber":"000","type":1,"longitude":-76.6845,"latitude":39.35,"name":"Arlington","city":"Baltimore","state":"MD","zipFive":"21215","zipFour":"4525","phone":"","googleMapZoomLevel":10,"county":"Baltimore
+        city","programCounty":"Baltimore city","program":{"addressLineOne":"2305 N.
+        Charles St.","addressLineTwo":"Ste 300","name":"St. Vincent de Paul of Baltimore,
+        Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"5292","phone":"","registrationPhone":"(410)276-5724
+        - 114","identifier":"st_vincent_de_paul_of_baltimore_inc_md"}},{"addressLineOne":"4605
+        Belair Rd","addressLineTwo":"","cid":"99323","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.5611,"latitude":39.3315,"name":"Y
+        Head Start at Belair","city":"Baltimore","state":"MD","zipFive":"21206","zipFour":"5703","phone":"(410)
+        325-1269","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        325-1269","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"1600
+        N Payson St","addressLineTwo":"","cid":"99324","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6497,"latitude":39.3066,"name":"Y
+        Head Start at North Payson","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"1121","phone":"(410)
+        523-4582","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        523-4582","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"900
+        E 33rd St","addressLineTwo":"","cid":"99325","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6027,"latitude":39.3288,"name":"Y
+        Head Start at E. 33rd","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"3663","phone":"(410)
+        889-9622","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        889-9622","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"1900
+        Edgewood St","addressLineTwo":"","cid":"99327","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6763,"latitude":39.3092,"name":"Y
+        Head Start at Edgewood","city":"Baltimore","state":"MD","zipFive":"21216","zipFour":"2534","phone":"(410)
+        362-3703","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        362-3703","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"1200
+        Pennsylvania Ave","addressLineTwo":"","cid":"99328","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6304,"latitude":39.2996,"name":"Y
+        Head Start at Pennsylvania","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"3045","phone":"(410)
+        225-7972","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        225-7972","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"2011
+        Linden Ave","addressLineTwo":"","cid":"99329","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6325,"latitude":39.3118,"name":"Y
+        Head Start at Linden","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"4430","phone":"(410)
+        291-2624","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        291-2624","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"3935
+        Hilton Rd","addressLineTwo":"","cid":"99330","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6677,"latitude":39.3309,"name":"Y
+        Head Start at Hilton","city":"Baltimore","state":"MD","zipFive":"21215","zipFour":"7559","phone":"(410)
+        664-0478","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        664-0478","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"5025
+        Dickey Hill Rd","addressLineTwo":"","cid":"99331","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.7037,"latitude":39.3114,"name":"Y
+        Head Start at Dickey Hill","city":"Baltimore","state":"MD","zipFive":"21207","zipFour":"7239","phone":"(410)
+        448-2467","googleMapZoomLevel":10,"county":"Baltimore County","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        448-2467","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"100
+        N Chester St","addressLineTwo":"","cid":"99332","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.588,"latitude":39.2935,"name":"Y
+        Head Start at North Chester","city":"Baltimore","state":"MD","zipFive":"21231","zipFour":"1627","phone":"(410)
+        522-5084","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        522-5084","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"181
+        N Bend Rd","addressLineTwo":"","cid":"99333","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.7054,"latitude":39.2833,"name":"Y
+        Head Start at North Bend","city":"Baltimore","state":"MD","zipFive":"21229","zipFour":"3203","phone":"(410)
+        644-0576","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        644-0576","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"1235
+        Sherwood Ave","addressLineTwo":"","cid":"99334","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.5914,"latitude":39.3653,"name":"Y
+        Head Start at Sherwood","city":"Baltimore","state":"MD","zipFive":"21239","zipFour":"2223","phone":"(410)
+        323-3065","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        323-3065","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"507
+        W Preston St","addressLineTwo":"","cid":"99335","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6257,"latitude":39.2984,"name":"Y
+        Head Start at West Preston","city":"Baltimore","state":"MD","zipFive":"21201","zipFour":"2010","phone":"(410)
+        225-9125","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        225-9125","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"5931
+        Yorkwood Rd","addressLineTwo":"","cid":"99336","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.5812,"latitude":39.3635,"name":"Y
+        Head Start at Yorkwood","city":"Baltimore","state":"MD","zipFive":"21239","zipFour":"2425","phone":"(410)
+        323-2829","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        323-2829","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"1116
+        E Fayette St","addressLineTwo":"","cid":"99338","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6021,"latitude":39.2922,"name":"Y
+        Head Start at Fayette","city":"Baltimore","state":"MD","zipFive":"21202","zipFour":"4719","phone":"(410)
+        276-8690","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        276-8690","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"4501
+        Edmondson Ave","addressLineTwo":"","cid":"99339","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6912,"latitude":39.2929,"name":"Y
+        Head Start at  Edmondson","city":"Baltimore","state":"MD","zipFive":"21229","zipFour":"2752","phone":"(410)
+        400-1089","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        400-1089","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"2030
+        Elgin Ave","addressLineTwo":"","cid":"99340","grantNumber":"03CH011031","delegateNumber":"000","type":1,"longitude":-76.6509,"latitude":39.3143,"name":"Y
+        Head Start at Elgin","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"1354","phone":"(410)
+        669-1471","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        County","program":{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"
+        ","name":"YMCA of Central Maryland, Inc. Baltimore City","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)
+        669-1471","registrationPhone":"(410)400-1090","identifier":"ymca_of_central_maryland_inc_md"}},{"addressLineOne":"5010
+        Bowleys Ln","addressLineTwo":"","cid":"99389","grantNumber":"03CH011117","delegateNumber":"000","type":1,"longitude":-76.5536,"latitude":39.3238,"name":"Dayspring
+        at Bowleys Lane","city":"Baltimore","state":"MD","zipFive":"21206","zipFour":"6744","phone":"(410)
+        485-1010","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste
+        340","name":"Mayor & City Council of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(410)
+        485-1010","registrationPhone":"(410)396-7414","identifier":"mayor_city_council_of_baltimore_city_md"}},{"addressLineOne":"5427
+        Belair Rd","addressLineTwo":"","cid":"99390","grantNumber":"03CH011117","delegateNumber":"000","type":1,"longitude":-76.5502,"latitude":39.3388,"name":"Dayspring
+        at Gardenville","city":"Baltimore","state":"MD","zipFive":"21206","zipFour":"4209","phone":"(410)
+        488-1100","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste
+        340","name":"Mayor & City Council of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(410)
+        488-1100","registrationPhone":"(410)396-7414","identifier":"mayor_city_council_of_baltimore_city_md"}},{"addressLineOne":"1919
+        N Broadway","addressLineTwo":"","cid":"99391","grantNumber":"03CH011117","delegateNumber":"000","type":1,"longitude":-76.5934,"latitude":39.3127,"name":"Dayspring
+        at Harford Heights","city":"Baltimore","state":"MD","zipFive":"21213","zipFour":"1432","phone":"(410)
+        558-3706","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste
+        340","name":"Mayor & City Council of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(410)
+        558-3706","registrationPhone":"(410)396-7414","identifier":"mayor_city_council_of_baltimore_city_md"}},{"addressLineOne":"1919A
+        N Broadway","addressLineTwo":"","cid":"99392","grantNumber":"03CH011117","delegateNumber":"000","type":1,"longitude":-76.5947,"latitude":39.3139,"name":"Dayspring
+        at Harford Heights Annex","city":"Baltimore","state":"MD","zipFive":"21213","zipFour":"1401","phone":"(410)
+        396-9344","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste
+        340","name":"Mayor & City Council of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(410)
+        396-9344","registrationPhone":"(410)396-7414","identifier":"mayor_city_council_of_baltimore_city_md"}},{"addressLineOne":"1125
+        N Patterson Park Ave","addressLineTwo":"","cid":"99393","grantNumber":"03CH011117","delegateNumber":"000","type":1,"longitude":-76.5853,"latitude":39.3044,"name":"Dayspring
+        at Patterson","city":"Baltimore","state":"MD","zipFive":"21213","zipFour":"3440","phone":"(410)
+        563-3459","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste
+        340","name":"Mayor & City Council of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(410)
+        563-3459","registrationPhone":"(410)396-7414","identifier":"mayor_city_council_of_baltimore_city_md"}},{"addressLineOne":"1624
+        Eutaw Pl","addressLineTwo":"","cid":"99394","grantNumber":"03CH011117","delegateNumber":"000","type":1,"longitude":-76.631,"latitude":39.3055,"name":"Dayspring
+        at Eutaw Marshburn","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"3724","phone":"(410)
+        669-0978","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste
+        340","name":"Mayor & City Council of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(410)
+        669-0978","registrationPhone":"(410)396-7414","identifier":"mayor_city_council_of_baltimore_city_md"}},{"addressLineOne":"621
+        N Eden St","addressLineTwo":"Ste 1","cid":"99395","grantNumber":"03CH011117","delegateNumber":"000","type":1,"longitude":-76.5986,"latitude":39.2973,"name":"Dayspring
+        at Dunbar","city":"Baltimore","state":"MD","zipFive":"21205","zipFour":"1138","phone":"(410)
+        522-1324","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste
+        340","name":"Mayor & City Council of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(410)
+        522-1324","registrationPhone":"(410)396-7414","identifier":"mayor_city_council_of_baltimore_city_md"}},{"addressLineOne":"600
+        Cooks Ln","addressLineTwo":"","cid":"99396","grantNumber":"03CH011117","delegateNumber":"000","type":1,"longitude":-76.7025,"latitude":39.2928,"name":"Dayspring
+        at Saint William of York","city":"Baltimore","state":"MD","zipFive":"21229","zipFour":"1306","phone":"(410)
+        233-5490","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste
+        340","name":"Mayor & City Council of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(410)
+        233-5490","registrationPhone":"(410)396-7414","identifier":"mayor_city_council_of_baltimore_city_md"}},{"addressLineOne":"2803
+        N Dukeland St","addressLineTwo":"","cid":"99397","grantNumber":"03CH011117","delegateNumber":"000","type":1,"longitude":-76.6646,"latitude":39.32,"name":"Dayspring
+        at Dukeland","city":"Baltimore","state":"MD","zipFive":"21216","zipFour":"2801","phone":"(443)
+        835-3700","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste
+        340","name":"Mayor & City Council of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(443)
+        835-3700","registrationPhone":"(410)396-7414","identifier":"mayor_city_council_of_baltimore_city_md"}},{"addressLineOne":"1211
+        Druid Hill Ave","addressLineTwo":"","cid":"99398","grantNumber":"03CH011117","delegateNumber":"000","type":1,"longitude":-76.6278,"latitude":39.3014,"name":"Union
+        Baptist Head Start","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"3032","phone":"(410)
+        523-8793","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste
+        340","name":"Mayor & City Council of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(410)
+        523-8793","registrationPhone":"(410)396-7414","identifier":"mayor_city_council_of_baltimore_city_md"}},{"addressLineOne":"4330
+        Pimlico Rd","addressLineTwo":"Ste D","cid":"99399","grantNumber":"03CH011118","delegateNumber":"206","type":2,"longitude":-76.665,"latitude":39.3397,"name":"St
+        Vincent de Paul EHS","city":"Baltimore","state":"MD","zipFive":"21215","zipFour":"6986","phone":"(410)
+        578-0244","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"2305 N.  Charles St.","addressLineTwo":"Suite
+        300","name":"St. Vincent de Paul of Baltimore, Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"5292","phone":"(410)
+        578-0244","registrationPhone":"","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"2200
+        N Monroe St","addressLineTwo":"","cid":"99400","grantNumber":"03CH011118","delegateNumber":"201","type":2,"longitude":-76.6486,"latitude":39.3132,"name":"Baltimore
+        City Health Department - Early Head Start Program","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"1320","phone":"(410)
+        396-2974","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"1001 E Fayette St","addressLineTwo":"","name":"Baltimore
+        City Health Department EHS","city":"Baltimore","state":"MD","zipFive":"21202","zipFour":"4715","phone":"(410)
+        396-2974","registrationPhone":"(410)396-4461","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"26
+        N Fulton Ave","addressLineTwo":"","cid":"99401","grantNumber":"03CH011118","delegateNumber":"202","type":2,"longitude":-76.6456,"latitude":39.2893,"name":"Bon
+        Secours Family Support Center","city":"Baltimore","state":"MD","zipFive":"21223","zipFour":"1624","phone":"(410)
+        362-3629","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"26 N Fulton Ave","addressLineTwo":"","name":"Community
+        Works Bon Secours Baltimore Health Systems, Inc","city":"Baltimore","state":"MD","zipFive":"21223","zipFour":"1624","phone":"(410)
+        362-3629","registrationPhone":"(410)362-3629","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"2707
+        Sethlow Rd","addressLineTwo":"","cid":"99402","grantNumber":"03CH011118","delegateNumber":"203","type":2,"longitude":-76.6296,"latitude":39.2491,"name":"Our
+        House EHS","city":"Baltimore","state":"MD","zipFive":"21225","zipFour":"1308","phone":"(410)
+        396-8469","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"2707 Sethlow Rd","addressLineTwo":"","name":"Housing
+        Authority of Baltimore City","city":"Baltimore","state":"MD","zipFive":"21225","zipFour":"1308","phone":"(410)
+        396-8469","registrationPhone":"(410)396-8469","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"100
+        N Chester St","addressLineTwo":"Behind Commodore John Rogers Es","cid":"99403","grantNumber":"03CH011118","delegateNumber":"204","type":2,"longitude":-76.588,"latitude":39.2935,"name":"Southeast
+        Baltimore City EHS","city":"Baltimore","state":"MD","zipFive":"21231","zipFour":"1627","phone":"(443)
+        923-4300","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"100 N Chester St","addressLineTwo":"Behind
+        Commodore John Rogers Elementary School","name":"Southeast Baltimore City
+        EHS","city":"Baltimore","state":"MD","zipFive":"21231","zipFour":"1627","phone":"(443)
+        923-4300","registrationPhone":"(443)923-4300","identifier":"maryland_family_network_inc_md"}},{"addressLineOne":"829
+        Montpelier St","addressLineTwo":"","cid":"99404","grantNumber":"03CH011118","delegateNumber":"205","type":2,"longitude":-76.6054,"latitude":39.3251,"name":"Waverly
+        EHS of Goodwill","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"3542","phone":"(410)
+        235-0555","googleMapZoomLevel":10,"county":"Baltimore city","programCounty":"Baltimore
+        city","program":{"addressLineOne":"829 Montpelier St","addressLineTwo":"","name":"Goodwill
+        Industries of the Chesapeake","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"3542","phone":"(410)
+        235-0555","registrationPhone":"(410)235-0555","identifier":"maryland_family_network_inc_md"}}]}'
+  recorded_at: Tue, 09 Jun 2020 13:36:07 GMT
+recorded_with: VCR 6.0.0

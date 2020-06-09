@@ -1,0 +1,270 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://eclkc.ohs.acf.hhs.gov/eclkc-apis/locator/api/program?apikey=<ECLKC_API_TOKEN>&state=MD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v1.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 09 Jun 2020 13:36:09 GMT
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '32865'
+      connection:
+      - keep-alive
+      set-cookie:
+      - AWSALB=QubEpnwxjcFB9dEd793wJ0GZ8mmkft6RHZH7qddIkyXTjDcgJHmbyzAZn6n3NakUnyg01299dNEVNBkEvdkxwLnL7RVKCR46TMwJVwVk65jM23XI7pDLFu+khlQ/;
+        Expires=Tue, 16 Jun 2020 13:36:09 GMT; Path=/, AWSALBCORS=QubEpnwxjcFB9dEd793wJ0GZ8mmkft6RHZH7qddIkyXTjDcgJHmbyzAZn6n3NakUnyg01299dNEVNBkEvdkxwLnL7RVKCR46TMwJVwVk65jM23XI7pDLFu+khlQ/;
+        Expires=Tue, 16 Jun 2020 13:36:09 GMT; Path=/; SameSite=None; Secure
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-methods:
+      - GET, OPTIONS
+      access-control-allow-headers:
+      - Content-Type
+      cache-control:
+      - max-age=86400
+      etag:
+      - W/"8061-zn8XvmronCt76q1EDrygtlRBkh4"
+      x-varnish:
+      - 20324801 19479955
+      age:
+      - '3099'
+      via:
+      - 1.1 varnish (Varnish/6.0)
+      x-varnish-cache:
+      - HIT
+      strict-transport-security:
+      - max-age=31536000; includeSubdomains; preload
+      x-frame-options:
+      - DENY
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      referrer-policy:
+      - same-origin
+      content-security-policy:
+      - 'default-src ''self'' blob: ; media-src * data: ; connect-src *; img-src *
+        data: about: ; script-src ''self'' blob: ''unsafe-inline'' ''unsafe-eval''
+        https://www.printfriendly.com https://tagmanager.google.com https://use.typekit.net
+        https://s.ytimg.com https://www.youtube.com https://alleninteractions.atlassian.net
+        https://player.vzaar.com https://dap.digitalgov.gov https://code.jquery.com
+        https://*.kxcdn.com https://siteimproveanalytics.com https://www.googletagmanager.com
+        https://www.google-analytics.com https://ajax.googleapis.com https://maxcdn.bootstrapcdn.com
+        https://maps.googleapis.com; script-src-elem ''self'' blob: ''unsafe-inline''
+        https://tagmanager.google.com https://use.typekit.net https://s.ytimg.com
+        https://www.youtube.com https://cdn.siteimprove.net https://www.printfriendly.com
+        https://dap.digitalgov.gov https://player.vzaar.com https://cdnjs.cloudflare.com
+        https://code.jquery.com https://use.fortawesome.com https://ajax.googleapis.com
+        https://maxcdn.bootstrapcdn.com https://siteimproveanalytics.com https://*.google-analytics.com
+        https://www.googletagmanager.com https://maps.googleapis.com https://*.kxcdn.com;
+        style-src ''self'' ''unsafe-inline'' https://cdn.printfriendly.com https://tagmanager.google.com
+        https://use.fontawesome.com https://maxcdn.bootstrapcdn.com https://fonts.googleapis.com;
+        style-src-elem ''self'' ''unsafe-inline'' https://tagmanager.google.com https://cdn.printfriendly.com
+        https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://use.fortawesome.com
+        https://fonts.googleapis.com; font-src ''self'' data: https://use.typekit.net
+        https://maxcdn.bootstrapcdn.com https://fonts.gstatic.com; frame-src ''self''
+        https://www.youtube.com https://docs.google.com https://drive.google.com https://ncecdtl.wufoo.com  https://*.printfriendly.com
+        https://cdn.embedly.com https://data.hrsa.gov https://player.vimeo.com https://maps.google.com
+        https://view.vzaar.com https://app.smartsheet.com; frame-ancestors https://eclkc.ohs.acf.hhs.gov
+        https://*.lingotek.com'
+      accept-ranges:
+      - bytes
+    body:
+      encoding: UTF-8
+      string: '{"results":60,"documents":[{"addressLineOne":"7833 Walker Dr","addressLineTwo":"Ste
+        610","pid":"10090","grantNumber":"03HP000227","delegateNumber":"200","type":2,"region":3,"name":"Lourie
+        Center for Young Children''s Social and Emotional Wellness","granteeName":"Reginald
+        S. Lourie Center for Infants & Young Children","city":"Greenbelt","state":"MD","zipFive":"20770","zipFour":"3233","phone":"(301)891-1914","registrationPhone":"(301)891-1900","fax":"(301)891-1960","email":"acard@louriecenter.org","website":"www.louriecenter.org","identifier":"reginald_s_lourie_center_for_infants_young_children_md","county":"Prince
+        George''s County"},{"addressLineOne":"104 E Center Street","addressLineTwo":"","pid":"10485","grantNumber":"03HP000361","delegateNumber":"200","type":2,"region":3,"name":"Garrett
+        County Community Action Committee, Inc.","granteeName":"Garrett County Community
+        Action Committee, Inc","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1307","phone":"(301)334-9431
+        - 6127","registrationPhone":"(301)334-9431 - 6127","fax":"(301)334-2075","email":"trbowman@garrettcac.org","website":"http://www.garrettcac.org","identifier":"garrett_county_community_action_committee_inc_md","county":"Garrett
+        County"},{"addressLineOne":"1001 Eastern Avenue","addressLineTwo":"2nd floor","pid":"10532","grantNumber":"03CH011229","delegateNumber":"200","type":2,"region":3,"name":"MARYLAND
+        FAMILY NETWORK, INC.","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21202","zipFour":"4325","phone":"(410)659-7701
+        - 132","registrationPhone":"(410)659-7701 - 132","fax":"(410)783-0814","email":"fmiller@marylandfamilynetwork.org","website":"http://www.marylandfamilynetwork.org","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"100 N Chester St","addressLineTwo":"","pid":"10533","grantNumber":"03CH011229","delegateNumber":"201","type":2,"region":3,"name":"Kennedy
+        Krieger Institute","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21231","zipFour":"1627","phone":"(443)923-4300","registrationPhone":"(443)923-4300","fax":"(410)563-2725","email":"thompsone@kennedykrieger.org","website":"http://www.familycenter.kennedykrieger.org","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"Caroline County Family Support Center","addressLineTwo":"100
+        North 6th Street","pid":"10534","grantNumber":"03CH011229","delegateNumber":"202","type":2,"region":3,"name":"Caroline
+        County Public Schools","granteeName":"Maryland Family Network, Inc.","city":"Denton","state":"MD","zipFive":"21629","zipFour":"1110","phone":"(410)479-3298","registrationPhone":"(410)479-3298","fax":"(410)479-3789","email":"french.tearesa@ccpsstaff.org","website":"www.carolinecountyearlyheadstart.com","identifier":"maryland_family_network_inc_md","county":"Caroline
+        County"},{"addressLineOne":"6243 Shady Side Road","addressLineTwo":"","pid":"10535","grantNumber":"03CH011229","delegateNumber":"203","type":2,"region":3,"name":"Anne
+        Arundel Community Action Agency","granteeName":"Maryland Family Network, Inc.","city":"Shady
+        Side","state":"MD","zipFive":"20764","zipFour":"9689","phone":"(410)867-8945","registrationPhone":"(410)867-8945","fax":"(410)867-8947","email":"cfairley@aaceoc.com","website":"www.aaceoc.com","identifier":"maryland_family_network_inc_md","county":"Anne
+        Arundel County"},{"addressLineOne":"824 Fairmount Ave","addressLineTwo":"St.
+        Clair Early Head Start","pid":"10536","grantNumber":"03CH011229","delegateNumber":"204","type":2,"region":3,"name":"SHORE
+        UP!, Inc.","granteeName":"Maryland Family Network, Inc.","city":"Cambridge","state":"MD","zipFive":"21613","zipFour":"2113","phone":"(410)901-2015","registrationPhone":"(410)901-2015","fax":"(410)901-2057","email":"fmitchell@shoreup.org","website":"www.shoreup.org","identifier":"maryland_family_network_inc_md","county":"Dorchester
+        County"},{"addressLineOne":"215 Bay Street, Suite 1","addressLineTwo":"","pid":"10537","grantNumber":"03CH011229","delegateNumber":"205","type":2,"region":3,"name":"Talbot
+        County Health Department","granteeName":"Maryland Family Network, Inc.","city":"Easton","state":"MD","zipFive":"21601","zipFour":"2631","phone":"(410)820-6940","registrationPhone":"(410)820-6940","fax":"(410)820-6958","email":"fredia.wadley@maryland.gov","website":"www.maryland.gov/talbotcounty","identifier":"maryland_family_network_inc_md","county":"Talbot
+        County"},{"addressLineOne":"200 Road B","addressLineTwo":"","pid":"10538","grantNumber":"03CH011229","delegateNumber":"206","type":2,"region":3,"name":"Maryland
+        Rural Development Corporation","granteeName":"Maryland Family Network, Inc.","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)482-1100","registrationPhone":"","fax":"(410)482-4660","email":"lwoodside@mrdc.net","website":"http://www.mrdc.net","identifier":"maryland_family_network_inc_md","county":"Cecil
+        County"},{"addressLineOne":"1001 Eastern Avenue, 2nd floor","addressLineTwo":"","pid":"10581","grantNumber":"03HP000398","delegateNumber":"200","type":2,"region":3,"name":"Maryland
+        Family Network, Inc.","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21202","zipFour":"4696","phone":"(410)659-7701
+        - 132","registrationPhone":"(410)659-7701 - 132","fax":"(410)783-0814","email":"fmiller@marylandfamilynetwork.org","website":"http://www.marylandfamilynetwork.org","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"6243 Shady Side Road","addressLineTwo":"","pid":"10582","grantNumber":"03HP000398","delegateNumber":"201","type":2,"region":3,"name":"Anne
+        Arundel Community Action Agency","granteeName":"Maryland Family Network, Inc.","city":"Shady
+        Side","state":"MD","zipFive":"20764","zipFour":"9689","phone":"(410)626-1900","registrationPhone":"(410)867-8945","fax":"(410)626-1928","email":"cfairley@aaceoc.com","website":"www.aaceoc.com","identifier":"maryland_family_network_inc_md","county":"Anne
+        Arundel County"},{"addressLineOne":"Caroline County Family Support Center","addressLineTwo":"100
+        North 6th Street","pid":"10583","grantNumber":"03HP000398","delegateNumber":"202","type":2,"region":3,"name":"Caroline
+        County Public Schools","granteeName":"Maryland Family Network, Inc.","city":"Denton","state":"MD","zipFive":"21629","zipFour":"1110","phone":"(410)479-3298","registrationPhone":"(410)479-3298","fax":"(410)479-3789","email":"french.tearesa@ccpsstaff.org","website":"www.carolinecountyearlyheadstart.com","identifier":"maryland_family_network_inc_md","county":"Caroline
+        County"},{"addressLineOne":"215 Bay Street, Suite 1","addressLineTwo":"","pid":"10584","grantNumber":"03HP000398","delegateNumber":"203","type":2,"region":3,"name":"Talbot
+        County Health Department","granteeName":"Maryland Family Network, Inc.","city":"Easton","state":"MD","zipFive":"21601","zipFour":"2631","phone":"(410)819-5690","registrationPhone":"(410)820-6940","fax":"","email":"fredia.wadley@maryland.gov","website":"www.maryland.gov/talbotcounty","identifier":"maryland_family_network_inc_md","county":"Talbot
+        County"},{"addressLineOne":"1114 N Mount St","addressLineTwo":"","pid":"10585","grantNumber":"03HP000398","delegateNumber":"204","type":2,"region":3,"name":"PACT:Helping
+        Children with Special Needs","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21217","zipFour":"2216","phone":"(410)298-7000","registrationPhone":"(410)298-7000","fax":"","email":"cosgrove@kennedykrieger.org","website":"http://www.kennedykrieger.org/community/community-","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"2803 N Dukeland Street","addressLineTwo":"","pid":"10586","grantNumber":"03HP000398","delegateNumber":"205","type":2,"region":3,"name":"Dayspring
+        EHS","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21216","zipFour":"-1","phone":"(443)835-3700","registrationPhone":"(443)278-8744","fax":"","email":"obelcher@dayspringheadstart.com","website":"","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"200 Road B","addressLineTwo":"","pid":"10587","grantNumber":"03HP000398","delegateNumber":"206","type":2,"region":3,"name":"Maryland
+        Rural Development Corporation","granteeName":"Maryland Family Network, Inc.","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)482-1100","registrationPhone":"","fax":"(410)482-4660","email":"lwoodside@mrdc.net","website":"http://www.mrdc.net","identifier":"maryland_family_network_inc_md","county":"Cecil
+        County"},{"addressLineOne":"200 Road B","addressLineTwo":"Hollingsworth Manor","pid":"10789","grantNumber":"03CH011288","delegateNumber":"000","type":1,"region":3,"name":"MARYLAND
+        RURAL DEVELOPMENT CORPORATION","granteeName":"Maryland Rural Development Corporation","city":"Elkton","state":"MD","zipFive":"21921","zipFour":"6695","phone":"(410)612-9001
+        - 24","registrationPhone":"","fax":"(410)612-9003","email":"mrodriguez.mrdc@gmail.com","website":"http://www.mrdc.net","identifier":"maryland_rural_development_corporation_md","county":"Cecil
+        County"},{"addressLineOne":"1345 University Blvd.","addressLineTwo":"","pid":"10885","grantNumber":"03CH011320","delegateNumber":"200","type":2,"region":3,"name":"CentroNia","granteeName":"Centronia,
+        Inc.","city":"TAKOMA PARK","state":"MD","zipFive":"20912","zipFour":"-1","phone":"(301)543-8040
+        - 4018","registrationPhone":"(301)543-8040","fax":"(301)408-7889","email":"gcohen@centronia.org","website":"http://www.centronia.org/","identifier":"centronia_inc_md","county":"Montgomery
+        County"},{"addressLineOne":"9820 Patuxent Woods Dr","addressLineTwo":"Howard
+        County Head Start","pid":"10943","grantNumber":"03CH011370","delegateNumber":"000","type":1,"region":3,"name":"Community
+        Action Council of Howard County","granteeName":"Community Action Council of
+        Howard County","city":"Columbia","state":"MD","zipFive":"21046","zipFour":"1534","phone":"(410)313-6589","registrationPhone":"(410)313-6589","fax":"(410)313-6479","email":"bdayhoff@cac-hc.org","website":"www.cac-hc.org","identifier":"community_action_council_of_howard_county_md","county":"Howard
+        County"},{"addressLineOne":"104 East Center Street","addressLineTwo":"","pid":"11063","grantNumber":"03CH011408","delegateNumber":"000","type":1,"region":3,"name":"Garrett
+        County Community Action Committee, Inc.","granteeName":"Garrett County Community
+        Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)334-9431
+        - 6127","registrationPhone":"(301)334-9431 - 6127","fax":"(301)334-2075","email":"trbowman@garrettcac.org","website":"http://www.garrettcac.org","identifier":"garrett_county_community_action_committee_inc_md","county":"Garrett
+        County"},{"addressLineOne":"104 East Center Street","addressLineTwo":"","pid":"11064","grantNumber":"03CH011408","delegateNumber":"200","type":2,"region":3,"name":"Garrett
+        County Community Action Committee, Inc.","granteeName":"Garrett County Community
+        Action Committee, Inc.","city":"Oakland","state":"MD","zipFive":"21550","zipFour":"1328","phone":"(301)334-9431
+        - 6127","registrationPhone":"(301)334-9431 - 6127","fax":"(301)334-2075","email":"trbowman@garrettcac.org","website":"http://www.garrettcac.org","identifier":"garrett_county_community_action_committee_inc_md","county":"Garrett
+        County"},{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"","pid":"4775","grantNumber":"03CH3420","delegateNumber":"000","type":1,"region":3,"name":"YMCA
+        OF Central Maryland, INC","granteeName":"Y M C A of Central Maryland, Inc.","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)248-0372
+        - 123","registrationPhone":"(410)248-0372","fax":"(410)248-0543","email":"tracielefevre@ymaryland.org","website":"http://www.ymaryland.org","identifier":"y_m_c_a_of_central_maryland_inc_md","county":"Baltimore
+        County"},{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"","pid":"4776","grantNumber":"03CH3420","delegateNumber":"200","type":2,"region":3,"name":"YMCA
+        OF Central Maryland, INC","granteeName":"Y M C A of Central Maryland, Inc.","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)248-0372
+        - 123","registrationPhone":"(410)248-0372 - 123","fax":"(410)248-0543","email":"tracielefevre@ymaryland.org","website":"http://www.ymaryland.org","identifier":"y_m_c_a_of_central_maryland_inc_md","county":"Baltimore
+        County"},{"addressLineOne":"101 Monroe St","addressLineTwo":"","pid":"6364","grantNumber":"03CH9990","delegateNumber":"000","type":1,"region":3,"name":"Montgomery
+        County Community Action Agency","granteeName":"Montgomery, County of","city":"Rockville","state":"MD","zipFive":"20850","zipFour":"2503","phone":"(240)777-1697","registrationPhone":"(240)777-1697","fax":"(240)777-3295","email":"charlene.muhammad@montgomerycountymd.gov","website":"http://www.montgomerycountymd.gov/HHS-Program/OCA/CommunityAction/CommunityActionIndex.html","identifier":"montgomery_county_of_md","county":"Montgomery
+        County"},{"addressLineOne":"4910 Macon Rd","addressLineTwo":"Rocking Horse
+        Road Center","pid":"6432","grantNumber":"03CH9990","delegateNumber":"001","type":1,"region":3,"name":"Montgomery
+        County Public Schools","granteeName":"Montgomery, County of","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2228","phone":"(240)740-4530","registrationPhone":"(240)740-4530","fax":"(301)230-5401","email":"Verna_L_Washington@mcpsmd.org","website":"http://www.montgomeryschoolsmd.org/departments/earlychi/prekhsprograminformation.shtm","identifier":"montgomery_county_of_md","county":"Montgomery
+        County"},{"addressLineOne":"255 Clifton Blvd","addressLineTwo":"Ste 101","pid":"6473","grantNumber":"03CH10015","delegateNumber":"000","type":1,"region":3,"name":"Catholic
+        Charities","granteeName":"Associated Catholic Charities Inc.","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"4785","phone":"(667)600-2580","registrationPhone":"(667)600-2571","fax":"(667)600-4126","email":"pfoley@cc-md.org","website":"http://www.catholiccharities-md.org","identifier":"associated_catholic_charities_inc_md","county":"Carroll
+        County"},{"addressLineOne":"255 Clifton Blvd","addressLineTwo":"Ste 101","pid":"6474","grantNumber":"03CH10015","delegateNumber":"200","type":2,"region":3,"name":"Associated
+        Catholic Charities, Inc.","granteeName":"Associated Catholic Charities Inc.","city":"Westminster","state":"MD","zipFive":"21157","zipFour":"4785","phone":"(667)600-2580","registrationPhone":"(667)600-2571","fax":"(667)600-4126","email":"pfoley@cc-md.org","website":"www.catholiccharities-md.org","identifier":"associated_catholic_charities_inc_md","county":"Carroll
+        County"},{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","pid":"6484","grantNumber":"03CH10054","delegateNumber":"000","type":1,"region":3,"name":"SHORE
+        UP, INC","granteeName":"Shore Up, Inc.","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)749-1142
+        - 345","registrationPhone":"(410)749-1142 - 345","fax":"(410)742-9191","email":"fmitchell@shoreup.org","website":"http://www.shoreup.org","identifier":"shore_up_inc_md","county":"Wicomico
+        County"},{"addressLineOne":"520 Snow Hill Rd","addressLineTwo":"","pid":"6485","grantNumber":"03CH10054","delegateNumber":"200","type":2,"region":3,"name":"SHORE
+        UP, INC","granteeName":"Shore Up, Inc.","city":"Salisbury","state":"MD","zipFive":"21804","zipFour":"6031","phone":"(410)749-1142
+        - 345","registrationPhone":"(410)749-1142 - 345","fax":"(410)742-9191","email":"fmitchell@shoreup.org","website":"http://www.shoreup.org","identifier":"shore_up_inc_md","county":"Wicomico
+        County"},{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","pid":"6712","grantNumber":"03CH010166","delegateNumber":"000","type":1,"region":3,"name":"HRDC
+        Head Start","granteeName":"Allegany County Human Resources","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)777-5970","registrationPhone":"(301)777-5970","fax":"(301)876-9081","email":"rroby@alleganyhrdc.org","website":"alleganyhrdc.org","identifier":"allegany_county_human_resources_md","county":"Allegany
+        County"},{"addressLineOne":"125 Virginia Ave","addressLineTwo":"","pid":"6713","grantNumber":"03CH010166","delegateNumber":"200","type":2,"region":3,"name":"HRDC
+        Early Head Start","granteeName":"Allegany County Human Resources","city":"Cumberland","state":"MD","zipFive":"21502","zipFour":"3952","phone":"(301)777-5970","registrationPhone":"(301)777-5970","fax":"","email":"rroby@alleganyhrdc.org","website":"www.alleganyhrdc.org","identifier":"allegany_county_human_resources_md","county":"Allegany
+        County"},{"addressLineOne":"12301 Academy Way","addressLineTwo":"","pid":"6718","grantNumber":"03CH010188","delegateNumber":"200","type":2,"region":3,"name":"The
+        Lourie Center for Children?s Social & Emotional Wellness","granteeName":"Reginald
+        S. Lourie Center for Infants & Young Children","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2000","phone":"(301)891-1914","registrationPhone":"(301)891-1914","fax":"","email":"acard@louriecenter.org","website":"www.louriecenter.org","identifier":"reginald_s_lourie_center_for_infants_young_children_md","county":"Montgomery
+        County"},{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","pid":"8017","grantNumber":"03CH010326","delegateNumber":"000","type":1,"region":3,"name":"Head
+        Start of Washington County, Inc.","granteeName":"Head Start of Washington
+        County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)733-0088
+        - 107","registrationPhone":"(301)733-0088","fax":"(301)733-6370","email":"vrobinson@headstartwashco.org","website":"http://www.headstartwashco.org","identifier":"head_start_of_washington_county_inc_md","county":"Washington
+        County"},{"addressLineOne":"325 West Memorial Boulevard","addressLineTwo":"","pid":"8018","grantNumber":"03CH010326","delegateNumber":"200","type":2,"region":3,"name":"Head
+        Start of Washington County, Inc.","granteeName":"Head Start of Washington
+        County, Inc.","city":"Hagerstown","state":"MD","zipFive":"21740","zipFour":"6219","phone":"(301)733-0088
+        - 107","registrationPhone":"(301)733-0088","fax":"(301)733-6370","email":"vrobinson@headstartwashco.org","website":"http://www.headstartwashco.org","identifier":"head_start_of_washington_county_inc_md","county":"Washington
+        County"},{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"","pid":"8346","grantNumber":"03CH010431","delegateNumber":"000","type":1,"region":3,"name":"YMCA
+        OF CENTRAL MARYLAND, INC","granteeName":"Y M C A of Central Maryland, Inc.","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(443)992-5845","registrationPhone":"(410)248-0372","fax":"(410)248-0543","email":"tracielefevre@ymaryland.org","website":"www.ymaryland.org","identifier":"y_m_c_a_of_central_maryland_inc_md","county":"Baltimore
+        County"},{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"","pid":"8347","grantNumber":"03CH010431","delegateNumber":"200","type":2,"region":3,"name":"YMCA
+        OF CENTRAL MARYLAND, INC","granteeName":"Y M C A of Central Maryland, Inc.","city":"Baltimore","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(443)992-5845","registrationPhone":"(410)248-0372
+        - 123","fax":"(410)248-0543","email":"tracielefevre@ymaryland.org","website":"www.ymaryland.org","identifier":"y_m_c_a_of_central_maryland_inc_md","county":"Baltimore
+        County"},{"addressLineOne":"1000 N Market St","addressLineTwo":"","pid":"8678","grantNumber":"03CH010485","delegateNumber":"000","type":1,"region":3,"name":"Young
+        Men''s Christian Association of Frederick County","granteeName":"Young Men''s
+        Christian Association of Frederick County","city":"Frederick","state":"MD","zipFive":"21701","zipFour":"4628","phone":"(301)378-9140
+        - 1036","registrationPhone":"(301)378-9140","fax":"(301)378-9127","email":"swantz@frederickymca.org","website":"www.frederickymca.org","identifier":"young_mens_christian_association_of_frederick_county_md","county":"Frederick
+        County"},{"addressLineOne":"640 E. Diamond Ave.","addressLineTwo":"Suite A","pid":"8898","grantNumber":"03CH010583","delegateNumber":"200","type":2,"region":3,"name":"Family
+        Services Agency, Inc.","granteeName":"Family Services, Inc.","city":"Gaithersburg","state":"MD","zipFive":"20877","zipFour":"-1","phone":"(301)840-3271","registrationPhone":"(301)840-3272","fax":"(301)912-0255","email":"jody.burghardt@fs-inc.org","website":"http://www.fs-inc.org","identifier":"family_services_inc_md","county":"Montgomery
+        County"},{"addressLineOne":"1980 Brookside Dr","addressLineTwo":"","pid":"8942","grantNumber":"03CH010594","delegateNumber":"200","type":2,"region":3,"name":"ASSOCIATED
+        CATHOLIC CHARITIES","granteeName":"Associated Catholic Charities Inc.","city":"Edgewood","state":"MD","zipFive":"21040","zipFour":"1800","phone":"(667)600-2155","registrationPhone":"(410)612-1760","fax":"(410)526-1941","email":"krichardson@cc-md.org","website":"http://www.cc-md.org","identifier":"associated_catholic_charities_inc_md","county":"Harford
+        County"},{"addressLineOne":"12301 Academy Way","addressLineTwo":"","pid":"9004","grantNumber":"03CH010622","delegateNumber":"000","type":1,"region":3,"name":"The
+        Reginald S. Lourie Center for Infants and Young Children","granteeName":"Reginald
+        S. Lourie Center for Infants & Young Children","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2000","phone":"(301)891-1901","registrationPhone":"(301)891-1900","fax":"","email":"acard@louriecenter.org","website":"https://www.adventisthealthcare.com/LC/programs/early-head-start/","identifier":"reginald_s_lourie_center_for_infants_young_children_md","county":"Montgomery
+        County"},{"addressLineOne":"12301 Academy Way","addressLineTwo":"","pid":"9006","grantNumber":"03CH010622","delegateNumber":"200","type":2,"region":3,"name":"The
+        Reginald S. Lourie Center for Infants and Young Children","granteeName":"Reginald
+        S. Lourie Center for Infants & Young Children","city":"Rockville","state":"MD","zipFive":"20852","zipFour":"2000","phone":"(301)891-1901","registrationPhone":"(301)891-1901","fax":"","email":"acard@louriecenter.org","website":"https://www.adventisthealthcare.com/LC/programs/early-head-start/","identifier":"reginald_s_lourie_center_for_infants_young_children_md","county":"Montgomery
+        County"},{"addressLineOne":"1420 Spring St","addressLineTwo":"","pid":"9028","grantNumber":"03CH010635","delegateNumber":"000","type":1,"region":3,"name":"Easter
+        Seals Serving DC|MD|VA","granteeName":"Easter Seals Serving DC|MD|VA","city":"Silver
+        Spring","state":"MD","zipFive":"20910","zipFour":"2701","phone":"(301)588-8700","registrationPhone":"","fax":"","email":"headstart@eseal.org","website":"","identifier":"easter_seals_serving_dc_md_va_md","county":"Montgomery
+        County"},{"addressLineOne":"1420 Spring St","addressLineTwo":"","pid":"9029","grantNumber":"03CH010635","delegateNumber":"200","type":2,"region":3,"name":"Easter
+        Seals Serving DC|MD|VA","granteeName":"Easter Seals Serving DC|MD|VA","city":"Silver
+        Spring","state":"MD","zipFive":"20910","zipFour":"2701","phone":"(301)588-8700","registrationPhone":"","fax":"","email":"headstart@eseal.org","website":"","identifier":"easter_seals_serving_dc_md_va_md","county":"Montgomery
+        County"},{"addressLineOne":"8371 Old Leonardtown Road","addressLineTwo":"","pid":"9049","grantNumber":"03CH010639","delegateNumber":"000","type":1,"region":3,"name":"Southern
+        Maryland Tri-County Community Action Committee","granteeName":"Southern Maryland
+        Tri-County Community Action Committee, Inc.","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(301)274-4474
+        - 244","registrationPhone":"(301)274-4474 - 221","fax":"(301)274-0637","email":"dmontgomery@smtccac.org","website":"http://www.smtccac.org","identifier":"southern_maryland_tri_county_community_action_committee_inc_md","county":"Charles
+        County"},{"addressLineOne":"8371 Old Leonardtown Road","addressLineTwo":"","pid":"9050","grantNumber":"03CH010639","delegateNumber":"200","type":2,"region":3,"name":"SOUTHERN
+        MARYLAND TRI-COUNTY COMMUNITY ACTION COMMITTEE, INC","granteeName":"Southern
+        Maryland Tri-County Community Action Committee, Inc.","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(301)274-4474
+        - 244","registrationPhone":"(301)274-4474 - 221","fax":"(301)274-0637","email":"dmontgomery@smtccac.org","website":"http://www.smtccac.org","identifier":"southern_maryland_tri_county_community_action_committee_inc_md","county":"Charles
+        County"},{"addressLineOne":"1245 Plum Point Rd","addressLineTwo":"Plum Point
+        Elementary School","pid":"9532","grantNumber":"03CH010879","delegateNumber":"000","type":1,"region":3,"name":"Calvert
+        County Public Schools","granteeName":"Board of Education of Calvert County,
+        Inc.","city":"Huntingtown","state":"MD","zipFive":"20639","zipFour":"9248","phone":"(443)550-8062","registrationPhone":"(443)550-8062","fax":"(410)286-1368","email":"ccps.headstart@yahoo.com","website":"calvert
+        county public schools","identifier":"board_of_education_of_calvert_county_inc_md","county":"Calvert
+        County"},{"addressLineOne":"27184 Point Lookout Rd","addressLineTwo":"Head
+        Start Annex-Loveville","pid":"9533","grantNumber":"03CH010878","delegateNumber":"000","type":1,"region":3,"name":"St.
+        Mary''s County Public Schools","granteeName":"Board of Education of St Mary''s
+        County","city":"Loveville","state":"MD","zipFive":"20656","zipFour":"2013","phone":"(301)690-2441
+        - 1","registrationPhone":"(301)690-2441 - 1","fax":"(301)690-2461","email":"ajowens@smcps.org","website":"http://www.smcps.org/ssp/head-start","identifier":"board_of_education_of_st_marys_county_md","county":"St.
+        Mary''s County"},{"addressLineOne":"8371 Old Leonardtown Road","addressLineTwo":"","pid":"9537","grantNumber":"03HP000161","delegateNumber":"200","type":2,"region":3,"name":"Southern
+        Maryland Tri-County Community Action Committee, Inc.","granteeName":"Southern
+        Maryland Tri-County Community Action Committee, Inc.","city":"Hughesville","state":"MD","zipFive":"20637","zipFour":"-1","phone":"(301)274-4474
+        - 244","registrationPhone":"(301)274-4474 - 221","fax":"(301)274-0637","email":"","website":"","identifier":"southern_maryland_tri_county_community_action_committee_inc_md","county":"Charles
+        County"},{"addressLineOne":"2305 N. Charles St.","addressLineTwo":"Ste 300","pid":"9782","grantNumber":"03CH010999","delegateNumber":"000","type":1,"region":3,"name":"St.
+        Vincent de Paul of Baltimore, Inc.","granteeName":"St. Vincent de Paul of
+        Baltimore, Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"5292","phone":"(410)276-5724
+        - 114","registrationPhone":"(410)276-5724 - 114","fax":"(410)662-0508","email":"john.schiavone@vincentbaltimore.org","website":"vincentbaltimore.org","identifier":"st_vincent_de_paul_of_baltimore_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"303 W Chesapeake Ave","addressLineTwo":"","pid":"9790","grantNumber":"03CH011031","delegateNumber":"000","type":1,"region":3,"name":"YMCA
+        of Central Maryland, Inc. Baltimore City","granteeName":"YMCA of Central Maryland,
+        Inc.","city":"Towson","state":"MD","zipFive":"21204","zipFour":"4406","phone":"(410)400-1089","registrationPhone":"(410)400-1090","fax":"(410)367-9386","email":"tracielefevre@ymaryland.org","website":"303
+        W. Chesapeake Ave.","identifier":"ymca_of_central_maryland_inc_md","county":"Baltimore
+        County"},{"addressLineOne":"915 Sterrett St","addressLineTwo":"","pid":"9865","grantNumber":"03CH011075","delegateNumber":"000","type":1,"region":3,"name":"CATHOLIC
+        CHARITIES HEAD START OF BALTIMORE CITY","granteeName":"Associated Catholic
+        Charities Inc.","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"2502","phone":"(667)600-3783","registrationPhone":"(667)600-3784","fax":"(667)600-4078","email":"mgunning@CC-MD.ORG","website":"WWW.CC-MD.ORG","identifier":"associated_catholic_charities_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"1800 Washington Blvd","addressLineTwo":"Ste 340","pid":"9973","grantNumber":"03CH011117","delegateNumber":"000","type":1,"region":3,"name":"Mayor
+        & City Council of Baltimore City","granteeName":"Mayor & City Council of Baltimore
+        City","city":"Baltimore","state":"MD","zipFive":"21230","zipFour":"1732","phone":"(443)413-5549","registrationPhone":"(410)396-7414","fax":"(410)545-7957","email":"shannon.bchs@gmail.com","website":"1800
+        Washington Blvd, Suite 340","identifier":"mayor_city_council_of_baltimore_city_md","county":"Baltimore
+        city"},{"addressLineOne":"1001 Eastern Avenue","addressLineTwo":"2nd floor","pid":"9974","grantNumber":"03CH011118","delegateNumber":"200","type":2,"region":3,"name":"MARYLAND
+        FAMILY NETWORK, INC.","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21202","zipFour":"4325","phone":"(410)659-7701
+        - 132","registrationPhone":"(410)659-7701 - 132","fax":"(410)783-0814","email":"fmiller@marylandfamilynetwork.org","website":"http://www.marylandfamilynetwork.org","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"1001 E Fayette St","addressLineTwo":"","pid":"9975","grantNumber":"03CH011118","delegateNumber":"201","type":2,"region":3,"name":"Baltimore
+        City Health Department EHS","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21202","zipFour":"4715","phone":"(410)396-2974","registrationPhone":"(410)396-4461","fax":"","email":"daphne.hicks@baltimorecity.gov","website":"","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"26 N Fulton Ave","addressLineTwo":"","pid":"9976","grantNumber":"03CH011118","delegateNumber":"202","type":2,"region":3,"name":"Community
+        Works Bon Secours Baltimore Health Systems, Inc","granteeName":"Maryland Family
+        Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21223","zipFour":"1624","phone":"(410)362-3258","registrationPhone":"(410)362-3629","fax":"(410)362-3443","email":"nii_sowah@bshsi.org","website":"www.bonsecoursbaltimorefoundation.org","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"2707 Sethlow Rd","addressLineTwo":"","pid":"9977","grantNumber":"03CH011118","delegateNumber":"203","type":2,"region":3,"name":"Housing
+        Authority of Baltimore City","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21225","zipFour":"1308","phone":"(410)396-2967","registrationPhone":"(410)396-8469","fax":"","email":"tracey.oliver-keyser@habc.org","website":"www.habc.org","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"100 N Chester St","addressLineTwo":"Behind Commodore
+        John Rogers Elementary School","pid":"9978","grantNumber":"03CH011118","delegateNumber":"204","type":2,"region":3,"name":"Southeast
+        Baltimore City EHS","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21231","zipFour":"1627","phone":"(443)923-4300","registrationPhone":"(443)923-4300","fax":"(410)563-2725","email":"kemper@kennedykrieger.org","website":"www.kennedykrieger.org","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"829 Montpelier St","addressLineTwo":"","pid":"9979","grantNumber":"03CH011118","delegateNumber":"205","type":2,"region":3,"name":"Goodwill
+        Industries of the Chesapeake","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"3542","phone":"(410)837-1800
+        - 146","registrationPhone":"(410)235-0555","fax":"(410)837-8930","email":"resmith@goodwillches.org","website":"www.goodwillches.org","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"2305 N.  Charles St.","addressLineTwo":"Suite 300","pid":"9980","grantNumber":"03CH011118","delegateNumber":"206","type":2,"region":3,"name":"St.
+        Vincent de Paul of Baltimore, Inc.","granteeName":"Maryland Family Network,
+        Inc.","city":"Baltimore","state":"MD","zipFive":"21218","zipFour":"5292","phone":"(410)578-0244","registrationPhone":"","fax":"(410)367-1927","email":"linda.harvey@vincentbaltimore.org","website":"www.vincentbaltimore.org","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"},{"addressLineOne":"237 Arch Street","addressLineTwo":"","pid":"9981","grantNumber":"03CH011118","delegateNumber":"207","type":2,"region":3,"name":"Downtown
+        Baltimore Child Care Center","granteeName":"Maryland Family Network, Inc.","city":"Baltimore","state":"MD","zipFive":"21201","zipFour":"-1","phone":"(410)642-3586","registrationPhone":"","fax":"","email":"margos@dbcckids.org","website":"www.dbcckids.org","identifier":"maryland_family_network_inc_md","county":"Baltimore
+        city"}]}'
+  recorded_at: Tue, 09 Jun 2020 13:36:08 GMT
+recorded_with: VCR 6.0.0
