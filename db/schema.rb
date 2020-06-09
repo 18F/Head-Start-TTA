@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_142823) do
+ActiveRecord::Schema.define(version: 2020_06_09_151314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,17 @@ ActiveRecord::Schema.define(version: 2020_06_09_142823) do
     t.string "postal_code_four", default: ""
     t.string "map_zoom_level", default: ""
     t.string "county", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "centers", force: :cascade do |t|
+    t.string "cid", null: false
+    t.string "grant_number", null: false
+    t.string "delegate_number", default: ""
+    t.integer "type", null: false
+    t.string "name", null: false
+    t.string "phone", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
