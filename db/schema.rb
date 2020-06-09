@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_151314) do
+ActiveRecord::Schema.define(version: 2020_06_09_193126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,6 +161,24 @@ ActiveRecord::Schema.define(version: 2020_06_09_151314) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["grantee_id"], name: "index_person_grantee_links_on_grantee_id"
     t.index ["person_id"], name: "index_person_grantee_links_on_person_id"
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string "pid", null: false
+    t.string "grant_number", null: false
+    t.string "delegate_number", default: ""
+    t.integer "type", null: false
+    t.string "region", null: false
+    t.string "name", null: false
+    t.string "grantee_name", null: false
+    t.string "phone", default: ""
+    t.string "registration_phone", default: ""
+    t.string "fax", default: ""
+    t.string "email", default: ""
+    t.string "website", default: ""
+    t.string "identifier", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
