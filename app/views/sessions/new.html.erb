@@ -7,7 +7,7 @@
     <%= label_tag :name, nil, class: "usa-label" %>
     <%= text_field_tag :name, "", class: "usa-input" %>
     <%= label_tag :role, nil, class: "usa-label" %>
-    <%= select_tag :role, options_for_select(login_role_options), class: "usa-select" %>
+    <%= select_tag :role, options_for_select(login_role_options, selected: "Early Childhood Specialist"), class: "usa-select" %>
   </fieldset>
   <%= button_tag "Login", class: "usa-button" %>
 <% end %>
