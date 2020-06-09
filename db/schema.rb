@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_195948) do
+ActiveRecord::Schema.define(version: 2020_06_09_142823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,21 @@ ActiveRecord::Schema.define(version: 2020_05_28_195948) do
   create_table "activity_reports_people", id: false, force: :cascade do |t|
     t.bigint "person_id", null: false
     t.bigint "activity_report_id", null: false
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street1", null: false
+    t.string "street2", default: ""
+    t.decimal "longitude", null: false
+    t.decimal "latitude", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "postal_code", null: false
+    t.string "postal_code_four", default: ""
+    t.string "map_zoom_level", default: ""
+    t.string "county", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "grantee_roles", force: :cascade do |t|
