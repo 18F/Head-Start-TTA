@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_193126) do
+ActiveRecord::Schema.define(version: 2020_06_09_205739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,9 @@ ActiveRecord::Schema.define(version: 2020_06_09_193126) do
     t.string "county", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "addressable_type"
+    t.bigint "addressable_id"
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
   end
 
   create_table "centers", force: :cascade do |t|
@@ -107,6 +110,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_193126) do
     t.string "phone", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "program_id"
+    t.index ["program_id"], name: "index_centers_on_program_id"
   end
 
   create_table "grantee_roles", force: :cascade do |t|

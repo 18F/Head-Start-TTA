@@ -5,4 +5,7 @@ class Center < ApplicationRecord
     :grant_number,
     :name
   validates_uniqueness_of :cid, case_sensitive: false
+
+  belongs_to :program
+  has_one :address, as: :addressable
 end

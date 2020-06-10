@@ -5,4 +5,6 @@ class Address < ApplicationRecord
     :city,
     :state,
     :postal_code
+
+  belongs_to :addressable, polymorphic: true
 end
