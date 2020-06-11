@@ -64,6 +64,7 @@ class TTANeedForm extends Component {
           <input type="date" className="usa-input" id="start-date" name="startDate" value={startDate} onChange={this.inputChanged} />
           {ecsPlans ? <TopicList scope="Early Childhood Specialist" /> : <SpecialistList />}
           <label className="usa-label" htmlFor="objectives">TTA Goals</label>
+          <p className="usa-hint">Goals are broad statements that describe how TTA will support grantee's wants and needs</p>
           <TaskList />
           <label className="usa-label" htmlFor="narrative">Additional Information</label>
           <textarea className="usa-textarea" id="narrative" value={narrative} name="narrative" onChange={this.inputChanged} />

@@ -161,7 +161,7 @@ class ObjectiveDetails extends PureComponent {
         {this.showCompletion &&
           <div className="grid-row">
             <div className="grid-col usa-form">
-              <button className="usa-button" onClick={this.markComplete}>Mark complete</button>
+              <button className="usa-button" onClick={this.markComplete}>Mark objective complete</button>
             </div>
           </div>
         }
