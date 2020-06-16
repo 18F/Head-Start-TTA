@@ -45,7 +45,44 @@ The prototype app is automatically deployed to cloud.gov on a successful CircleC
 
 It consists of the standard CircleCI Ruby image with the `cf` command line tool installed
 
-To rebuild: `docker build -t rcahearn/rubycf:2.6.5-node .circleci/`
+To rebuild: `docker build -t rcahearn/rubycf:2.6.6-node .circleci/`
+
+## Tag Index
+
+Git tags have been used to mark the code as it existed at various experiments.
+
+Here are some of the highlights of the technical status of each step.
+
+### `experiment-1`
+
+`ActivityReport` class very closely maps to the structure of HSES activity report excel exports.
+
+UX is based around the Grantee show route and the timeline of activity reports
+
+### `experiment-3-ie`
+
+`experiment-3` plus some fixes for IE11 compatibility. The experiment started looking at
+a workflow for requesting TTA based on a monitoring report coming from ITAMS.
+
+Added the `MonitoringReport`, `TtaNeed`, and `Task` classes.
+
+`MonitoringReport` model was based on some basic fields seen in other systems, but should not be seen as an authoritative schema.
+
+`TtaNeed` and `Task` classes are new concepts meant to start to model out a TTA deployment workflow and progress tracking based on concrete action items instead of narrative.
+
+### `experiment-4`
+
+This pulls `Topic` into a top level model for `TtaNeed` rather than relying on the tagging implementation
+
+### `experiment-5-c`
+
+The `ActivityPlan` model was introduced to the workflow to set up the planned Objectives and Tasks (both modeled with `Task` for an individual activity) `Task`s were still only associated with the parent `TtaNeed` but that is not the appropriate long term model.
+
+`GranteeRole` model was introduced to map who from the Grantee would be involved in any activity.
+
+### `experiment-6-b`
+
+`ActivityReport`s are now properly linked to their `ActivityPlan`
 
 ## Getting started
 
