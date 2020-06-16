@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_205739) do
+ActiveRecord::Schema.define(version: 2020_06_16_193802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,19 +46,10 @@ ActiveRecord::Schema.define(version: 2020_06_09_205739) do
   end
 
   create_table "activity_reports", force: :cascade do |t|
-    t.string "activity_id", null: false
-    t.string "report_typ", null: false
-    t.bigint "previous_activity_report_id"
-    t.string "state"
-    t.string "status"
     t.string "activity_typ"
-    t.string "purpose"
     t.date "start_date"
     t.date "end_date"
     t.decimal "duration"
-    t.string "primary_reason"
-    t.text "narrative", default: ""
-    t.text "next_steps", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "tta_need_id"

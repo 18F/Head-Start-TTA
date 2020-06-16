@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe ActivityReportsController, type: :controller do
   let(:valid_attributes) { attributes_for :activity_report }
 
-  let(:invalid_attributes) { {activity_typ: ""} }
+  let(:invalid_attributes) { {duration: nil} }
 
   let!(:valid_session) { {current_user_id: build_stubbed(:person).id} }
 
@@ -102,12 +102,12 @@ RSpec.describe ActivityReportsController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) { {purpose: "Updated"} }
+      let(:new_attributes) { {duration: 4} }
 
       it "updates the requested activity_report" do
         put :update, params: {id: activity_report.to_param, activity_report: new_attributes}, session: valid_session
         activity_report.reload
-        expect(activity_report.purpose).to eq "Updated"
+        expect(activity_report.duration).to eq 4
       end
 
       it "redirects to the activity_report" do

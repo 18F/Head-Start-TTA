@@ -9,6 +9,7 @@ class Topic < ApplicationRecord
 
   scope :root_topics, -> { where parent_id: nil }
   scope :leaf_topics, -> { where.not(id: select(:parent_id).distinct.where.not(parent_id: nil)) }
+  scope :for_grantee, ->(grantee) { joins(:tta_needs).where(tta_needs: {grantee_id: grantee.id}) }
 
   def topic_group?
     child_topics.any?

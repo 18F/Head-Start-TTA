@@ -95,7 +95,6 @@ class ActivityReportsController < ApplicationController
       :activity_plan_id,
       grantee_role_ids: []
     ).tap do |attrs|
-      attrs[:report_typ] = "GS"
       attrs[:activity_typ] = "Single Grantee"
     end
   end
@@ -330,6 +329,6 @@ class ActivityReportsController < ApplicationController
   end
 
   def activity_report_params
-    params.require(:activity_report).permit %i[activity_id region state status activity_typ purpose start_date end_date duration]
+    params.require(:activity_report).permit %i[activity_typ start_date end_date duration]
   end
 end
