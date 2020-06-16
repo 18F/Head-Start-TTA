@@ -107,7 +107,7 @@ GEM
       railties
     arbre (1.2.1)
       activesupport (>= 3.0.0)
-    ast (2.4.0)
+    ast (2.4.1)
     auto_strip_attributes (2.6.0)
       activerecord (>= 4.0)
     awrence (1.1.1)
