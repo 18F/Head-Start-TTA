@@ -30,4 +30,8 @@ class ActivityReport < ApplicationRecord
       []
     end
   end
+
+  def topic_list
+    topics.map(&:name)
+  end
 end
