@@ -1,7 +1,5 @@
 class ActivityReport < ApplicationRecord
-  validates_presence_of :activity_id, :activity_typ, :start_date, :duration
-  validates_uniqueness_of :activity_id
-  validates_inclusion_of :report_typ, in: %w[GS EC]
+  validates_presence_of :start_date, :duration
 
   has_and_belongs_to_many :grants
   has_many :grantees, through: :grants
@@ -9,33 +7,27 @@ class ActivityReport < ApplicationRecord
 
   has_and_belongs_to_many :people
 
-  has_many :follow_up_reports, class_name: "ActivityReport", foreign_key: "previous_activity_report_id"
-  belongs_to :previous_activity_report, class_name: "ActivityReport", optional: true
-
   belongs_to :tta_need, optional: true
+  has_many :topics, through: :tta_need
+  has_many :tasks, through: :tta_need
+
   belongs_to :activity_plan, optional: true
 
-  acts_as_ordered_taggable_on :materials, :topics
-
-  auto_strip_attributes :activity_id
-
-  before_validation :set_activity_id
-
   update_index "activity_reports_index#activity_report", :self
-
-  def linked?
-    previous_activity_report.present? || follow_up_reports.any?
-  end
 
   def region
     grants.map(&:region).uniq.compact.join(", ")
   end
 
-  private
+  def linked?
+    !tta_need.nil?
+  end
 
-  def set_activity_id
-    if activity_id.blank? && tta_need.present?
-      self.activity_id = "#{tta_need.id}-#{tta_need.activity_reports.count}"
+  def tta_need_reports
+    if linked?
+      tta_need.activity_reports
+    else
+      []
     end
   end
 end

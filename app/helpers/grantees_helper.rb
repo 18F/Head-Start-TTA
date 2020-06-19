@@ -4,7 +4,7 @@ module GranteesHelper
   end
 
   def topic_options(grantee)
-    topics = TopicTag.for_grantee(grantee).select(:name).order(:name)
+    topics = Topic.for_grantee(grantee).select(:name).order(:name)
     topics = topics.map { |t| [t.name, t.name] }
     [["Any", ""], *topics]
   end

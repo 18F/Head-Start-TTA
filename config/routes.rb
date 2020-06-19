@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  resources :activity_reports
+  resources :activity_reports, except: %i[new create]
   get "/tta_needs/tracker", to: "tta_needs#activity_tracker"
   resources :grantees, only: %i[index show], shallow: true do
     resources :people, only: %i[show] do

@@ -6,10 +6,6 @@ RSpec.describe ActivityReportsController, type: :routing do
       expect(get: "/activity_reports").to route_to("activity_reports#index")
     end
 
-    it "routes to #new" do
-      expect(get: "/activity_reports/new").to route_to("activity_reports#new")
-    end
-
     it "routes to #show" do
       expect(get: "/activity_reports/1").to route_to("activity_reports#show", id: "1")
     end
@@ -19,7 +15,7 @@ RSpec.describe ActivityReportsController, type: :routing do
     end
 
     it "routes to #create" do
-      expect(post: "/activity_reports").to route_to("activity_reports#create")
+      expect(post: "/tta_needs/1/activity_reports").to route_to("activity_reports#create", tta_need_id: "1")
     end
 
     it "routes to #update via PUT" do

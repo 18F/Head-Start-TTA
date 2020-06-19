@@ -25,7 +25,6 @@ gem "jbuilder", "~> 2.7"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem "creek", "~> 2.5"
 gem "kaminari", "~> 1.1"
 gem "chewy", "~> 5.1"
 gem "cf-app-utils", "~> 0.6", github: "rahearn/cf-app-utils-ruby", branch: "survive-missing-env"

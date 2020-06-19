@@ -5,7 +5,6 @@
     <tr>
       <th scope="col">Activity ID</th>
       <th scope="col">Region</th>
-      <th scope="col">Report Type</th>
       <th scope="col">Purpose</th>
       <th scope="col" colspan="2"></th>
     </tr>
@@ -14,17 +13,12 @@
   <tbody>
     <% @activity_reports.each do |activity_report| %>
       <tr>
-        <th scope="row"><%= activity_report.activity_id %></th>
+        <th scope="row"><%= activity_report.id %></th>
         <td><%= activity_report.region %></td>
-        <td><%= activity_report.report_typ %></td>
-        <td><%= activity_report.purpose %></td>
+        <td><%= activity_report.topics.map(&:name).join(", ") %></td>
         <td><%= link_to 'Show', activity_report %></td>
         <td><%= link_to 'Destroy', activity_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Upload Activity Reports', new_activity_report_path %>
