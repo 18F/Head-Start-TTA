@@ -3,14 +3,13 @@
     <div class="grid-col">
       <h3>Activity Timeline</h3>
       <p>
-        <% if @activity_report.previous_activity_report.present? %>
-          <%= link_to "#{@activity_report.previous_activity_report.start_date.to_s(:long)} #{@activity_report.previous_activity_report.purpose}", @activity_report.previous_activity_report, class: "usa-link" %>
+        <% @activity_report.tta_need_reports.each do |ar| %>
+          <% if @activity_report.id == ar.id %>
+            This report
+          <% else %>
+            <%= link_to "#{ar.start_date.to_s(:long)} #{ar.contact_method} Report", ar, class: "usa-link" %>
+          <% end %>
           &bullet;
-        <% end %>
-        This report
-        <% @activity_report.follow_up_reports.each do |report| %>
-          &bullet;
-          <%= link_to "#{report.start_date.to_s(:long)} #{report.purpose}", report, class: "usa-link" %>
         <% end %>
       </p>
     </div>
@@ -23,7 +22,6 @@
       <h3>Activity Summary</h3>
       <ul class="usa-list usa-list--unstyled">
         <li><%= @activity_report.start_date.to_s(:long) %> <%= @activity_report.duration %> hours</li>
-        <li><%= @activity_report.purpose %></li>
         <li>
           <ul class="usa-list usa-list--unstyled">
             <% @activity_report.topics.each do |t| %>
@@ -41,10 +39,10 @@
         </li>
       </ul>
     </div>
-    <% if @activity_report.previous_activity_report.present? %>
+    <% if @activity_report.linked? %>
       <div class="grid-col">
         <h3>Next Steps from Past Activity</h3>
-        <%= pretend_we_have_proper_next_steps_fields @activity_report.previous_activity_report.next_steps %>
+        <p>TODO</p>
       </div>
     <% end %>
   </div>
@@ -52,8 +50,8 @@
 
 <div class="font-body-md measure-2">
   <h2>Next Steps</h2>
-  <%= pretend_we_have_proper_next_steps_fields @activity_report.next_steps %>
+  <p>TODO</p>
 
   <h2>Notes on This Contact</h2>
-  <%= pretend_we_have_proper_narrative_fields @activity_report.narrative %>
+  <p>TODO</p>
 </div>

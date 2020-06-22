@@ -1,16 +1,13 @@
 class ActivityReportsIndex < Chewy::Index
   define_type ActivityReport do
-    field :purpose, analyzer: "english"
-    field :narrative, analyzer: "english"
-    field :next_steps, analyzer: "english"
-    field :materials, value: ->(ar) { ar.materials.map(&:name) }
+    field :narrative, analyzer: "english", value: ->(ar) { ar.tasks.map(&:notes) }
+    field :next_steps, analyzer: "english", value: ->(ar) { ar.tasks.map(&:title) }
     field :topics, type: "text", value: ->(ar) { ar.topics.map(&:name) } do
       field :raw, type: "keyword"
     end
     field :specialists, value: ->(ar) { ar.people.map(&:name) }
     field :start_date, type: "date", include_in_all: false
     field :grantee_id, type: "keyword", include_in_all: false, value: ->(ar) { ar.grantees.map(&:id) }
-    field :activity_id
   end
 
   def self.for_grantee(grantee_id)
@@ -37,12 +34,9 @@ class ActivityReportsIndex < Chewy::Index
       multi_match do
         query q
         fields [
-          "activity_id^100",
-          "purpose^20",
-          "topics^10",
+          "topics^20",
           "narrative",
           "next_steps",
-          "materials",
           "specialists"
         ]
       end

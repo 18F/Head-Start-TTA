@@ -4,7 +4,7 @@ module GranteesHelper
   end
 
   def topic_options(grantee)
-    topics = TopicTag.for_grantee(grantee).select(:name).order(:name)
+    topics = Topic.for_grantee(grantee).select(:name).distinct.order(:name)
     topics = topics.map { |t| [t.name, t.name] }
     [["Any", ""], *topics]
   end
@@ -20,10 +20,7 @@ module GranteesHelper
 
   def past_activity_timeline_list(activity_report)
     content_tag(:ul, class: "usa-list") do
-      concat content_tag(:li, activity_report.activity_id)
-      while (activity_report = activity_report.previous_activity_report)
-        concat content_tag(:li, activity_report.activity_id)
-      end
+      concat content_tag(:li, activity_report.id)
     end
   end
 end

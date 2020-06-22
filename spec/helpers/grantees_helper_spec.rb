@@ -29,14 +29,15 @@ RSpec.describe GranteesHelper, type: :helper do
   end
 
   describe "#topic_options" do
-    let(:grant) { create :grant, :grantee }
-    let!(:ar) { create :activity_report, topic_list: %w[TopicA TopicB], grants: [grant] }
+    let(:grantee) { create :grantee }
+    let(:topic) { create :topic }
+    let(:need) { create :tta_need, topics: [topic], grantee: grantee }
+    let!(:ar) { create :activity_report, tta_need: need }
 
     it "returns the grantees activity reports" do
-      expect(helper.topic_options(grant.grantee)).to eq [
+      expect(helper.topic_options(grantee)).to eq [
         ["Any", ""],
-        ["TopicA", "TopicA"],
-        ["TopicB", "TopicB"]
+        ["Leadership", "Leadership"]
       ]
     end
   end
