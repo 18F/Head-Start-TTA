@@ -53,8 +53,8 @@ group :development, :test do
   gem "brakeman", "~> 4.8"
   gem "bundler-audit", "~> 0.6"
   gem "rspec-rails", "~> 4.0"
-  gem "shoulda", "4.0.0.rc2"
-  gem "factory_bot_rails", "~> 5.1"
+  gem "shoulda", "~> 4.0"
+  gem "factory_bot_rails", "~> 6.0"
   gem "rspec_api_documentation", "~> 6.1"
 end
 
