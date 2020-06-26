@@ -90,10 +90,10 @@ The `ActivityPlan` model was introduced to the workflow to set up the planned Ob
 
 The following tools must be installed:
 
-* [Ruby 2.6.5](https://www.ruby-lang.org/en/)
+* [Ruby 2.6.6](https://www.ruby-lang.org/en/)
 * [Node.js 12.x LTS](https://nodejs.org/en/)
-* [Bundler 2.1.1](https://rubygems.org/gems/bundler)
-* [Yarn 1.21](https://yarnpkg.com/lang/en/)
+* [Bundler 2.x](https://rubygems.org/gems/bundler)
+* [Yarn](https://yarnpkg.com/lang/en/)
 * [PostgreSQL](https://www.postgresql.org/)
 
 Install required ruby gems with: `$ bundle install`
