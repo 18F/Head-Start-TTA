@@ -127,7 +127,7 @@ GEM
       elasticsearch-dsl
     concurrent-ruby (1.1.6)
     crass (1.0.6)
-    diff-lcs (1.4.2)
+    diff-lcs (1.4.3)
     elasticsearch (7.8.0)
       elasticsearch-api (= 7.8.0)
       elasticsearch-transport (= 7.8.0)
@@ -184,7 +184,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    kramdown (2.2.1)
+    kramdown (2.3.0)
       rexml
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -302,7 +302,7 @@ GEM
       rubocop-ast (>= 0.0.3)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (0.0.3)
+    rubocop-ast (0.1.0)
       parser (>= 2.7.0.1)
     rubocop-performance (1.6.1)
       rubocop (>= 0.71.0)
@@ -358,7 +358,7 @@ GEM
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.3.0)
+    zeitwerk (2.3.1)
 
 PLATFORMS
   ruby
