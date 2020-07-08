@@ -144,6 +144,19 @@ jobs:
 
 workflows:
   version: 2
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 5 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
+      - rspec:
+          requires:
+            - build
   build_and_test:
     jobs:
       - build
