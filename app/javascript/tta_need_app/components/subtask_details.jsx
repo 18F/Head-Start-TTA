@@ -78,7 +78,7 @@ class SubtaskDetails extends PureComponent {
       return (
         <ul className="usa-list">
           {links.map((link, index) => (
-            <li key={index}><a href={link} target="_blank">{link}</a></li>
+            <li key={index}><a href={link} target="_blank" rel="noopener">{link}</a></li>
           ))}
         </ul>
       )
