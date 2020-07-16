@@ -151,7 +151,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - build
       - rspec:
@@ -168,4 +168,4 @@ workflows:
             - rspec
           filters:
             branches:
-              only: master
+              only: main
