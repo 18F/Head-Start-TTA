@@ -37,7 +37,7 @@ OHS is engaging 18F to help OHS procure a centralized system for relevant TTA da
 
 [![18F CircleCI](https://circleci.com/gh/18F/Head-Start-TTA.svg?style=shield)](https://circleci.com/gh/18F/Head-Start-TTA)
 
-The prototype app is automatically deployed to cloud.gov on a successful CircleCI build of the master branch.
+The prototype app is automatically deployed to cloud.gov on a successful CircleCI build of the main branch.
 
 ### Deployment Helper
 
