@@ -1,5 +1,5 @@
 <div class="grid-row grid-gap">
-  <div class="grid-col-3">
+  <aside class="grid-col-3">
     <div class="box box--vertically-padded">
       <%= @grantee.name %>
       <ul class="usa-list usa-list--unstyled">
@@ -23,7 +23,7 @@
     <% if policy(:tta_plan).create? %>
       <%= link_to "Add TTA Goals", new_grantee_tta_plan_path(grantee_id: @grantee.id), class: "usa-button" %>
     <% end %>
-  </div>
+  </aside>
   <div class="grid-col-9" id="main-content">
     <div class="box box--vertically-padded">
       <%= form_tag grantee_path(id: @grantee.id), method: :get, class: "usa-search usa-search--small" do %>
