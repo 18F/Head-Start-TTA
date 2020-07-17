@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import needDetailsBox from '../containers/need_details_box'
 import PlanningDetailsComponent from './planning_details_box'
 import ActivityReportForm from '../containers/activity_report_form.jsx'
@@ -16,11 +16,11 @@ class TTANeedReporter extends PureComponent {
     const { id: ttaNeedId } = ttaNeed
     const ReportingDetailsBox = needDetailsBox(PlanningDetailsComponent)
     return (
-      <Fragment>
+      <div id="main-content">
         <h1>TTA Activity Report</h1>
         <ReportingDetailsBox ttaNeed={ttaNeed} />
         <ActivityReportForm ttaNeed={ttaNeed} activityPlan={activityPlan} history={history} />
-      </Fragment>
+      </div>
     )
   }
 }

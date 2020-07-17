@@ -28,7 +28,7 @@ class TTANeedTracker extends PureComponent {
             <TrackerDetailsBox ttaNeed={ttaNeed} />
             <Link to={`/tta_needs/${ttaNeedId}/plan`} className="usa-button">Create Activity Plan</Link>
           </div>
-          <div className="grid-col-8">
+          <div className="grid-col-8" id="main-content">
             <TrackerTimeline ttaNeed={ttaNeed} />
             <Route path="/tta_needs/:ttaNeedId/reports/:reportId" render={routeParams => (
               <ActivityReport {...routeParams} ttaNeed={ttaNeed} />

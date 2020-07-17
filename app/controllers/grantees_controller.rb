@@ -10,6 +10,7 @@ class GranteesController < ApplicationController
     @grantee = Grantee.find params[:id]
     if request.format.html?
       @page_title = @grantee.name
+      @page_has_custom_main = true
       @query = params[:q]
       @topic = params[:topic]
       @date = params[:date]

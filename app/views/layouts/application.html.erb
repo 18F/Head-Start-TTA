@@ -85,7 +85,11 @@
       </nav>
     </header>
 
-    <main id="main-content">
+    <% if page_has_custom_main? %>
+      <main>
+    <% else %>
+      <main id="main-content">
+    <% end %>
       <div class="grid-container">
         <% if flash[:error].present? %>
           <div class="grid-row">

@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import needDetailsBox from '../containers/need_details_box'
 import PlanningDetailsComponent from './planning_details_box'
 import ActivityPlanForm from '../containers/activity_plan_form'
@@ -14,11 +14,11 @@ class TTANeedPlanner extends PureComponent {
     }
     const PlanningDetailsBox = needDetailsBox(PlanningDetailsComponent)
     return (
-      <Fragment>
+      <div id="main-content">
         <h1>TTA Planning</h1>
         <PlanningDetailsBox ttaNeed={ttaNeed} />
         <ActivityPlanForm ttaNeed={ttaNeed} history={history} />
-      </Fragment>
+      </div>
     )
   }
 }

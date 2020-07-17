@@ -16,6 +16,7 @@ class TtaNeedsController < ApplicationController
 
   def show
     @page_title = "TTA Progress Tracker"
+    @page_has_custom_main = true
     respond_to do |format|
       format.html
       format.api_json { render_model TtaNeed.find(params[:id]) }
@@ -24,6 +25,7 @@ class TtaNeedsController < ApplicationController
 
   def new
     @page_title = "Request TTA Deployment"
+    @page_has_custom_main = true
   end
 
   def create

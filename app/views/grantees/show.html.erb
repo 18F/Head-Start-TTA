@@ -24,7 +24,7 @@
       <%= link_to "Add TTA Goals", new_grantee_tta_plan_path(grantee_id: @grantee.id), class: "usa-button" %>
     <% end %>
   </div>
-  <div class="grid-col-9">
+  <div class="grid-col-9" id="main-content">
     <div class="box box--vertically-padded">
       <%= form_tag grantee_path(id: @grantee.id), method: :get, class: "usa-search usa-search--small" do %>
         <%= label_tag :date, "Activity Date", class: "usa-label" %>
