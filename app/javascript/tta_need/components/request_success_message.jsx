@@ -18,7 +18,7 @@ class RequestSuccessMessage extends PureComponent {
     return (
       <Transition in={show} timeout={this.duration} appear={true} mountOnEnter={true} unmountOnExit={true}>
         {state => (
-          <div className="grid-row" style={{...this.defaultStyle, ...this.transitionStyles[state]}}>
+          <div className="grid-row" role="alert" style={{...this.defaultStyle, ...this.transitionStyles[state]}}>
             <div className="grid-col">
               <div className="usa-alert usa-alert--success">
                 <div className="usa-alert__body">

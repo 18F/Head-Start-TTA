@@ -20,7 +20,7 @@ class TrackerDetailsBox extends PureComponent {
       grants
     } = this.props
     return (
-      <div className="box">
+      <aside className="box">
         <p><strong>{uniq(grants.map(({attributes: {region}}) => region)).join(", ")}</strong></p>
         <h2>TA Need #{ttaNeedId}</h2>
         <h4>Requested: {shortDate(requestDate)}</h4>
@@ -41,7 +41,7 @@ class TrackerDetailsBox extends PureComponent {
         <p style={{marginTop: 0}}><a href={`/grantees/${granteeId}`} className="usa-link">{granteeName}</a></p>
         <GrantsList grants={grants} />
         <PersonListDetails people={pocs} />
-      </div>
+      </aside>
     )
   }
 }

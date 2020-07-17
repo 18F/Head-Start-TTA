@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>HeadStartTta</title>
+    <title><%= @page_title %> | OHS TTADP</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -66,7 +66,7 @@
         </div>
         <button class="usa-menu-btn">Menu</button>
       </div>
-      <nav role="navigation" class="usa-nav">
+      <nav role="navigation" class="usa-nav" aria-label="main site">
         <div class="usa-nav__inner">
           <button class="usa-nav__close">
             <%= image_pack_tag "media/img/close.svg", alt: "close" %>
@@ -85,7 +85,11 @@
       </nav>
     </header>
 
-    <main id="main-content">
+    <% if page_has_custom_main? %>
+      <main>
+    <% else %>
+      <main id="main-content">
+    <% end %>
       <div class="grid-container">
         <% if flash[:error].present? %>
           <div class="grid-row">

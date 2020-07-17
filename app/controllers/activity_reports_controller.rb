@@ -2,6 +2,7 @@ class ActivityReportsController < ApplicationController
   include JsonapiMethods
 
   before_action :set_activity_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_edit_page_title, only: %i[edit update]
 
   def index
     @activity_reports = if params[:tta_need_id].present?
@@ -9,6 +10,7 @@ class ActivityReportsController < ApplicationController
     else
       ActivityReport.all
     end
+    @page_title = "Activity Reports"
     respond_to do |format|
       format.html
       format.api_json { render_models @activity_reports }
@@ -16,6 +18,7 @@ class ActivityReportsController < ApplicationController
   end
 
   def show
+    @page_title = "Activity Report"
     respond_to do |format|
       format.html
       format.api_json { render_model @activity_report }
@@ -73,6 +76,10 @@ class ActivityReportsController < ApplicationController
 
   def set_activity_report
     @activity_report = ActivityReport.find(params[:id])
+  end
+
+  def set_edit_page_title
+    @page_title = "Edit Activity Report"
   end
 
   def activity_report_params

@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import GranteeDetailsBox from 'grantee/containers/grantee_details_box'
 import TTANeedForm from 'tta_need/containers/tta_need_form'
 
@@ -14,10 +14,10 @@ class TTARequestForm extends PureComponent {
   render() {
     const { history } = this.props
     return (
-      <Fragment>
+      <div id="main-content">
         <GranteeDetailsBox granteeId={this.granteeId} />
         <TTANeedForm hideCancel={true} ecsPlans={true} history={history} />
-      </Fragment>
+      </div>
     )
   }
 }

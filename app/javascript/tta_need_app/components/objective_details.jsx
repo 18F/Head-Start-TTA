@@ -149,9 +149,9 @@ class ObjectiveDetails extends PureComponent {
           <div className="grid-col-8">
             <h4 className="hinted">Tasks</h4>
             <p className="usa-hint">What specific steps and actions will happen at the activity to make progress on this objective?</p>
-            <ul className="usa-list usa-list--unstyled next-steps-list">
+            <div className="next-steps-list">
               <SubtasksList taskId={taskId} planning={planning} reporting={reporting} activitiesCompleted={activitiesCompleted} taskUpdated={refetch} />
-            </ul>
+            </div>
           </div>
           <div className="grid-col-4">
             {this.linksDisplay()}

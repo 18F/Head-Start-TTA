@@ -106,13 +106,13 @@ class SubtaskDetails extends PureComponent {
   render() {
     const { task: {attributes: {title}} } = this.props
     return (
-      <li>
+      <div>
         {this.checkIcon()}
         &nbsp;
         <span style={{fontSize: "1.06rem"}}>{title}</span>
         {this.linksDisplay()}
         {this.notesField()}
-      </li>
+      </div>
     )
   }
 }

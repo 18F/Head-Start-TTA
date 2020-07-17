@@ -1,5 +1,5 @@
 <div class="grid-row grid-gap">
-  <div class="grid-col-3">
+  <aside class="grid-col-3">
     <div class="box box--vertically-padded">
       <%= @grantee.name %>
       <ul class="usa-list usa-list--unstyled">
@@ -23,8 +23,8 @@
     <% if policy(:tta_plan).create? %>
       <%= link_to "Add TTA Goals", new_grantee_tta_plan_path(grantee_id: @grantee.id), class: "usa-button" %>
     <% end %>
-  </div>
-  <div class="grid-col-9">
+  </aside>
+  <div class="grid-col-9" id="main-content">
     <div class="box box--vertically-padded">
       <%= form_tag grantee_path(id: @grantee.id), method: :get, class: "usa-search usa-search--small" do %>
         <%= label_tag :date, "Activity Date", class: "usa-label" %>
@@ -88,7 +88,11 @@
             <p>Citation: <%= mr.formatted_citation %></p>
             <p>Type: <%= mr.status %></p>
             <p>Notes: <%= mr.narrative.truncate(100) %></p>
-            <p><%= link_to "View Report", mr, class: "usa-button", data: {turbolinks: false} %></p>
+            <p>
+              <%= link_to mr, class: "usa-button" do %>
+                View <span class="visually-hidden">Monitoring</span> Report <span class="visually-hidden">from <%= mr.report_date.to_s(:long) %></span>
+              <% end %>
+            </p>
             <% if recent_tta_request? %>
               <p><%= link_to "Track Requested TTA", tta_needs_tracker_path, class: "usa-button" %></p>
             <% end %>
@@ -105,7 +109,11 @@
             <p><strong><%= ar.start_date.to_s(:long) %></strong> <%= ar.duration %> hours</p>
             <p>Topics: <%= ar.topic_list.join ", " %></p>
             <p>Specialists: <%= ar.people.map(&:name).join ", " %></p>
-            <p><%= link_to "View Report", ar, class: "usa-button" %></p>
+            <p>
+              <%= link_to ar, class: "usa-button" do %>
+                View <span class="visually-hidden">Activity</span> Report <span class="visually-hidden">from <%= ar.start_date.to_s(:long) %></span>
+              <% end %>
+            </p>
           </div>
           <div class="grid-col grid-col-4">
             <%= past_activity_timeline_list(ar) %>
