@@ -7,6 +7,7 @@ class TtaNeedsController < ApplicationController
     elsif params[:topic_id].present?
       TtaNeed.joins(:topics).where(topics: {id: params[:topic_id]})
     end
+    @page_title = "TTA Needs"
     respond_to do |format|
       format.html
       format.api_json { render_models @tta_needs }
@@ -14,6 +15,7 @@ class TtaNeedsController < ApplicationController
   end
 
   def show
+    @page_title = "TTA Progress Tracker"
     respond_to do |format|
       format.html
       format.api_json { render_model TtaNeed.find(params[:id]) }
@@ -21,6 +23,7 @@ class TtaNeedsController < ApplicationController
   end
 
   def new
+    @page_title = "Request TTA Deployment"
   end
 
   def create

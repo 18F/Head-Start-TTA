@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
   def new
     @people = Person.all.order(:name)
+    @page_title = "Login"
   end
 
   def create

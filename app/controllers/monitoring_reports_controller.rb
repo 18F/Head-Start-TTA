@@ -8,6 +8,7 @@ class MonitoringReportsController < ApplicationController
 
   def show
     @monitoring_report = MonitoringReport.find params[:id]
+    @page_title = "Monitoring Report"
     respond_to do |format|
       format.html
       format.api_json { render_model @monitoring_report }
