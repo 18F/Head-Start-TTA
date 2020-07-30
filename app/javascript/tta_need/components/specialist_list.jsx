@@ -52,14 +52,14 @@ class SpecialistList extends Component {
         <label className="usa-label" htmlFor="specialist-type">Type of Specialists Needed</label>
         {specialistTypesNeeded.map((type, index) =>
           <div className="box box--vertically-padded" key={index} style={{marginBottom: 0}}>
-            <Select options={this.specialistOptions} value={type} onChange={value => this.specialistTypeChanged(value, index)} />
+            <Select autoFocus={typesCount > 1} options={this.specialistOptions} value={type} onChange={value => this.specialistTypeChanged(value, index)} />
             <TopicList scope={type.value} />
             {typesCount > 1 &&
               <p style={{margin: 0}}><a href="#" onClick={e => this.removeSpecialist(e, index)}>Remove specialist</a></p>
             }
           </div>
         )}
-        {specialistTypesNeeded.length < this.specialistOptions.length &&
+        {typesCount < this.specialistOptions.length &&
           <p style={{margin: 0}}><a href="#" onClick={this.addSpecialist}>Add another specialist</a></p>
         }
       </Fragment>
