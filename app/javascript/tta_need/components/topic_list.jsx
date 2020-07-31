@@ -53,7 +53,7 @@ class TopicList extends PureComponent {
         <label className="usa-label" htmlFor="topics">Topics</label>
         {this.topics.map((topic, index) => (
           <Fragment key={index}>
-            <Select options={this.options} value={topic} onChange={value => this.topicChanged(value, index)} />
+            <Select autoFocus={topicCount > 1} options={this.options} value={topic} onChange={value => this.topicChanged(value, index)} />
             {topicCount > 1 &&
               <p style={{margin: 0}}><a href="#" onClick={e => this.removeTopic(e, index)}>Remove topic</a></p>
             }

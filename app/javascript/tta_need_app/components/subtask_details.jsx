@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquare, faCheckSquare } from '@fortawesome/free-regular-svg-icons'
 import { stringPresent } from 'common/utils'
@@ -63,9 +63,15 @@ class SubtaskDetails extends PureComponent {
           </h5>
           <div id={divId} className="usa-accordion__content" hidden={true}>
             <form className="usa-form">
-              {links.map((link, index) => (
-                <input key={index} type="text" className="usa-input" value={link} onChange={(e) => { this.updateLink(taskId, index, e.target.value) }} />
-              ))}
+              {links.map((link, index) => {
+                const linkId = `link-${taskId}-${index}`
+                return (
+                  <Fragment key={index}>
+                    <label className="visually-hidden" htmlFor={linkId}>Resource {index}</label>
+                    <input id={linkId} autoFocus={link === ""} type="text" className="usa-input" value={link} onChange={(e) => { this.updateLink(taskId, index, e.target.value) }} />
+                  </Fragment>
+                )
+              })}
               <p style={{margin: 0}}><a href="#" onClick={this.addLink}>Add {links.length === 0 ? "a" : "another"} link</a></p>
               <button className="usa-button usa-button--outline" type="button" onClick={() => alert("Tell us what you would have attached here")}>Add attachment</button>
             </form>

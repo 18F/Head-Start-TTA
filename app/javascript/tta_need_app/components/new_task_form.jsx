@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { stringPresent } from 'common/utils'
 import { filter } from 'lodash'
 
@@ -56,9 +56,15 @@ class NewTaskForm extends PureComponent {
             <label className="usa-label" htmlFor="new-objective-title">{label}:</label>
             <input type="text" className="usa-input" id="new-objective-title" value={title} onChange={this.updateTask} onKeyUp={this.keyUp} autoComplete="off" />
             <label className="usa-label" htmlFor="new-objective-links-0">Supplemental Materials and Resources</label>
-            {links.map((link,index) => (
-              <input key={index} type="text" className="usa-input" id={`new-objetive-links-${index}`} value={link} onChange={(e) => { this.updateLink(index, e.target.value) }} />
-            ))}
+            {links.map((link, index) => {
+              const linkId = `link-${divId}-${index}`
+              return (
+                <Fragment key={index}>
+                  <label className="visually-hidden" htmlFor={linkId}>Resource {index}</label>
+                  <input type="text" autoFocus className="usa-input" id={linkId} value={link} onChange={(e) => { this.updateLink(index, e.target.value) }} />
+                </Fragment>
+              )
+            })}
             <p style={{margin: 0}}><a href="#" onClick={this.addLink}>Add {links.length === 0 ? "a" : "another"} link</a></p>
             <button className="usa-button usa-button--outline" type="button" onClick={() => alert("Tell us what you would have attached here")}>Add attachment</button>
             <br />

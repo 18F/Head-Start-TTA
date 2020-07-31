@@ -59,9 +59,15 @@ class ObjectiveDetails extends PureComponent {
         <Fragment>
           <h4>Supplemental Materials and Resources</h4>
           <form className="usa-form">
-            {links.map((link, index) => (
-              <input key={index} type="text" className="usa-input" value={link} onChange={(e) => { this.updateLink(taskId, index, e.target.value) }} />
-            ))}
+            {links.map((link, index) => {
+              const linkId = `link-${taskId}-${index}`
+              return (
+                <Fragment key={index}>
+                  <label className="visually-hidden" htmlFor={linkId}>Resource {index}</label>
+                  <input id={linkId} autoFocus={link === ""} type="text" className="usa-input" value={link} onChange={(e) => { this.updateLink(taskId, index, e.target.value) }} />
+                </Fragment>
+              )
+            })}
             <p style={{margin: 0}}><a href="#" onClick={this.addLink}>Add {links.length === 0 ? "a" : "another"} link</a></p>
             <button className="usa-button usa-button--outline" type="button" onClick={() => alert("Tell us what you would have attached here")}>Add attachment</button>
           </form>
