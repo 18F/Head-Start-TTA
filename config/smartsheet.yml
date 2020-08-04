@@ -18,6 +18,58 @@ production:
   assignment_sheet: "<%= ENV["SMARTSHEET_ASSIGNMENT_SHEET"] %>"
   plan_sheet: "<%= ENV["SMARTSHEET_PLAN_SHEET"] %>"
   report_sheet: "<%= ENV["SMARTSHEET_REPORT_SHEET"] %>"
+  topics_sheet: ""
+  ar_details_grantee_column: "Grantee Name"
+  ar_objectives_topics_column: "Topics"
+  regions:
+    "1":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "2":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "3":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "4":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "5":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "6":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "7":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "8":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "9":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "10":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "11":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+    "12":
+      grantee_names_sheet: ""
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
 
 test:
   <<: *defaults
