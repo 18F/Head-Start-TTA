@@ -10,6 +10,25 @@ class SmartsheetFacade
     )
   end
 
+  def ar_details_sheet
+    @ar_details_sheet ||= client.sheets.get(sheet_id: SHEET_ID_CONFIG[:ar_details_sheet])
+  end
+
+  def grantee_names_sheet
+    @grantee_names_sheet ||= client.sheets.get(sheet_id: SHEET_ID_CONFIG[:grantee_names_sheet])
+  end
+
+  def set_grantee_name_options(column_id:)
+    sheet_id = ar_details_sheet[:id]
+    options = grantee_names_sheet[:rows].map { |row| "#{row[:cells][1][:display_value]} | #{row[:cells][0][:display_value]}" }
+    body = {type: "MULTI_PICKLIST", options: options, validation: true}
+    client.sheets.columns.update(sheet_id: sheet_id, column_id: column_id, body: body)
+  end
+
+  def ar_objectives_sheet
+    @ar_objectives_sheet ||= client.sheets.get(sheet_id: SHEET_ID_CONFIG[:ar_objectives_sheet])
+  end
+
   def request_sheet
     @request_sheet ||= Sheet.new(client.sheets.get(sheet_id: SHEET_ID_CONFIG[:request_sheet]), client)
   end
