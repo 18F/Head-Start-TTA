@@ -1,14 +1,5 @@
 class SmartsheetFacade
-  attr_reader :client
-
-  SHEET_ID_CONFIG = Rails.application.config_for(:smartsheet).freeze
-
-  def initialize
-    @client = Smartsheet::Client.new(
-      token: Rails.application.credentials.smartsheet_token,
-      logger: Rails.logger
-    )
-  end
+  include SmartsheetClient
 
   def request_sheet
     @request_sheet ||= Sheet.new(client.sheets.get(sheet_id: SHEET_ID_CONFIG[:request_sheet]), client)
