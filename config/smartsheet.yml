@@ -5,7 +5,7 @@ development: &defaults
   report_sheet: "837690070460292"
   topics_sheet: "2631271533832068"
   ar_details_grantee_column: "Grantee Name"
-  ar_objectives_topics_column: "Topics"
+  ar_objectives_topics_suffix: "Topics"
   regions:
     "14":
       grantee_names_sheet: "6487185797998468"
@@ -20,7 +20,7 @@ production:
   report_sheet: "<%= ENV["SMARTSHEET_REPORT_SHEET"] %>"
   topics_sheet: ""
   ar_details_grantee_column: "Grantee Name"
-  ar_objectives_topics_column: "Topics"
+  ar_objectives_topics_suffix: "Topics"
   regions:
     "1":
       grantee_names_sheet: ""
