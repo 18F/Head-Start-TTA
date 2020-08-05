@@ -11,6 +11,7 @@ development: &defaults
       grantee_names_sheet: "6487185797998468"
       ar_details_sheet: "670348111832964"
       ar_objectives_sheet: "4994248455022468"
+      ar_combined_sheet: "6468773273200516"
 
 production:
   <<: *defaults
@@ -26,50 +27,62 @@ production:
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "2":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "3":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "4":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "5":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "6":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "7":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "8":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "9":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "10":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "11":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
     "12":
       grantee_names_sheet: ""
       ar_details_sheet: ""
       ar_objectives_sheet: ""
+      ar_combined_sheet: ""
 
 test:
   <<: *defaults
