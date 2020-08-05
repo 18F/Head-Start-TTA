@@ -22,13 +22,11 @@ class SmartsheetColumnSetter
     each_region do |region|
       sheet_id = SHEET_ID_CONFIG[:regions][region][:ar_objectives_sheet]
       sheet = client.sheets.get(sheet_id: sheet_id)
-      topics_options.keys.each do |topic_area|
-        topics_column_title = "#{topic_area} #{column_title_for(region, :ar_objectives_topics_suffix)}"
-        topic_column_id = sheet[:columns].find { |c| c[:title] == topics_column_title }.try(:[], :id)
-        next if topic_column_id.nil?
-        body = {type: "MULTI_PICKLIST", options: topics_options[topic_area], validation: true}
-        client.sheets.columns.update(sheet_id: sheet_id, column_id: topic_column_id, body: body)
-      end
+      topics_column_title = column_title_for(region, :ar_objectives_topics_column)
+      topic_column_id = sheet[:columns].find { |c| c[:title] == topics_column_title }.try(:[], :id)
+      next if topic_column_id.nil?
+      body = {type: "MULTI_PICKLIST", options: topics_options, validation: true}
+      client.sheets.columns.update(sheet_id: sheet_id, column_id: topic_column_id, body: body)
     end
   end
 
@@ -47,8 +45,8 @@ class SmartsheetColumnSetter
   end
 
   def topics_options
-    @topics_options ||= topics_sheet[:rows].map { |row| row[:cells] }.each_with_object(Hash.new { |h, k| h[k] = [] }) { |cells, collector|
-      collector[cells[1][:display_value]] << cells[0][:display_value]
+    @topics_options ||= topics_sheet[:rows].map { |row| row[:cells] }.map { |cells|
+      "#{cells[0][:display_value]} | #{cells[1][:display_value]}"
     }
   end
 
