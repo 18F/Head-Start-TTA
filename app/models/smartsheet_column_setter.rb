@@ -58,7 +58,8 @@ class SmartsheetColumnSetter
 
   def topics_options
     @topics_options ||= topics_sheet[:rows].map { |row| row[:cells] }.map { |cells|
-      "#{cells[0][:display_value]} | #{cells[1][:display_value]}"
+      # "#{cells[1][:display_value]} | #{cells[0][:display_value]}"
+      cells[0][:display_value]
     }
   end
 
