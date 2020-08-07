@@ -10,7 +10,8 @@ module SmartsheetClient
   def initialize
     @client = Smartsheet::Client.new(
       token: Rails.application.credentials.smartsheet_token,
-      logger: Rails.logger
+      logger: Rails.logger,
+      base_url: Smartsheet::Constants::GOV_API_URL
     )
   end
 end

@@ -14,12 +14,11 @@ development: &defaults
       ar_combined_sheet: "6468773273200516"
 
 production:
-  <<: *defaults
   request_sheet: "<%= ENV["SMARTSHEET_REQUEST_SHEET"] %>"
   assignment_sheet: "<%= ENV["SMARTSHEET_ASSIGNMENT_SHEET"] %>"
   plan_sheet: "<%= ENV["SMARTSHEET_PLAN_SHEET"] %>"
   report_sheet: "<%= ENV["SMARTSHEET_REPORT_SHEET"] %>"
-  topics_sheet: ""
+  topics_sheet: "855262104328308"
   ar_details_grantee_column: "Grantee Name"
   ar_objectives_topics_column: "Topics"
   regions:
@@ -83,6 +82,11 @@ production:
       ar_details_sheet: ""
       ar_objectives_sheet: ""
       ar_combined_sheet: ""
+    "14":
+      grantee_names_sheet: "5331923696818292"
+      ar_details_sheet: ""
+      ar_objectives_sheet: ""
+      ar_combined_sheet: "6543078704486516"
 
 test:
   <<: *defaults
