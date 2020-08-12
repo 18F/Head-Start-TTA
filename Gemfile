@@ -38,7 +38,7 @@ gem "apitome", "~> 0.3"
 # merged & released
 gem "json_api_client", github: "sikachu/json_api_client", branch: "relax-faraday-versions"
 gem "smartsheet", github: "rahearn/smartsheet-ruby-sdk", branch: "update-dependencies"
-gem "chartkick", "~> 3.3"
+gem "chartkick", "~> 3.4"
 gem "faraday", "~> 1.0"
 
 gem "pundit", "~> 2.1"
