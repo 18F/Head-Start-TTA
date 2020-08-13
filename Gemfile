@@ -10,6 +10,10 @@ gem "pg", "~> 1.2"
 gem "auto_strip_attributes", "~> 2.5"
 gem "activeadmin", "~> 2.6"
 
+gem "omniauth", "~> 1.9"
+gem "omniauth-oauth2", "~> 1.7"
+gem "omniauth-rails_csrf_protection", "~> 0.1"
+
 # Use Puma as the app server
 gem "puma", "~> 4.3"
 # Use SCSS for stylesheets
