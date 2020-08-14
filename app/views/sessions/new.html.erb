@@ -11,3 +11,8 @@
   </fieldset>
   <%= button_tag "Login", class: "usa-button" %>
 <% end %>
+
+<% if Rails.env.development? %>
+  <br />
+  <%= button_to "HSES Login", "/auth/hses", class: "usa-button" %>
+<% end %>

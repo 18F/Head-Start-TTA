@@ -5,7 +5,8 @@ namespace :bundle do
   desc "Run bundle:audit with omniauth CVE ignored"
   task :audit do
     child_pid = fork {
-      exec "bundle audit update && bundle audit check"
+      # CVE-2015-9284 mitigated through the use of omniauth-rails_csrf_protection
+      exec "bundle audit update && bundle audit check --ignore CVE-2015-9284"
     }
     Process.wait(child_pid)
     status = $CHILD_STATUS.exitstatus
