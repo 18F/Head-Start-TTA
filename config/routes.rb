@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   end
   get "dashboard", to: "dashboard#central_office"
 
+  get "/oauth2-client/login/oauth2/code/", to: "sessions#omniauth"
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   get "logout", to: "sessions#destroy"
