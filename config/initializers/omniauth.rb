@@ -9,7 +9,6 @@ class HsesOauth < OmniAuth::Strategies::OAuth2
   option :callback_path, "/oauth2-client/login/oauth2/code/"
   option :scope, "user_info"
 
-
   uid { raw_info["principal"]["userId"] }
   info do
     {
@@ -20,15 +19,13 @@ class HsesOauth < OmniAuth::Strategies::OAuth2
   end
   extra do
     {
-      'raw_info' => raw_info
+      "raw_info" => raw_info
     }
   end
-
 
   def raw_info
     @raw_info ||= access_token.get("/auth/user/me").parsed
   end
-
 
   # superclass overrides to deal with issues found
   def on_callback_path?

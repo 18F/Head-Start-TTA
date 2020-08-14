@@ -23,15 +23,15 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    auth = request.env['omniauth.auth']
+    auth = request.env["omniauth.auth"]
     Rails.logger.debug <<~EOM
       hses auth raw_info:
       #{auth[:extra][:raw_info].inspect}
     EOM
-    person = Person.find_or_create_by(email: auth[:info][:email]) do |p|
+    person = Person.find_or_create_by(email: auth[:info][:email]) { |p|
       p.name = auth[:info][:name]
       p.role = auth[:info][:authorities].join(", ")
-    end
+    }
     session[:current_user_id] = person.id
     redirect_to return_path
   end
