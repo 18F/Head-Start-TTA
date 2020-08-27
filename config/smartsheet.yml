@@ -4,11 +4,13 @@ development: &defaults
   plan_sheet: "1798319635752836"
   report_sheet: "837690070460292"
   topics_sheet: "2631271533832068"
-  ar_details_grantee_column: "Grantee Name"
-  ar_objectives_topics_column: "Topics"
+  ar_grantee_column: "Grantee Name"
+  ar_topics_column: "Topics"
+  ar_specialists_column: "Other Specialists"
   regions:
     "14":
       grantee_names_sheet: "6487185797998468"
+      specialists_sheet: ""
       ar_combined_sheet: "6468773273200516"
 
 production:
@@ -17,47 +19,61 @@ production:
   plan_sheet: "<%= ENV["SMARTSHEET_PLAN_SHEET"] %>"
   report_sheet: "<%= ENV["SMARTSHEET_REPORT_SHEET"] %>"
   topics_sheet: "855262104328308"
-  ar_details_grantee_column: "Grantee Name"
-  ar_objectives_topics_column: "Topics"
+  ar_grantee_column: "Grantee Name"
+  ar_topics_column: "Topics"
+  ar_specialists_column: "Other Specialists"
   regions:
     "1":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "2":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "3":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "4":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "5":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "6":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "7":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "8":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "9":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "10":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "11":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "12":
       grantee_names_sheet: ""
+      specialists_sheet: ""
       ar_combined_sheet: ""
     "14":
       grantee_names_sheet: "5331923696818292"
+      specialists_sheet: ""
       ar_combined_sheet: "6543078704486516"
 
 test:
