@@ -10,13 +10,6 @@ class SmartsheetColumnSetter
     each_region do |region|
       grantee_name_column_title = column_title_for(region, :ar_details_grantee_column)
       body = {type: "MULTI_PICKLIST", options: grantee_name_options(region), validation: true}
-      sheet_id = SHEET_ID_CONFIG[:regions][region][:ar_details_sheet]
-      if sheet_id.present?
-        sheet = client.sheets.get(sheet_id: sheet_id)
-        grantee_name_column_id = sheet[:columns].find { |c| c[:title] == grantee_name_column_title }.try(:[], :id)
-        client.sheets.columns.update(sheet_id: sheet_id, column_id: grantee_name_column_id, body: body) unless grantee_name_column_id.nil?
-      end
-
       sheet_id = SHEET_ID_CONFIG[:regions][region][:ar_combined_sheet]
       if sheet_id.present?
         sheet = client.sheets.get(sheet_id: sheet_id)
@@ -30,13 +23,6 @@ class SmartsheetColumnSetter
     each_region do |region|
       topics_column_title = column_title_for(region, :ar_objectives_topics_column)
       body = {type: "MULTI_PICKLIST", options: topics_options, validation: true}
-      sheet_id = SHEET_ID_CONFIG[:regions][region][:ar_objectives_sheet]
-      if sheet_id.present?
-        sheet = client.sheets.get(sheet_id: sheet_id)
-        topic_column_id = sheet[:columns].find { |c| c[:title] == topics_column_title }.try(:[], :id)
-        client.sheets.columns.update(sheet_id: sheet_id, column_id: topic_column_id, body: body) unless topic_column_id.nil?
-      end
-
       sheet_id = SHEET_ID_CONFIG[:regions][region][:ar_combined_sheet]
       if sheet_id.present?
         sheet = client.sheets.get(sheet_id: sheet_id)
@@ -62,7 +48,10 @@ class SmartsheetColumnSetter
 
   def topics_options
     @topics_options ||= topics_sheet[:rows].map { |row| row[:cells] }.map { |cells|
-      "#{cells[0][:display_value]} | #{cells[1][:display_value]}"
+      [
+        cells[0][:display_value],
+        cells[2][:display_value]
+      ].select(&:present?).join(" | ")
     }
   end
 
