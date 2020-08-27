@@ -37,10 +37,7 @@ gem "kramdown", "~> 2.1"
 gem "ffaker", "~> 2.13"
 gem "jsonapi-serializers", "~> 1.0"
 gem "apitome", "~> 0.3"
-# gem "json_api_client", "~> 1.16"
-# use sikachu fork until https://github.com/JsonApiClient/json_api_client/pull/364 is
-# merged & released
-gem "json_api_client", github: "sikachu/json_api_client", branch: "relax-faraday-versions"
+gem "json_api_client", "~> 1.17"
 gem "smartsheet", github: "rahearn/smartsheet-ruby-sdk", branch: "update-dependencies"
 gem "chartkick", "~> 3.4"
 gem "faraday", "~> 1.0"
