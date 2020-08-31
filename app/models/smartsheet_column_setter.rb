@@ -4,6 +4,7 @@ class SmartsheetColumnSetter
   def call
     update_grantees
     update_topics
+    update_specialists
   end
 
   def update_grantees
@@ -84,14 +85,19 @@ class SmartsheetColumnSetter
   end
 
   def specialists_options(region)
-    return [] if specalists_sheet_id(region).blank?
-    specialists_sheet(region)[:rows].map { |row| row[:cells] }.map { |cells|
-      "#{cells[1][:display_value]} <#{cells[0][:display_value]}>"
-    }
+    return [] if specialists_sheet_id(region).blank?
+    sheet = specialists_sheet(region)
+    name_column_id = sheet[:columns].find { |c| c[:title] == "Specialist Name" }[:id]
+    type_column_id = sheet[:columns].find { |c| c[:title] == "Role" }[:id]
+    sheet[:rows].map { |row| row[:cells] }.map { |cells|
+      name = cells.find { |c| c[:column_id] == name_column_id }[:display_value]
+      type = cells.find { |c| c[:column_id] == type_column_id }[:display_value]
+      name.present? && type.present? ? "#{name} (#{type})" : nil
+    }.compact
   end
 
   def specialists_sheet(region)
-    client.sheets.get(sheet_id: specalists_sheet_id(region))
+    client.sheets.get(sheet_id: specialists_sheet_id(region))
   end
 
   def specialists_sheet_id(region)

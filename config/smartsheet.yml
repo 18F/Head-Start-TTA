@@ -3,15 +3,15 @@ development: &defaults
   assignment_sheet: "7678535738386308"
   plan_sheet: "1798319635752836"
   report_sheet: "837690070460292"
-  topics_sheet: "2631271533832068"
+  topics_sheet: "855262104328308"
   ar_grantee_column: "Grantee Name"
   ar_topics_column: "Topics"
   ar_specialists_column: "Other Specialists"
   regions:
     "14":
-      grantee_names_sheet: "6487185797998468"
-      specialists_sheet: ""
-      ar_combined_sheet: "6468773273200516"
+      grantee_names_sheet: "5331923696818292"
+      specialists_sheet: "4263899682248820"
+      ar_combined_sheet: "6543078704486516"
 
 production:
   request_sheet: "<%= ENV["SMARTSHEET_REQUEST_SHEET"] %>"
@@ -73,7 +73,7 @@ production:
       ar_combined_sheet: ""
     "14":
       grantee_names_sheet: "5331923696818292"
-      specialists_sheet: ""
+      specialists_sheet: "4263899682248820"
       ar_combined_sheet: "6543078704486516"
 
 test:
