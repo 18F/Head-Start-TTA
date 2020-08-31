@@ -25,56 +25,52 @@ production:
   regions:
     "1":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "1248419115636852"
       ar_combined_sheet: ""
     "2":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "443694715705460"
       ar_combined_sheet: ""
     "3":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "6670675740399732"
       ar_combined_sheet: ""
     "4":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "3310396407224436"
       ar_combined_sheet: ""
     "5":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "8887394261211252"
       ar_combined_sheet: ""
     "6":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "7813996034594932"
       ar_combined_sheet: ""
     "7":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "6141913726654580"
       ar_combined_sheet: ""
     "8":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "5992826821875828"
       ar_combined_sheet: ""
     "9":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "4418875926714484"
       ar_combined_sheet: ""
     "10":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "6020142813878388"
       ar_combined_sheet: ""
     "11":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "512414192441460"
       ar_combined_sheet: ""
     "12":
       grantee_names_sheet: ""
-      specialists_sheet: ""
+      specialists_sheet: "363327287662708"
       ar_combined_sheet: ""
-    "14":
-      grantee_names_sheet: "5331923696818292"
-      specialists_sheet: "4263899682248820"
-      ar_combined_sheet: "6543078704486516"
 
 test:
   <<: *defaults
