@@ -114,6 +114,9 @@ GEM
       elasticsearch-dsl
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    creek (2.5.2)
+      nokogiri (>= 1.10.0)
+      rubyzip (>= 1.0.0)
     diff-lcs (1.4.4)
     elasticsearch (7.9.0)
       elasticsearch-api (= 7.9.0)
@@ -319,6 +322,7 @@ GEM
     rubocop-performance (1.7.1)
       rubocop (>= 0.82.0)
     ruby-progressbar (1.10.1)
+    rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -387,6 +391,7 @@ DEPENDENCIES
   cf-app-utils (~> 0.6)!
   chartkick (~> 3.4)
   chewy (~> 5.1)
+  creek (~> 2.5)
   factory_bot_rails (~> 6.0)
   faraday (~> 1.0)
   ffaker (~> 2.13)

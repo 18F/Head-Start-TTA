@@ -39,6 +39,7 @@ gem "jsonapi-serializers", "~> 1.0"
 gem "apitome", "~> 0.3"
 gem "json_api_client", "~> 1.17"
 gem "smartsheet", github: "rahearn/smartsheet-ruby-sdk", branch: "update-dependencies"
+gem "creek", "~> 2.5"
 gem "chartkick", "~> 3.4"
 gem "faraday", "~> 1.0"
 

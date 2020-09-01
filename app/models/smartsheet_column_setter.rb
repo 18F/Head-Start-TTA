@@ -7,6 +7,25 @@ class SmartsheetColumnSetter
     update_specialists
   end
 
+  def update_all_grantee_names(centers_excel_directory)
+    each_region do |region|
+      update_grantee_names(region, File.join(centers_excel_directory, "R#{region}.xlsx"))
+    end
+  end
+
+  def update_grantee_names(region, centers_excel_filename)
+    region = region.to_s
+    grantees = Hash.new
+    excel = Creek::Book.new centers_excel_filename
+    excel.sheets[1].simple_rows.each do |row|
+      next if row["A"] == "Grant Number"
+      grantees[row["A"]] = row["B"]
+    end
+    names_smartsheet = grantee_names_sheet(region)
+    clear_grantee_names_rows(names_smartsheet)
+    add_grantee_names_rows(names_smartsheet, grantees)
+  end
+
   def update_grantees
     each_region do |region|
       sheet_id = SHEET_ID_CONFIG[:regions][region][:ar_combined_sheet]
@@ -73,7 +92,7 @@ class SmartsheetColumnSetter
     return [] if grantee_names_sheet_id(region).blank?
     grantee_names_sheet(region)[:rows].map { |row| row[:cells] }.map { |cells|
       "#{cells[1][:display_value]} | #{cells[0][:display_value]}"
-    }
+    }.sort
   end
 
   def grantee_names_sheet(region)
@@ -82,6 +101,24 @@ class SmartsheetColumnSetter
 
   def grantee_names_sheet_id(region)
     SHEET_ID_CONFIG[:regions][region][:grantee_names_sheet]
+  end
+
+  def clear_grantee_names_rows(sheet)
+    row_ids = sheet[:rows].map { |row| row[:id] }
+    client.sheets.rows.delete(sheet_id: sheet[:id], row_ids: row_ids) unless row_ids.empty?
+  end
+
+  def add_grantee_names_rows(sheet, grantees)
+    number_column_id = sheet[:columns].find { |c| c[:title] == "Grant Number" }[:id]
+    name_column_id = sheet[:columns].find { |c| c[:title] == "Grantee Name" }[:id]
+    body = grantees.map { |number, name|
+      {
+        to_bottom: true,
+        cells: [{column_id: number_column_id, value: number}, {column_id: name_column_id, value: name}],
+        locked: true
+      }
+    }
+    client.sheets.rows.add(sheet_id: sheet[:id], body: body)
   end
 
   def specialists_options(region)
