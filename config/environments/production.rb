@@ -110,6 +110,6 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.x.ohsmon.enabled = true
+  config.x.ohsmon.enabled = ENV.fetch("OHSMON_API", "false") == "true"
   config.x.ohsmon.base_url = nil
 end

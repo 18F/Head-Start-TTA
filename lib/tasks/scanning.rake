@@ -33,8 +33,8 @@ namespace :yarn do
       puts stderr
       if /503 Service Unavailable/.match?(stderr)
         puts "Ignoring unavailable server"
-      elsif /advisories\/1548.*1 vulnerabilities found/m.match?(stdout)
-        puts "Ignoring serialize-javascript until using libraries updated"
+      # elsif /advisories\/1548.*1 vulnerabilities found/m.match?(stdout)
+      #   puts "Ignoring serialize-javascript until using libraries updated"
       else
         exit status.exitstatus
       end
