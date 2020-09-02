@@ -15,7 +15,7 @@ class SmartsheetColumnSetter
 
   def update_grantee_names(region, centers_excel_filename)
     region = region.to_s
-    grantees = Hash.new
+    grantees = {}
     excel = Creek::Book.new centers_excel_filename
     excel.sheets[1].simple_rows.each do |row|
       next if row["A"] == "Grant Number"
