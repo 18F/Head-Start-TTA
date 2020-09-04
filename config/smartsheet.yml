@@ -12,6 +12,7 @@ development: &defaults
       grantee_names_sheet: "5331923696818292"
       specialists_sheet: "4263899682248820"
       ar_combined_sheet: "6543078704486516"
+      grantee_tta_plan_sheet: "4995361603786868"
 
 production:
   request_sheet: "<%= ENV["SMARTSHEET_REQUEST_SHEET"] %>"
