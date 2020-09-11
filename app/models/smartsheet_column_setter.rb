@@ -28,12 +28,22 @@ class SmartsheetColumnSetter
 
   def update_grantees
     each_region do |region|
+      grantee_name_column_title = column_title_for(region, :ar_grantee_column)
+      options = grantee_name_options(region)
+
       sheet_id = SHEET_ID_CONFIG[:regions][region][:ar_combined_sheet]
       if sheet_id.present?
         sheet = client.sheets.get(sheet_id: sheet_id)
-        grantee_name_column_title = column_title_for(region, :ar_grantee_column)
         grantee_name_column_id = sheet[:columns].find { |c| c[:title] == grantee_name_column_title }.try(:[], :id)
-        body = {type: "MULTI_PICKLIST", options: grantee_name_options(region), validation: true}
+        body = {type: "MULTI_PICKLIST", options: options, validation: true}
+        client.sheets.columns.update(sheet_id: sheet_id, column_id: grantee_name_column_id, body: body) unless grantee_name_column_id.nil?
+      end
+
+      sheet_id = SHEET_ID_CONFIG[:regions][region][:grantee_tta_plan_sheet]
+      if sheet_id.present?
+        sheet = client.sheets.get(sheet_id: sheet_id)
+        grantee_name_column_id = sheet[:columns].find { |c| c[:title] == grantee_name_column_title }.try(:[], :id)
+        body = {type: "PICKLIST", options: options, validation: true}
         client.sheets.columns.update(sheet_id: sheet_id, column_id: grantee_name_column_id, body: body) unless grantee_name_column_id.nil?
       end
     end
@@ -41,25 +51,45 @@ class SmartsheetColumnSetter
 
   def update_topics
     each_region do |region|
+      body = {type: "MULTI_PICKLIST", options: topics_options, validation: true}
+
       sheet_id = SHEET_ID_CONFIG[:regions][region][:ar_combined_sheet]
       if sheet_id.present?
         sheet = client.sheets.get(sheet_id: sheet_id)
         topics_column_title = column_title_for(region, :ar_topics_column)
         topic_column_id = sheet[:columns].find { |c| c[:title] == topics_column_title }.try(:[], :id)
-        body = {type: "MULTI_PICKLIST", options: topics_options, validation: true}
         client.sheets.columns.update(sheet_id: sheet_id, column_id: topic_column_id, body: body) unless topic_column_id.nil?
+      end
+
+      sheet_id = SHEET_ID_CONFIG[:regions][region][:grantee_tta_plan_sheet]
+      if sheet_id.present?
+        sheet = client.sheets.get(sheet_id: sheet_id)
+        (1..5).each do |goal_number|
+          topics_column_title = "Goal #{goal_number}: Topics"
+          topic_column_id = sheet[:columns].find { |c| c[:title] == topics_column_title }.try(:[], :id)
+          client.sheets.columns.update(sheet_id: sheet_id, column_id: topic_column_id, body: body) unless topic_column_id.nil?
+        end
       end
     end
   end
 
   def update_specialists
     each_region do |region|
+      body = {type: "MULTI_PICKLIST", options: specialists_options(region), validation: true}
+
       sheet_id = SHEET_ID_CONFIG[:regions][region][:ar_combined_sheet]
       if sheet_id.present?
         sheet = client.sheets.get(sheet_id: sheet_id)
         specialists_column_title = column_title_for(region, :ar_specialists_column)
         specialists_column_id = sheet[:columns].find { |c| c[:title] == specialists_column_title }.try(:[], :id)
-        body = {type: "MULTI_PICKLIST", options: specialists_options(region), validation: true}
+        client.sheets.columns.update(sheet_id: sheet_id, column_id: specialists_column_id, body: body) unless specialists_column_id.nil?
+      end
+
+      sheet_id = SHEET_ID_CONFIG[:regions][region][:grantee_tta_plan_sheet]
+      if sheet_id.present?
+        sheet = client.sheets.get(sheet_id: sheet_id)
+        specialists_column_title = "TTA Specialists"
+        specialists_column_id = sheet[:columns].find { |c| c[:title] == specialists_column_title }.try(:[], :id)
         client.sheets.columns.update(sheet_id: sheet_id, column_id: specialists_column_id, body: body) unless specialists_column_id.nil?
       end
     end
