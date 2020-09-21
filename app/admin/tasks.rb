@@ -21,10 +21,10 @@ ActiveAdmin.register Task do
 
     private def parse_links
       params["task"]["links"] = begin
-                                  JSON.parse(params["task"]["links"])
-                                rescue
-                                  []
-                                end
+        JSON.parse(params["task"]["links"])
+      rescue
+        []
+      end
     end
   end
 

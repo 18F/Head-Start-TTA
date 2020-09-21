@@ -14,10 +14,10 @@ ActiveAdmin.register MonitoringReport do
 
     private def parse_citation
       params["monitoring_report"]["citation"] = begin
-                                                  JSON.parse(params["monitoring_report"]["citation"])
-                                                rescue
-                                                  []
-                                                end
+        JSON.parse(params["monitoring_report"]["citation"])
+      rescue
+        []
+      end
     end
   end
 
