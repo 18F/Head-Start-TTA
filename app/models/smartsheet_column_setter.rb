@@ -75,7 +75,9 @@ class SmartsheetColumnSetter
 
   def update_specialists
     each_region do |region|
-      body = {type: "MULTI_PICKLIST", options: specialists_options(region), validation: true}
+      specialist_options = specialists_options(region)
+      next if specialist_options.empty?
+      body = {type: "MULTI_PICKLIST", options: specialist_options, validation: true}
 
       sheet_id = SHEET_ID_CONFIG[:regions][region][:ar_combined_sheet]
       if sheet_id.present?
