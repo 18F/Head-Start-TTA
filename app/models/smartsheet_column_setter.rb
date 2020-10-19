@@ -9,7 +9,10 @@ class SmartsheetColumnSetter
 
   def update_all_grantee_names(centers_excel_directory)
     each_region do |region|
-      update_grantee_names(region, File.join(centers_excel_directory, "R#{region}.xlsx"))
+      centers_file = File.join(centers_excel_directory, "R#{region}.xlsx")
+      update_grantee_names(region, centers_file)
+      no_centers_file = File.join(centers_excel_directory, "R#{region}b.xlsx")
+      update_grantee_names_no_centers(region, no_centers_file)
     end
   end
 
@@ -23,6 +26,20 @@ class SmartsheetColumnSetter
     end
     names_smartsheet = grantee_names_sheet(region)
     clear_grantee_names_rows(names_smartsheet)
+    return if grantees.empty?
+    add_grantee_names_rows(names_smartsheet, grantees)
+  end
+
+  def update_grantee_names_no_centers(region, no_centers_excel_filename)
+    region = region.to_s
+    grantees = {}
+    excel = Creek::Book.new no_centers_excel_filename
+    excel.sheets[0].simple_rows.each do |row|
+      next if row["A"] == "Grant"
+      grantees[row["A"]] = row["C"]
+    end
+    return if grantees.empty?
+    names_smartsheet = grantee_names_sheet(region)
     add_grantee_names_rows(names_smartsheet, grantees)
   end
 
