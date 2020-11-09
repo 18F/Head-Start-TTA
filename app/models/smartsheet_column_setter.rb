@@ -67,10 +67,15 @@ class SmartsheetColumnSetter
       grantee_name_column_title = column_title_for(region, :mtp_grantee_column)
       sheet_id = SHEET_ID_CONFIG[:regions][region][:mtp_sheet]
       if sheet_id.present?
-        sheet = client.sheets.get(sheet_id: sheet_id)
-        grantee_name_column_id = sheet[:columns].find { |c| c[:title] == grantee_name_column_title }.try(:[], :id)
-        body = {type: "MULTI_PICKLIST", options: options, validation: true}
-        client.sheets.columns.update(sheet_id: sheet_id, column_id: grantee_name_column_id, body: body) unless grantee_name_column_id.nil?
+        begin
+          sheet = client.sheets.get(sheet_id: sheet_id)
+          grantee_name_column_id = sheet[:columns].find { |c| c[:title] == grantee_name_column_title }.try(:[], :id)
+          body = {type: "MULTI_PICKLIST", options: options, validation: true}
+          client.sheets.columns.update(sheet_id: sheet_id, column_id: grantee_name_column_id, body: body) unless grantee_name_column_id.nil?
+        rescue Smartsheet::ApiError
+          puts "ApiError on region #{region} sheet: #{sheet_id}"
+          raise
+        end
       end
     end
   end
