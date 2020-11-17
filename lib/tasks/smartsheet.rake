@@ -5,10 +5,10 @@ namespace :smartsheet do
     SmartsheetColumnSetter.new.call
   end
 
-  desc "Update grantee names sheets from ~/Downloads/Centers"
+  desc "Update grantee names sheets from ~/Desktop/Centers"
   task grantees: :environment do
     puts "Updating Grantee Names sheet"
-    SmartsheetColumnSetter.new.update_all_grantee_names("/Users/ryancahearn/Downloads/Centers")
+    SmartsheetColumnSetter.new.update_all_grantee_names("/Users/ryancahearn/Desktop/Centers")
   end
 
   desc "Update all smartsheet sheets"
