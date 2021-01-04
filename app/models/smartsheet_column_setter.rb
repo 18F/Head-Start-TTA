@@ -143,12 +143,7 @@ class SmartsheetColumnSetter
   end
 
   def topics_options
-    @topics_options ||= topics_sheet[:rows].map { |row| row[:cells] }.map { |cells|
-      [
-        cells[0][:display_value],
-        cells[2][:display_value]
-      ].select(&:present?).join(" | ")
-    }
+    @topics_options ||= topics_sheet[:rows].map { |row| row[:cells] }.map { |cells| cells[0][:display_value] }
   end
 
   def grantee_name_options(region)
@@ -187,7 +182,7 @@ class SmartsheetColumnSetter
   def specialists_options(region)
     return [] if specialists_sheet_id(region).blank?
     sheet = specialists_sheet(region)
-    name_column_id = sheet[:columns].find { |c| c[:title] == "Specialist Name" }[:id]
+    name_column_id = sheet[:columns].find { |c| c[:title] == "Contractor Name" }[:id]
     type_column_id = sheet[:columns].find { |c| c[:title] == "Role" }[:id]
     sheet[:rows].map { |row| row[:cells] }.map { |cells|
       name = cells.find { |c| c[:column_id] == name_column_id }[:display_value]
