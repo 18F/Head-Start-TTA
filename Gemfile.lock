@@ -96,25 +96,12 @@ GEM
       thor (>= 0.18, < 2)
     byebug (11.1.3)
     chartkick (3.4.2)
-    chewy (5.2.0)
-      activesupport (>= 5.2)
-      elasticsearch (>= 2.0.0)
-      elasticsearch-dsl
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     creek (2.5.2)
       nokogiri (>= 1.10.0)
       rubyzip (>= 1.0.0)
     diff-lcs (1.4.4)
-    elasticsearch (7.11.1)
-      elasticsearch-api (= 7.11.1)
-      elasticsearch-transport (= 7.11.1)
-    elasticsearch-api (7.11.1)
-      multi_json
-    elasticsearch-dsl (0.1.9)
-    elasticsearch-transport (7.11.1)
-      faraday (~> 1)
-      multi_json
     erubi (1.10.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
@@ -385,7 +372,6 @@ DEPENDENCIES
   byebug
   cf-app-utils (~> 0.6)!
   chartkick (~> 3.4)
-  chewy (~> 5.1)
   creek (~> 2.5)
   factory_bot_rails (~> 6.0)
   faraday (~> 1.0)
