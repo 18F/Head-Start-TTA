@@ -1,6 +1,8 @@
 # Head-Start-TTA
 Head Start TTA Data Platform PA + E&amp;I + Assisted Acquisition
 
+The Head Start TTA Smart Hub code base can be found at https://github.com/hhs/head-start-ttadp
+
 # Welcome!
 This repo contains documentation describing the Head Start - Training and Technical Assistance (TTA) Data Platform Path Analysis (PA), Experiment & Iterate (E&I), and Assisted Acquisition (AA) project from 18F. It is intended to be a public place where project participants can keep track of the overall project goals, progress to date, and learnings as we work. This is also intended to be a project 'home page' where members can access important and up-to-date project information that exists somewhere else.
 
