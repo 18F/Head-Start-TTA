@@ -13,8 +13,6 @@ class ActivityReport < ApplicationRecord
 
   belongs_to :activity_plan, optional: true
 
-  update_index "activity_reports_index#activity_report", :self
-
   def region
     grants.map(&:region).uniq.compact.join(", ")
   end
